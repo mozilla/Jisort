@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.mozilla.hackathon.kiboko" >
+
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name="com.mozilla.hackathon.kiboko.App"
+        android:theme="@style/AppTheme"
+        android:allowBackup="true"
+
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name">
+        <activity
+            android:name=".activities.MainActivity"
+            android:windowSoftInputMode="stateHidden"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.DashboardActivity"
+            android:windowSoftInputMode="stateHidden"
+            android:label="@string/title_activity_dashboard" >
+
+        </activity>
+        <activity
+            android:name=".activities.FindIconsActivity"
+            android:windowSoftInputMode="stateHidden"
+            android:label="@string/title_activity_findicons" >
+
+        </activity>
+        <activity
+            android:name=".activities.TopicListActivity"
+            android:windowSoftInputMode="stateHidden"
+            android:label="Phone Usage" >
+
+        </activity>
+        <activity
+            android:name=".activities.DetailsActivity"
+            android:windowSoftInputMode="stateHidden"
+            android:label="@string/title_activity_details" >
+
+        </activity>
+
+        <receiver android:name=".recievers.DSOReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".recievers.DSOBatteryReceiver" >
+            <intent-filter>
+                <action android:name="android.bluetooth.adapter.action.STATE_CHANGED" />
+                <action android:name="android.bluetooth.adapter.action.CONNECTION_STATE_CHANGED" />
+                <action android:name="android.bluetooth.device.action.ACL_CONNECTED" />
+                <action android:name="android.bluetooth.device.action.ACL_DISCONNECTED" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".recievers.DSOStorageReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.DEVICE_STORAGE_LOW" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name=".recievers.DSOInstalledBroadcastReceiver"
+            android:enabled="false"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_INSTALL" />
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:enabled="true"
+            android:exported="true"
+            android:label="BR"
+            android:name=".recievers.DSONetworkStateReceiver" >
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".recievers.DSOLocationReceiver">
+            <intent-filter>
+                <action android:name="android.location.PROVIDERS_CHANGED" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name="com.mozilla.hackathon.kiboko.services.ChatHeadService" >
+        </service>
+    </application>
+
+</manifest>

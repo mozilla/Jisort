@@ -1,0 +1,24 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="android:Theme.Holo.Light">
+        <item name="android:windowActionBar">true</item>
+        <!--<item name="android:actionBarTabStyle">@style/AppTheme.ActionBar.TabView</item>-->
+    </style>
+
+    <!--<style name="AppTheme.ActionBar.TabBar" parent="android:style/Widget.Holo.Light.ActionBar.TabBar">-->
+        <!--&lt;!&ndash; This is an ORANGE background &ndash;&gt;-->
+        <!--<item name="android:background">@android:color/white</item>-->
+    <!--</style>-->
+
+    <!--<style name="AppTheme.ActionBar.TabView" parent="android:style/Widget.Holo.ActionBar.TabView">-->
+        <!--&lt;!&ndash; This is a GREEN background &ndash;&gt;-->
+        <!--<item name="android:background">#FFFFFF</item>-->
+    <!--</style>-->
+
+    <!--<style name="MyTheme.ActionBar.TabText" parent="android:style/Widget.Holo.ActionBar.TabText">-->
+        <!--&lt;!&ndash; This is a WHITE tab color &ndash;&gt;-->
+        <!--<item name="android:textColor">@android:color/white</item>-->
+    <!--</style>-->
+
+</resources>

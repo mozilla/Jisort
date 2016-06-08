@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:layout_margin="5dp"
+        android:layout_alignParentLeft="true"
+        android:id="@+id/left_icon"
+        android:src="@drawable/circle"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        />
+    <TextView
+        android:layout_alignTop="@+id/left_icon"
+        android:textSize="18sp"
+        android:textColor="@color/colorTextPrimary"
+        android:layout_marginBottom="4dp"
+        android:layout_toRightOf="@+id/left_icon"
+        android:id="@+id/action_title"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"/>
+    <TextView
+        android:layout_marginBottom="20dp"
+        android:textSize="16sp"
+        android:layout_below="@+id/action_title"
+        android:textColor="@color/colorTextPrimary"
+        android:id="@+id/action_desc"
+        android:text="Get settings for your phone to access the internet"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_alignLeft="@+id/action_title"/>
+</RelativeLayout>

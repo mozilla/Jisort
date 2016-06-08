@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name"></string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_details">DetailsActivity</string>
+    <string name="title_activity_dashboard">How can we help you?</string>
+    <string name="title_activity_select_action">SelectActionActivity</string>
+    <string name="click_here_prompt_en">Type here...</string>
+    <string name="click_here_prompt_sw">Andika hapa...</string>
+    <string name="sw_desc">Mimi na rafiki na msaidizi wako atakaye kujuza jinsi ya kutumia simu yako.</string>
+    <string name="en_desc">I am your friendly Android helper, here to guide you on how to use your smartphone.</string>
+    <string name="what_name_en">What is your name?</string>
+    <string name="what_name_sw">Andika jina lako</string>
+    <string name="dashboard_find_icons_label">Find Icons</string>
+    <string name="dashbord_screenshots_icon_label">Screenshots</string>
+    <string name="title_activity_findicons">Find an icon</string>
+
+</resources>

@@ -1,0 +1,132 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.WelcomeActivity">
+
+    <LinearLayout
+        android:background="@color/colorBackground"
+        android:orientation="vertical"
+        android:id="@+id/welcome_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:textSize="20sp"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/txt_welcome"
+            android:layout_margin="10dp"
+            android:textColor="@color/colorTextPrimary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome"/>
+        <TextView
+            android:layout_margin="10dp"
+            android:layout_gravity="center_horizontal"
+            android:textAlignment="center"
+            android:id="@+id/txt_karibu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/colorTextPrimary"
+            android:text="Karibu"/>
+
+        <ImageView
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/mwalimu_halo"
+            android:id="@+id/mwalimu_pic"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"/>
+
+        <TextView
+            android:layout_margin="5dp"
+            android:textAlignment="center"
+            android:id="@+id/txt_desc_en"
+            android:gravity="center_horizontal"
+            android:textColor="@color/colorTextPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/en_desc"/>
+
+        <TextView
+            android:layout_margin="5dp"
+            android:textAlignment="center"
+            android:gravity="center_horizontal"
+            android:id="@+id/txt_desc_sw"
+            android:textColor="@color/colorTextSecondary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/sw_desc"/>
+
+        <LinearLayout android:layout_below="@+id/txt_desc_sw"
+            android:layout_gravity="right"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="15dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content">
+            <TextView android:id="@+id/btn_sw"
+                android:textAllCaps="true"
+                android:text="Swahili"
+                android:textSize="18sp"
+                android:textColor="@color/colorAccent"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"/>
+
+            <TextView android:id="@+id/btn_en"
+                android:layout_marginLeft="20dp"
+                android:textAllCaps="true"
+                android:textSize="18sp"
+                android:text="English"
+                android:textColor="@color/colorAccent"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"/>
+            </LinearLayout>
+        </LinearLayout>
+
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/name_prompt_layout"
+        android:background="@color/colorBackground"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_margin="40dp"
+            android:id="@+id/txt_prompt"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/what_name_en"
+            android:textSize="25sp"
+            android:textColor="@color/colorTextPrimary"/>
+
+        <EditText
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="center_horizontal"
+            android:textAlignment="center"
+            android:id="@+id/name_field"
+            android:textColor="@color/colorTextSecondary"
+            android:layout_below="@+id/txt_prompt"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"/>
+
+        <Button
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="true"
+            android:text="Next"
+            android:background="@color/colorTextSecondary"
+            android:id="@+id/next_btn"/>
+    </LinearLayout>
+
+</RelativeLayout>
