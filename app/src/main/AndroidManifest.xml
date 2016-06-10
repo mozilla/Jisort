@@ -52,7 +52,9 @@
             android:name=".activities.ResultActivity"
             android:windowSoftInputMode="stateHidden"
             android:label="Phone Usage" >
-
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.DashboardActivity" />
         </activity>
         <activity
         android:name=".activities.DetailsActivity"

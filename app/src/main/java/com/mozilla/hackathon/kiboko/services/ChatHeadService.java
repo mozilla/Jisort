@@ -65,10 +65,10 @@ public class ChatHeadService extends Service {
         mRootLayout = (RelativeLayout) LayoutInflater.from(this).
                 inflate(R.layout.service_floating_button, null);
         mContentContainerLayout = (RelativeLayout) mRootLayout.findViewById(R.id.content_container);
-        mContentContainerLayout.setOnTouchListener(new TrayTouchListener());
 
-        chatHead = new ImageView(this);
-        chatHead.setImageResource(R.drawable.android_head);
+        chatHead = (ImageView) mRootLayout.findViewById(R.id.tray_opener);
+//        chatHead.setImageResource(R.drawable.android_head);
+        chatHead.setOnTouchListener(new TrayTouchListener());
 
         mRootLayoutParams = new WindowManager.LayoutParams(
                 Utils.dpToPixels(TRAY_DIM_X_DP, getResources()),
@@ -88,10 +88,10 @@ public class ChatHeadService extends Service {
             public void run() {
 
                 // Reusable variables
-
+                RelativeLayout.LayoutParams params;
                 // Setup the root layout
-                mRootLayoutParams.x = 150;
-                mRootLayoutParams.y = 150;
+                mRootLayoutParams.x = -150;
+                mRootLayoutParams.y = (getApplicationContext().getResources().getDisplayMetrics().heightPixels-mRootLayout.getHeight()) / 2;
                 mWindowManager.updateViewLayout(mRootLayout, mRootLayoutParams);
 
                 // Make everything visible
@@ -234,11 +234,8 @@ public class ChatHeadService extends Service {
 
             // Setup destination coordinates based on the tray state.
             super();
-//            if (!mIsTrayOpen){
-//                mDestX = -mLogoLayout.getWidth();
-//            }else{
-//                mDestX = -mRootLayout.getWidth()/TRAY_HIDDEN_FRACTION;
-//            }
+
+            mDestX = -mRootLayout.getWidth()/TRAY_HIDDEN_FRACTION;
 //
 //            // Keep upper edge of the widget within the upper limit of screen
             int screenHeight = getResources().getDisplayMetrics().heightPixels;
