@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
-import android.widget.Toast;
 
 import com.mozilla.hackathon.kiboko.R;
 import com.mozilla.hackathon.kiboko.adapters.IconsAdapter;
@@ -87,7 +86,7 @@ public class IconsFragment extends Fragment {
                 // We know the View is a <extView so we can cast it
 //                TextView clickedView = (TextView) view;
 
-                Toast.makeText(getContext(), position, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(IconsFragment.this.getContext(), position, Toast.LENGTH_SHORT).show();
 
             }
         });

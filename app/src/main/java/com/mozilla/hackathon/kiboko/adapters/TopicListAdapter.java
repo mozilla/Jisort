@@ -1,6 +1,7 @@
 package com.mozilla.hackathon.kiboko.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,9 +10,10 @@ import android.widget.Button;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.mozilla.hackathon.kiboko.R;
+import com.mozilla.hackathon.kiboko.activities.QuizActivity;
+import com.mozilla.hackathon.kiboko.activities.TutorialSlideActivity;
 import com.mozilla.hackathon.kiboko.models.TopicItem;
 
 import java.util.ArrayList;
@@ -85,6 +87,22 @@ public class TopicListAdapter extends BaseAdapter implements Filterable {
             holder.learn_button = learn_button;
             holder.quiz_button = quiz_button;
 
+            learn_button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, TutorialSlideActivity.class);
+                    context.startActivity(intent);
+                }
+            });
+
+            quiz_button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, QuizActivity.class);
+                    context.startActivity(intent);
+                }
+            });
+
             viewItem.setTag(holder);
         }
         else
@@ -94,14 +112,16 @@ public class TopicListAdapter extends BaseAdapter implements Filterable {
         holder.name.setText(topic.getName());
         holder.description.setText(topic.getDescription());
 
-        viewItem.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                // TODO Auto-generated method stub
-                Toast.makeText(context, "You Clicked "+ topic.getName(), Toast.LENGTH_LONG).show();
-            }
-        });
+//        viewItem.setOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View v) {
+//                // TODO Auto-generated method stub
+//                Toast.makeText(context, "You Clicked "+ topic.getName(), Toast.LENGTH_LONG).show();
+//                Intent intent = new Intent(context, TutorialSlideActivity.class);
+//                context.startActivity(intent);
+//            }
+//        });
 
         return viewItem;
     }

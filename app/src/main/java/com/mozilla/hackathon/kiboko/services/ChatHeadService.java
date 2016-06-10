@@ -158,6 +158,48 @@ public class ChatHeadService extends Service {
         }
     }
 
+    // This function animates the buttons based on the position of the tray.
+//    private void animateButtons(){
+//
+//        // Animate only if the tray is between open and close state.
+//        if (mRootLayoutParams.x < -mRootLayout.getWidth()/TRAY_HIDDEN_FRACTION){
+//
+//            // Scale the distance between open and close states to 0-1.
+//            float relativeDistance = (mRootLayoutParams.x + mLogoLayout.getWidth())/(float)
+//                    (-mRootLayout.getWidth()/TRAY_HIDDEN_FRACTION + mLogoLayout.getWidth());
+//
+//            // Limit it to 0-1 if it goes beyond 0-1 for any reason.
+//            relativeDistance=Math.max(relativeDistance, 0);
+//            relativeDistance=Math.min(relativeDistance, 1);
+//
+//            // Setup animations
+//            AnimationSet animations = new AnimationSet(true);
+//            animations.setFillAfter(true);
+//            Animation animationAlpha = new AlphaAnimation(
+//                    relativeDistance,
+//                    relativeDistance);
+//            animations.addAnimation(animationAlpha);
+//
+//            Animation animationScale = new ScaleAnimation(
+//                    relativeDistance,
+//                    relativeDistance,
+//                    relativeDistance,
+//                    relativeDistance);
+//            animations.addAnimation(animationScale);
+//
+//            // Play the animations
+//            mPlayerButtonsLayout.startAnimation(animations);
+//            mSongInfoLayout.startAnimation(animations);
+//            mAlbumCoverLayout.startAnimation(animationAlpha);
+//        }else{
+//
+//            // Clear all animations if the tray is being dragged - that is, when it is beyond the
+//            // normal open state.
+//            mPlayerButtonsLayout.clearAnimation();
+//            mSongInfoLayout.clearAnimation();
+//            mAlbumCoverLayout.clearAnimation();
+//        }
+//    }
     // Listens to the touch events on the tray.
     private class TrayTouchListener implements View.OnTouchListener {
         @Override
@@ -191,7 +233,7 @@ public class ChatHeadService extends Service {
         public TrayAnimationTimerTask(){
 
             // Setup destination coordinates based on the tray state.
-//            super();
+            super();
 //            if (!mIsTrayOpen){
 //                mDestX = -mLogoLayout.getWidth();
 //            }else{
@@ -264,10 +306,6 @@ public class ChatHeadService extends Service {
     public void openAppClicked(View view){
         Intent dashboardIntent = new Intent(this, DashboardActivity.class);
         dashboardIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        // add infos for the service which file to download and where to store
-//        intent.putExtra(DownloadService.FILENAME, "index.html");
-//        intent.putExtra(DownloadService.URL,
-//                "http://www.vogella.com/index.html");
         startActivity(dashboardIntent);
     }
 }

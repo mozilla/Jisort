@@ -5,9 +5,7 @@ import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.mozilla.hackathon.kiboko.R;
 import com.mozilla.hackathon.kiboko.adapters.TopicListAdapter;
@@ -69,21 +67,6 @@ public class TopicListFragment extends ListFragment {
 
         adapter = new TopicListAdapter(this.getActivity(), getTopics());
         setListAdapter(adapter);
-
-        // React to user clicks on item
-        getListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-            public void onItemClick(AdapterView<?> parentAdapter, View view, int position,
-                                    long id) {
-
-
-                // We know the View is a <extView so we can cast it
-//                TextView clickedView = (TextView) view;
-
-                Toast.makeText(getContext(), position, Toast.LENGTH_SHORT).show();
-
-            }
-        });
 
     }
 

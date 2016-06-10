@@ -37,15 +37,34 @@
 
         </activity>
         <activity
+            android:name=".activities.TutorialSlideActivity"
+            android:windowSoftInputMode="stateHidden"
+            android:label="Usage Topic" >
+
+        </activity>
+        <activity
             android:name=".activities.TopicListActivity"
             android:windowSoftInputMode="stateHidden"
             android:label="Phone Usage" >
 
         </activity>
         <activity
-            android:name=".activities.DetailsActivity"
+            android:name=".activities.ResultActivity"
             android:windowSoftInputMode="stateHidden"
-            android:label="@string/title_activity_details" >
+            android:label="Phone Usage" >
+
+        </activity>
+        <activity
+        android:name=".activities.DetailsActivity"
+        android:windowSoftInputMode="stateHidden"
+        android:label="@string/title_activity_details" >
+
+    </activity>
+
+        <activity
+            android:name=".activities.QuizActivity"
+            android:windowSoftInputMode="stateHidden"
+            android:label="Usage Topic Quiz" >
 
         </activity>
 
