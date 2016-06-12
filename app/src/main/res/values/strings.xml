@@ -18,4 +18,83 @@
 
     <string name="lorem_ipsum"><![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris et magna ut erat elementum cursus in quis ipsum. Nam faucibus ultrices eros, vel tempor leo semper sit amet. Duis magna quam, congue vitae interdum nec, condimentum ut lectus. Sed commodo venenatis eros a dignissim. Nunc adipiscing turpis nec magna venenatis at ultricies ipsum bibendum. Sed volutpat urna quis nisi vulputate egestas. Etiam eu dui a enim lacinia dapibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.\\n\\nPhasellus orci mi, eleifend nec congue id, volutpat at neque. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer semper velit vel leo rutrum sed fermentum elit porta.]]></string>
 
+    <!-- BEGIN Explore Message Card User Messages -->
+    <string name="explore_io_msgcards_ask_opt_in"
+        description="This message is displayed on the Explore I/O screen to ask users whether
+            they would like to opt in to receive messages regarding the conference."><![CDATA[
+        <b>Conference Messages</b><br/>
+       Would you like to opt-in to receive important messages about the conference? Messages are time based and may include promotional messages from partners.]]></string>
+
+    <string name="explore_io_msgcards_conf_creds_card"
+        description="Conference Credentials, shown the day before the event giving users general
+         event information."><![CDATA[
+        <b>Conference Credentials</b><br>
+        Each attendee will receive a non-transferable NFC enabled wristband this year. Your
+        wristband & I/O badge will allow you access to Keynote, Sessions, Sandbox, and After
+        Hours party. Remember to wear it at all times.
+    ]]>
+    </string>
+
+    <string name="explore_io_msgcards_after_hours_card"
+        description="This text is shown to a user when they are in the Explore I/O screen while at
+        the conference. It gives them information about an afternoon event on the schedule."><![CDATA[
+        <b>After Hours</b><br></br>
+        This is a party you don\'t want to miss! Attendees are invited to enjoy food, drinks,
+        music, games, and more during the evening of May 28. The conference badge and NFC wristband
+        are required for entrance.
+    ]]>
+    </string>
+
+    <string name="explore_io_msgcards_keynote_access_card"
+        description="This text is shown to a user when they are in the Explore I/O screen while at
+        the conference. It gives them information about the keynote event on the schedule."><![CDATA[
+        <b>Keynote Access</b><br>
+        Your wristband color denotes your keynote access.<br><br>
+        <b>Blue wristband = Keynote Access</b><br>
+        Line starts outside Moscone West on 4th Street and wraps around Minna Street. .<br><br>
+        <b>Gray wristband = Reserved Keynote Seating</b><br>
+        Line starts outside Moscone West on 4th Street.<br><br>
+        <b>Orange wristband = Playground</b><br>
+        Line starts outside Moscone West on Howard Street.
+    ]]>
+    </string>
+
+    <string name="explore_io_msgcards_wifi_feedback"
+        decscription="Question presented to users on a card in the Explore I/O screen if they have are using the conference Wifi.">Have connectivity feedback? Share it with us on social channels via the <b>#io15wifi</b> hashtag.</string>
+
+    <!-- This is used on the Explore I/O message cards to answer yes to a particular message -->
+    <string name="explore_io_msgcards_answer_yes">Sure, let\'s do it!</string>
+
+    <!-- This is used on the Explore I/O message cards to answer no to a particular message -->
+    <string name="explore_io_msgcards_answer_no">No thanks</string>
+
+    <!-- This string is presented to users when they attempt to click something that indicates they
+         can watch a video but it turns out we can't show the video. -->
+    <string name="explore_io_video_id_not_valid">Sorry, there appears to be a problem with the video url.</string>
+
+    <!-- END Explore Message Card User Messages -->
+
+    <!-- This string is the title of a notification shown to the user when Google Play
+        services can't connect. -->
+    <string name="app_data_notification_resolution_title">I/O App needs permission</string>
+    <!-- This string is the message of the notification shown to the user when Google Play services
+         can't connect from a background sync. -->
+    <string name="app_data_notification_resolution_content">I/O App needs action to complete background sync.</string>
+
+    <!-- Generic error message used for errors that should never happen. This explains to the user
+         that we can't execute the request when they click a button or touch a part of the screen
+         that should normally be touchable. -->
+    <string name="unknown_error">Whoops, we couldn\'t process that request.</string>
+
+    <!-- Text of a card shown in the Explore I/O screen that asks the user if they want to configure
+         the conference WiFi. "Not now" and "Yes, please" are options show on the card -->
+    <string name="question_setup_wifi_card_text"><![CDATA[
+        <b>Conference Wi-Fi</b><br/>
+        Would you like to setup this device to
+        access the 5 Ghz conference Wi-Fi?]]></string>
+
+    <!-- Label on a button that the user can click to dismiss an reminder or information message.
+   For example "To scan an attendee's badge, hold your phone close to the badge for a few
+   seconds." -->
+    <string name="got_it">Got it</string>
 </resources>
