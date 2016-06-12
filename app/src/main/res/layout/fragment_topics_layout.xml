@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#EFEFEF"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
@@ -85,15 +84,13 @@
         android:imeOptions="actionSearch"
         android:inputType="textVisiblePassword"/>
     <!--Bottom Layout-->
-    <GridView
+    <com.mozilla.hackathon.kiboko.widgets.DSOGridView
         android:id="@+id/dashboardGridView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:verticalSpacing="10dp"
         android:horizontalSpacing="10dp"
         android:layout_below="@+id/inputSearch"
-        android:numColumns="2" >
-
-    </GridView>
+        android:numColumns="2" />
 
 </RelativeLayout>

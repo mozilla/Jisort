@@ -54,7 +54,6 @@ public class TopicsFragment extends Fragment {
 
         inputSearch = (EditText) rootView.findViewById(R.id.inputSearch);
 
-
         return rootView;
     }
 

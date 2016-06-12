@@ -68,7 +68,7 @@ public class ChatHeadService extends Service {
 
         chatHead = (ImageView) mRootLayout.findViewById(R.id.tray_opener);
 //        chatHead.setImageResource(R.drawable.android_head);
-        chatHead.setOnTouchListener(new TrayTouchListener());
+        mRootLayout.setOnTouchListener(new TrayTouchListener());
 
         mRootLayoutParams = new WindowManager.LayoutParams(
                 Utils.dpToPixels(TRAY_DIM_X_DP, getResources()),
@@ -90,7 +90,7 @@ public class ChatHeadService extends Service {
                 // Reusable variables
                 RelativeLayout.LayoutParams params;
                 // Setup the root layout
-                mRootLayoutParams.x = -150;
+                mRootLayoutParams.x = 150;
                 mRootLayoutParams.y = (getApplicationContext().getResources().getDisplayMetrics().heightPixels-mRootLayout.getHeight()) / 2;
                 mWindowManager.updateViewLayout(mRootLayout, mRootLayoutParams);
 
