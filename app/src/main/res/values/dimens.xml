@@ -14,4 +14,9 @@
 
     <dimen name="stream_card_corner_radius">0dp</dimen>
     <dimen name="card_corner_radius">2dp</dimen>
+
+    <!--Tooltip dimensions-->
+    <dimen name="simpletooltip_padding">10dp</dimen>
+    <dimen name="simpletooltip_arrow_width">30dp</dimen>
+    <dimen name="simpletooltip_arrow_height">15dp</dimen>
 </resources>

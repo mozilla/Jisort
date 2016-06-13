@@ -97,4 +97,5 @@
    For example "To scan an attendee's badge, hold your phone close to the badge for a few
    seconds." -->
     <string name="got_it">Got it</string>
+    <string name="btn_more">Learn more</string>
 </resources>
