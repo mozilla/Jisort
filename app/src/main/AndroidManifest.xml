@@ -13,7 +13,7 @@
         android:theme="@style/AppTheme"
         android:allowBackup="true"
 
-        android:icon="@android:color/transparent"
+        android:icon="@drawable/ic_launcher"
         android:label="@string/app_name">
         <activity
             android:name=".activities.MainActivity"

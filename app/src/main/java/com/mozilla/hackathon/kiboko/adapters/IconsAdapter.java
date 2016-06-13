@@ -1,6 +1,8 @@
 package com.mozilla.hackathon.kiboko.adapters;
 
 import android.content.Context;
+import android.content.Intent;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,10 +13,13 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.mozilla.hackathon.kiboko.R;
+import com.mozilla.hackathon.kiboko.activities.TopicListActivity;
 import com.mozilla.hackathon.kiboko.models.Topic;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import io.github.douglasjunior.androidSimpleTooltip.SimpleTooltip;
 
 /**
  * Created by Brian Mwadime on 01/06/2016.
@@ -84,14 +89,34 @@ public class IconsAdapter extends BaseAdapter implements Filterable {
         holder.img.setImageResource(topic.getImage());
 
         viewItem.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
                 Toast.makeText(context, "You Clicked "+ topic.getName(), Toast.LENGTH_LONG).show();
+                final SimpleTooltip tooltip = new SimpleTooltip.Builder(context)
+                        .anchorView(v)
+                        .text(topic.getName())
+                        .gravity(Gravity.BOTTOM)
+                        .dismissOnOutsideTouch(true)
+                        .dismissOnInsideTouch(false)
+                        .modal(false)
+                        .animated(false)
+                        .contentView(R.layout.tooltip_dso, R.id.tv_text)
+                        .build();
+
+                tooltip.findViewById(R.id.btn_confirm).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v2) {
+                        if (tooltip.isShowing())
+                            tooltip.dismiss();
+
+                        Intent dashboardIntent = new Intent(context, TopicListActivity.class);
+                        context.startActivity(dashboardIntent);
+                    }
+                });
+                tooltip.show();
             }
         });
-
 
         return viewItem;
     }

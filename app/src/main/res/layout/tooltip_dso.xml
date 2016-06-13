@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/popup_border"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:textStyle="bold"
+        android:text="CUSTOM TOOLTIP"
+        android:textAppearance="@android:style/TextAppearance.Large"
+        tools:ignore="RtlHardcoded" />
+
+    <TextView
+        android:id="@+id/tv_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:text="CUSTOM TOLTIP"
+        android:textAppearance="@android:style/TextAppearance.Small"
+        tools:ignore="RtlHardcoded" />
+
+    <Button
+        android:id="@+id/btn_confirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:background="#999999"
+        android:textColor="#FFFFFF"
+        android:text="@string/btn_more" />
+
+</LinearLayout>
