@@ -1,5 +1,6 @@
 package com.mozilla.hackathon.kiboko.utilities;
 
+import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -7,11 +8,26 @@ import android.graphics.BitmapRegionDecoder;
 import android.graphics.Canvas;
 import android.graphics.Path;
 import android.graphics.Rect;
+import android.os.Build;
+import android.provider.Settings;
 
 import java.io.IOException;
 import java.io.InputStream;
 
 public class Utils {
+    public static String LogTag = "Jisort";
+    public static String EXTRA_MSG = "extra_msg";
+
+
+    public static boolean canDrawOverlays(Context context){
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+            return true;
+        }else{
+            return Settings.canDrawOverlays(context);
+        }
+
+
+    }
 
     /**
      * Takes an inputstream, loads a bitmap optimized of space and then crops it for the view.

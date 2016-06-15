@@ -64,7 +64,9 @@ public class TutorialSlideActivity extends FragmentActivity {
         mPrev.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                if(!(mPager.getCurrentItem() > mPagerAdapter.getCount() - 1)){
+                    mPager.setCurrentItem(mPager.getCurrentItem() - 1);
+                }
 
             }
         });
