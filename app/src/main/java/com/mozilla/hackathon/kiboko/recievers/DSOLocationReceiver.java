@@ -16,8 +16,6 @@ public class DSOLocationReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
 
         if (intent.getAction().matches("android.location.PROVIDERS_CHANGED")) {
-            Toast.makeText(context, "in android.location.PROVIDERS_CHANGED",
-                    Toast.LENGTH_SHORT).show();
             App.getBus().post(new LocationStateChanged(true) );
         }
     }

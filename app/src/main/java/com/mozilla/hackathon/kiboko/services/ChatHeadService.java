@@ -6,11 +6,14 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
 import android.graphics.PixelFormat;
+import android.graphics.Point;
 import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.View.OnTouchListener;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
@@ -65,18 +68,14 @@ public class ChatHeadService extends Service {
         mRootLayout = (RelativeLayout) LayoutInflater.from(this).
                 inflate(R.layout.service_floating_button, null);
         mContentContainerLayout = (RelativeLayout) mRootLayout.findViewById(R.id.content_container);
-
-        chatHead = (ImageView) mRootLayout.findViewById(R.id.tray_opener);
-//        chatHead.setImageResource(R.drawable.android_head);
-        mRootLayout.setOnTouchListener(new TrayTouchListener());
+        mContentContainerLayout.setOnTouchListener(new TrayTouchListener());
 
         mRootLayoutParams = new WindowManager.LayoutParams(
                 Utils.dpToPixels(TRAY_DIM_X_DP, getResources()),
                 Utils.dpToPixels(TRAY_DIM_Y_DP, getResources()),
                 WindowManager.LayoutParams.TYPE_PHONE,
-                WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
-                        | WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
-                PixelFormat.TRANSPARENT);
+                WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH | WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+                PixelFormat.TRANSLUCENT);
 
         mRootLayoutParams.gravity = Gravity.TOP | Gravity.LEFT;
         mWindowManager.addView(mRootLayout, mRootLayoutParams);
@@ -90,8 +89,8 @@ public class ChatHeadService extends Service {
                 // Reusable variables
                 RelativeLayout.LayoutParams params;
                 // Setup the root layout
-                mRootLayoutParams.x = 150;
-                mRootLayoutParams.y = (getApplicationContext().getResources().getDisplayMetrics().heightPixels-mRootLayout.getHeight()) / 2;
+                mRootLayoutParams.x = 0;
+                mRootLayoutParams.y = (getApplicationContext().getResources().getDisplayMetrics().heightPixels - mRootLayout.getHeight());
                 mWindowManager.updateViewLayout(mRootLayout, mRootLayoutParams);
 
                 // Make everything visible
@@ -133,8 +132,8 @@ public class ChatHeadService extends Service {
             case MotionEvent.ACTION_MOVE:
 
                 // Calculate position of the whole tray according to the drag, and update layout.
-                float deltaX = x-mPrevDragX;
-                float deltaY = y-mPrevDragY;
+                float deltaX = x - mPrevDragX;
+                float deltaY = y - mPrevDragY;
                 mRootLayoutParams.x += deltaX;
                 mRootLayoutParams.y += deltaY;
                 mPrevDragX = x;
@@ -201,7 +200,7 @@ public class ChatHeadService extends Service {
 //        }
 //    }
     // Listens to the touch events on the tray.
-    private class TrayTouchListener implements View.OnTouchListener {
+    private class TrayTouchListener implements OnTouchListener {
         @Override
         public boolean onTouch(View v, MotionEvent event) {
 
@@ -235,7 +234,7 @@ public class ChatHeadService extends Service {
             // Setup destination coordinates based on the tray state.
             super();
 
-            mDestX = -mRootLayout.getWidth()/TRAY_HIDDEN_FRACTION;
+            mDestX = - mRootLayout.getWidth()/TRAY_HIDDEN_FRACTION;
 //
 //            // Keep upper edge of the widget within the upper limit of screen
             int screenHeight = getResources().getDisplayMetrics().heightPixels;
@@ -264,7 +263,6 @@ public class ChatHeadService extends Service {
                     mRootLayoutParams.y = (2*(mRootLayoutParams.y-mDestY))/3 + mDestY;
                     mWindowManager.updateViewLayout(mRootLayout, mRootLayoutParams);
 //                    animateButtons();
-
                     // Cancel animation when the destination is reached
                     if (Math.abs(mRootLayoutParams.x-mDestX)<2 && Math.abs(mRootLayoutParams.y-mDestY)<2){
                         TrayAnimationTimerTask.this.cancel();
@@ -278,7 +276,6 @@ public class ChatHeadService extends Service {
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-
 
         if (intent.getBooleanExtra("stop_jisort_service", false)){
             // If it's a call from the notification, stop the service.

@@ -2,15 +2,19 @@ package com.mozilla.hackathon.kiboko.activities;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.mozilla.hackathon.kiboko.R;
 import com.mozilla.hackathon.kiboko.models.Question;
@@ -74,11 +78,41 @@ public class QuizActivity extends Activity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                this.finish();
+                showExitConfirmDialog();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) { // this is override method
+        if(keyCode == KeyEvent.KEYCODE_BACK){
+            showExitConfirmDialog(); // call the function below
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    public void showExitConfirmDialog(){ // just show an dialog
+        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+        dialog.setTitle("Exit Quiz?"); // set title
+        dialog.setMessage("Are you sure you want to exit the Quiz page?"); // set message
+        dialog.setPositiveButton("OK",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish(); // when click OK button, finish current activity!
+                        onBackPressed();
+                    }
+                });
+        dialog.setNegativeButton("Cancel",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(getBaseContext(), "Cancelled", Toast.LENGTH_SHORT).show(); // just show a Toast, do nothing else
+                    }
+                });
+        dialog.create().show();
     }
 
     private void setQuestionView()
