@@ -1,20 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF540D</color>
-    <color name="colorBackground">#EFEFEF</color>
+    <color name="colorPrimary">#353535</color>
+    <color name="colorIcons">#E4BC4D</color>
+    <color name="colortogglePrimary">#69A5E3</color>
+    <color name="colorToggleSecondary">#496161</color>
+    <color name="colorAccent">#69A5E3</color>
     <color name="colorTextPrimary">#FFFFFF</color>
-    <color name="colorTextSecondary">#CCCCCC</color>
-    <color name="colorDisabled">#3F3F3F</color>
-    <color name="body_text_1">#de000000</color>
-    <color name="body_text_2">#8a000000</color>
-    <color name="body_text_3">#60000000</color>
-    <color name="body_text_disabled">#44000000</color>
-
-    <color name="body_text_1_inverse">#deffffff</color>
-    <color name="body_text_2_inverse">#8affffff</color>
+    <color name="colorTextSecondary">#DCDCDC</color>
+    <color name="colorArrowPrimary">#6AA6E5</color>
+    <color name="colorArrowSecondary">#44566A</color>
+    <color name="colorTextDisabled">#707070</color>
 
     <color name="simpletooltip_background">#CCCCCC</color>
     <color name="simpletooltip_text">#222222</color>
