@@ -63,10 +63,12 @@ public class TopicsFragment extends ListFragment {
 
     private List<Topic> getTopics() {
         List<Topic> list = new ArrayList<Topic>();
-        list.add(get("Connectivity", R.drawable.ic_wifi_tethering_black_48dp));
-        list.add(get("Phone Usage", R.drawable.ic_phone_black_48dp));
-        list.add(get("Apps", R.drawable.ic_get_app_black_48dp));
-        list.add(get("Accounts", R.drawable.ic_account_box_black_48dp));
+        list.add(get("Connect to WiFi", R.drawable.circular_wifi));
+        list.add(get("Find out how much data you are using", R.drawable.circular_money));
+        list.add(get("Find new apps in the App Store", R.drawable.circular_googleplay));
+        list.add(get("Free up memory for new apps", R.drawable.circular_sdcard));
+        list.add(get("Fix broken images and videos", R.drawable.circular_badimage));
+        list.add(get("Learn what different icons mean", R.drawable.circular_help));
 
         return list;
     }
@@ -84,15 +86,14 @@ public class TopicsFragment extends ListFragment {
         setListAdapter(adapter);
 
         // React to user clicks on item
-        getListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-            public void onItemClick(AdapterView<?> parentAdapter, View view, int position,
-                                    long id) {
-//                Toast.makeText(context, "You Clicked "+ topic.getName(), Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(getContext(), TutorialSlideActivity.class);
-                getContext().startActivity(intent);
-            }
-        });
+//        getListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//
+//            public void onItemClick(AdapterView<?> parentAdapter, View view, int position,
+//                                    long id) {
+//                Intent intent = new Intent(getContext(), TutorialSlideActivity.class);
+//                getContext().startActivity(intent);
+//            }
+//        });
 
 //        inputSearch.addTextChangedListener(new TextWatcher() {
 //

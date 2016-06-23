@@ -13,6 +13,7 @@
         android:verticalSpacing="2dp"
         android:id="@android:id/list"
         android:dividerHeight="3dp"
+        android:divider="@color/colorTextDisabled"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
     </ListView>
