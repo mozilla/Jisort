@@ -25,20 +25,20 @@
         android:layout_marginTop="10dp"
         android:orientation="horizontal"
         android:layout_height="wrap_content">
-            <Button
-                android:id="@+id/topiclist_more"
-                android:layout_marginRight="5dp"
-                android:text="Tutorial"
-                android:textColor="#FFFFFF"
-                android:background="#222222"
-                android:layout_weight="0.5"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/topiclist_more"
+            android:layout_marginRight="5dp"
+            android:text="Tutorial"
+            android:textColor="#FFFFFF"
+            android:background="@color/colorTextDisabled"
+            android:layout_weight="0.5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
         <Button
             android:id="@+id/topiclist_quiz"
             android:textColor="#FFFFFF"
             android:layout_marginLeft="5dp"
-            android:background="#222222"
+            android:background="@color/colorTextDisabled"
             android:layout_weight="0.3"
             android:text="Quiz"
             android:layout_width="0dp"

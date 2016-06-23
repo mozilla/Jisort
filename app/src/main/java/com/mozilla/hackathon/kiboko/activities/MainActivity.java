@@ -57,14 +57,12 @@ public class MainActivity extends Activity {
                 new android.content.DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        // TODO Auto-generated method stub
                         requestPermission(requestCode);
                     }
                 });
         builder.setNegativeButton("Cancel", new android.content.DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                // TODO Auto-generated method stub
 
             }
         });

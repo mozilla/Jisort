@@ -27,7 +27,7 @@ import io.github.douglasjunior.androidSimpleTooltip.SimpleTooltip;
 public class IconsAdapter extends BaseAdapter implements Filterable {
     List<Topic> topics;
     private Context context;
-    private Filter planetFilter;
+    private Filter topicFilter;
     private List<Topic> origTopicList;
 
     public IconsAdapter(Context ctx, List<Topic> topics) {
@@ -91,8 +91,7 @@ public class IconsAdapter extends BaseAdapter implements Filterable {
         viewItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
-                Toast.makeText(context, "You Clicked "+ topic.getName(), Toast.LENGTH_LONG).show();
+//                Toast.makeText(context, "You Clicked "+ topic.getName(), Toast.LENGTH_LONG).show();
                 final SimpleTooltip tooltip = new SimpleTooltip.Builder(context)
                         .anchorView(v)
                         .text(topic.getName())
@@ -127,10 +126,10 @@ public class IconsAdapter extends BaseAdapter implements Filterable {
 
     @Override
     public Filter getFilter() {
-        if (planetFilter == null)
-            planetFilter = new TopicsFilter();
+        if (topicFilter == null)
+            topicFilter = new TopicsFilter();
 
-        return planetFilter;
+        return topicFilter;
     }
 
 
@@ -150,15 +149,15 @@ public class IconsAdapter extends BaseAdapter implements Filterable {
             }
             else {
                 // We perform filtering operation
-                List<Topic> nPlanetList = new ArrayList<Topic>();
+                List<Topic> nTopicList = new ArrayList<Topic>();
 
                 for (Topic topic : topics) {
                     if (topic.getName().toUpperCase().startsWith(constraint.toString().toUpperCase()))
-                        nPlanetList.add(topic);
+                        nTopicList.add(topic);
                 }
 
-                results.values = nPlanetList;
-                results.count = nPlanetList.size();
+                results.values = nTopicList;
+                results.count = nTopicList.size();
 
             }
             return results;

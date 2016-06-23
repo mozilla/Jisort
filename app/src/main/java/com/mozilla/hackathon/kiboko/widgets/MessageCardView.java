@@ -78,10 +78,10 @@ public class MessageCardView extends CardView implements View.OnClickListener {
         boolean button2emphasis = a.getBoolean(R.styleable.MessageCard_button2emphasis, false);
         String button2tag = a.getString(R.styleable.MessageCard_button2tag);
         int emphasisColor = a.getColor(R.styleable.MessageCard_emphasisColor,
-                getResources().getColor(R.color.body_text_1));
+                getResources().getColor(R.color.colorTextPrimary));
 
         if (button1text != null) {
-            setButton(0, button1text, button1tag, button1emphasis, 0);
+            setButton(0, button1text, button1tag, button1emphasis, emphasisColor);
         }
         if (button2text != null) {
             setButton(1, button2text, button2tag, button2emphasis, emphasisColor);
@@ -105,10 +105,10 @@ public class MessageCardView extends CardView implements View.OnClickListener {
         mButtons[index].setVisibility(View.VISIBLE);
         mButtonTags[index] = tag;
         if (emphasis) {
-//            if (emphasisColor == 0) {
-//                emphasisColor = getResources().getColor(R.color.theme_primary);
-//            }
-//            mButtons[index].setTextColor(emphasisColor);
+            if (emphasisColor == 0) {
+                emphasisColor = getResources().getColor(R.color.colorTextPrimary);
+            }
+            mButtons[index].setTextColor(emphasisColor);
             mButtons[index].setTypeface(null, Typeface.BOLD);
         }
     }
@@ -129,7 +129,7 @@ public class MessageCardView extends CardView implements View.OnClickListener {
     }
 
     public void overrideBackground(int bgResId) {
-        findViewById(R.id.card_root).setBackgroundResource(bgResId);
+        findViewById(R.id.card_root).setBackgroundColor(bgResId);
     }
 
     @Override
