@@ -90,6 +90,7 @@ public class DashboardActivity extends FragmentActivity  {
         if (event.isInternetConnected())
         {
             final MessageCardView wifiCard = new MessageCardView(this);
+            wifiCard.overrideBackground(getResources().getColor(R.color.colorTextDisabled));
             wifiCard.setText("You just connected to WIFI.");
             wifiCard.setButton(0, "Learn More", "tutorial_wifi", false, 1);
             wifiCard.setButton(1, "Ok, Got it", "cancel", false, 1);
@@ -118,6 +119,7 @@ public class DashboardActivity extends FragmentActivity  {
         if (event.isBatteryStateEnabled())
         {
             final MessageCardView batteryCard = new MessageCardView(this);
+            batteryCard.overrideBackground(getResources().getColor(R.color.colorTextDisabled));
             batteryCard.setText("Your phone battery is low. Charge your phone soon!");
             batteryCard.setButton(0, "Learn More", "tutorial_battery", false, 1);
             batteryCard.setButton(1, "Ok, Got it", "cancel", false, 1);
@@ -146,6 +148,7 @@ public class DashboardActivity extends FragmentActivity  {
         if (event.isLocationEnabled())
         {
             final MessageCardView locationCard = new MessageCardView(this);
+            locationCard.overrideBackground(getResources().getColor(R.color.colorTextDisabled));
             locationCard.setText("Your phone GPS is enabled.");
             locationCard.setButton(0, "Learn More", "tutorial_location", false, 1);
             locationCard.setButton(1, "Ok, Got it", "cancel", false, 1);
