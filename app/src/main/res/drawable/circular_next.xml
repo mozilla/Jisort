@@ -3,9 +3,9 @@
     <item>
         <shape android:shape="oval">
 
-            <solid android:color="#CCCCCC"/>
+            <solid android:color="@color/colorArrowPrimary"/>
             
         </shape>
     </item>
-    <item android:drawable="@drawable/ic_navigate_next_black_48dp" />
+    <item android:drawable="@drawable/ic_navigate_next_white_48dp" />
 </layer-list>
