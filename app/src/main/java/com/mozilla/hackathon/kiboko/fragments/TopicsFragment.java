@@ -1,7 +1,9 @@
 package com.mozilla.hackathon.kiboko.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.ListFragment;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -10,8 +12,10 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import com.mozilla.hackathon.kiboko.R;
+import com.mozilla.hackathon.kiboko.activities.TutorialSlideActivity;
 import com.mozilla.hackathon.kiboko.adapters.TopicsAdapter;
 import com.mozilla.hackathon.kiboko.models.Topic;
 
@@ -20,15 +24,15 @@ import java.util.HashMap;
 import java.util.List;
 
 
-public class TopicsFragment extends Fragment {
+public class TopicsFragment extends ListFragment {
     // List view
-    private GridView gridView;
+//    private GridView gridView;
 
     // Listview Adapter
     TopicsAdapter adapter;
 
     // Search EditText
-    EditText inputSearch;
+//    EditText inputSearch;
 
 
     // ArrayList for Listview
@@ -50,9 +54,9 @@ public class TopicsFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_topics_layout, container, false);
 
-        gridView = (GridView) rootView.findViewById(R.id.dashboardGridView);
+//        gridView = (GridView) rootView.findViewById(R.id.dashboardGridView);
 
-        inputSearch = (EditText) rootView.findViewById(R.id.inputSearch);
+//        inputSearch = (EditText) rootView.findViewById(R.id.inputSearch);
 
         return rootView;
     }
@@ -77,35 +81,37 @@ public class TopicsFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         adapter = new TopicsAdapter(this.getActivity(), getTopics());
-        gridView.setAdapter(adapter);
+        setListAdapter(adapter);
 
         // React to user clicks on item
-        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        getListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             public void onItemClick(AdapterView<?> parentAdapter, View view, int position,
                                     long id) {
-
+//                Toast.makeText(context, "You Clicked "+ topic.getName(), Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(getContext(), TutorialSlideActivity.class);
+                getContext().startActivity(intent);
             }
         });
 
-        inputSearch.addTextChangedListener(new TextWatcher() {
-
-            @Override
-            public void onTextChanged(CharSequence cs, int arg1, int arg2, int arg3) {
-                // When user changed the Text
-                TopicsFragment.this.adapter.getFilter().filter(cs);
-            }
-
-            @Override
-            public void beforeTextChanged(CharSequence arg0, int arg1, int arg2, int arg3) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable arg0) {
-
-            }
-        });
+//        inputSearch.addTextChangedListener(new TextWatcher() {
+//
+//            @Override
+//            public void onTextChanged(CharSequence cs, int arg1, int arg2, int arg3) {
+//                // When user changed the Text
+//                TopicsFragment.this.adapter.getFilter().filter(cs);
+//            }
+//
+//            @Override
+//            public void beforeTextChanged(CharSequence arg0, int arg1, int arg2, int arg3) {
+//
+//            }
+//
+//            @Override
+//            public void afterTextChanged(Editable arg0) {
+//
+//            }
+//        });
     }
 
 }

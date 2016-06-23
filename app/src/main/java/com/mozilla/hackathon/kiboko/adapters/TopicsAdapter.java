@@ -25,7 +25,7 @@ import java.util.List;
 public class TopicsAdapter  extends BaseAdapter implements Filterable {
     List<Topic> topics;
     private Context context;
-    private Filter planetFilter;
+    private Filter topicFilter;
     private List<Topic> origTopicList;
 
     public TopicsAdapter(Context ctx, List<Topic> topics) {
@@ -95,8 +95,7 @@ public class TopicsAdapter  extends BaseAdapter implements Filterable {
 
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
-                Toast.makeText(context, "You Clicked "+ topic.getName(), Toast.LENGTH_LONG).show();
+//                Toast.makeText(context, "You Clicked "+ topic.getName(), Toast.LENGTH_LONG).show();
                 Intent dashboardIntent = new Intent(context, TopicListActivity.class);
                 context.startActivity(dashboardIntent);
             }
@@ -112,10 +111,10 @@ public class TopicsAdapter  extends BaseAdapter implements Filterable {
 
     @Override
     public Filter getFilter() {
-        if (planetFilter == null)
-            planetFilter = new TopicsFilter();
+        if (topicFilter == null)
+            topicFilter = new TopicsFilter();
 
-        return planetFilter;
+        return topicFilter;
     }
 
 
@@ -135,15 +134,15 @@ public class TopicsAdapter  extends BaseAdapter implements Filterable {
             }
             else {
                 // We perform filtering operation
-                List<Topic> nPlanetList = new ArrayList<Topic>();
+                List<Topic> nTopicList = new ArrayList<Topic>();
 
                 for (Topic topic : topics) {
                     if (topic.getName().toUpperCase().startsWith(constraint.toString().toUpperCase()))
-                        nPlanetList.add(topic);
+                        nTopicList.add(topic);
                 }
 
-                results.values = nPlanetList;
-                results.count = nPlanetList.size();
+                results.values = nTopicList;
+                results.count = nTopicList.size();
 
             }
             return results;

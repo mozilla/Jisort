@@ -112,17 +112,6 @@ public class TopicListAdapter extends BaseAdapter implements Filterable {
         holder.name.setText(topic.getName());
         holder.description.setText(topic.getDescription());
 
-//        viewItem.setOnClickListener(new View.OnClickListener() {
-//
-//            @Override
-//            public void onClick(View v) {
-//                // TODO Auto-generated method stub
-//                Toast.makeText(context, "You Clicked "+ topic.getName(), Toast.LENGTH_LONG).show();
-//                Intent intent = new Intent(context, TutorialSlideActivity.class);
-//                context.startActivity(intent);
-//            }
-//        });
-
         return viewItem;
     }
 
