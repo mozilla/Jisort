@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.mozilla.hackathon.kiboko.R;
 import com.mozilla.hackathon.kiboko.activities.TopicListActivity;
+import com.mozilla.hackathon.kiboko.activities.TutorialSlideActivity;
 import com.mozilla.hackathon.kiboko.models.Topic;
 
 import java.util.ArrayList;
@@ -96,8 +97,9 @@ public class TopicsAdapter  extends BaseAdapter implements Filterable {
             @Override
             public void onClick(View v) {
 //                Toast.makeText(context, "You Clicked "+ topic.getName(), Toast.LENGTH_LONG).show();
-                Intent dashboardIntent = new Intent(context, TopicListActivity.class);
-                context.startActivity(dashboardIntent);
+                Intent topicIntent = new Intent(context, TutorialSlideActivity.class);
+                topicIntent.putExtra("topic", topic.getName());
+                context.startActivity(topicIntent);
             }
         });
 

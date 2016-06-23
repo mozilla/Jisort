@@ -87,6 +87,9 @@ public class DashboardActivity extends FragmentActivity  {
     @Subscribe
     public void onNetworkEvent(NetworkStateChanged event)
     {
+        // Clear previous suggested topic
+        dashboard_summary.removeAllViews();
+
         if (event.isInternetConnected())
         {
             final MessageCardView wifiCard = new MessageCardView(this);
@@ -105,7 +108,7 @@ public class DashboardActivity extends FragmentActivity  {
                         return;
                     }
 
-                    Intent dashboardIntent = new Intent(DashboardActivity.this, TopicListActivity.class);
+                    Intent dashboardIntent = new Intent(DashboardActivity.this, TutorialSlideActivity.class);
                     startActivity(dashboardIntent);
                 }
             });
@@ -116,6 +119,9 @@ public class DashboardActivity extends FragmentActivity  {
     @Subscribe
     public void onBatteryEvent(BatteryStateChanged event)
     {
+        // Clear previous suggested topic
+        dashboard_summary.removeAllViews();
+
         if (event.isBatteryStateEnabled())
         {
             final MessageCardView batteryCard = new MessageCardView(this);
@@ -134,7 +140,7 @@ public class DashboardActivity extends FragmentActivity  {
                         return;
                     }
 
-                    Intent dashboardIntent = new Intent(DashboardActivity.this, TopicListActivity.class);
+                    Intent dashboardIntent = new Intent(DashboardActivity.this, TutorialSlideActivity.class);
                     startActivity(dashboardIntent);
                 }
             });
@@ -145,6 +151,9 @@ public class DashboardActivity extends FragmentActivity  {
     @Subscribe
     public void onLocationEvent(LocationStateChanged event)
     {
+        // Clear previous suggested topic
+        dashboard_summary.removeAllViews();
+
         if (event.isLocationEnabled())
         {
             final MessageCardView locationCard = new MessageCardView(this);
@@ -163,7 +172,7 @@ public class DashboardActivity extends FragmentActivity  {
                         return;
                     }
 
-                    Intent dashboardIntent = new Intent(DashboardActivity.this, TopicListActivity.class);
+                    Intent dashboardIntent = new Intent(DashboardActivity.this, TutorialSlideActivity.class);
                     startActivity(dashboardIntent);
                 }
             });
@@ -182,14 +191,12 @@ public class DashboardActivity extends FragmentActivity  {
                 new android.content.DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        // TODO Auto-generated method stub
                         requestPermission(requestCode);
                     }
                 });
         builder.setNegativeButton("Cancel", new android.content.DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                // TODO Auto-generated method stub
 
             }
         });

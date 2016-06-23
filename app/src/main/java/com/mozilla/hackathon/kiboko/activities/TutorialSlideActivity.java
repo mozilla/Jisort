@@ -53,6 +53,14 @@ public class TutorialSlideActivity extends FragmentActivity {
         setContentView(R.layout.activity_tutorial_slide);
         ActionBar ab = getActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
+
+        Bundle bundle = getIntent().getExtras();
+
+        if(bundle.getString("topic")!= null)
+        {
+            setTitle((String)bundle.get("topic"));
+        }
+
         // Instantiate a ViewPager and a PagerAdapter.
         mPager = (ViewPager) findViewById(R.id.pager);
         mNext = (Button) findViewById(R.id.mNext);
