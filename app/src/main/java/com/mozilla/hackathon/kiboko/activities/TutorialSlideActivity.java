@@ -56,7 +56,7 @@ public class TutorialSlideActivity extends FragmentActivity {
 
         Bundle bundle = getIntent().getExtras();
 
-        if(bundle.getString("topic")!= null)
+        if(bundle.getString("topic") != null)
         {
             setTitle((String)bundle.get("topic"));
         }

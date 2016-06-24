@@ -109,6 +109,7 @@ public class DashboardActivity extends FragmentActivity  {
                     }
 
                     Intent dashboardIntent = new Intent(DashboardActivity.this, TutorialSlideActivity.class);
+                    dashboardIntent.putExtra("topic","wifi");
                     startActivity(dashboardIntent);
                 }
             });
@@ -141,6 +142,7 @@ public class DashboardActivity extends FragmentActivity  {
                     }
 
                     Intent dashboardIntent = new Intent(DashboardActivity.this, TutorialSlideActivity.class);
+                    dashboardIntent.putExtra("topic","battery");
                     startActivity(dashboardIntent);
                 }
             });
@@ -173,6 +175,7 @@ public class DashboardActivity extends FragmentActivity  {
                     }
 
                     Intent dashboardIntent = new Intent(DashboardActivity.this, TutorialSlideActivity.class);
+                    dashboardIntent.putExtra("topic","location");
                     startActivity(dashboardIntent);
                 }
             });
