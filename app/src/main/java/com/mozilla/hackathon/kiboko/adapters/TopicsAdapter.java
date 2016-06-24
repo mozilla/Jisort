@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mozilla.hackathon.kiboko.R;
+import com.mozilla.hackathon.kiboko.activities.FindIconsActivity;
 import com.mozilla.hackathon.kiboko.activities.TopicListActivity;
 import com.mozilla.hackathon.kiboko.activities.TutorialSlideActivity;
 import com.mozilla.hackathon.kiboko.models.Topic;
@@ -93,13 +94,18 @@ public class TopicsAdapter  extends BaseAdapter implements Filterable {
         holder.img.setImageResource(topic.getImage());
 
         viewItem.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
-//                Toast.makeText(context, "You Clicked "+ topic.getName(), Toast.LENGTH_LONG).show();
-                Intent topicIntent = new Intent(context, TutorialSlideActivity.class);
-                topicIntent.putExtra("topic", topic.getName());
-                context.startActivity(topicIntent);
+                if(topic.getTag().equals("icons")){
+                    Intent topicIntent = new Intent(context, FindIconsActivity.class);
+//                    topicIntent.putExtra("topic", topic.getName());
+                    context.startActivity(topicIntent);
+                }else{
+                    Intent topicIntent = new Intent(context, TutorialSlideActivity.class);
+                    topicIntent.putExtra("topic", topic.getName());
+                    context.startActivity(topicIntent);
+                }
+
             }
         });
 
