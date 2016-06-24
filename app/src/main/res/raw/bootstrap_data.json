@@ -1,0 +1,62 @@
+{
+    "tutorials": [
+        {
+            "tag": "wifi",
+            "header": "Wi-Fi ni Noma!",
+            "photoUrl": "url",
+            "steps": [
+                {
+                    "id": "1",
+                    "title": "What is Wi-Fi?",
+                    "gifUrl": "url",
+                    "description": "Wi-Fi is a technology that helps your phone connect to the internet, similar to airtime or mobile data. However, <b>Wi-Fi doesn’t use your airtime or mobile data.</b> Instead, in coffee shops or public spaces, Wi-Fi is often free.
+"
+                },
+                {
+                    "id": "2",
+                    "title": "Where do I get it? Who owns it?",
+                    "gifUrl": "url",
+                    "description": "Wi-Fi networks are created by “hotspots” that connect to the internet. Anyone can buy one and set it up at home, at work, or in a public space. If you can detect a Wi-Fi network on your phone, you might be able to connect to it. To learn more about connecting, check out Connecting to Wi-Fi."
+                },
+                {
+                    "id": "3",
+                    "title": "Saving Money",
+                    "gifUrl": "url",
+                    "description": "Wi-Fi is great for saving money because it lets you connect to the internet without using mobile data or airtime on your phone. Remember, though, sometimes you have to pay a small fee to use Wi-Fi at a business or cafe, or buy some goods."
+                },
+                {
+                    "id": "4",
+                    "title": "Speed and Stability",
+                    "gifUrl": "url",
+                    "description": "Wi-Fi networks are generally more stable and faster than mobile data networks. Wi-Fi was designed to support multiple smartphones at once and lots of internet browsing. Downloading files or streaming videos is best over Wi-Fi.\n<b>Be aware:</b> it is not <b>always</b> the case that Wi-Fi is faster and more stable than mobile data. Depending on infrastructure, popularity, and other environmental factors, Wi-Fi may not be as responsive or reliable."
+                }
+            ]
+        },
+        {
+            "tag": "connect_wifi",
+            "header": "Connecting to Wi-Fi",
+            "photoUrl": "url",
+            "steps": [
+                {
+                    "id": "1",
+                    "title": "What is Wi-Fi?",
+                    "gifUrl": "url",
+                    "description": "Wi-Fi is a technology that helps your phone connect to the internet, similar to airtime or mobile data. However, <b>Wi-Fi doesn’t use your airtime or mobile data.</b> Instead, in coffee shops or public spaces, Wi-Fi is often free.
+"
+                },
+                {
+                    "id": "2",
+                    "title": "Finding Names and Passwords",
+                    "gifUrl": "url",
+                    "description": "To connect to a Wi-Fi hotspot, you will need the name of the hotspot and, in some cases, its password. If you are in a business, cafe, or other public space, you can usually ask the owner of the hotspot for this information. Some places charge a small fee for using their Wi-Fi."
+                },
+                {
+                    "id": "3",
+                    "title": "Turning on Wi-Fi",
+                    "gifUrl": "url",
+                    "description": "On most Android phones, you can begin looking for Wi-Fi by swiping down the Title Bar at the top of the screen and tapping  the Wi-Fi icon. If you are close to a Wi-Fi network you have joined in the past, your phone will try to connect to it automatically."
+                }
+            ]
+        }
+    ]
+}
