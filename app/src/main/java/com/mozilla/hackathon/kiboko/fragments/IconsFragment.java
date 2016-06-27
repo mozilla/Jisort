@@ -52,20 +52,20 @@ public class IconsFragment extends Fragment {
 
     private List<Topic> getTopics() {
         List<Topic> list = new ArrayList<Topic>();
-        list.add(get("wifi", R.drawable.ic_wifi_tethering_black_48dp));
-        list.add(get("phone", R.drawable.ic_phone_black_48dp));
-        list.add(get("app", R.drawable.ic_get_app_black_48dp));
-        list.add(get("account", R.drawable.ic_account_box_black_48dp));
-        list.add(get("calendar", R.drawable.ic_perm_contact_calendar_black_48dp));
-        list.add(get("alarm", R.drawable.ic_alarm_black_48dp));
-        list.add(get("settings", R.drawable.ic_settings_applications_black_48dp));
-        list.add(get("search", R.drawable.ic_search_black_48dp));
+        list.add(get("wifi", "wifi", R.drawable.ic_wifi_tethering_black_48dp));
+        list.add(get("phone", "phone", R.drawable.ic_phone_black_48dp));
+        list.add(get("app","app", R.drawable.ic_get_app_black_48dp));
+        list.add(get("account", "account", R.drawable.ic_account_box_black_48dp));
+        list.add(get("calendar", "calendar", R.drawable.ic_perm_contact_calendar_black_48dp));
+        list.add(get("alarm", "alarm", R.drawable.ic_alarm_black_48dp));
+        list.add(get("settings", "settings", R.drawable.ic_settings_applications_black_48dp));
+        list.add(get("search", "search", R.drawable.ic_search_black_48dp));
 
         return list;
     }
 
-    private Topic get(String s, int i) {
-        return new Topic(s, i);
+    private Topic get(String t, String s, int i) {
+        return new Topic(t, s, i);
     }
 
 

@@ -19,7 +19,7 @@ android {
 
     signingConfigs {
         debug {
-            storeFile file("../android/debug.keystore")
+            storeFile file("~/.android/debug.keystore")
             storePassword "android"
             keyAlias "androiddebugkey"
             keyPassword "android"
@@ -36,13 +36,15 @@ android {
     buildTypes {
         debug {
             debuggable true
-            minifyEnabled false
+            minifyEnabled true
+            shrinkResources true
             signingConfig signingConfigs.debug
             buildConfigField("boolean", "ENABLE_DEBUG_TOOLS", "true")
         }
         qualityassurance {
             debuggable true
             minifyEnabled true
+            shrinkResources true
             signingConfig signingConfigs.debug
             proguardFiles getDefaultProguardFile('proguard-android.txt'), file('proguard-project.txt')
             buildConfigField("boolean", "ENABLE_DEBUG_TOOLS", "true")
@@ -50,6 +52,7 @@ android {
         release {
             debuggable false
             minifyEnabled true
+            shrinkResources true
             // No signing config as we do this separately.
             proguardFiles getDefaultProguardFile('proguard-android.txt'), file('proguard-project.txt')
         }

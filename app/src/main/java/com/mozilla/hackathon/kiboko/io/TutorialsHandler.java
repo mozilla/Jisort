@@ -12,6 +12,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.mozilla.hackathon.kiboko.models.Tutorial;
 import com.mozilla.hackathon.kiboko.provider.DsoContract;
+import com.mozilla.hackathon.kiboko.provider.DsoContract.Tutorials;
 import com.mozilla.hackathon.kiboko.provider.DsoContractHelper;
 import com.mozilla.hackathon.kiboko.provider.DsoDatabase;
 import com.mozilla.hackathon.kiboko.utilities.TimeUtils;
@@ -26,7 +27,7 @@ import static com.mozilla.hackathon.kiboko.utilities.LogUtils.LOGW;
 import static com.mozilla.hackathon.kiboko.utilities.LogUtils.makeLogTag;
 
 /**
- * Created by Audrey on 25/06/2016.
+ * Created by Brian Mwadime on 25/06/2016.
  */
 public class TutorialsHandler  extends JSONHandler {
     private static final String TAG = makeLogTag(TutorialsHandler.class);
@@ -123,8 +124,8 @@ public class TutorialsHandler  extends JSONHandler {
             HashMap<String, String> hashcodeMap = new HashMap<String, String>();
             if (cursor.moveToFirst()) {
                 do {
-                    String tutorialId = cursor.getString(tutorialHashcodeQuery.Tutorial_ID);
-                    String hashcode = cursor.getString(tutorialHashcodeQuery.Tutorial_IMPORT_HASHCODE);
+                    String tutorialId = cursor.getString(tutorialHashcodeQuery.TUTORIAL_ID);
+                    String hashcode = cursor.getString(tutorialHashcodeQuery.TUTORIAL_IMPORT_HASHCODE);
                     hashcodeMap.put(tutorialId, hashcode == null ? "" : hashcode);
                 } while (cursor.moveToNext());
             }
@@ -143,9 +144,9 @@ public class TutorialsHandler  extends JSONHandler {
                               Tutorial tutorial, ArrayList<ContentProviderOperation> list) {
         ContentProviderOperation.Builder builder;
         Uri alltutorialsUri = DsoContractHelper
-                .setUriAsCalledFromSyncAdapter(DsoContract.Tutorials.CONTENT_URI);
+                .setUriAsCalledFromSyncAdapter(Tutorials.CONTENT_URI);
         Uri thistutorialUri = DsoContractHelper
-                .setUriAsCalledFromSyncAdapter(DsoContract.Tutorials.buildtutorialUri(
+                .setUriAsCalledFromSyncAdapter(Tutorials.buildTutorialUri(
                         tutorial.id));
 
         if (isInsert) {
@@ -182,11 +183,11 @@ public class TutorialsHandler  extends JSONHandler {
 //        }
 
         builder.withValue(DsoContract.SyncColumns.UPDATED, System.currentTimeMillis())
-                .withValue(DsoContract.Tutorials.Tutorial_ID, tutorial.id)
-                .withValue(DsoContract.Tutorials.Tutorial_LEVEL, null)            // Not available
-                .withValue(DsoContract.Tutorials.Tutorial_TITLE, tutorial.title)
-                .withValue(DsoContract.Tutorials.Tutorial_ABSTRACT, tutorial.description)
-                .withValue(DsoContract.Tutorials.Tutorial_HASHTAG, tutorial.hashtag)
+                .withValue(Tutorials.TUTORIAL_ID, tutorial.id)
+                .withValue(Tutorials.TUTORIAL_TAGS, null)            // Not available
+                .withValue(Tutorials.TUTORIAL_HEADER, tutorial.header)
+                .withValue(Tutorials.TUTORIAL_STEPS, tutorial.steps)
+                .withValue(Tutorials.TUTORIAL_TAGS, tutorial.tag)
 
                 // Note: we store this comma-separated list of tags IN ADDITION
                 // to storing the tags in proper relational format (in the tutorials_tags
@@ -197,26 +198,8 @@ public class TutorialsHandler  extends JSONHandler {
                 // with the tutorials_speakers relationship table) so that we can
                 // display it easily in lists without having to make an additional DB query
                 // (or another join) for each record.
-                .withValue(DsoContract.Tutorials.Tutorial_KEYWORDS, null)             // Not available
-                .withValue(DsoContract.Tutorials.Tutorial_URL, tutorial.url)
-                .withValue(DsoContract.Tutorials.Tutorial_LIVESTREAM_ID,
-                        tutorial.isLivestream ? tutorial.youtubeUrl : null)
-                .withValue(DsoContract.Tutorials.Tutorial_MODERATOR_URL, null)    // Not available
-                .withValue(DsoContract.Tutorials.Tutorial_REQUIREMENTS, null)     // Not available
-                .withValue(DsoContract.Tutorials.Tutorial_YOUTUBE_URL,
-                        tutorial.isLivestream ? null : tutorial.youtubeUrl)
-                .withValue(DsoContract.Tutorials.Tutorial_PDF_URL, null)          // Not available
-                .withValue(DsoContract.Tutorials.Tutorial_NOTES_URL, null)        // Not available
-                .withValue(DsoContract.Tutorials.ROOM_ID, tutorial.room)
-                .withValue(DsoContract.Tutorials.Tutorial_GROUPING_ORDER, tutorial.groupingOrder)
-                .withValue(DsoContract.Tutorials.Tutorial_IMPORT_HASHCODE,
-                        tutorial.getImportHashCode())
-                .withValue(DsoContract.Tutorials.Tutorial_MAIN_TAG, tutorial.mainTag)
-                .withValue(DsoContract.Tutorials.Tutorial_CAPTIONS_URL, tutorial.captionsUrl)
-                .withValue(DsoContract.Tutorials.Tutorial_PHOTO_URL, tutorial.photoUrl)
-                // Disabled since this isn't being used by this app.
-                // .withValue(DsoContract.Tutorials.Tutorial_RELATED_CONTENT, tutorial.relatedContent)
-                .withValue(DsoContract.Tutorials.Tutorial_COLOR, color);
+
+                .withValue(DsoContract.Tutorials.TUTORIAL_PHOTO_URL, tutorial.photoUrl);
         list.add(builder.build());
     }
 
@@ -234,11 +217,11 @@ public class TutorialsHandler  extends JSONHandler {
     private interface tutorialHashcodeQuery {
         String[] PROJECTION = {
                 BaseColumns._ID,
-                DsoContract.Tutorials.Tutorial_ID,
-                DsoContract.Tutorials.Tutorial_IMPORT_HASHCODE
+                Tutorials.TUTORIAL_ID,
+                Tutorials.TUTORIAL_IMPORT_HASHCODE
         };
         int _ID = 0;
-        int tutorial_ID = 1;
-        int tutorial_IMPORT_HASHCODE = 2;
+        int TUTORIAL_ID = 1;
+        int TUTORIAL_IMPORT_HASHCODE = 2;
     };
 }

@@ -1,6 +1,5 @@
 package com.mozilla.hackathon.kiboko.provider;
 
-import android.app.SearchManager;
 import android.content.ContentProvider;
 import android.content.ContentProviderOperation;
 import android.content.ContentProviderResult;
@@ -8,17 +7,13 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.OperationApplicationException;
 import android.database.Cursor;
-import android.database.MatrixCursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.ParcelFileDescriptor;
-import android.provider.BaseColumns;
-import android.text.TextUtils;
 import android.util.Log;
 
-import com.google.common.collect.Tables;
-import com.mozilla.hackathon.kiboko.Config;
-import com.mozilla.hackathon.kiboko.settings.SettingsUtils;
+import com.mozilla.hackathon.kiboko.provider.DsoContract.Tutorials;
+import com.mozilla.hackathon.kiboko.provider.DsoDatabase.Tables;
 import com.mozilla.hackathon.kiboko.utilities.SelectionBuilder;
 
 import java.io.FileDescriptor;
@@ -26,10 +21,7 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
-import static com.mozilla.hackathon.kiboko.utilities.LogUtils.LOGD;
-import static com.mozilla.hackathon.kiboko.utilities.LogUtils.LOGV;
 import static com.mozilla.hackathon.kiboko.utilities.LogUtils.makeLogTag;
 
 /**
@@ -176,6 +168,8 @@ public class DsoProvider extends ContentProvider {
         final SQLiteDatabase db = mOpenHelper.getWritableDatabase();
         DsoUriEnum matchingUriEnum = mUriMatcher.matchUri(uri);
 
+        final SelectionBuilder builder = buildSimpleSelection(uri);
+
         int retVal = builder.where(selection, selectionArgs).update(db, values);
         notifyChange(uri);
         return retVal;
@@ -206,10 +200,8 @@ public class DsoProvider extends ContentProvider {
      * <p/>
      * We only notify changes if the uri wasn't called by the sync adapter, to avoid issuing a large
      * amount of notifications while doing a sync. The
-     * {@link com.google.samples.apps.iosched.sync.ConferenceDataHandler} notifies all top level
-     * conference paths once the conference data sync is done, and the
-     * {@link com.google.samples.apps.iosched.sync.userdata.AbstractUserDataSyncHelper} notifies all
-     * user data related paths once the user data sync is done.
+     * {@link com.mozilla.hackathon.kiboko.sync.DsoDataHandler} notifies all top level
+     * tutorials paths once the tutorial data sync is done.
      */
     private void notifyChange(Uri uri) {
         if (!DsoContractHelper.isUriCalledFromSyncAdapter(uri)) {
@@ -259,7 +251,10 @@ public class DsoProvider extends ContentProvider {
             case TUTORIALS_ID: {
                 final String tutorialId = DsoContract.Tutorials.getTutorialId(uri);
                 return builder.table(Tables.TUTORIALS)
-                        .where(TUTORIALS.TUTORIAL_ID + "=?", tutorialId);
+                        .where(Tutorials.TUTORIAL_ID + "=?", tutorialId);
+            }
+            default: {
+                throw new UnsupportedOperationException("Unknown uri for " + uri);
             }
 
         }
@@ -278,16 +273,7 @@ public class DsoProvider extends ContentProvider {
         }
         switch (matchingUriEnum) {
             case TUTORIALS: {
-                // We query sessions on the joined table of sessions with rooms and tags.
-                // Since there may be more than one tag per session, we GROUP BY session ID.
-                // The starred sessions ("my schedule") are associated with a user, so we
-                // use the current user to select them properly
-                return builder
-                        .table(Tables.SESSIONS_JOIN_ROOMS_TAGS, getCurrentAccountName(uri, true))
-                        .mapToTable(DsoContract.Tutorials._ID, Tables.TUTORIALS)
-                        .mapToTable(DsoContract.Tutorials.TUTORIAL_ID, Tables.TUTORIALS)
-                        .map(DsoContract.Tutorials.SESSION_IN_MY_SCHEDULE, "IFNULL(in_schedule, 0)")
-                        .groupBy(Qualified.TUTORIALS_TUTORIAL_ID);
+                return builder.table(Tables.TUTORIALS);
             }
             default: {
                 throw new UnsupportedOperationException("Unknown uri: " + uri);

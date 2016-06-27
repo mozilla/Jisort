@@ -46,6 +46,8 @@ public final class DsoContract {
         String TUTORIAL_PHOTO_URL = "tutorial_photo_url";
         /** The Tutorials's steps. */
         String TUTORIAL_STEPS = "tutorial_steps";
+        /** The hashcode of the data used to create this record. */
+        String TUTORIAL_IMPORT_HASHCODE = "tutorial_import_hashcode";
     }
 
 

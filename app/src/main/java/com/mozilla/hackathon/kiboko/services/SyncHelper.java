@@ -121,7 +121,7 @@ public class SyncHelper {
      * @return Whether or not data was changed.
      * @throws IOException if there is a problem downloading or importing the data.
      */
-    private boolean doConferenceDataSync() throws IOException {
+    private boolean doDsoDataSync() throws IOException {
         if (!isOnline()) {
             LOGD(TAG, "Not attempting remote sync because device is OFFLINE");
             return false;

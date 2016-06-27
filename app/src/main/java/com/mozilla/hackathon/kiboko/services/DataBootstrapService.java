@@ -22,8 +22,8 @@ import static com.mozilla.hackathon.kiboko.utilities.LogUtils.LOGW;
 
 /**
  * An {@code IntentService} that performs the one-time data bootstrap. It takes the prepackaged
- * conference data from the R.raw.bootstrap_data resource, and populates the database. This data
- * contains the sessions, speakers, etc.
+ * mozilla dso data from the R.raw.bootstrap_data resource, and populates the database. This data
+ * contains the turtorials.
  */
 public class DataBootstrapService extends IntentService {
 
@@ -85,7 +85,7 @@ public class DataBootstrapService extends IntentService {
             LOGE(TAG, "*** ERROR DURING BOOTSTRAP! Problem in bootstrap data?", ex);
             LOGE(TAG,
                     "Applying fallback -- marking boostrap as done; sync might fix problem.");
-            SettingsUtils.markDataBootstrapDone(appContext);
+//            SettingsUtils.markDataBootstrapDone(appContext);
         } finally {
             // Request a manual sync immediately after the bootstrapping process, in case we
             // have an active connection. Otherwise, the scheduled sync could take a while.

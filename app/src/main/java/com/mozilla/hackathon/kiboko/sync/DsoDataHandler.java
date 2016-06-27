@@ -15,6 +15,9 @@ import com.mozilla.hackathon.kiboko.io.JSONHandler;
 import com.mozilla.hackathon.kiboko.io.TutorialsHandler;
 import com.mozilla.hackathon.kiboko.provider.DsoContract;
 import com.mozilla.hackathon.kiboko.services.SyncHelper;
+import com.turbomanage.httpclient.ConsoleRequestLogger;
+import com.turbomanage.httpclient.HttpResponse;
+import com.turbomanage.httpclient.RequestLogger;
 
 import java.io.File;
 import java.io.FileInputStream;
