@@ -1,5 +1,7 @@
 package com.mozilla.hackathon.kiboko.fragments;
 
+import android.app.ActivityManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
@@ -80,6 +82,7 @@ public class TopicsFragment extends ListFragment implements CompoundButton.OnChe
         listFooterView = (LinearLayout) LayoutInflater.from(this.getActivity()).inflate(R.layout.dashboard_footer_view, null);
         toggleSwitch = (SwitchCompat) listFooterView.findViewById(R.id.toggleSwitch);
 
+        toggleSwitch.setChecked(isServiceRunning());
         //attach a listener to check for changes in state
         toggleSwitch.setOnCheckedChangeListener(this);
 
@@ -104,6 +107,16 @@ public class TopicsFragment extends ListFragment implements CompoundButton.OnChe
             default:
                 break;
         }
+    }
+
+    private boolean isServiceRunning() {
+        ActivityManager manager = (ActivityManager)getActivity().getSystemService(Context.ACTIVITY_SERVICE);
+        for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)){
+            if("com.mozilla.hackathon.kiboko.services.ChatHeadService".equals(service.service.getClassName())) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }

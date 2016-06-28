@@ -30,6 +30,7 @@
         android:layout_marginRight="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
         android:layout_height="wrap_content"
         android:textSize="@dimen/text_size_xlarge"
         android:textColor="#CCCCCC" />
@@ -43,7 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:src="@drawable/ic_lightbulb_outline_white_24dp"
+            android:src="@drawable/ic_lightbulb_outline_white_48dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginEnd="16dp"
@@ -54,7 +55,7 @@
             android:layout_margin="16dp"
             android:layout_height="wrap_content"
             android:text="@string/placeholder_lorem_ipsum"
-            android:textSize="@dimen/text_size_medium"
+            android:textSize="@dimen/text_size_large"
             android:textColor="@color/colorTextPrimary" />
     </LinearLayout>
 
@@ -67,8 +68,8 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:divider="@android:color/transparent"
-        android:dividerPadding="20dip"
-        android:showDividers="end"
+        android:dividerPadding="10dip"
+        android:showDividers="middle"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="12dp"
         android:splitMotionEvents="false"
@@ -89,9 +90,11 @@
             android:paddingRight="16dp"
             android:textColor="@color/colorTextPrimary"
             />
+        <View
+            android:layout_width="10dp"
+            android:layout_height="match_parent"/>
         <Button
             android:id="@+id/buttonStart"
-
             android:layout_width="wrap_content"
             android:layout_height="36dp"
             android:text="@string/placeholder_button_label_2"
