@@ -1,13 +1,13 @@
 package com.mozilla.hackathon.kiboko.activities;
 
-import android.app.ActionBar;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.ActionBar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -27,7 +27,7 @@ import com.mozilla.hackathon.kiboko.fragments.ScreenSlidePageFragment;
  *
  * @see ScreenSlidePageFragment
  */
-public class TutorialSlideActivity extends FragmentActivity {
+public class TutorialSlideActivity extends AppCompatActivity {
     /**
      * The number of pages (wizard steps) to show in this demo.
      */
@@ -51,7 +51,7 @@ public class TutorialSlideActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tutorial_slide);
-        ActionBar ab = getActionBar();
+        ActionBar ab = getSupportActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
 
         Bundle bundle = getIntent().getExtras();

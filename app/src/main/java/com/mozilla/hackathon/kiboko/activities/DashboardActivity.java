@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -26,7 +27,7 @@ import com.squareup.otto.Subscribe;
 /**
  * Created by Brian Mwadime on 06/06/2016.
  */
-public class DashboardActivity extends FragmentActivity  {
+public class DashboardActivity extends AppCompatActivity {
     public static int OVERLAY_PERMISSION_REQ_CODE_CHATHEAD = 1234;
     public static int OVERLAY_PERMISSION_REQ_CODE_CHATHEAD_MSG = 5678;
     public static boolean active = false;

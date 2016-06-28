@@ -1,18 +1,30 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="@android:style/Theme.Holo.Light">
-        <item name="android:icon">@android:color/transparent</item>
-        <item name="android:actionBarStyle">@style/DSOActionBar</item>
+    <style name="AppTheme" parent="@style/Theme.AppCompat.Light">
+        <item name="android:icon" tools:ignore="NewApi">@android:color/transparent</item>
+        <item name="icon">@android:color/transparent</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
+        <item name="actionBarStyle">@style/DSOActionBar</item>
+        <item name="android:actionBarStyle" tools:ignore="NewApi">@style/DSOActionBar</item>
+
+        <!-- Active thumb color & Active track color(30% transparency) -->
+        <item name="colorControlActivated">@color/colortogglePrimary</item>
+        <!-- Inactive thumb color -->
+        <item name="colorSwitchThumbNormal">@color/colorToggleSecondary</item>
+        <!-- Inactive track color(30% transparency) -->
+        <item name="android:colorForeground">@color/colorTextPrimary</item>
     </style>
 
-    <style name="DSOActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
-        <item name="android:background">@color/colorPrimary</item>
-        <item name="android:titleTextStyle">@style/DSOActionBarTitle</item>
+    <style name="DSOActionBar" parent="@style/Widget.AppCompat.Light.ActionBar">
+        <item name="android:titleTextStyle" tools:ignore="NewApi">@style/DSOActionBarTitle</item>
+        <item name="android:background" tools:ignore="NewApi">@color/colorPrimary</item>
+        <item name="background">@color/colorPrimary</item>
     </style>
 
-    <style name="DSOActionBarTitle" parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
-        <item name="android:textColor">@color/colorTextPrimary</item>
+    <style name="DSOActionBarTitle" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor" tools:ignore="NewApi">@color/colorTextPrimary</item>
     </style>
 
 </resources>
