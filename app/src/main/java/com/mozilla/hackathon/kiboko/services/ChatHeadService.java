@@ -5,17 +5,17 @@ import android.app.Notification;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.PixelFormat;
-import android.graphics.Point;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.View.OnTouchListener;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnTouchListener;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -24,6 +24,7 @@ import com.mozilla.hackathon.kiboko.R;
 import com.mozilla.hackathon.kiboko.activities.DashboardActivity;
 import com.mozilla.hackathon.kiboko.utilities.Utils;
 
+import java.io.InputStream;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -38,16 +39,30 @@ public class ChatHeadService extends Service {
     private static final int BUTTONS_DIM_Y_DP 				= 27;	// Height of the buttons in dps
 
     private WindowManager mWindowManager;
-    private ImageView chatHead;
     private WindowManager.LayoutParams 	mRootLayoutParams;		// Parameters of the root layout
     private RelativeLayout              mRootLayout;			// Root layout
     private RelativeLayout 				mContentContainerLayout;// Contains everything other than buttons and song info
-
+    private RelativeLayout 				mLogoLayout;			// Contains icons
     // Variables that control drag
     private int mStartDragX;
+    private boolean mIsTrayOpen;
     //private int mStartDragY; // Unused as yet
     private int mPrevDragX;
     private int mPrevDragY;
+
+    private long pressStartTime;
+    private float pressedX;
+    private float pressedY;
+    private boolean stayedWithinClickDistance;
+    /**
+     * Max allowed duration for a "click", in milliseconds.
+     */
+    private static final int MAX_CLICK_DURATION = 200;
+
+    /**
+     * Max allowed distance to move during a "click", in DP.
+     */
+    private static final int MAX_CLICK_DISTANCE = 15;
 
     // Controls for animations
     private Timer 					mTrayAnimationTimer;
@@ -68,14 +83,14 @@ public class ChatHeadService extends Service {
         mRootLayout = (RelativeLayout) LayoutInflater.from(this).
                 inflate(R.layout.service_floating_button, null);
         mContentContainerLayout = (RelativeLayout) mRootLayout.findViewById(R.id.content_container);
-        mContentContainerLayout.setOnTouchListener(new TrayTouchListener());
-
+        mLogoLayout = (RelativeLayout) mRootLayout.findViewById(R.id.logo_layout);
+        mLogoLayout.setOnTouchListener(new TrayTouchListener());
         mRootLayoutParams = new WindowManager.LayoutParams(
                 Utils.dpToPixels(TRAY_DIM_X_DP, getResources()),
                 Utils.dpToPixels(TRAY_DIM_Y_DP, getResources()),
                 WindowManager.LayoutParams.TYPE_PHONE,
                 WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH | WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
-                PixelFormat.TRANSLUCENT);
+                PixelFormat.TRANSPARENT);
 
         mRootLayoutParams.gravity = Gravity.TOP | Gravity.LEFT;
         mWindowManager.addView(mRootLayout, mRootLayoutParams);
@@ -85,12 +100,24 @@ public class ChatHeadService extends Service {
         mRootLayout.postDelayed(new Runnable() {
             @Override
             public void run() {
-
                 // Reusable variables
+                InputStream is;
+                Bitmap bmap;
+
                 RelativeLayout.LayoutParams params;
+                // Setup background icon
+                is = getResources().openRawResource(R.drawable.android_head);
+                int containerNewWidth = (TRAY_CROP_FRACTION)*mLogoLayout.getHeight()/TRAY_CROP_FRACTION;
+                bmap = Utils.loadMaskedBitmap(is, mLogoLayout.getHeight(), containerNewWidth);
+                params = (RelativeLayout.LayoutParams) mLogoLayout.getLayoutParams();
+                params.width = (bmap.getWidth() * mLogoLayout.getHeight()) / bmap.getHeight();
+                params.addRule(RelativeLayout.ALIGN_PARENT_RIGHT,0);
+                mLogoLayout.setLayoutParams(params);
+                mLogoLayout.requestLayout();
+                mLogoLayout.setBackgroundDrawable(new BitmapDrawable(getResources(), bmap));
                 // Setup the root layout
                 mRootLayoutParams.x = 0;
-                mRootLayoutParams.y = (getApplicationContext().getResources().getDisplayMetrics().heightPixels - mRootLayout.getHeight());
+                mRootLayoutParams.y = 0;
                 mWindowManager.updateViewLayout(mRootLayout, mRootLayoutParams);
 
                 // Make everything visible
@@ -115,7 +142,6 @@ public class ChatHeadService extends Service {
     private void dragTray(int action, int x, int y){
         switch (action){
             case MotionEvent.ACTION_DOWN:
-
                 // Cancel any currently running animations/automatic tray movements.
                 if (mTrayTimerTask!=null){
                     mTrayTimerTask.cancel();
@@ -130,88 +156,60 @@ public class ChatHeadService extends Service {
                 break;
 
             case MotionEvent.ACTION_MOVE:
-
-                // Calculate position of the whole tray according to the drag, and update layout.
-                float deltaX = x - mPrevDragX;
-                float deltaY = y - mPrevDragY;
-                mRootLayoutParams.x += deltaX;
-                mRootLayoutParams.y += deltaY;
-                mPrevDragX = x;
-                mPrevDragY = y;
+                if (stayedWithinClickDistance && distance(pressedX, pressedY, x, y) > MAX_CLICK_DISTANCE) {
+                    stayedWithinClickDistance = false;
+                    // Calculate position of the whole tray according to the drag, and update layout.
+                    float deltaX = x - mPrevDragX;
+                    float deltaY = y - mPrevDragY;
+                    mRootLayoutParams.x += deltaX;
+                    mRootLayoutParams.y += deltaY;
+                    mPrevDragX = x;
+                    mPrevDragY = y;
 //                animateButtons();
-                mWindowManager.updateViewLayout(mRootLayout, mRootLayoutParams);
+                    mWindowManager.updateViewLayout(mRootLayout, mRootLayoutParams);
+                }else{
+                    stayedWithinClickDistance = true;
+                }
+
                 break;
 
             case MotionEvent.ACTION_UP:
+                long pressDuration = System.currentTimeMillis() - pressStartTime;
+                if (pressDuration < MAX_CLICK_DURATION && stayedWithinClickDistance) {
+                    openAppClicked();
+                }
+                break;
             case MotionEvent.ACTION_CANCEL:
 
                 // When the tray is released, bring it back to "open" or "closed" state.
-//                if ((mIsTrayOpen && (x-mStartDragX)<=0) ||
-//                        (!mIsTrayOpen && (x-mStartDragX)>=0))
-//                    mIsTrayOpen = !mIsTrayOpen;
-//
+                if ((mIsTrayOpen && (x-mStartDragX)<=0) ||
+                        (!mIsTrayOpen && (x-mStartDragX)>=0))
+                    mIsTrayOpen = !mIsTrayOpen;
+
                 mTrayTimerTask = new TrayAnimationTimerTask();
                 mTrayAnimationTimer = new Timer();
                 mTrayAnimationTimer.schedule(mTrayTimerTask, 0, ANIMATION_FRAME_RATE);
+
+
                 break;
         }
     }
 
-    // This function animates the buttons based on the position of the tray.
-//    private void animateButtons(){
-//
-//        // Animate only if the tray is between open and close state.
-//        if (mRootLayoutParams.x < -mRootLayout.getWidth()/TRAY_HIDDEN_FRACTION){
-//
-//            // Scale the distance between open and close states to 0-1.
-//            float relativeDistance = (mRootLayoutParams.x + mLogoLayout.getWidth())/(float)
-//                    (-mRootLayout.getWidth()/TRAY_HIDDEN_FRACTION + mLogoLayout.getWidth());
-//
-//            // Limit it to 0-1 if it goes beyond 0-1 for any reason.
-//            relativeDistance=Math.max(relativeDistance, 0);
-//            relativeDistance=Math.min(relativeDistance, 1);
-//
-//            // Setup animations
-//            AnimationSet animations = new AnimationSet(true);
-//            animations.setFillAfter(true);
-//            Animation animationAlpha = new AlphaAnimation(
-//                    relativeDistance,
-//                    relativeDistance);
-//            animations.addAnimation(animationAlpha);
-//
-//            Animation animationScale = new ScaleAnimation(
-//                    relativeDistance,
-//                    relativeDistance,
-//                    relativeDistance,
-//                    relativeDistance);
-//            animations.addAnimation(animationScale);
-//
-//            // Play the animations
-//            mPlayerButtonsLayout.startAnimation(animations);
-//            mSongInfoLayout.startAnimation(animations);
-//            mAlbumCoverLayout.startAnimation(animationAlpha);
-//        }else{
-//
-//            // Clear all animations if the tray is being dragged - that is, when it is beyond the
-//            // normal open state.
-//            mPlayerButtonsLayout.clearAnimation();
-//            mSongInfoLayout.clearAnimation();
-//            mAlbumCoverLayout.clearAnimation();
-//        }
-//    }
     // Listens to the touch events on the tray.
     private class TrayTouchListener implements OnTouchListener {
+
         @Override
         public boolean onTouch(View v, MotionEvent event) {
-
             final int action = event.getActionMasked();
-
             switch (action) {
                 case MotionEvent.ACTION_DOWN:
+                    pressedX = event.getX();
+                    pressedY = event.getY();
+                    pressStartTime = System.currentTimeMillis();
+                    stayedWithinClickDistance = true;
                 case MotionEvent.ACTION_MOVE:
                 case MotionEvent.ACTION_UP:
                 case MotionEvent.ACTION_CANCEL:
-                    // Filter and redirect the events to dragTray()
                     dragTray(action, (int)event.getRawX(), (int)event.getRawY());
                     break;
                 default:
@@ -296,10 +294,20 @@ public class ChatHeadService extends Service {
         return START_STICKY;
     }
 
-    // Play current song
-    public void openAppClicked(View view){
+    private void openAppClicked() {
         Intent dashboardIntent = new Intent(this, DashboardActivity.class);
-        dashboardIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        dashboardIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         startActivity(dashboardIntent);
+    }
+
+    private float distance(float x1, float y1, float x2, float y2) {
+        float dx = x1 - x2;
+        float dy = y1 - y2;
+        float distanceInPx = (float) Math.sqrt(dx * dx + dy * dy);
+        return pxToDp(distanceInPx);
+    }
+
+    private float pxToDp(float px) {
+        return px / getResources().getDisplayMetrics().density;
     }
 }

@@ -2,35 +2,32 @@ package com.mozilla.hackathon.kiboko.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
-import android.text.Editable;
-import android.text.TextWatcher;
+import android.support.v7.widget.SwitchCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.EditText;
-import android.widget.GridView;
-import android.widget.Toast;
+import android.widget.CompoundButton;
+import android.widget.LinearLayout;
 
 import com.mozilla.hackathon.kiboko.R;
-import com.mozilla.hackathon.kiboko.activities.TutorialSlideActivity;
 import com.mozilla.hackathon.kiboko.adapters.TopicsAdapter;
 import com.mozilla.hackathon.kiboko.models.Topic;
+import com.mozilla.hackathon.kiboko.services.ChatHeadService;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 
-public class TopicsFragment extends ListFragment {
+public class TopicsFragment extends ListFragment implements CompoundButton.OnCheckedChangeListener {
     // List view
 //    private GridView gridView;
 
     // Listview Adapter
     TopicsAdapter adapter;
-
+    private LinearLayout listFooterView;
+    private SwitchCompat toggleSwitch = null;
     // Search EditText
 //    EditText inputSearch;
 
@@ -53,11 +50,6 @@ public class TopicsFragment extends ListFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_topics_layout, container, false);
-
-//        gridView = (GridView) rootView.findViewById(R.id.dashboardGridView);
-
-//        inputSearch = (EditText) rootView.findViewById(R.id.inputSearch);
-
         return rootView;
     }
 
@@ -83,36 +75,35 @@ public class TopicsFragment extends ListFragment {
         super.onActivityCreated(savedInstanceState);
 
         adapter = new TopicsAdapter(this.getActivity(), getTopics());
+
+        // Inflate footer view
+        listFooterView = (LinearLayout) LayoutInflater.from(this.getActivity()).inflate(R.layout.dashboard_footer_view, null);
+        toggleSwitch = (SwitchCompat) listFooterView.findViewById(R.id.toggleSwitch);
+
+        //attach a listener to check for changes in state
+        toggleSwitch.setOnCheckedChangeListener(this);
+
         setListAdapter(adapter);
 
-        // React to user clicks on item
-//        getListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//
-//            public void onItemClick(AdapterView<?> parentAdapter, View view, int position,
-//                                    long id) {
-//                Intent intent = new Intent(getContext(), TutorialSlideActivity.class);
-//                getContext().startActivity(intent);
-//            }
-//        });
+        getListView().addFooterView(listFooterView);
 
-//        inputSearch.addTextChangedListener(new TextWatcher() {
-//
-//            @Override
-//            public void onTextChanged(CharSequence cs, int arg1, int arg2, int arg3) {
-//                // When user changed the Text
-//                TopicsFragment.this.adapter.getFilter().filter(cs);
-//            }
-//
-//            @Override
-//            public void beforeTextChanged(CharSequence arg0, int arg1, int arg2, int arg3) {
-//
-//            }
-//
-//            @Override
-//            public void afterTextChanged(Editable arg0) {
-//
-//            }
-//        });
+    }
+
+    @Override
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        switch (buttonView.getId()) {
+            case R.id.toggleSwitch:
+                if(!isChecked){
+                    getContext().stopService(new Intent(getContext(), ChatHeadService.class));
+                }else{
+                    getContext().startService(new Intent(getContext(), ChatHeadService.class));
+
+                }
+                break;
+
+            default:
+                break;
+        }
     }
 
 }
