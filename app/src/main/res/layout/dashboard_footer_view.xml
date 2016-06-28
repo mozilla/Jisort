@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -7,7 +8,11 @@
         android:id="@+id/toggleSwitch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textOn="show"
+        android:textOff="hide"
+        app:showText="false"
+        android:text="@string/show_floating_app_icon_description"
         android:textColor="@color/colorTextPrimary"
         android:layout_margin="@dimen/activity_vertical_margin"
-        android:text="Show floating app icon" />
+        />
 </LinearLayout>

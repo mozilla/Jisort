@@ -52,14 +52,14 @@ public class IconsFragment extends Fragment {
 
     private List<Topic> getTopics() {
         List<Topic> list = new ArrayList<Topic>();
-        list.add(get("wifi", "wifi", R.drawable.ic_wifi_tethering_black_48dp));
-        list.add(get("phone", "phone", R.drawable.ic_phone_black_48dp));
-        list.add(get("app","app", R.drawable.ic_get_app_black_48dp));
-        list.add(get("account", "account", R.drawable.ic_account_box_black_48dp));
-        list.add(get("calendar", "calendar", R.drawable.ic_perm_contact_calendar_black_48dp));
-        list.add(get("alarm", "alarm", R.drawable.ic_alarm_black_48dp));
-        list.add(get("settings", "settings", R.drawable.ic_settings_applications_black_48dp));
-        list.add(get("search", "search", R.drawable.ic_search_black_48dp));
+        list.add(get("wifi", "wifi", R.drawable.ic_wifi_tethering_white_48dp));
+        list.add(get("phone", "phone", R.drawable.ic_phone_white_48dp));
+        list.add(get("app","app", R.drawable.ic_get_app_white_48dp));
+        list.add(get("account", "account", R.drawable.ic_account_box_white_48dp));
+        list.add(get("calendar", "calendar", R.drawable.ic_perm_contact_calendar_white_48dp));
+        list.add(get("alarm", "alarm", R.drawable.ic_alarm_white_48dp));
+        list.add(get("settings", "settings", R.drawable.ic_settings_applications_white_48dp));
+        list.add(get("search", "search", R.drawable.ic_search_white_48dp));
 
         return list;
     }
