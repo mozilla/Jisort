@@ -2,9 +2,7 @@ package com.mozilla.hackathon.kiboko.services;
 
 import android.accounts.Account;
 import android.content.ContentResolver;
-import android.content.ContentValues;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SyncResult;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
@@ -86,11 +84,6 @@ public class SyncHelper {
      * Attempts to perform data synchronization. There are 3 types of data: conference, user
      * schedule and user feedback.
      * <p />
-     * The conference data sync is handled by {@link RemoteConferenceDataFetcher}. For more details
-     * about conference data, refer to the documentation at
-     * https://github.com/google/iosched/blob/master/doc/SYNC.md. The user schedule data sync is
-     * handled by {@link AbstractUserDataSyncHelper}. The user feedback sync is handled by
-     * {@link FeedbackSyncHelper}.
      *
      *
      * @param syncResult The sync result object to update with statistics.
@@ -136,8 +129,8 @@ public class SyncHelper {
     public static void performPostSyncChores(final Context context) {
         // Update search index.
         LOGD(TAG, "Updating search index.");
-        context.getContentResolver().update(DsoContract.SearchIndex.CONTENT_URI,
-                new ContentValues(), null, null);
+//        context.getContentResolver().update(DsoContract.SearchIndex.CONTENT_URI,
+//                new ContentValues(), null, null);
     }
 
     /**

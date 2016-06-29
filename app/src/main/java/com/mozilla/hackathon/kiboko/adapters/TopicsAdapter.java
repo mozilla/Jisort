@@ -10,11 +10,9 @@ import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.mozilla.hackathon.kiboko.R;
 import com.mozilla.hackathon.kiboko.activities.FindIconsActivity;
-import com.mozilla.hackathon.kiboko.activities.TopicListActivity;
 import com.mozilla.hackathon.kiboko.activities.TutorialSlideActivity;
 import com.mozilla.hackathon.kiboko.models.Topic;
 
@@ -102,7 +100,8 @@ public class TopicsAdapter  extends BaseAdapter implements Filterable {
                     context.startActivity(topicIntent);
                 }else{
                     Intent topicIntent = new Intent(context, TutorialSlideActivity.class);
-                    topicIntent.putExtra("topic", topic.getName());
+                    topicIntent.putExtra("title", topic.getName());
+                    topicIntent.putExtra("topic", topic.getTag());
                     context.startActivity(topicIntent);
                 }
 

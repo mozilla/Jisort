@@ -12,7 +12,6 @@ import android.net.Uri;
 import android.os.ParcelFileDescriptor;
 import android.util.Log;
 
-import com.mozilla.hackathon.kiboko.provider.DsoContract.Tutorials;
 import com.mozilla.hackathon.kiboko.provider.DsoDatabase.Tables;
 import com.mozilla.hackathon.kiboko.utilities.SelectionBuilder;
 
@@ -24,9 +23,6 @@ import java.util.Arrays;
 
 import static com.mozilla.hackathon.kiboko.utilities.LogUtils.makeLogTag;
 
-/**
- * Created by Audrey on 25/06/2016.
- */
 public class DsoProvider extends ContentProvider {
 
     private static final String TAG = makeLogTag(DsoProvider.class);
@@ -248,10 +244,11 @@ public class DsoProvider extends ContentProvider {
         // criteria so the full table is used. The others apply a selection criteria.
         switch (matchingUriEnum) {
             case TUTORIALS:
+                return builder.table(Tables.TUTORIALS);
             case TUTORIALS_ID: {
                 final String tutorialId = DsoContract.Tutorials.getTutorialId(uri);
                 return builder.table(Tables.TUTORIALS)
-                        .where(Tutorials.TUTORIAL_ID + "=?", tutorialId);
+                        .where(DsoContract.Tutorials.TUTORIAL_ID + "=?", tutorialId);
             }
             default: {
                 throw new UnsupportedOperationException("Unknown uri for " + uri);

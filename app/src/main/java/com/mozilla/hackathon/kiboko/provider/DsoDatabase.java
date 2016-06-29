@@ -1,15 +1,12 @@
 package com.mozilla.hackathon.kiboko.provider;
 
-import android.accounts.Account;
-import android.app.SearchManager;
-import android.content.ContentResolver;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.provider.BaseColumns;
 
-import com.mozilla.hackathon.kiboko.services.SyncHelper;
-import com.mozilla.hackathon.kiboko.provider.DsoContract.*;
+import com.mozilla.hackathon.kiboko.provider.DsoContract.Tutorials;
+import com.mozilla.hackathon.kiboko.provider.DsoContract.TutorialsColumns;
 import com.mozilla.hackathon.kiboko.sync.DsoDataHandler;
 
 import static com.mozilla.hackathon.kiboko.utilities.LogUtils.LOGD;
@@ -95,11 +92,12 @@ public class DsoDatabase extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-
         db.execSQL("CREATE TABLE " + Tables.TUTORIALS + " ("
                 + BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + DsoContract.SyncColumns.UPDATED + " INTEGER NOT NULL,"
+                + TutorialsColumns.TUTORIAL_IMPORT_HASHCODE + " TEXT NOT NULL DEFAULT '',"
                 + TutorialsColumns.TUTORIAL_ID + " TEXT NOT NULL,"
+                + TutorialsColumns.TUTORIAL_TAG + " TEXT NOT NULL,"
                 + TutorialsColumns.TUTORIAL_HEADER + " TEXT,"
                 + TutorialsColumns.TUTORIAL_PHOTO_URL + " TEXT,"
                 + TutorialsColumns.TUTORIAL_STEPS + " TEXT,"

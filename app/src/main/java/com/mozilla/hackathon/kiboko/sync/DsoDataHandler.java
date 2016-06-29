@@ -7,7 +7,6 @@ import android.content.OperationApplicationException;
 import android.net.Uri;
 import android.os.RemoteException;
 import android.preference.PreferenceManager;
-import android.text.TextUtils;
 
 import com.google.gson.JsonParser;
 import com.google.gson.stream.JsonReader;
@@ -19,14 +18,10 @@ import com.turbomanage.httpclient.ConsoleRequestLogger;
 import com.turbomanage.httpclient.HttpResponse;
 import com.turbomanage.httpclient.RequestLogger;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.StringReader;
 import java.net.HttpURLConnection;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 
 import static com.mozilla.hackathon.kiboko.utilities.LogUtils.LOGD;
@@ -82,7 +77,7 @@ public class DsoDataHandler {
      * @param downloadsAllowed Whether or not we are supposed to download data from the internet if needed.
      * @throws IOException If there is a problem parsing the data.
      */
-    public void applyConferenceData(String[] dataBodies, String dataTimestamp,
+    public void applyDSOData(String[] dataBodies, String dataTimestamp,
                                     boolean downloadsAllowed) throws IOException {
         LOGD(TAG, "Applying data from " + dataBodies.length + " files, timestamp " + dataTimestamp);
 
@@ -136,7 +131,7 @@ public class DsoDataHandler {
 
         // update our data timestamp
         setDataTimestamp(dataTimestamp);
-        LOGD(TAG, "Done applying conference data.");
+        LOGD(TAG, "Done applying dso data.");
     }
 
     public int getContentProviderOperationsDone() {
@@ -160,13 +155,13 @@ public class DsoDataHandler {
             reader.beginObject();
 
             while (reader.hasNext()) {
-                // the key is "rooms", "speakers", "tracks", etc.
+                // the key is "tutorials", "icons", etc.
                 String key = reader.nextName();
                 if (mHandlerForKey.containsKey(key)) {
                     // pass the value to the corresponding handler
                     mHandlerForKey.get(key).process(parser.parse(reader));
                 } else {
-                    LOGW(TAG, "Skipping unknown key in conference data json: " + key);
+                    LOGW(TAG, "Skipping unknown key in dso data json: " + key);
                     reader.skipValue();
                 }
             }

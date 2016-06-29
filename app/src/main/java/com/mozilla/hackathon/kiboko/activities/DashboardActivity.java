@@ -19,6 +19,7 @@ import com.mozilla.hackathon.kiboko.events.BatteryStateChanged;
 import com.mozilla.hackathon.kiboko.events.LocationStateChanged;
 import com.mozilla.hackathon.kiboko.events.NetworkStateChanged;
 import com.mozilla.hackathon.kiboko.services.ChatHeadService;
+import com.mozilla.hackathon.kiboko.services.DataBootstrapService;
 import com.mozilla.hackathon.kiboko.utilities.Utils;
 import com.mozilla.hackathon.kiboko.widgets.MessageCardView;
 import com.squareup.otto.Bus;
@@ -66,6 +67,7 @@ public class DashboardActivity extends AppCompatActivity {
     protected void onResume()
     {
         super.onResume();
+        DataBootstrapService.startDataBootstrapIfNecessary(this);
         bus.register(this);
         active = true;
     }

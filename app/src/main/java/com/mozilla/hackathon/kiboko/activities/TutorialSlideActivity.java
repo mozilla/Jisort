@@ -1,20 +1,35 @@
 package com.mozilla.hackathon.kiboko.activities;
 
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.app.LoaderManager;
+import android.support.v4.content.CursorLoader;
+import android.support.v4.content.Loader;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.mozilla.hackathon.kiboko.R;
 import com.mozilla.hackathon.kiboko.fragments.ScreenSlidePageFragment;
+import com.mozilla.hackathon.kiboko.models.Step;
+import com.mozilla.hackathon.kiboko.provider.DsoContract;
+
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
+
+import static com.mozilla.hackathon.kiboko.utilities.LogUtils.LOGD;
+import static com.mozilla.hackathon.kiboko.utilities.LogUtils.makeLogTag;
 
 /**
  * Demonstrates a "screen-slide" animation using a {@link ViewPager}. Because {@link ViewPager}
@@ -27,7 +42,10 @@ import com.mozilla.hackathon.kiboko.fragments.ScreenSlidePageFragment;
  *
  * @see ScreenSlidePageFragment
  */
-public class TutorialSlideActivity extends AppCompatActivity {
+public class TutorialSlideActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
+    private static final String TAG = makeLogTag(TutorialSlideActivity.class);
+    private static final int LOADER_ID = 0x01;
+    private List<Step> jsonSteps = new ArrayList<Step>();
     /**
      * The number of pages (wizard steps) to show in this demo.
      */
@@ -45,6 +63,7 @@ public class TutorialSlideActivity extends AppCompatActivity {
     private PagerAdapter mPagerAdapter;
     private Button mPrev;
     private Button mNext;
+    private String mTopic;
     TextView txtCaption;
 
     @Override
@@ -56,9 +75,13 @@ public class TutorialSlideActivity extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
 
+        if(bundle.getString("title") != null) {
+            setTitle((String)bundle.get("title"));
+        }
+
         if(bundle.getString("topic") != null)
         {
-            setTitle((String)bundle.get("topic"));
+            mTopic = (String)bundle.get("topic");
         }
 
         // Instantiate a ViewPager and a PagerAdapter.
@@ -75,7 +98,6 @@ public class TutorialSlideActivity extends AppCompatActivity {
                 if(!(mPager.getCurrentItem() > mPagerAdapter.getCount() - 1)){
                     mPager.setCurrentItem(mPager.getCurrentItem() - 1);
                 }
-
             }
         });
 
@@ -102,24 +124,9 @@ public class TutorialSlideActivity extends AppCompatActivity {
                 invalidateOptionsMenu();
             }
         });
-    }
 
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        super.onCreateOptionsMenu(menu);
-//        getMenuInflater().inflate(R.menu.activity_tutorial_slide, menu);
-//
-//        menu.findItem(R.id.action_previous).setEnabled(mPager.getCurrentItem() > 0);
-//
-//        // Add either a "next" or "finish" button to the action bar, depending on which page
-//        // is currently selected.
-//        MenuItem item = menu.add(Menu.NONE, R.id.action_next, Menu.NONE,
-//                (mPager.getCurrentItem() == mPagerAdapter.getCount() - 1)
-//                        ? R.string.action_finish
-//                        : R.string.action_next);
-//        item.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM | MenuItem.SHOW_AS_ACTION_WITH_TEXT);
-//        return true;
-//    }
+        getSupportLoaderManager().initLoader(LOADER_ID, null, this);
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -130,6 +137,56 @@ public class TutorialSlideActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    @Override
+    public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+        // Define the columns to retrieve
+        String[] projectionFields = new String[] {
+                DsoContract.Tutorials.TUTORIAL_ID,
+                DsoContract.Tutorials.TUTORIAL_TAG,
+                DsoContract.Tutorials.TUTORIAL_HEADER,
+                DsoContract.Tutorials.TUTORIAL_PHOTO_URL,
+                DsoContract.Tutorials.TUTORIAL_STEPS };
+
+        // Read all data for contactId
+        String selection = DsoContract.Tutorials.TUTORIAL_TAG + " = ?";
+        String[] selectionArgs = new String[]{mTopic};
+
+        CursorLoader cursorLoader = new CursorLoader(TutorialSlideActivity.this,
+                DsoContract.Tutorials.CONTENT_URI, // URI
+                projectionFields, // projection fields
+                selection, // the selection criteria
+                selectionArgs, // the selection args
+                null // the sort order
+        );
+        // Return the loader for use
+        return cursorLoader;
+    }
+
+    @Override
+    public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
+        if (cursor != null && cursor.getCount() > 0) {
+            cursor.moveToFirst();
+            int idIndex =
+                    cursor.getColumnIndex(DsoContract.Tutorials._ID);
+            int stepsIndex =
+                    cursor.getColumnIndex(DsoContract.Tutorials.TUTORIAL_STEPS);
+
+            String jsonArray = cursor.getString(stepsIndex);
+            LOGD(TAG, jsonArray);
+            Type listType = new TypeToken<List<Step>>(){}.getType();
+
+            jsonSteps = (List<Step>) new Gson().fromJson(jsonArray,listType);
+            mPagerAdapter.notifyDataSetChanged();
+
+            txtCaption.setText(getString(R.string.tutorial_template_step, 1, mPager.getAdapter().getCount()));
+        }
+    }
+
+    @Override
+    public void onLoaderReset(Loader<Cursor> loader) {
+
     }
 
     /**
@@ -143,12 +200,12 @@ public class TutorialSlideActivity extends AppCompatActivity {
 
         @Override
         public Fragment getItem(int position) {
-            return ScreenSlidePageFragment.create(position);
+            return ScreenSlidePageFragment.create(position, jsonSteps.get(position).title, jsonSteps.get(position).description);
         }
 
         @Override
         public int getCount() {
-            return NUM_PAGES;
+            return jsonSteps.size();
         }
     }
 }

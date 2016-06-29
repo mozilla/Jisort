@@ -1,98 +1,80 @@
 {
-    "tutorials": [
-        {
+    "tutorials": [{
+        "id": "1",
+        "tag": "wifi",
+        "header": "Wi-Fi ni Noma!",
+        "photoUrl": "url",
+        "steps": [{
             "id": "1",
-            "tag": "wifi",
-            "header": "Wi-Fi ni Noma!",
-            "photoUrl": "url",
-            "steps": [
-                {
-                    "id": "1",
-                    "title": "What is Wi-Fi?",
-                    "gifUrl": "url",
-                    "description": "Wi-Fi is a technology that helps your phone connect to the internet, similar to airtime or mobile data. However, <b>Wi-Fi doesn’t use your airtime or mobile data.</b> Instead, in coffee shops or public spaces, Wi-Fi is often free."
-                },
-                {
-                    "id": "2",
-                    "title": "Where do I get it? Who owns it?",
-                    "gifUrl": "url",
-                    "description": "Wi-Fi networks are created by “hotspots” that connect to the internet. Anyone can buy one and set it up at home, at work, or in a public space. If you can detect a Wi-Fi network on your phone, you might be able to connect to it. To learn more about connecting, check out Connecting to Wi-Fi."
-                },
-                {
-                    "id": "3",
-                    "title": "Saving Money",
-                    "gifUrl": "url",
-                    "description": "Wi-Fi is great for saving money because it lets you connect to the internet without using mobile data or airtime on your phone. Remember, though, sometimes you have to pay a small fee to use Wi-Fi at a business or cafe, or buy some goods."
-                },
-                {
-                    "id": "4",
-                    "title": "Speed and Stability",
-                    "gifUrl": "url",
-                    "description": "Wi-Fi networks are generally more stable and faster than mobile data networks. Wi-Fi was designed to support multiple smartphones at once and lots of internet browsing. Downloading files or streaming videos is best over Wi-Fi.\n<b>Be aware:</b> it is not <b>always</b> the case that Wi-Fi is faster and more stable than mobile data. Depending on infrastructure, popularity, and other environmental factors, Wi-Fi may not be as responsive or reliable."
-                }
-            ]
-        },
-        {
+            "title": "What is Wi-Fi?",
+            "gifUrl": "url",
+            "description": "Wi-Fi is a technology that helps your phone connect to the internet, similar to airtime or mobile data. However, <b>Wi-Fi doesn't use your airtime or mobile data.</b> Instead, in coffee shops or public spaces, Wi-Fi is often free."
+        }, {
+            "id": "2",
+            "title": "Where do I get it? Who owns it?",
+            "gifUrl": "url",
+            "description": "Wi-Fi networks are created by \"hotspots\" that connect to the internet. Anyone can buy one and set it up at home, at work, or in a public space. If you can detect a Wi-Fi network on your phone, you might be able to connect to it. To learn more about connecting, check out Connecting to Wi-Fi."
+        }, {
+            "id": "3",
+            "title": "Saving Money",
+            "gifUrl": "url",
+            "description": "Wi-Fi is great for saving money because it lets you connect to the internet without using mobile data or airtime on your phone. Remember, though, sometimes you have to pay a small fee to use Wi-Fi at a business or cafe, or buy some goods."
+        }, {
+            "id": "4",
+            "title": "Speed and Stability",
+            "gifUrl": "url",
+            "description": "Wi-Fi networks are generally more stable and faster than mobile data networks. Wi-Fi was designed to support multiple smartphones at once and lots of internet browsing. Downloading files or streaming videos is best over Wi-Fi.\n<b>Be aware:</b> it is not <b>always</b> the case that Wi-Fi is faster and more stable than mobile data. Depending on infrastructure, popularity, and other environmental factors, Wi-Fi may not be as responsive or reliable."
+        }]
+    }, {
+        "id": "2",
+        "tag": "connect_wifi",
+        "header": "Connecting to Wi-Fi",
+        "photoUrl": "url",
+        "steps": [{
             "id": "1",
-            "tag": "connect_wifi",
-            "header": "Connecting to Wi-Fi",
-            "photoUrl": "url",
-            "steps": [
-                {
-                    "id": "1",
-                    "title": "Finding Names and Passwords",
-                    "gifUrl": "url",
-                    "description": "To connect to a Wi-Fi hotspot, you will need the name of the hotspot and, in some cases, its password. If you are in a business, cafe, or other public space, you can usually ask the owner of the hotspot for this information. Some places charge a small fee for using their Wi-Fi."
-                },
-                {
-                    "id": "2",
-                    "title": "Turning on Wi-Fi",
-                    "gifUrl": "url",
-                    "description": "On most Android phones, you can begin looking for Wi-Fi by swiping down the Title Bar at the top of the screen and tapping  the Wi-Fi icon. If you are close to a Wi-Fi network you have joined in the past, <b>your phone will try to connect to it automatically</b>."
-                },
-                {
-                    "id": "3",
-                    "title": "Turning on Wi-Fi from the Wireless Settings Menu",
-                    "gifUrl": "url",
-                    "description": "On Android phones, to make sure your Wi-Fi is on, open the <b>Settings</b> app [icon], and tap <b>Wi-Fi</b> icon [icon]. If your Wi-Fi is OFF,  look near the top of the screen and then tap the toggle switch [cropped screenshot] to move it into the “ON” position."
-                },
-                {
-                    "id": "4",
-                    "title": "Finding your hotspot in the Wi-Fi list",
-                    "gifUrl": "url",
-                    "description": "If your phone hasn’t already automatically connected to a Wi-Fi hotspot, you will need to use your phone to search for the hotspot you want to connect to.\n If you are already in the Wi-Fi Settings Menu from the last step, simply wait until you see the name of the Wi-Fi hotspot that you want to connect to. Otherwise, open the Settings app [icon], and click on the Wi-Fi icon [icon]. If your Wi-Fi is on, you will see a list of all the Wi-Fi hotspots around you."
-                },
-                {
-                    "id": "5",
-                    "title": "Connecting to a Wi-Fi hotspot",
-                    "gifUrl": "url",
-                    "description": "When you see the Wi-Fi hotspot that you want to connect to, tap it. If it doesn’t require a password, your phone will try to connect. When it does, it will read <b>Connected</b>.\nYou may also see your phone say <b>Authenticating</b> or <b>Obtaining IP Address</b>. These are normal steps in making a Wi-Fi connection.\nIf asked for a password, usishtuke! Just go to the next step [button to next step]."
-                },
-                {
-                    "id": "6",
-                    "title": "Entering a Password",
-                    "gifUrl": "url",
-                    "description": "<i>If your phone has already connected to the correct Wi-Fi hotspot, you can skip this step, and just go enjoy the Internet. :)</i>\nSome Wi-Fi hotspots require a password. In this case, a box will appear that asks for a password. If you don’t know the password, ask for help from the owner of the hotspot. Once you have the password, use the keyboard that pops up to enter it.\nIf you have trouble, jump to Fixing Problems."
-                },
-                {
-                    "id": "7",
-                    "title": "Fixing Problems",
-                    "gifUrl": "url",
-                    "description": "If you have problems connecting to a Wi-Fi hotspot, here is a list of things you can try:<ul><li>Make sure you have the right hotspot name.</li>Make sure you have the right password.</li>If you have the right password, make sure it’s entered correctly.</li>Talk to the hotspot owner (shopkeeper, librarian, IT assistant, etc.) and explain your problems. They may be able to help solve your problem.</li></ul>"
-                },
-                {
-                    "id": "8",
-                    "title": "Fixing Problems Continued",
-                    "gifUrl": "url",
-                    "description": "Sometimes even with the correct hotspot name and password, connection problems will persist. In this case, you can try removing the hotspot from your phone’s memory and then reconnecting. Go to the Wi-Fi Settings Menu (see Frame 3 [link]), and find the problematic hotspot’s name. Then, press and hold on the hotspot’s name until a menu appears. Choose “Forget Network”. Then, try connecting again. You may have to re-enter your password, so have it ready.\nSometimes a hotspot will be set up to work with specific devices and it may not let you connect to the internet even though it looks like it should. If you really can’t connect to the one you picked, try to find another hotspot."
-                },
-                {
-                    "id": "9",
-                    "title": "Enjoy",
-                    "gifUrl": "url",
-                    "description": ""
-                }
-            ]
-        }
-    ]
+            "title": "Finding Names and Passwords",
+            "gifUrl": "url",
+            "description": "To connect to a Wi-Fi hotspot, you will need the name of the hotspot and, in some cases, its password. If you are in a business, cafe, or other public space, you can usually ask the owner of the hotspot for this information. Some places charge a small fee for using their Wi-Fi."
+        }, {
+            "id": "2",
+            "title": "Turning on Wi-Fi",
+            "gifUrl": "url",
+            "description": "On most Android phones, you can begin looking for Wi-Fi by swiping down the Title Bar at the top of the screen and tapping  the Wi-Fi icon. If you are close to a Wi-Fi network you have joined in the past, <b>your phone will try to connect to it automatically</b>."
+        }, {
+            "id": "3",
+            "title": "Turning on Wi-Fi from the Wireless Settings Menu",
+            "gifUrl": "url",
+            "description": "On Android phones, to make sure your Wi-Fi is on, open the <b>Settings</b> app [icon], and tap <b>Wi-Fi</b> icon [icon]. If your Wi-Fi is OFF,  look near the top of the screen and then tap the toggle switch [cropped screenshot] to move it into the \"ON\" position."
+        }, {
+            "id": "4",
+            "title": "Finding your hotspot in the Wi-Fi list",
+            "gifUrl": "url",
+            "description": "If your phone hasn't already automatically connected to a Wi-Fi hotspot, you will need to use your phone to search for the hotspot you want to connect to.\n If you are already in the Wi-Fi Settings Menu from the last step, simply wait until you see the name of the Wi-Fi hotspot that you want to connect to. Otherwise, open the Settings app [icon], and click on the Wi-Fi icon [icon]. If your Wi-Fi is on, you will see a list of all the Wi-Fi hotspots around you."
+        }, {
+            "id": "5",
+            "title": "Connecting to a Wi-Fi hotspot",
+            "gifUrl": "url",
+            "description": "When you see the Wi-Fi hotspot that you want to connect to, tap it. If it doesn't require a password, your phone will try to connect. When it does, it will read <b>Connected</b>.\nYou may also see your phone say <b>Authenticating</b> or <b>Obtaining IP Address</b>. These are normal steps in making a Wi-Fi connection.\nIf asked for a password, usishtuke! Just go to the next step [button to next step]."
+        }, {
+            "id": "6",
+            "title": "Entering a Password",
+            "gifUrl": "url",
+            "description": "<i>If your phone has already connected to the correct Wi-Fi hotspot, you can skip this step, and just go enjoy the Internet. :)</i>\nSome Wi-Fi hotspots require a password. In this case, a box will appear that asks for a password. If you don’t know the password, ask for help from the owner of the hotspot. Once you have the password, use the keyboard that pops up to enter it.\nIf you have trouble, jump to Fixing Problems."
+        }, {
+            "id": "7",
+            "title": "Fixing Problems",
+            "gifUrl": "url",
+            "description": "If you have problems connecting to a Wi-Fi hotspot, here is a list of things you can try:<ul><li>Make sure you have the right hotspot name.</li>Make sure you have the right password.</li>If you have the right password, make sure it's entered correctly.</li>Talk to the hotspot owner (shopkeeper, librarian, IT assistant, etc.) and explain your problems. They may be able to help solve your problem.</li></ul>"
+        }, {
+            "id": "8",
+            "title": "Fixing Problems Continued",
+            "gifUrl": "url",
+            "description": "Sometimes even with the correct hotspot name and password, connection problems will persist. In this case, you can try removing the hotspot from your phone's memory and then reconnecting. Go to the Wi-Fi Settings Menu (see Frame 3 [link]), and find the problematic hotspot's name. Then, press and hold on the hotspot’s name until a menu appears. Choose \"Forget Network\". Then, try connecting again. You may have to re-enter your password, so have it ready.\nSometimes a hotspot will be set up to work with specific devices and it may not let you connect to the internet even though it looks like it should. If you really can't connect to the one you picked, try to find another hotspot."
+        }, {
+            "id": "9",
+            "title": "Enjoy",
+            "gifUrl": "url",
+            "description": "Enjoy"
+        }]
+    }]
 }
