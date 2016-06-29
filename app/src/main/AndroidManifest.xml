@@ -43,7 +43,13 @@
             android:name=".activities.TutorialSlideActivity"
             android:windowSoftInputMode="stateHidden"
             android:label="Usage Topic" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
 
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="vnd.android.cursor.item/vnd.mozilladso2016.tutorial" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".activities.TopicListActivity"
@@ -133,7 +139,7 @@
             android:exported="true"
             android:label="@string/app_name"
             android:syncable="true"
-            android:writePermission="com.google.samples.apps.iosched.permission.WRITE_SCHEDULE" />
+            android:writePermission="com.mozilla.hakathon.kiboko.permission.WRITE_SCHEDULE" />
 
         <service
             android:name=".sync.SyncService"
@@ -149,7 +155,7 @@
         </service>
 
         <!-- An IntentService responsible for bootstrapping the app with the necessary
-            data such as session, speakers, etc. This data is used prior to the app's
+            data such as tutorials, etc. This data is used prior to the app's
             first sync to the backend server. -->
         <service
             android:name=".services.DataBootstrapService"

@@ -90,7 +90,7 @@ public class ChatHeadService extends Service {
                 Utils.dpToPixels(TRAY_DIM_Y_DP, getResources()),
                 WindowManager.LayoutParams.TYPE_PHONE,
                 WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH | WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
-                PixelFormat.TRANSPARENT);
+                PixelFormat.TRANSLUCENT);
 
         mRootLayoutParams.gravity = Gravity.TOP | Gravity.LEFT;
         mWindowManager.addView(mRootLayout, mRootLayoutParams);
@@ -165,7 +165,7 @@ public class ChatHeadService extends Service {
                     mRootLayoutParams.y += deltaY;
                     mPrevDragX = x;
                     mPrevDragY = y;
-//                animateButtons();
+
                     mWindowManager.updateViewLayout(mRootLayout, mRootLayoutParams);
                 }else{
                     stayedWithinClickDistance = true;
@@ -189,8 +189,6 @@ public class ChatHeadService extends Service {
                 mTrayTimerTask = new TrayAnimationTimerTask();
                 mTrayAnimationTimer = new Timer();
                 mTrayAnimationTimer.schedule(mTrayTimerTask, 0, ANIMATION_FRAME_RATE);
-
-
                 break;
         }
     }
@@ -260,7 +258,7 @@ public class ChatHeadService extends Service {
                     mRootLayoutParams.x = (2*(mRootLayoutParams.x-mDestX))/3 + mDestX;
                     mRootLayoutParams.y = (2*(mRootLayoutParams.y-mDestY))/3 + mDestY;
                     mWindowManager.updateViewLayout(mRootLayout, mRootLayoutParams);
-//                    animateButtons();
+
                     // Cancel animation when the destination is reached
                     if (Math.abs(mRootLayoutParams.x-mDestX)<2 && Math.abs(mRootLayoutParams.y-mDestY)<2){
                         TrayAnimationTimerTask.this.cancel();
@@ -294,12 +292,23 @@ public class ChatHeadService extends Service {
         return START_STICKY;
     }
 
+    /**
+     * Open application
+     */
     private void openAppClicked() {
         Intent dashboardIntent = new Intent(this, DashboardActivity.class);
         dashboardIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         startActivity(dashboardIntent);
     }
 
+    /**
+     * Gets the distance between to points
+     * @param x1
+     * @param y1
+     * @param x2
+     * @param y2
+     * @return distance as a float value
+     */
     private float distance(float x1, float y1, float x2, float y2) {
         float dx = x1 - x2;
         float dy = y1 - y2;
@@ -307,6 +316,11 @@ public class ChatHeadService extends Service {
         return pxToDp(distanceInPx);
     }
 
+    /**
+     * Convert pixels to device pixels
+     * @param px
+     * @return device pixels
+     */
     private float pxToDp(float px) {
         return px / getResources().getDisplayMetrics().density;
     }

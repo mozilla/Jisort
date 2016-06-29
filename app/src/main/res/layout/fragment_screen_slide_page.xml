@@ -29,7 +29,7 @@
             android:layout_width="match_parent"
             android:src="@drawable/ic_help_white_48dp"
             android:layout_height="100dp"/>
-        <TextView android:id="@android:id/text1"
+        <TextView android:id="@+id/step_title"
             style="?android:textAppearanceLarge"
             android:textStyle="bold"
             android:textColor="@color/colorTextPrimary"
@@ -37,7 +37,9 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp" />
 
-        <TextView style="?android:textAppearanceMedium"
+        <org.sufficientlysecure.htmltextview.HtmlTextView
+            android:id="@+id/step_description"
+            style="?android:textAppearanceMedium"
             android:lineSpacingMultiplier="1.2"
             android:textColor="@color/colorTextPrimary"
             android:layout_width="match_parent"

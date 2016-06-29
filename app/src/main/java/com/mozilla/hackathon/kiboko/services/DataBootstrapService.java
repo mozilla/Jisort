@@ -63,9 +63,9 @@ public class DataBootstrapService extends IntentService {
             String bootstrapJson = JSONHandler
                     .parseResource(appContext, R.raw.bootstrap_data);
 
-            // Apply the data we read to the database with the help of the ConferenceDataHandler.
+            // Apply the data we read to the database with the help of the DsoDataHandler.
             DsoDataHandler dataHandler = new DsoDataHandler(appContext);
-            dataHandler.applyConferenceData(new String[]{bootstrapJson},
+            dataHandler.applyDSOData(new String[]{bootstrapJson},
                     BuildConfig.BOOTSTRAP_DATA_TIMESTAMP, false);
 
             SyncHelper.performPostSyncChores(appContext);

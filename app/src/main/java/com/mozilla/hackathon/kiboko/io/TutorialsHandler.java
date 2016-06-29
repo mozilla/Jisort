@@ -3,10 +3,8 @@ package com.mozilla.hackathon.kiboko.io;
 import android.content.ContentProviderOperation;
 import android.content.Context;
 import android.database.Cursor;
-import android.graphics.Color;
 import android.net.Uri;
 import android.provider.BaseColumns;
-import android.text.TextUtils;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
@@ -14,8 +12,6 @@ import com.mozilla.hackathon.kiboko.models.Tutorial;
 import com.mozilla.hackathon.kiboko.provider.DsoContract;
 import com.mozilla.hackathon.kiboko.provider.DsoContract.Tutorials;
 import com.mozilla.hackathon.kiboko.provider.DsoContractHelper;
-import com.mozilla.hackathon.kiboko.provider.DsoDatabase;
-import com.mozilla.hackathon.kiboko.utilities.TimeUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -53,7 +49,7 @@ public class TutorialsHandler  extends JSONHandler {
 
         // build a map of tutorial to tutorial import hashcode so we know what to update,
         // what to insert, and what to delete
-        HashMap<String, String> tutorialHashCodes = loadtutorialHashCodes();
+        HashMap<String, String> tutorialHashCodes = loadTutorialHashCodes();
         boolean incrementalUpdate = (tutorialHashCodes != null) && (tutorialHashCodes.size() > 0);
 
         // set of tutorials that we want to keep after the sync
@@ -80,8 +76,7 @@ public class TutorialsHandler  extends JSONHandler {
                     !tutorialHashCodes.get(tutorial.id).equals(hashCode)) {
                 ++updatedtutorials;
                 boolean isNew = !incrementalUpdate || !tutorialHashCodes.containsKey(tutorial.id);
-                buildtutorial(isNew, tutorial, list);
-
+                buildTutorial(isNew, tutorial, list);
                 // add relationships to speakers and track
 //                buildtutorialSpeakerMapping(tutorial, list);
 //                buildTagsMapping(tutorial, list);
@@ -109,7 +104,7 @@ public class TutorialsHandler  extends JSONHandler {
         list.add(ContentProviderOperation.newDelete(tutorialUri).build());
     }
 
-    private HashMap<String, String> loadtutorialHashCodes() {
+    private HashMap<String, String> loadTutorialHashCodes() {
         Uri uri = DsoContractHelper.setUriAsCalledFromSyncAdapter(
                 DsoContract.Tutorials.CONTENT_URI);
         LOGD(TAG, "Loading tutorial hashcodes for tutorial import optimization.");
@@ -140,7 +135,7 @@ public class TutorialsHandler  extends JSONHandler {
 
     StringBuilder mStringBuilder = new StringBuilder();
 
-    private void buildtutorial(boolean isInsert,
+    private void buildTutorial(boolean isInsert,
                               Tutorial tutorial, ArrayList<ContentProviderOperation> list) {
         ContentProviderOperation.Builder builder;
         Uri alltutorialsUri = DsoContractHelper
@@ -184,11 +179,10 @@ public class TutorialsHandler  extends JSONHandler {
 
         builder.withValue(DsoContract.SyncColumns.UPDATED, System.currentTimeMillis())
                 .withValue(Tutorials.TUTORIAL_ID, tutorial.id)
-                .withValue(Tutorials.TUTORIAL_TAGS, null)            // Not available
+                .withValue(Tutorials.TUTORIAL_TAG, tutorial.tag)
                 .withValue(Tutorials.TUTORIAL_HEADER, tutorial.header)
-                .withValue(Tutorials.TUTORIAL_STEPS, tutorial.steps)
-                .withValue(Tutorials.TUTORIAL_TAGS, tutorial.tag)
-
+                .withValue(Tutorials.TUTORIAL_IMPORT_HASHCODE,
+                        tutorial.getImportHashCode())
                 // Note: we store this comma-separated list of tags IN ADDITION
                 // to storing the tags in proper relational format (in the tutorials_tags
                 // relationship table). This is because when querying for tutorials,
@@ -198,7 +192,7 @@ public class TutorialsHandler  extends JSONHandler {
                 // with the tutorials_speakers relationship table) so that we can
                 // display it easily in lists without having to make an additional DB query
                 // (or another join) for each record.
-
+                 .withValue(Tutorials.TUTORIAL_STEPS, new Gson().toJson(tutorial.steps))
                 .withValue(DsoContract.Tutorials.TUTORIAL_PHOTO_URL, tutorial.photoUrl);
         list.add(builder.build());
     }

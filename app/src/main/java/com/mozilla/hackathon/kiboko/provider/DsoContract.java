@@ -1,12 +1,8 @@
 package com.mozilla.hackathon.kiboko.provider;
 
-import android.app.SearchManager;
 import android.net.Uri;
 import android.provider.BaseColumns;
 import android.text.TextUtils;
-import android.text.format.DateUtils;
-
-import java.util.List;
 
 /**
  * Contract class for interacting with {@link DsoProvider}. Unless otherwise noted, all
@@ -41,7 +37,7 @@ public final class DsoContract {
         /** Tutorial header. */
         String TUTORIAL_HEADER = "tutorial_header";
 
-        String TUTORIAL_TAGS = "tutorial_tags";
+        String TUTORIAL_TAG = "tutorial_tag";
 
         String TUTORIAL_PHOTO_URL = "tutorial_photo_url";
         /** The Tutorials's steps. */
@@ -50,27 +46,17 @@ public final class DsoContract {
         String TUTORIAL_IMPORT_HASHCODE = "tutorial_import_hashcode";
     }
 
-
     public static final String CONTENT_AUTHORITY = "com.mozilla.hackathon.kiboko";
 
     public static final Uri BASE_CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
     
 
     private static final String PATH_TAGS = "tags";
-    
 
     private static final String PATH_TUTORIALS = "tutorials";
 
-   
-    private static final String PATH_SEARCH = "search";
-
-    private static final String PATH_SEARCH_SUGGEST = "search_suggest_query";
-
-    private static final String PATH_SEARCH_INDEX = "search_index";
-    
-
     public static final String[] TOP_LEVEL_PATHS = {
-            PATH_TAGS,
+            //PATH_TAGS,
             PATH_TUTORIALS,
     };
     
@@ -89,10 +75,6 @@ public final class DsoContract {
             return null;
         }
     }
-    
- 
-
-
 
     /**
      * Each tutorial has zero or more
@@ -139,49 +121,49 @@ public final class DsoContract {
          * @param query The query. Can be multiple words separated by spaces.
          * @return {@link Uri} to the tutorials
          */
-        public static Uri buildSearchUri(String query) {
-            if (null == query) {
-                query = "";
-            }
-            // convert "lorem ipsum dolor sit" to "lorem* ipsum* dolor* sit*"
-            query = query.replaceAll(" +", " *") + "*";
-            return CONTENT_URI.buildUpon()
-                    .appendPath(PATH_SEARCH).appendPath(query).build();
-        }
+//        public static Uri buildSearchUri(String query) {
+//            if (null == query) {
+//                query = "";
+//            }
+//            // convert "lorem ipsum dolor sit" to "lorem* ipsum* dolor* sit*"
+//            query = query.replaceAll(" +", " *") + "*";
+//            return CONTENT_URI.buildUpon()
+//                    .appendPath(PATH_SEARCH).appendPath(query).build();
+//        }
+//
+//        public static boolean isSearchUri(Uri uri) {
+//            List<String> pathSegments = uri.getPathSegments();
+//            return pathSegments.size() >= 2 && PATH_SEARCH.equals(pathSegments.get(1));
+//        }
 
-        public static boolean isSearchUri(Uri uri) {
-            List<String> pathSegments = uri.getPathSegments();
-            return pathSegments.size() >= 2 && PATH_SEARCH.equals(pathSegments.get(1));
-        }
-
-        public static long[] getInterval(Uri uri) {
-            if (uri == null) {
-                return null;
-            }
-            List<String> segments = uri.getPathSegments();
-            if (segments.size() == 3 && segments.get(2).indexOf('-') > 0) {
-                String[] interval = segments.get(2).split("-");
-                return new long[]{Long.parseLong(interval[0]), Long.parseLong(interval[1])};
-            }
-            return null;
-        }
+//        public static long[] getInterval(Uri uri) {
+//            if (uri == null) {
+//                return null;
+//            }
+//            List<String> segments = uri.getPathSegments();
+//            if (segments.size() == 3 && segments.get(2).indexOf('-') > 0) {
+//                String[] interval = segments.get(2).split("-");
+//                return new long[]{Long.parseLong(interval[0]), Long.parseLong(interval[1])};
+//            }
+//            return null;
+//        }
 
         /** Read {@link #TUTORIAL_ID} from {@link Tutorials} {@link Uri}. */
         public static String getTutorialId(Uri uri) {
             return uri.getPathSegments().get(1);
         }
 
-        public static String getSearchQuery(Uri uri) {
-            List<String> segments = uri.getPathSegments();
-            if (2 < segments.size()) {
-                return segments.get(2);
-            }
-            return null;
-        }
+//        public static String getSearchQuery(Uri uri) {
+//            List<String> segments = uri.getPathSegments();
+//            if (2 < segments.size()) {
+//                return segments.get(2);
+//            }
+//            return null;
+//        }
 
-        public static boolean hasFilterParam(Uri uri) {
-            return uri != null && uri.getQueryParameter(QUERY_PARAMETER_TAG_FILTER) != null;
-        }
+//        public static boolean hasFilterParam(Uri uri) {
+//            return uri != null && uri.getQueryParameter(QUERY_PARAMETER_TAG_FILTER) != null;
+//        }
 
         /**
          * Build {@link Uri} that references all tutorials that have ALL of the indicated tags.
@@ -233,33 +215,33 @@ public final class DsoContract {
         }
     }
 
-    public static class SearchSuggest {
+//    public static class SearchSuggest {
+//
+//        public static final Uri CONTENT_URI =
+//                BASE_CONTENT_URI.buildUpon().appendPath(PATH_SEARCH_SUGGEST).build();
+//
+//        public static final String DEFAULT_SORT = SearchManager.SUGGEST_COLUMN_TEXT_1
+//                + " COLLATE NOCASE ASC";
+//    }
 
-        public static final Uri CONTENT_URI =
-                BASE_CONTENT_URI.buildUpon().appendPath(PATH_SEARCH_SUGGEST).build();
-
-        public static final String DEFAULT_SORT = SearchManager.SUGGEST_COLUMN_TEXT_1
-                + " COLLATE NOCASE ASC";
-    }
-
-    public static class SearchIndex {
-
-        public static final Uri CONTENT_URI =
-                BASE_CONTENT_URI.buildUpon().appendPath(PATH_SEARCH_INDEX).build();
-    }
+//    public static class SearchIndex {
+//
+//        public static final Uri CONTENT_URI =
+//                BASE_CONTENT_URI.buildUpon().appendPath(PATH_SEARCH_INDEX).build();
+//    }
 
     /**
      * Columns for an in memory table created on query using
      * the Tags table and the SearchTutorials table.
      */
-    public interface SearchTopicTutorialsColumns extends BaseColumns {
-        /* This column contains either a tag_id or a tutorial_id */
-        String TAG_OR_TUTORIAL_ID = "tag_or_tutorial_id";
-        /* This column contains the search snippet to be shown to the user.*/
-        String SEARCH_SNIPPET = "search_snippet";
-        /* Indicates whether this row is a topic tag or a tutorial_id. */
-        String IS_TOPIC_TAG = "is_topic_tag";
-    }
+//    public interface SearchTopicTutorialsColumns extends BaseColumns {
+//        /* This column contains either a tag_id or a tutorial_id */
+//        String TAG_OR_TUTORIAL_ID = "tag_or_tutorial_id";
+//        /* This column contains the search snippet to be shown to the user.*/
+//        String SEARCH_SNIPPET = "search_snippet";
+//        /* Indicates whether this row is a topic tag or a tutorial_id. */
+//        String IS_TOPIC_TAG = "is_topic_tag";
+//    }
 
     private DsoContract() {
     }
