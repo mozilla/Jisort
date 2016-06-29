@@ -38,6 +38,8 @@ public class ScreenSlidePageFragment extends Fragment {
     public static final String ARG_PAGE_DESCRIPTION = "page_description";
     public static final String ARG_PAGE_IMAGE = "page_image";
 
+    private float mActionBarHeight;
+
     private GifDrawable gifDrawable;
 
     /**
@@ -70,6 +72,8 @@ public class ScreenSlidePageFragment extends Fragment {
         mPageDescription = getArguments().getString(ARG_PAGE_DESCRIPTION);
         mPageTitle = getArguments().getString(ARG_PAGE_TITLE);
         mPageImage = getArguments().getString(ARG_PAGE_IMAGE);
+
+        mActionBarHeight = ((AppCompatActivity) getActivity()).getSupportActionBar().getHeight();
     }
 
     @Override
@@ -94,11 +98,13 @@ public class ScreenSlidePageFragment extends Fragment {
 
     private NotifyingScrollView.OnScrollChangedListener mOnScrollChangedListener = new NotifyingScrollView.OnScrollChangedListener() {
         public void onScrollChanged(ScrollView who, int l, int t, int oldl, int oldt) {
-            final int headerHeight = 50 - ((AppCompatActivity) getActivity()).getSupportActionBar().getHeight();
-            final float ratio = (float) Math.min(Math.max(t, 0), headerHeight) / headerHeight;
-            final int newAlpha = (int) (ratio * 255);
-            LOGD("MOZILLA", String.valueOf(newAlpha));
-            ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
+            float y = who.getScrollY();
+            if (y >= mActionBarHeight && ((AppCompatActivity) getActivity()).getSupportActionBar().isShowing()) {
+                ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
+            } else if ( y==0 && !((AppCompatActivity) getActivity()).getSupportActionBar().isShowing()) {
+                ((AppCompatActivity) getActivity()).getSupportActionBar().show();
+            }
+
         }
     };
 
