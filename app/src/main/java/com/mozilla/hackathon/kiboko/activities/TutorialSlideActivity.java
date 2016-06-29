@@ -200,7 +200,7 @@ public class TutorialSlideActivity extends AppCompatActivity implements LoaderMa
 
         @Override
         public Fragment getItem(int position) {
-            return ScreenSlidePageFragment.create(position, jsonSteps.get(position).title, jsonSteps.get(position).description);
+            return ScreenSlidePageFragment.create(position, jsonSteps.get(position).title, jsonSteps.get(position).description, jsonSteps.get(position).gifUrl);
         }
 
         @Override

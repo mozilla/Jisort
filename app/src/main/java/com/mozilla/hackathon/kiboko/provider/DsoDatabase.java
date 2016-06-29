@@ -146,7 +146,7 @@ public class DsoDatabase extends SQLiteOpenHelper {
         // version, we have no choice but to delete everything and create everything again.
         if (version != CUR_DATABASE_VERSION) {
             LOGW(TAG, "Upgrade unsuccessful -- destroying old data during upgrade");
-            db.execSQL("DROP TRIGGER IF EXISTS " + Triggers.TUTORIALS_TAGS_DELETE);
+//            db.execSQL("DROP TRIGGER IF EXISTS " + Triggers.TUTORIALS_TAGS_DELETE);
             db.execSQL("DROP TABLE IF EXISTS " + Tables.TUTORIALS);
 
             onCreate(db);

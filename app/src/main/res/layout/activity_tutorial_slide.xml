@@ -1,27 +1,30 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:padding="4dip"
     android:background="@color/colorPrimary"
-    android:gravity="center_horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_marginTop="@dimen/activity_horizontal_margin"
         android:layout_marginBottom="@dimen/activity_horizontal_margin"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
         android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
         android:orientation="horizontal"
-        android:layout_height="50dp">
+        android:layout_height="wrap_content">
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_gravity="center_vertical"
             android:layout_weight="0.2"
+            android:layout_gravity="left"
+            android:gravity="left"
             android:layout_height="wrap_content">
             <Button
                 android:id="@+id/mPrev"
                 android:layout_width="48dp"
                 android:gravity="center"
+                android:layout_gravity="center_horizontal"
                 android:background="@drawable/circular_back"
                 android:layout_height="48dp"/>
         </LinearLayout>
@@ -32,19 +35,22 @@
             android:textSize="18sp"
             android:textStyle="bold"
             android:textColor="@color/colorTextPrimary"
-            android:layout_gravity="center_vertical"
+            android:layout_gravity="center_vertical|center_horizontal"
             android:gravity="center_horizontal"
             android:layout_height="wrap_content"/>
         <LinearLayout
             android:layout_width="0dp"
             android:layout_weight="0.2"
+            android:layout_gravity="right"
+            android:gravity="right"
             android:layout_height="wrap_content">
-        <Button
-            android:id="@+id/mNext"
-            android:background="@drawable/circular_next"
-            android:gravity="center"
-            android:layout_width="48dp"
-            android:layout_height="48dp"/>
+            <Button
+                android:id="@+id/mNext"
+                android:background="@drawable/circular_next"
+                android:gravity="center"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="48dp"
+                android:layout_height="48dp"/>
             </LinearLayout>
     </LinearLayout>
     <android.support.v4.view.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"

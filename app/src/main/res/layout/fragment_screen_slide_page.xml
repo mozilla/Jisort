@@ -1,20 +1,4 @@
-<!--
-  Copyright 2012 The Android Open Source Project
-
-  Licensed under the Apache License, Version 2.0 (the "License");
-  you may not use this file except in compliance with the License.
-  You may obtain a copy of the License at
-
-      http://www.apache.org/licenses/LICENSE-2.0
-
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License.
-  -->
-
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.mozilla.hackathon.kiboko.widgets.NotifyingScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/content"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -24,11 +8,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="16dp">
-        <ImageView
-            android:id="@+id/tutorial_image"
-            android:layout_width="match_parent"
-            android:src="@drawable/ic_help_white_48dp"
-            android:layout_height="100dp"/>
         <TextView android:id="@+id/step_title"
             style="?android:textAppearanceLarge"
             android:textStyle="bold"
@@ -40,12 +19,32 @@
         <org.sufficientlysecure.htmltextview.HtmlTextView
             android:id="@+id/step_description"
             style="?android:textAppearanceMedium"
-            android:lineSpacingMultiplier="1.2"
+            android:lineSpacingMultiplier="1.5"
             android:textColor="@color/colorTextPrimary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/lorem_ipsum" />
+            android:text="@string/empty_tutorial" />
+
+        <!--<org.sufficientlysecure.htmltextview.HtmlTextView-->
+            <!--android:id="@+id/step_image"-->
+            <!--android:background="@android:color/transparent"-->
+            <!--android:layout_margin="@dimen/activity_horizontal_margin"-->
+            <!--android:layout_gravity="center_horizontal"-->
+            <!--android:gravity="center_horizontal"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content" />-->
+
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/step_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:src="@drawable/connectwifi9"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:background="@android:color/transparent"
+            />
 
     </LinearLayout>
 
-</ScrollView>
+</com.mozilla.hackathon.kiboko.widgets.NotifyingScrollView>
