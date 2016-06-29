@@ -17,6 +17,10 @@
         <item name="android:colorForeground">@color/colorTextPrimary</item>
     </style>
 
+    <style name="AppTheme.SplashTheme" parent="AppTheme">
+        <item name="android:windowBackground">@drawable/background_splash</item>
+    </style>
+
     <style name="DSOActionBar" parent="@style/Widget.AppCompat.Light.ActionBar">
         <item name="android:titleTextStyle" tools:ignore="NewApi">@style/DSOActionBarTitle</item>
         <item name="android:background" tools:ignore="NewApi">@color/colorPrimary</item>
