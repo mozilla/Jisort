@@ -8,7 +8,7 @@ public class Config {
     public static final String DOGFOOD_BUILD_WARNING_TITLE = "DOGFOOD BUILD";
 
     public static final String DOGFOOD_BUILD_WARNING_TEXT = "Shhh! This is a pre-release build "
-            + "of the I/O app. Don't show it around.";
+            + "of the Mozilla DSO app. Don't show it around.";
 
     public static final TimeZone TIMEZONE = TimeZone.getDefault();
 

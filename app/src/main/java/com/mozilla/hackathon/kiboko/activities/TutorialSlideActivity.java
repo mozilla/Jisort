@@ -1,6 +1,8 @@
 package com.mozilla.hackathon.kiboko.activities;
 
+import android.content.Intent;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -14,6 +16,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -22,6 +25,7 @@ import com.google.gson.reflect.TypeToken;
 import com.mozilla.hackathon.kiboko.R;
 import com.mozilla.hackathon.kiboko.fragments.ScreenSlidePageFragment;
 import com.mozilla.hackathon.kiboko.models.Step;
+import com.mozilla.hackathon.kiboko.models.Tutorial;
 import com.mozilla.hackathon.kiboko.provider.DsoContract;
 
 import java.lang.reflect.Type;
@@ -44,6 +48,7 @@ import static com.mozilla.hackathon.kiboko.utilities.LogUtils.makeLogTag;
  */
 public class TutorialSlideActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
     private static final String TAG = makeLogTag(TutorialSlideActivity.class);
+    private static final Uri BASE_APP_URI = Uri.parse("android-app://com.mozilla.hackathon.kiboko/http/mozilla-dso.com/recipe/");
     private static final int LOADER_ID = 0x01;
     private List<Step> jsonSteps = new ArrayList<Step>();
     /**
@@ -66,9 +71,12 @@ public class TutorialSlideActivity extends AppCompatActivity implements LoaderMa
     private String mTopic;
     TextView txtCaption;
 
+    private Tutorial tutorial;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().requestFeature(Window.FEATURE_ACTION_BAR_OVERLAY);
         setContentView(R.layout.activity_tutorial_slide);
         ActionBar ab = getSupportActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
@@ -83,6 +91,8 @@ public class TutorialSlideActivity extends AppCompatActivity implements LoaderMa
         {
             mTopic = (String)bundle.get("topic");
         }
+
+        onNewIntent(getIntent());
 
         // Instantiate a ViewPager and a PagerAdapter.
         mPager = (ViewPager) findViewById(R.id.pager);
@@ -133,6 +143,17 @@ public class TutorialSlideActivity extends AppCompatActivity implements LoaderMa
         });
 
         getSupportLoaderManager().initLoader(LOADER_ID, null, this);
+    }
+
+    protected void onNewIntent(Intent intent) {
+        String action = intent.getAction();
+        String data = intent.getDataString();
+        if (Intent.ACTION_VIEW.equals(action) && data != null) {
+            String recipeId = data.substring(data.lastIndexOf("/") + 1);
+            Uri contentUri = DsoContract.Tutorials.CONTENT_URI.buildUpon()
+                    .appendPath(recipeId).build();
+            //showRecipe(contentUri);
+        }
     }
 
     @Override

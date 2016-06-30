@@ -4,8 +4,10 @@ package com.mozilla.hackathon.kiboko.fragments;
  * Created by mwadime on 6/9/2016.
  */
 
+import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,6 +41,8 @@ public class ScreenSlidePageFragment extends Fragment {
     public static final String ARG_PAGE_IMAGE = "page_image";
 
     private float mActionBarHeight;
+    private ActionBar mActionBar;
+
 
     private GifDrawable gifDrawable;
 
@@ -73,8 +77,11 @@ public class ScreenSlidePageFragment extends Fragment {
         mPageTitle = getArguments().getString(ARG_PAGE_TITLE);
         mPageImage = getArguments().getString(ARG_PAGE_IMAGE);
 
-        mActionBarHeight = ((AppCompatActivity) getActivity()).getSupportActionBar().getHeight();
-
+        final TypedArray styledAttributes = getContext().getTheme().obtainStyledAttributes(
+                new int[] { android.R.attr.actionBarSize });
+        mActionBarHeight = styledAttributes.getDimension(0, 0);
+        styledAttributes.recycle();
+        mActionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
     }
 
     @Override
@@ -92,11 +99,6 @@ public class ScreenSlidePageFragment extends Fragment {
 
         GifImageView gifImageView = (GifImageView) rootView.findViewById(R.id.step_image);
         gifImageView.setImageResource(getResId(mPageImage));
-        //gifDrawable = (GifDrawable) gifImageView.getDrawable();
-
-        if (((AppCompatActivity) getActivity()).getSupportActionBar().getHeight() < rootView.getHeight() && !((AppCompatActivity) getActivity()).getSupportActionBar().isShowing()) {
-            ((AppCompatActivity) getActivity()).getSupportActionBar().show();
-        }
 
         return rootView;
     }
@@ -104,10 +106,10 @@ public class ScreenSlidePageFragment extends Fragment {
     private NotifyingScrollView.OnScrollChangedListener mOnScrollChangedListener = new NotifyingScrollView.OnScrollChangedListener() {
         public void onScrollChanged(ScrollView who, int l, int t, int oldl, int oldt) {
             float y = who.getScrollY();
-            if (y >= mActionBarHeight && ((AppCompatActivity) getActivity()).getSupportActionBar().isShowing()) {
-                ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
-            } else if ( y==0 && !((AppCompatActivity) getActivity()).getSupportActionBar().isShowing()) {
-                ((AppCompatActivity) getActivity()).getSupportActionBar().show();
+            if (y >= mActionBarHeight && mActionBar.isShowing()) {
+                mActionBar.hide();
+            } else if ( y==0 && !mActionBar.isShowing()) {
+                mActionBar.show();
             }
         }
     };

@@ -46,10 +46,13 @@
             android:label="Usage Topic" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
+                <category android:name="android.intent.category.BROWSABLE" />
                 <data android:mimeType="vnd.android.cursor.item/vnd.mozilladso2016.tutorial" />
+                <!-- Accepts URIs that begin with "http://mozilla-dso.com/tutorial" -->
+                <data android:scheme="http"
+                    android:host="mozilla-dso.com"
+                    android:pathPrefix="/tutorial" />
             </intent-filter>
         </activity>
         <activity
