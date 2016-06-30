@@ -24,6 +24,7 @@
             android:name=".activities.DashboardActivity"
             android:windowSoftInputMode="stateHidden"
             android:launchMode="singleTop"
+            android:theme="@style/AppTheme.SplashTheme"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -80,6 +81,12 @@
 
         </activity>
 
+        <receiver android:enabled="true" android:name=".recievers.DSOAirplaneModeReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.AIRPLANE_MODE"/>
+            </intent-filter>
+        </receiver>
+
         <receiver android:name=".recievers.DSOReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
@@ -89,9 +96,7 @@
         <receiver android:name=".recievers.DSOBatteryReceiver" >
             <intent-filter>
                 <action android:name="android.bluetooth.adapter.action.STATE_CHANGED" />
-                <action android:name="android.bluetooth.adapter.action.CONNECTION_STATE_CHANGED" />
-                <action android:name="android.bluetooth.device.action.ACL_CONNECTED" />
-                <action android:name="android.bluetooth.device.action.ACL_DISCONNECTED" />
+                <action android:name="android.bluetooth.adapter.action.BATTERY_CHANGED" />
             </intent-filter>
         </receiver>
 
