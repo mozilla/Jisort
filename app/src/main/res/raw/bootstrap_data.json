@@ -39,17 +39,17 @@
             "id": "2",
             "title": "Turning on Wi-Fi",
             "gifUrl": "connectwifi2",
-            "description": "On most Android phones, you can swipe down the Title Bar at the top of the screen and tap  the Wi-Fi [icon] icon. If you are close to a Wi-Fi network you have joined before, <b>your phone will try to connect to it automatically</b>."
+            "description": "On most Android phones, you can swipe down the Title Bar at the top of the screen and tap the Wi-Fi <img src=\"ic_signal_wifi_off_black_24dp\"/> icon. If you are close to a Wi-Fi network you have joined before, <b>your phone will try to connect to it automatically</b>."
         }, {
             "id": "3",
             "title": "Turning on Wi-Fi from the Wireless Settings Menu",
             "gifUrl": "connectwifi3",
-            "description": "On Android phones, to make sure your Wi-Fi is on, open the <b>Settings</b> app [icon], and tap <b>Wi-Fi</b> icon [icon]. If your Wi-Fi is OFF,  look near the top of the screen and then tap the toggle switch [cropped screenshot] to move it into the \"ON\" position."
+            "description": "On Android phones, to make sure your Wi-Fi is on, open the <b>Settings</b> app <img src=\"ic_settings_applications_white_24dp\"/>, and tap <b>Wi-Fi</b> icon <img src=\"ic_signal_wifi_off_black_24dp\"/>. If your Wi-Fi is OFF,  look near the top of the screen and then tap the toggle switch [cropped screenshot] to move it into the \"ON\" position."
         }, {
             "id": "4",
             "title": "Finding your hotspot in the Wi-Fi list",
             "gifUrl": "connectwifi4",
-            "description": "If your phone hasn't already automatically connected to a Wi-Fi hotspot, you will need to use your phone to search for the hotspot you want to connect to.\n If you are already in the Wi-Fi Settings Menu from the last step, simply wait until you see the name of the Wi-Fi hotspot that you want to connect to. Otherwise, open the Settings app [icon], and click on the Wi-Fi icon [icon]. If your Wi-Fi is on, you will see a list of all the Wi-Fi hotspots around you."
+            "description": "If your phone hasn't already automatically connected to a Wi-Fi hotspot, you will need to use your phone to search for the hotspot you want to connect to.\n If you are already in the Wi-Fi Settings Menu from the last step, simply wait until you see the name of the Wi-Fi hotspot that you want to connect to. Otherwise, open the Settings app <img src=\"ic_settings_applications_white_24dp\"/>, and click on the Wi-Fi icon <img src=\"ic_signal_wifi_off_black_24dp\"/>. If your Wi-Fi is on, you will see a list of all the Wi-Fi hotspots around you."
         }, {
             "id": "5",
             "title": "Connecting to a Wi-Fi hotspot",
@@ -188,7 +188,7 @@
           "id": "2",
           "title": "Checking your Storage",
           "gifUrl": "storage2",
-          "description": "Within the <b>Settings</b> [icon] app you’ll find the <b>Storage & USB</b> [storage icon] menu. You will be shown a breakdown of the Apps, Images, Videos, Audio, and Other content that's using up your phone's memory."
+          "description": "Within the <b>Settings</b> <img src=\"ic_settings_applications_white_24dp\"/> app you’ll find the <b>Storage & USB</b> [storage icon] menu. You will be shown a breakdown of the Apps, Images, Videos, Audio, and Other content that's using up your phone's memory."
         }, {
           "id": "3",
           "title": "Evaluating Items",
@@ -214,7 +214,7 @@
         "id": "2",
         "title": "Opening the Play Store",
         "gifUrl": "storage2",
-        "description": "To start, look for the Play Store icon on your phone’s screen. If you can’t find it, try looking in the apps [icon] menu."
+        "description": "To start, look for the Play Store icon on your phone’s screen. If you can’t find it, try looking in the apps <img src=\"ic_blur_circular_black_24dp\"/> menu."
       }, {
         "id": "3",
         "title": "Accounts",
