@@ -1,6 +1,8 @@
 package com.mozilla.hackathon.kiboko.activities;
 
+import android.app.ActivityManager;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
@@ -25,9 +27,6 @@ import com.mozilla.hackathon.kiboko.widgets.MessageCardView;
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
 
-/**
- * Created by Brian Mwadime on 06/06/2016.
- */
 public class DashboardActivity extends AppCompatActivity {
     public static int OVERLAY_PERMISSION_REQ_CODE_CHATHEAD = 1234;
     public static int OVERLAY_PERMISSION_REQ_CODE_CHATHEAD_MSG = 5678;
@@ -46,10 +45,12 @@ public class DashboardActivity extends AppCompatActivity {
         mDashboard = DashboardActivity.this;
         bus.post(new NetworkStateChanged(false) );
 
-        if(Utils.canDrawOverlays(this))
-            startOverlayService();
-        else{
-            requestPermission(OVERLAY_PERMISSION_REQ_CODE_CHATHEAD);
+        if(isServiceRunning()){
+            if(Utils.canDrawOverlays(this))
+                startOverlayService();
+            else{
+                requestPermission(OVERLAY_PERMISSION_REQ_CODE_CHATHEAD);
+            }
         }
     }
 
@@ -237,5 +238,15 @@ public class DashboardActivity extends AppCompatActivity {
 
         }
 
+    }
+
+    private boolean isServiceRunning() {
+        ActivityManager manager = (ActivityManager)this.getSystemService(Context.ACTIVITY_SERVICE);
+        for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)){
+            if("com.mozilla.hackathon.kiboko.services.ChatHeadService".equals(service.service.getClassName())) {
+                return true;
+            }
+        }
+        return false;
     }
 }

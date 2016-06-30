@@ -57,7 +57,7 @@ public class ChatHeadService extends Service {
     /**
      * Max allowed duration for a "click", in milliseconds.
      */
-    private static final int MAX_CLICK_DURATION = 200;
+    private static final int MAX_CLICK_DURATION = 100;
 
     /**
      * Max allowed distance to move during a "click", in DP.
@@ -175,7 +175,7 @@ public class ChatHeadService extends Service {
 
             case MotionEvent.ACTION_UP:
                 long pressDuration = System.currentTimeMillis() - pressStartTime;
-                if (pressDuration < MAX_CLICK_DURATION && stayedWithinClickDistance) {
+                if (pressDuration < MAX_CLICK_DURATION) { //&& stayedWithinClickDistance
                     openAppClicked();
                 }
                 break;
@@ -273,22 +273,23 @@ public class ChatHeadService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
 
-        if (intent.getBooleanExtra("stop_jisort_service", false)){
-            // If it's a call from the notification, stop the service.
-            stopSelf();
-        }else{
-            // Make the service run in foreground so that the system does not shut it down.
-            Intent notificationIntent = new Intent(this, ChatHeadService.class);
-            notificationIntent.putExtra("stop_jisort_service", true);
-            PendingIntent pendingIntent = PendingIntent.getService(this, 0, notificationIntent, 0);
-            Notification notification = new Notification.Builder(getApplicationContext())
-                    .setContentTitle("Jisort Tray")
-                    .setContentText("Tap to close the widget.")
-                    .setSmallIcon(R.drawable.ic_launcher)
-                    .setContentIntent(pendingIntent)
-                    .build();
-            startForeground(86, notification);
-        }
+//        if (intent.getBooleanExtra("stop_jisort_service", false)){
+//            // If it's a call from the notification, stop the service.
+//            stopSelf();
+//        }else{
+//            // Make the service run in foreground so that the system does not shut it down.
+//            Intent notificationIntent = new Intent(this, ChatHeadService.class);
+//            notificationIntent.putExtra("stop_jisort_service", true);
+//            PendingIntent pendingIntent = PendingIntent.getService(this, 0, notificationIntent, 0);
+//            Notification notification = new Notification.Builder(getApplicationContext())
+//                    .setContentTitle("Jisort Tray")
+//                    .setContentText("Tap to close the widget.")
+//                    .setSmallIcon(R.drawable.ic_launcher)
+//                    .setContentIntent(pendingIntent)
+//                    .build();
+//            startForeground(86, notification);
+//        }
+//        return START_STICKY;
         return START_STICKY;
     }
 

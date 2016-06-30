@@ -100,4 +100,5 @@
     <string name="btn_more">Learn more</string>
     <string name="show_floating_app_icon_description">Show floating app icon</string>
     <string name="dashboard_question_text">What would you like to do?</string>
+    <string name="empty_tutorial">Oops! No content here. Please try the next tutorial.</string>
 </resources>
