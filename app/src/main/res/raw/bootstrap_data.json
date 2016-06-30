@@ -13,17 +13,17 @@
             "id": "2",
             "title": "Where do I get it? Who owns it?",
             "gifUrl": "wifi2",
-            "description": "Wi-Fi networks are created by \"hotspots\" that connect to the internet. Anyone can buy one and set it up at home, at work, or in a public space. If you can detect a Wi-Fi network on your phone, you might be able to connect to it. To learn more about connecting, check out Connecting to Wi-Fi."
+            "description": "Wi-Fi networks are created by \"hotspots\" that connect to the internet. Anyone can buy one and set it up at home, at work, or in a public space. If you can detect a Wi-Fi network on your phone, you might be able to connect to it. To learn more about connecting, look at Connecting to Wi-Fi."
         }, {
             "id": "3",
             "title": "Saving Money",
             "gifUrl": "wifi3",
-            "description": "Wi-Fi is great for saving money because it lets you connect to the internet without using mobile data or airtime on your phone. Remember, though, sometimes you have to pay a small fee to use Wi-Fi at a business or cafe, or buy some goods."
+            "description": "Wi-Fi saves money because it lets you connect to the internet without using mobile data or airtime on your phone. Remember, though, sometimes you have to pay a small fee to use Wi-Fi at a business or cafe, or buy some goods."
         }, {
             "id": "4",
             "title": "Speed and Stability",
             "gifUrl": "wifi4",
-            "description": "Wi-Fi networks are generally more stable and faster than mobile data networks. Wi-Fi was designed to support multiple smartphones at once and lots of internet browsing. Downloading files or streaming videos is best over Wi-Fi.\n<b>Be aware:</b> it is not <b>always</b> the case that Wi-Fi is faster and more stable than mobile data. Depending on infrastructure, popularity, and other environmental factors, Wi-Fi may not be as responsive or reliable."
+            "description": "Wi-Fi networks are generally more stable and faster than mobile data networks. Downloading files or watching videos is best over Wi-Fi.\n<b>Be aware:</b> it is not <b>always</b> the case that Wi-Fi is faster and more stable than mobile data. Depending on infrastructure, popularity, and other environmental factors, Wi-Fi may not be as responsive or reliable."
         }]
     }, {
         "id": "2",
@@ -34,12 +34,12 @@
             "id": "1",
             "title": "Finding Names and Passwords",
             "gifUrl": "connectwifi1",
-            "description": "To connect to a Wi-Fi hotspot, you will need the name of the hotspot and, in some cases, its password. If you are in a business, cafe, or other public space, you can usually ask the owner of the hotspot for this information. Some places charge a small fee for using their Wi-Fi."
+            "description": "To connect to a Wi-Fi hotspot, you will need <b>the name of the hotspot</b> and, in some cases, <b>its password</b>. If you are in a business, cafe, or other public space, you can usually ask the owner of the hotspot for this information. Some places charge a small fee for using their Wi-Fi."
         }, {
             "id": "2",
             "title": "Turning on Wi-Fi",
             "gifUrl": "connectwifi2",
-            "description": "On most Android phones, you can begin looking for Wi-Fi by swiping down the Title Bar at the top of the screen and tapping  the Wi-Fi icon. If you are close to a Wi-Fi network you have joined in the past, <b>your phone will try to connect to it automatically</b>."
+            "description": "On most Android phones, you can swipe down the Title Bar at the top of the screen and tap  the Wi-Fi [icon] icon. If you are close to a Wi-Fi network you have joined before, <b>your phone will try to connect to it automatically</b>."
         }, {
             "id": "3",
             "title": "Turning on Wi-Fi from the Wireless Settings Menu",
