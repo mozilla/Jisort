@@ -1,13 +1,15 @@
 <com.mozilla.hackathon.kiboko.widgets.NotifyingScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/content"
     android:background="@color/colorPrimary"
+    android:padding="@dimen/activity_horizontal_margin"
+    android:scrollbarStyle="outsideOverlay"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <!-- Dummy content. -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:paddingTop="?android:attr/actionBarSize"
+        android:paddingBottom="?android:attr/actionBarSize"
         android:layout_height="wrap_content"
         android:orientation="vertical">
         <TextView android:id="@+id/step_title"
@@ -23,6 +25,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/activity_horizontal_margin"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"
             android:src="@drawable/connectwifi9"
             android:layout_gravity="center_horizontal"
             android:gravity="center_horizontal"
@@ -37,16 +41,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/empty_tutorial" />
-
-        <!--<org.sufficientlysecure.htmltextview.HtmlTextView-->
-            <!--android:id="@+id/step_image"-->
-            <!--android:background="@android:color/transparent"-->
-            <!--android:layout_margin="@dimen/activity_horizontal_margin"-->
-            <!--android:layout_gravity="center_horizontal"-->
-            <!--android:gravity="center_horizontal"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content" />-->
-
     </LinearLayout>
 
 </com.mozilla.hackathon.kiboko.widgets.NotifyingScrollView>
