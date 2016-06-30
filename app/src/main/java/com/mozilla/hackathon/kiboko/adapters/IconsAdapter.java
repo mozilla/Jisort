@@ -10,10 +10,11 @@ import android.widget.BaseAdapter;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.mozilla.hackathon.kiboko.R;
 import com.mozilla.hackathon.kiboko.activities.TutorialSlideActivity;
-import com.mozilla.hackathon.kiboko.models.Topic;
+import com.mozilla.hackathon.kiboko.models.IconTopic;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,12 +25,12 @@ import io.github.douglasjunior.androidSimpleTooltip.SimpleTooltip;
  * Created by Brian Mwadime on 01/06/2016.
  */
 public class IconsAdapter extends BaseAdapter implements Filterable {
-    List<Topic> topics;
+    List<IconTopic> topics;
     private Context context;
     private Filter topicFilter;
-    private List<Topic> origTopicList;
+    private List<IconTopic> origTopicList;
 
-    public IconsAdapter(Context ctx, List<Topic> topics) {
+    public IconsAdapter(Context ctx, List<IconTopic> topics) {
         this.topics = topics;
         this.context = ctx;
         this.origTopicList = topics;
@@ -40,7 +41,7 @@ public class IconsAdapter extends BaseAdapter implements Filterable {
     }
 
     @Override
-    public Topic getItem(int position) {
+    public IconTopic getItem(int position) {
         return topics.get(position);
     }
 
@@ -84,16 +85,16 @@ public class IconsAdapter extends BaseAdapter implements Filterable {
         else
             holder = (Holder) viewItem.getTag();
 
-        final Topic topic = topics.get(position);
+        final IconTopic topic = topics.get(position);
         holder.img.setImageResource(topic.getImage());
 
         viewItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Toast.makeText(context, "You Clicked "+ topic.getName(), Toast.LENGTH_LONG).show();
+//                Toast.makeText(context, "You Clicked "+ topic.getDescription(), Toast.LENGTH_LONG).show();
                 final SimpleTooltip tooltip = new SimpleTooltip.Builder(context)
                         .anchorView(v)
-                        .text(topic.getName())
+                        .text(topic.getDescription())
                         .gravity(Gravity.BOTTOM)
                         .dismissOnOutsideTouch(true)
                         .dismissOnInsideTouch(false)
@@ -102,6 +103,9 @@ public class IconsAdapter extends BaseAdapter implements Filterable {
                         .contentView(R.layout.tooltip_dso, R.id.tv_text)
                         .build();
 
+                TextView text = tooltip.findViewById(R.id.tv_title);
+                text.setText(topic.getTitle());
+
                 tooltip.findViewById(R.id.btn_confirm).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v2) {
@@ -109,7 +113,7 @@ public class IconsAdapter extends BaseAdapter implements Filterable {
                             tooltip.dismiss();
 
                         Intent topicIntent = new Intent(context, TutorialSlideActivity.class);
-                        topicIntent.putExtra("title", topic.getName());
+                        topicIntent.putExtra("title", topic.getDescription());
                         topicIntent.putExtra("topic", topic.getTag());
                         context.startActivity(topicIntent);
                     }
@@ -150,10 +154,10 @@ public class IconsAdapter extends BaseAdapter implements Filterable {
             }
             else {
                 // We perform filtering operation
-                List<Topic> nTopicList = new ArrayList<Topic>();
+                List<IconTopic> nTopicList = new ArrayList<IconTopic>();
 
-                for (Topic topic : topics) {
-                    if (topic.getName().toUpperCase().startsWith(constraint.toString().toUpperCase()))
+                for (IconTopic topic : topics) {
+                    if (topic.getDescription().toUpperCase().startsWith(constraint.toString().toUpperCase()))
                         nTopicList.add(topic);
                 }
 
@@ -172,7 +176,7 @@ public class IconsAdapter extends BaseAdapter implements Filterable {
             if (results.count == 0)
                 notifyDataSetInvalidated();
             else {
-                topics = (List<Topic>) results.values;
+                topics = (List<IconTopic>) results.values;
                 notifyDataSetChanged();
             }
 
