@@ -10,10 +10,9 @@ import android.widget.BaseAdapter;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.mozilla.hackathon.kiboko.R;
-import com.mozilla.hackathon.kiboko.activities.TopicListActivity;
+import com.mozilla.hackathon.kiboko.activities.TutorialSlideActivity;
 import com.mozilla.hackathon.kiboko.models.Topic;
 
 import java.util.ArrayList;
@@ -109,8 +108,10 @@ public class IconsAdapter extends BaseAdapter implements Filterable {
                         if (tooltip.isShowing())
                             tooltip.dismiss();
 
-                        Intent dashboardIntent = new Intent(context, TopicListActivity.class);
-                        context.startActivity(dashboardIntent);
+                        Intent topicIntent = new Intent(context, TutorialSlideActivity.class);
+                        topicIntent.putExtra("title", topic.getName());
+                        topicIntent.putExtra("topic", topic.getTag());
+                        context.startActivity(topicIntent);
                     }
                 });
                 tooltip.show();

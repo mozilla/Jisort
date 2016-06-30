@@ -95,8 +95,12 @@ public class TutorialSlideActivity extends AppCompatActivity implements LoaderMa
         mPrev.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 if(!(mPager.getCurrentItem() > mPagerAdapter.getCount() - 1)){
                     mPager.setCurrentItem(mPager.getCurrentItem() - 1);
+                }else{
+                    mNext.setEnabled(true);
+                    mPrev.setEnabled(false);
                 }
             }
         });
@@ -106,6 +110,9 @@ public class TutorialSlideActivity extends AppCompatActivity implements LoaderMa
             public void onClick(View v) {
                 if(!(mPager.getCurrentItem() == mPagerAdapter.getCount() - 1)){
                     mPager.setCurrentItem(mPager.getCurrentItem() + 1);
+                }else{
+                    mNext.setEnabled(false);
+                    mPrev.setEnabled(true);
                 }
             }
         });

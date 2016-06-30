@@ -74,6 +74,7 @@ public class ScreenSlidePageFragment extends Fragment {
         mPageImage = getArguments().getString(ARG_PAGE_IMAGE);
 
         mActionBarHeight = ((AppCompatActivity) getActivity()).getSupportActionBar().getHeight();
+
     }
 
     @Override
@@ -91,7 +92,11 @@ public class ScreenSlidePageFragment extends Fragment {
 
         GifImageView gifImageView = (GifImageView) rootView.findViewById(R.id.step_image);
         gifImageView.setImageResource(getResId(mPageImage));
-        gifDrawable = (GifDrawable) gifImageView.getDrawable();
+        //gifDrawable = (GifDrawable) gifImageView.getDrawable();
+
+        if (((AppCompatActivity) getActivity()).getSupportActionBar().getHeight() < rootView.getHeight() && !((AppCompatActivity) getActivity()).getSupportActionBar().isShowing()) {
+            ((AppCompatActivity) getActivity()).getSupportActionBar().show();
+        }
 
         return rootView;
     }
@@ -104,7 +109,6 @@ public class ScreenSlidePageFragment extends Fragment {
             } else if ( y==0 && !((AppCompatActivity) getActivity()).getSupportActionBar().isShowing()) {
                 ((AppCompatActivity) getActivity()).getSupportActionBar().show();
             }
-
         }
     };
 
