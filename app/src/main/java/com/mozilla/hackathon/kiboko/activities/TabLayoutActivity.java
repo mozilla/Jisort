@@ -3,11 +3,10 @@ package com.mozilla.hackathon.kiboko.activities;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import com.mozilla.hackathon.kiboko.R;
 import com.mozilla.hackathon.kiboko.controls.TabsPagerAdapter;
 
-public class TabLayoutActivity extends AppCompatActivity {
+public class TabLayoutActivity extends DSOActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

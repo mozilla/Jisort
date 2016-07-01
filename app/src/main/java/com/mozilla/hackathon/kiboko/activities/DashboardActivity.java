@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -22,7 +21,7 @@ import com.mozilla.hackathon.kiboko.widgets.MessageCardView;
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
 
-public class DashboardActivity extends AppCompatActivity {
+public class DashboardActivity extends DSOActivity {
     public static boolean active = false;
     public static FragmentActivity mDashboard;
     private String TAG = MainActivity.class.getSimpleName();

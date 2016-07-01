@@ -11,7 +11,7 @@ import com.mozilla.hackathon.kiboko.R;
 /**
  * Created by Brian Mwadime on 06/06/2016.
  */
-public class FindIconsActivity extends AppCompatActivity {
+public class FindIconsActivity extends DSOActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

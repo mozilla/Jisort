@@ -13,7 +13,6 @@ import android.support.v4.content.Loader;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
@@ -46,7 +45,7 @@ import static com.mozilla.hackathon.kiboko.utilities.LogUtils.makeLogTag;
  *
  * @see ScreenSlidePageFragment
  */
-public class TutorialSlideActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
+public class TutorialSlideActivity extends DSOActivity implements LoaderManager.LoaderCallbacks<Cursor> {
     private static final String TAG = makeLogTag(TutorialSlideActivity.class);
     private static final Uri BASE_APP_URI = Uri.parse("android-app://com.mozilla.hackathon.kiboko/http/mozilla-dso.com/recipe/");
     private static final int LOADER_ID = 0x01;
