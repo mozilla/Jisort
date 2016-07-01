@@ -15,6 +15,7 @@ import com.mozilla.hackathon.kiboko.R;
 import com.mozilla.hackathon.kiboko.events.AirplaneModeStateChanged;
 import com.mozilla.hackathon.kiboko.events.BatteryStateChanged;
 import com.mozilla.hackathon.kiboko.events.LocationStateChanged;
+import com.mozilla.hackathon.kiboko.events.LowstorageStateChanged;
 import com.mozilla.hackathon.kiboko.events.NetworkStateChanged;
 import com.mozilla.hackathon.kiboko.services.DataBootstrapService;
 import com.mozilla.hackathon.kiboko.widgets.MessageCardView;
@@ -92,6 +93,41 @@ public class DashboardActivity extends DSOActivity {
                     Intent dashboardIntent = new Intent(DashboardActivity.this, TutorialSlideActivity.class);
                     dashboardIntent.putExtra("header","Wifi ni noma!");
                     dashboardIntent.putExtra("topic","wifi");
+                    startActivity(dashboardIntent);
+                }
+            });
+            dashboard_summary.addView(wifiCard);
+        }
+    }
+
+    // method that will be called when the device posts an event NetworkStateChanged
+    @Subscribe
+    public void onLowStorageEvent(LowstorageStateChanged event)
+    {
+        // Clear previous suggested topic
+        dashboard_summary.removeAllViews();
+
+        if (event.isLowstorageStateChanged())
+        {
+            final MessageCardView wifiCard = new MessageCardView(this);
+            wifiCard.overrideBackground(getResources().getColor(R.color.colorTextDisabled));
+            wifiCard.setText("You're device is running out of storage space!");
+            wifiCard.setButton(0, "Learn More", "storage", false, 1);
+            wifiCard.setButton(1, "Ok, Got it", "cancel", false, 1);
+            wifiCard.setListener(new MessageCardView.OnMessageCardButtonClicked() {
+                @Override
+                public void onMessageCardButtonClicked(final String tag) {
+                    Toast.makeText(getApplicationContext(), tag, Toast.LENGTH_SHORT).show();
+                    wifiCard.dismiss(true);
+                    dashboard_summary.removeView(wifiCard);
+
+                    if(tag.equals("cancel")){
+                        return;
+                    }
+
+                    Intent dashboardIntent = new Intent(DashboardActivity.this, TutorialSlideActivity.class);
+                    dashboardIntent.putExtra("header","Freeing up Memory!");
+                    dashboardIntent.putExtra("topic","storage");
                     startActivity(dashboardIntent);
                 }
             });

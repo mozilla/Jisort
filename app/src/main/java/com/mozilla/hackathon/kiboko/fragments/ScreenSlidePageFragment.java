@@ -12,11 +12,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.mozilla.hackathon.kiboko.R;
-import com.mozilla.hackathon.kiboko.widgets.NotifyingScrollView;
 
 import org.sufficientlysecure.htmltextview.HtmlTextView;
 
@@ -91,7 +89,7 @@ public class ScreenSlidePageFragment extends Fragment {
         ViewGroup rootView = (ViewGroup) inflater
                 .inflate(R.layout.fragment_screen_slide_page, container, false);
 
-        ((NotifyingScrollView) rootView.findViewById(R.id.content)).setOnScrollChangedListener(mOnScrollChangedListener);
+//        ((NotifyingScrollView) rootView.findViewById(R.id.content)).setOnScrollChangedListener(mOnScrollChangedListener);
         // Set the title view to show the page number.
         ((TextView) rootView.findViewById(R.id.step_title)).setText(mPageTitle);
 
@@ -107,16 +105,16 @@ public class ScreenSlidePageFragment extends Fragment {
         return rootView;
     }
 
-    private NotifyingScrollView.OnScrollChangedListener mOnScrollChangedListener = new NotifyingScrollView.OnScrollChangedListener() {
-        public void onScrollChanged(ScrollView who, int l, int t, int oldl, int oldt) {
-            float y = who.getScrollY();
-            if (y >= mActionBarHeight && mActionBar.isShowing()) {
-                mActionBar.hide();
-            } else if ( y==0 && !mActionBar.isShowing()) {
-                mActionBar.show();
-            }
-        }
-    };
+//    private NotifyingScrollView.OnScrollChangedListener mOnScrollChangedListener = new NotifyingScrollView.OnScrollChangedListener() {
+//        public void onScrollChanged(ScrollView who, int l, int t, int oldl, int oldt) {
+//            float y = who.getScrollY();
+//            if (y >= mActionBarHeight && mActionBar.isShowing()) {
+//                mActionBar.hide();
+//            } else if ( y==0 && !mActionBar.isShowing()) {
+//                mActionBar.show();
+//            }
+//        }
+//    };
 
     /**
      * Returns the page number represented by this fragment object.

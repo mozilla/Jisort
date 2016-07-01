@@ -287,5 +287,13 @@
         "gifUrl": "accountspasswords7",
         "description": "Impostors can easily break short passwords and passwords made up of sequential numbers like \"1234\". They can also can guess passwords that are made of simple words like \"mydata\". Impostors can use what they know about you to guess passwords based on important dates in your life (such as birthdays or anniversaries) or the names of people (including celebrities and sports teams) or places you know."
       }]
+    }],
+  "quiz": [{
+      "question": "What is DSO?",
+      "answer": "Digital Skills Observatory",
+      "optiona": "Google",
+      "optionb": "Microsoft",
+      "optionc": "Hewlet Pakard",
+      "optiond": "Digital Skills Observatory"
     }]
 }

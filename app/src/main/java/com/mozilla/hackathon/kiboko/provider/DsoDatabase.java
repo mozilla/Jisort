@@ -7,6 +7,7 @@ import android.provider.BaseColumns;
 
 import com.mozilla.hackathon.kiboko.provider.DsoContract.Tutorials;
 import com.mozilla.hackathon.kiboko.provider.DsoContract.TutorialsColumns;
+import com.mozilla.hackathon.kiboko.provider.DsoContract.QuizColumns;
 import com.mozilla.hackathon.kiboko.sync.DsoDataHandler;
 
 import static com.mozilla.hackathon.kiboko.utilities.LogUtils.LOGD;
@@ -14,7 +15,7 @@ import static com.mozilla.hackathon.kiboko.utilities.LogUtils.LOGW;
 import static com.mozilla.hackathon.kiboko.utilities.LogUtils.makeLogTag;
 
 /**
- * Created by Audrey on 25/06/2016.
+ * Created by brian Mwadime on 25/06/2016.
  */
 public class DsoDatabase extends SQLiteOpenHelper {
     private static final String TAG = makeLogTag(DsoDatabase.class);
@@ -33,6 +34,7 @@ public class DsoDatabase extends SQLiteOpenHelper {
     interface Tables {
         String TUTORIALS = "tutorials";
         String MY_SCHEDULE = "myschedule";
+        String TABLE_QUEST = "quiz";
 
 //        String TUTORIALS_JOIN_MYSCHEDULE = "tutorials "
 //                + "LEFT OUTER JOIN myschedule ON tutorials.session_id=myschedule.session_id "
@@ -102,6 +104,18 @@ public class DsoDatabase extends SQLiteOpenHelper {
                 + TutorialsColumns.TUTORIAL_PHOTO_URL + " TEXT,"
                 + TutorialsColumns.TUTORIAL_STEPS + " TEXT,"
                 + "UNIQUE (" + TutorialsColumns.TUTORIAL_ID + ") ON CONFLICT REPLACE)");
+
+        db.execSQL("CREATE TABLE IF NOT EXISTS " + Tables.TABLE_QUEST + " ( "
+                + BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + QuizColumns.KEY_ID + " INTEGER NOT NULL, "
+                + QuizColumns.KEY_QUESTION + " TEXT,"
+                + QuizColumns.KEY_ANSWER + " TEXT,"
+                + QuizColumns.KEY_OPTIONA +" TEXT,"
+                + QuizColumns.KEY_OPTIONB +" TEXT,"
+                + QuizColumns.KEY_OPTIONC + " TEXT,"
+                + "UNIQUE (" + QuizColumns.KEY_ID + ") ON CONFLICT REPLACE)");
+
+
 
         upgradeFrom2015Ato2015B(db);
     }
