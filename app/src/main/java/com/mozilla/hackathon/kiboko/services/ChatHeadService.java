@@ -32,6 +32,7 @@ import com.mozilla.hackathon.kiboko.events.AirplaneModeStateChanged;
 import com.mozilla.hackathon.kiboko.events.BatteryStateChanged;
 import com.mozilla.hackathon.kiboko.events.LocationStateChanged;
 import com.mozilla.hackathon.kiboko.events.NetworkStateChanged;
+import com.mozilla.hackathon.kiboko.events.ApplicationStateChanged;
 
 import java.io.InputStream;
 import java.util.Timer;
@@ -63,6 +64,7 @@ public class ChatHeadService extends Service {
     private float pressedX;
     private float pressedY;
     private boolean stayedWithinClickDistance;
+
     /**
      * Max allowed duration for a "click", in milliseconds.
      */
@@ -363,6 +365,17 @@ public class ChatHeadService extends Service {
 
     private void switchToSuggestionHead() {
         mLogoLayout.setBackgroundDrawable(mSuggestionHead);
+    }
+
+    @Subscribe
+    public void onApplicationStateEvent(ApplicationStateChanged event) {
+        if (!event.isOpen()) {
+            mRootLayout.setVisibility(View.VISIBLE);
+            switchToNormalHead();
+        }
+        else {
+            mRootLayout.setVisibility(View.INVISIBLE);
+        }
     }
 
     @Subscribe
