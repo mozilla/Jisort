@@ -22,6 +22,8 @@ import android.widget.RelativeLayout;
 import com.mozilla.hackathon.kiboko.R;
 import com.mozilla.hackathon.kiboko.activities.DashboardActivity;
 import com.mozilla.hackathon.kiboko.events.BatteryStateChanged;
+import com.mozilla.hackathon.kiboko.events.BluetoothStateChanged;
+import com.mozilla.hackathon.kiboko.events.LowstorageStateChanged;
 import com.mozilla.hackathon.kiboko.utilities.Utils;
 
 import com.mozilla.hackathon.kiboko.App;
@@ -260,7 +262,7 @@ public class ChatHeadService extends Service {
     }
 
     /**
-     * Update view x,y if it goes beyond the sreens x,y coords
+     * Simple method to update FAB view x,y if it goes beyond the screens x,y coords
      */
     private void updateViewLocation() {
         DisplayMetrics metrics = calculateDisplayMetrics();
@@ -427,6 +429,16 @@ public class ChatHeadService extends Service {
 
     @Subscribe
     public void onLocationEvent(LocationStateChanged event) {
+        switchToSuggestionHead();
+    }
+
+    @Subscribe
+    public void onLowtorageEvent(LowstorageStateChanged event) {
+        switchToSuggestionHead();
+    }
+
+    @Subscribe
+    public void onBluetoothEvent(BluetoothStateChanged event) {
         switchToSuggestionHead();
     }
 

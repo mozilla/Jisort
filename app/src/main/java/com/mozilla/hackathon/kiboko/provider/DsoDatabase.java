@@ -107,7 +107,7 @@ public class DsoDatabase extends SQLiteOpenHelper {
 
         db.execSQL("CREATE TABLE IF NOT EXISTS " + Tables.TABLE_QUEST + " ( "
                 + BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-                + QuizColumns.KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + QuizColumns.KEY_ID + " INTEGER NOT NULL, "
                 + QuizColumns.KEY_QUESTION + " TEXT,"
                 + QuizColumns.KEY_ANSWER + " TEXT,"
                 + QuizColumns.KEY_OPTIONA +" TEXT,"
