@@ -19,6 +19,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -152,7 +153,28 @@ public class TutorialSlideActivity extends AppCompatActivity implements LoaderMa
             String recipeId = data.substring(data.lastIndexOf("/") + 1);
             Uri contentUri = DsoContract.Tutorials.CONTENT_URI.buildUpon()
                     .appendPath(recipeId).build();
-            //showRecipe(contentUri);
+            showTutorial(contentUri);
+        }
+    }
+
+    private void showTutorial(Uri tutorialUri) {
+        LOGD("Recipe Uri", tutorialUri.toString());
+
+        String[] projection = { DsoContract.Tutorials.TUTORIAL_ID,
+                DsoContract.Tutorials.TUTORIAL_TAG,
+                DsoContract.Tutorials.TUTORIAL_HEADER,
+                DsoContract.Tutorials.TUTORIAL_PHOTO_URL,
+                DsoContract.Tutorials.TUTORIAL_STEPS};
+        Cursor cursor = getContentResolver().query(tutorialUri, projection, null, null, null);
+        if (cursor != null && cursor.moveToFirst()) {
+
+            // always close the cursor
+            cursor.close();
+        } else {
+            Toast toast = Toast.makeText(getApplicationContext(),
+                    "No match for deep link " + tutorialUri.toString(),
+                    Toast.LENGTH_SHORT);
+            toast.show();
         }
     }
 

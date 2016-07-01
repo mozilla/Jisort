@@ -99,6 +99,10 @@ public class ScreenSlidePageFragment extends Fragment {
 
         GifImageView gifImageView = (GifImageView) rootView.findViewById(R.id.step_image);
         gifImageView.setImageResource(getResId(mPageImage));
+        // Remove imageView from layout if gif isn't available
+        if(getResId(mPageImage) == R.drawable.blank){
+            gifImageView.setVisibility(View.GONE);
+        }
 
         return rootView;
     }
@@ -135,6 +139,11 @@ public class ScreenSlidePageFragment extends Fragment {
         return mPageTitle;
     }
 
+    /**
+     * Get resource Id of a gif
+     * @param source the gif filename
+     * @return resource id
+     */
     public int getResId(String source) {
         int id = getActivity().getResources().getIdentifier(source, "drawable", getActivity().getPackageName());
 
