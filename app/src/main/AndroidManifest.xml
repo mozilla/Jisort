@@ -44,15 +44,24 @@
             android:name=".activities.TutorialSlideActivity"
             android:windowSoftInputMode="stateHidden"
             android:label="Usage Topic" >
-            <intent-filter>
+            <!--Handle website links-->
+            <intent-filter android:label="@string/app_name">
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:mimeType="vnd.android.cursor.item/vnd.mozilladso2016.tutorial" />
-                <!-- Accepts URIs that begin with "http://mozilla-dso.com/tutorial" -->
+                <!--<data android:mimeType="vnd.android.cursor.item/vnd.mozilladso2016.tutorial" />-->
+                <!-- Accepts URIs that begin with "http://mozilladso.com/tutorial" -->
                 <data android:scheme="http"
-                    android:host="mozilla-dso.com"
-                    android:pathPrefix="/tutorial" />
+                    android:host="mozilladso.com"
+                    android:pathPrefix="/tutorials/*" />
+            </intent-filter>
+
+            <!-- handle app links -->
+            <intent-filter android:label="@string/app_name">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="mozilladso" android:pathPrefix="/tutorials/*" />
             </intent-filter>
         </activity>
         <activity

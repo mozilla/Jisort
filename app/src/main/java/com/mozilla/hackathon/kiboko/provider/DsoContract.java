@@ -153,6 +153,11 @@ public final class DsoContract {
             return uri.getPathSegments().get(1);
         }
 
+        /** Read {@link #TUTORIAL_TAG} from {@link Tutorials} {@link Uri}. */
+        public static String getTutorialTag(Uri uri) {
+            return uri.getPathSegments().get(3);
+        }
+
 //        public static String getSearchQuery(Uri uri) {
 //            List<String> segments = uri.getPathSegments();
 //            if (2 < segments.size()) {

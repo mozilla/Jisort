@@ -25,7 +25,7 @@ We hope the source code for this app is useful for you as a reference or startin
 
 <h2>Copyright</h2>
 
-    Copyright 2014 Mozilla Foundation, DDD. All rights reserved.
+    Copyright 2014 Mozilla Foundation. All rights reserved.
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
