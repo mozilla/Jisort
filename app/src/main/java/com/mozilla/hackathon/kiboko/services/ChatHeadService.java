@@ -22,7 +22,16 @@ import android.widget.RelativeLayout;
 
 import com.mozilla.hackathon.kiboko.R;
 import com.mozilla.hackathon.kiboko.activities.DashboardActivity;
+import com.mozilla.hackathon.kiboko.events.BatteryStateChanged;
 import com.mozilla.hackathon.kiboko.utilities.Utils;
+
+import com.mozilla.hackathon.kiboko.App;
+import com.squareup.otto.Bus;
+import com.squareup.otto.Subscribe;
+import com.mozilla.hackathon.kiboko.events.AirplaneModeStateChanged;
+import com.mozilla.hackathon.kiboko.events.BatteryStateChanged;
+import com.mozilla.hackathon.kiboko.events.LocationStateChanged;
+import com.mozilla.hackathon.kiboko.events.NetworkStateChanged;
 
 import java.io.InputStream;
 import java.util.Timer;
@@ -30,19 +39,19 @@ import java.util.TimerTask;
 
 public class ChatHeadService extends Service {
 
-    private static final int TRAY_HIDDEN_FRACTION 			= 6; 	// Controls fraction of the tray hidden when open
-    private static final int TRAY_MOVEMENT_REGION_FRACTION 	= 6;	// Controls fraction of y-axis on screen within which the tray stays.
-    private static final int TRAY_CROP_FRACTION 			= 12;	// Controls fraction of the tray chipped at the right end.
-    private static final int ANIMATION_FRAME_RATE 			= 30;	// Animation frame rate per second.
-    private static final int TRAY_DIM_X_DP 					= 48;	// Width of the tray in dps
-    private static final int TRAY_DIM_Y_DP 					= 48; 	// Height of the tray in dps
-    private static final int BUTTONS_DIM_Y_DP 				= 27;	// Height of the buttons in dps
+    private static final int TRAY_HIDDEN_FRACTION = 6;    // Controls fraction of the tray hidden when open
+    private static final int TRAY_MOVEMENT_REGION_FRACTION = 6;    // Controls fraction of y-axis on screen within which the tray stays.
+    private static final int TRAY_CROP_FRACTION = 12;    // Controls fraction of the tray chipped at the right end.
+    private static final int ANIMATION_FRAME_RATE = 30;    // Animation frame rate per second.
+    private static final int TRAY_DIM_X_DP = 48;    // Width of the tray in dps
+    private static final int TRAY_DIM_Y_DP = 48;    // Height of the tray in dps
+    private static final int BUTTONS_DIM_Y_DP = 27;    // Height of the buttons in dps
 
     private WindowManager mWindowManager;
-    private WindowManager.LayoutParams 	mRootLayoutParams;		// Parameters of the root layout
-    private RelativeLayout              mRootLayout;			// Root layout
-    private RelativeLayout 				mContentContainerLayout;// Contains everything other than buttons and song info
-    private RelativeLayout 				mLogoLayout;			// Contains icons
+    private WindowManager.LayoutParams mRootLayoutParams;        // Parameters of the root layout
+    private RelativeLayout mRootLayout;            // Root layout
+    private RelativeLayout mContentContainerLayout;// Contains everything other than buttons and song info
+    private RelativeLayout mLogoLayout;            // Contains icons
     // Variables that control drag
     private int mStartDragX;
     private boolean mIsTrayOpen;
@@ -65,16 +74,22 @@ public class ChatHeadService extends Service {
     private static final int MAX_CLICK_DISTANCE = 15;
 
     // Controls for animations
-    private Timer 					mTrayAnimationTimer;
-    private TrayAnimationTimerTask 	mTrayTimerTask;
+    private Timer mTrayAnimationTimer;
+    private TrayAnimationTimerTask mTrayTimerTask;
     private Handler mAnimationHandler = new Handler();
 
-    @Override public IBinder onBind(Intent intent) {
+    //Swappable images for FAB
+    private BitmapDrawable mNormalHead;
+    private BitmapDrawable mSuggestionHead;
+
+    @Override
+    public IBinder onBind(Intent intent) {
         // Not used
         return null;
     }
 
-    @Override public void onCreate() {
+    @Override
+    public void onCreate() {
         super.onCreate();
 
         // Get references to all the views and add them to root view as needed.
@@ -101,20 +116,31 @@ public class ChatHeadService extends Service {
             @Override
             public void run() {
                 // Reusable variables
-                InputStream is;
+                InputStream inputStream;
                 Bitmap bmap;
 
                 RelativeLayout.LayoutParams params;
+
                 // Setup background icon
-                is = getResources().openRawResource(R.drawable.android_head);
-                int containerNewWidth = (TRAY_CROP_FRACTION)*mLogoLayout.getHeight()/TRAY_CROP_FRACTION;
-                bmap = Utils.loadMaskedBitmap(is, mLogoLayout.getHeight(), containerNewWidth);
+                int containerNewWidth = (TRAY_CROP_FRACTION) * mLogoLayout.getHeight() / TRAY_CROP_FRACTION;
+
+                inputStream = getResources().openRawResource(R.drawable.android_head);
+                bmap = Utils.loadMaskedBitmap(inputStream, mLogoLayout.getHeight(), containerNewWidth);                
+                mNormalHead = new BitmapDrawable(getResources(), bmap);
+
+                inputStream = getResources().openRawResource(R.drawable.android_head_suggestion);
+                bmap = Utils.loadMaskedBitmap(inputStream, mLogoLayout.getHeight(), containerNewWidth);                
+                mSuggestionHead = new BitmapDrawable(getResources(), bmap);
+
                 params = (RelativeLayout.LayoutParams) mLogoLayout.getLayoutParams();
                 params.width = (bmap.getWidth() * mLogoLayout.getHeight()) / bmap.getHeight();
-                params.addRule(RelativeLayout.ALIGN_PARENT_RIGHT,0);
+                params.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, 0);
                 mLogoLayout.setLayoutParams(params);
                 mLogoLayout.requestLayout();
-                mLogoLayout.setBackgroundDrawable(new BitmapDrawable(getResources(), bmap));
+
+
+                mLogoLayout.setBackgroundDrawable(mNormalHead);
+
                 // Setup the root layout
                 mRootLayoutParams.x = 0;
                 mRootLayoutParams.y = 0;
@@ -139,11 +165,11 @@ public class ChatHeadService extends Service {
     }
 
     // Drags the tray as per touch info
-    private void dragTray(int action, int x, int y){
-        switch (action){
+    private void dragTray(int action, int x, int y) {
+        switch (action) {
             case MotionEvent.ACTION_DOWN:
                 // Cancel any currently running animations/automatic tray movements.
-                if (mTrayTimerTask!=null){
+                if (mTrayTimerTask != null) {
                     mTrayTimerTask.cancel();
                     mTrayAnimationTimer.cancel();
                 }
@@ -167,7 +193,7 @@ public class ChatHeadService extends Service {
                     mPrevDragY = y;
 
                     mWindowManager.updateViewLayout(mRootLayout, mRootLayoutParams);
-                }else{
+                } else {
                     stayedWithinClickDistance = true;
                 }
 
@@ -182,8 +208,8 @@ public class ChatHeadService extends Service {
             case MotionEvent.ACTION_CANCEL:
 
                 // When the tray is released, bring it back to "open" or "closed" state.
-                if ((mIsTrayOpen && (x-mStartDragX)<=0) ||
-                        (!mIsTrayOpen && (x-mStartDragX)>=0))
+                if ((mIsTrayOpen && (x - mStartDragX) <= 0) ||
+                        (!mIsTrayOpen && (x - mStartDragX) >= 0))
                     mIsTrayOpen = !mIsTrayOpen;
 
                 mTrayTimerTask = new TrayAnimationTimerTask();
@@ -208,7 +234,7 @@ public class ChatHeadService extends Service {
                 case MotionEvent.ACTION_MOVE:
                 case MotionEvent.ACTION_UP:
                 case MotionEvent.ACTION_CANCEL:
-                    dragTray(action, (int)event.getRawX(), (int)event.getRawY());
+                    dragTray(action, (int) event.getRawX(), (int) event.getRawY());
                     break;
                 default:
                     return false;
@@ -225,22 +251,22 @@ public class ChatHeadService extends Service {
         int mDestX;
         int mDestY;
 
-        public TrayAnimationTimerTask(){
+        public TrayAnimationTimerTask() {
 
             // Setup destination coordinates based on the tray state.
             super();
 
-            mDestX = - mRootLayout.getWidth()/TRAY_HIDDEN_FRACTION;
+            mDestX = -mRootLayout.getWidth() / TRAY_HIDDEN_FRACTION;
 //
 //            // Keep upper edge of the widget within the upper limit of screen
             int screenHeight = getResources().getDisplayMetrics().heightPixels;
             mDestY = Math.max(
-                    screenHeight/TRAY_MOVEMENT_REGION_FRACTION,
+                    screenHeight / TRAY_MOVEMENT_REGION_FRACTION,
                     mRootLayoutParams.y);
 
             // Keep lower edge of the widget within the lower limit of screen
             mDestY = Math.min(
-                    ((TRAY_MOVEMENT_REGION_FRACTION-1)*screenHeight)/TRAY_MOVEMENT_REGION_FRACTION - mRootLayout.getWidth(),
+                    ((TRAY_MOVEMENT_REGION_FRACTION - 1) * screenHeight) / TRAY_MOVEMENT_REGION_FRACTION - mRootLayout.getWidth(),
                     mDestY);
         }
 
@@ -255,12 +281,12 @@ public class ChatHeadService extends Service {
                 public void run() {
 
                     // Update coordinates of the tray
-                    mRootLayoutParams.x = (2*(mRootLayoutParams.x-mDestX))/3 + mDestX;
-                    mRootLayoutParams.y = (2*(mRootLayoutParams.y-mDestY))/3 + mDestY;
+                    mRootLayoutParams.x = (2 * (mRootLayoutParams.x - mDestX)) / 3 + mDestX;
+                    mRootLayoutParams.y = (2 * (mRootLayoutParams.y - mDestY)) / 3 + mDestY;
                     mWindowManager.updateViewLayout(mRootLayout, mRootLayoutParams);
 
                     // Cancel animation when the destination is reached
-                    if (Math.abs(mRootLayoutParams.x-mDestX)<2 && Math.abs(mRootLayoutParams.y-mDestY)<2){
+                    if (Math.abs(mRootLayoutParams.x - mDestX) < 2 && Math.abs(mRootLayoutParams.y - mDestY) < 2) {
                         TrayAnimationTimerTask.this.cancel();
                         mTrayAnimationTimer.cancel();
                     }
@@ -272,6 +298,8 @@ public class ChatHeadService extends Service {
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+
+        App.getBus().register(ChatHeadService.this);
 
 //        if (intent.getBooleanExtra("stop_jisort_service", false)){
 //            // If it's a call from the notification, stop the service.
@@ -297,6 +325,7 @@ public class ChatHeadService extends Service {
      * Open application
      */
     private void openAppClicked() {
+        switchToNormalHead();
         Intent dashboardIntent = new Intent(this, DashboardActivity.class);
         dashboardIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         startActivity(dashboardIntent);
@@ -304,6 +333,7 @@ public class ChatHeadService extends Service {
 
     /**
      * Gets the distance between to points
+     *
      * @param x1
      * @param y1
      * @param x2
@@ -319,10 +349,40 @@ public class ChatHeadService extends Service {
 
     /**
      * Convert pixels to device pixels
+     *
      * @param px
      * @return device pixels
      */
     private float pxToDp(float px) {
         return px / getResources().getDisplayMetrics().density;
     }
+
+    private void switchToNormalHead() {
+        mLogoLayout.setBackgroundDrawable(mNormalHead);
+    }
+
+    private void switchToSuggestionHead() {
+        mLogoLayout.setBackgroundDrawable(mSuggestionHead);
+    }
+
+    @Subscribe
+    public void onAirplaneModeEvent(AirplaneModeStateChanged event) {
+        switchToSuggestionHead();
+    }
+
+    @Subscribe
+    public void onBatteryEvent(BatteryStateChanged event) {
+        switchToSuggestionHead();
+    }
+
+    @Subscribe
+    public void onLocationEvent(LocationStateChanged event) {
+        switchToSuggestionHead();
+    }
+
+    @Subscribe
+    public void onNetworkStateEvent(NetworkStateChanged event) {
+        switchToSuggestionHead();
+    }
+
 }

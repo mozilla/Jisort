@@ -1,6 +1,8 @@
 package com.mozilla.hackathon.kiboko;
 
 import android.app.Application;
+import android.os.Looper;
+import android.os.Handler;
 import android.content.Context;
 
 import com.squareup.otto.Bus;
@@ -11,9 +13,31 @@ import com.squareup.otto.ThreadEnforcer;
  */
 public class App extends Application {
 
+    protected class MainThreadBus extends Bus {
+        private final Handler mHandler = new Handler(Looper.getMainLooper());
+
+        public MainThreadBus() {
+            super(ThreadEnforcer.ANY);
+        }
+
+        @Override
+        public void post(final Object event) {
+            if (Looper.myLooper() == Looper.getMainLooper()) {
+                super.post(event);
+            } else {
+                mHandler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        MainThreadBus.super.post(event);
+                    }
+                });
+            }
+        }
+    }
+
     protected static Context context = null;
 
-    private static Bus mEventBus;
+    private static MainThreadBus mEventBus;
 
     public static Bus getBus() {
         return mEventBus;
@@ -24,11 +48,12 @@ public class App extends Application {
         super.onCreate();
         context = getApplicationContext();
 
-        mEventBus = new Bus(ThreadEnforcer.ANY);
+        mEventBus = new MainThreadBus();
     }
 
     public static Context getContext() {
         return context;
     }
+
 
 }
