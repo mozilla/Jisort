@@ -1,8 +1,6 @@
 package com.mozilla.hackathon.kiboko.services;
 
 import android.annotation.TargetApi;
-import android.app.Notification;
-import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -11,13 +9,14 @@ import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
+import android.util.DisplayMetrics;
+import android.view.Display;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
 import android.view.WindowManager;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.mozilla.hackathon.kiboko.R;
@@ -48,6 +47,7 @@ public class ChatHeadService extends Service {
     private static final int TRAY_DIM_Y_DP = 48;    // Height of the tray in dps
     private static final int BUTTONS_DIM_Y_DP = 27;    // Height of the buttons in dps
 
+    private Display mDisplay;
     private WindowManager mWindowManager;
     private WindowManager.LayoutParams mRootLayoutParams;        // Parameters of the root layout
     private RelativeLayout mRootLayout;            // Root layout
@@ -110,6 +110,7 @@ public class ChatHeadService extends Service {
                 PixelFormat.TRANSLUCENT);
 
         mRootLayoutParams.gravity = Gravity.TOP | Gravity.LEFT;
+        mDisplay = mWindowManager.getDefaultDisplay();
         mWindowManager.addView(mRootLayout, mRootLayoutParams);
 
         // Post these actions at the end of looper message queue so that the layout is
@@ -205,6 +206,8 @@ public class ChatHeadService extends Service {
                 long pressDuration = System.currentTimeMillis() - pressStartTime;
                 if (pressDuration < MAX_CLICK_DURATION) { //&& stayedWithinClickDistance
                     openAppClicked();
+                }else{
+                    updateViewLocation();
                 }
                 break;
             case MotionEvent.ACTION_CANCEL:
@@ -244,6 +247,40 @@ public class ChatHeadService extends Service {
             return true;
 
         }
+    }
+
+    /**
+     * Calculate the phone's display metrics
+     * @return DisplayMatrix
+     */
+    private DisplayMetrics calculateDisplayMetrics() {
+        DisplayMetrics mDisplayMetrics = new DisplayMetrics();
+        mDisplay.getMetrics(mDisplayMetrics);
+        return mDisplayMetrics;
+    }
+
+    /**
+     * Update view x,y if it goes beyond the sreens x,y coords
+     */
+    private void updateViewLocation() {
+        DisplayMetrics metrics = calculateDisplayMetrics();
+        int width = metrics.widthPixels - mRootLayout.getWidth();
+        int height = metrics.heightPixels - mRootLayout.getHeight();
+//        if (mRootLayoutParams.x >= width)
+//            mRootLayoutParams.x = (width * 2) - 10;
+        if (mRootLayoutParams.x >= width)
+            mRootLayoutParams.x = width - mRootLayout.getWidth();
+
+        if(mRootLayoutParams.x <= 0)
+            mRootLayoutParams.x = mRootLayout.getWidth();
+
+        if (mRootLayoutParams.y >= height)
+            mRootLayoutParams.y = height - mRootLayout.getHeight();
+
+        if(mRootLayoutParams.y <= 0)
+            mRootLayoutParams.y = mRootLayout.getHeight();
+
+        mWindowManager.updateViewLayout(mRootLayout, mRootLayoutParams);
     }
 
     // Timer for animation/automatic movement of the tray.

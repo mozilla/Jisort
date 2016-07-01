@@ -6,26 +6,29 @@ package com.mozilla.hackathon.kiboko.models;
 public class Question {
     private int ID;
     private String QUESTION;
-    private String OPTA;
-    private String OPTB;
-    private String OPTC;
+    private String OPTIONA;
+    private String OPTIONB;
+    private String OPTIONC;
+    private String OPTIOND;
     private String ANSWER;
     public Question()
     {
         ID=0;
         QUESTION="";
-        OPTA="";
-        OPTB="";
-        OPTC="";
+        OPTIONA="";
+        OPTIONB="";
+        OPTIONC="";
+        OPTIOND="";
         ANSWER="";
     }
-    public Question(String qUESTION, String oPTA, String oPTB, String oPTC,
+    public Question(String qUESTION, String oPTA, String oPTB, String oPTC, String oPTD,
                     String aNSWER) {
 
         QUESTION = qUESTION;
-        OPTA = oPTA;
-        OPTB = oPTB;
-        OPTC = oPTC;
+        OPTIONA = oPTA;
+        OPTIONB = oPTB;
+        OPTIONC = oPTC;
+        OPTIOND = oPTD;
         ANSWER = aNSWER;
     }
     public int getID()
@@ -35,14 +38,17 @@ public class Question {
     public String getQUESTION() {
         return QUESTION;
     }
-    public String getOPTA() {
-        return OPTA;
+    public String getOPTIONA() {
+        return OPTIONA;
     }
-    public String getOPTB() {
-        return OPTB;
+    public String getOPTIONB() {
+        return OPTIONB;
     }
-    public String getOPTC() {
-        return OPTC;
+    public String getOPTIONC() {
+        return OPTIONC;
+    }
+    public String getOPTIOND() {
+        return OPTIOND;
     }
     public String getANSWER() {
         return ANSWER;
@@ -55,16 +61,18 @@ public class Question {
         QUESTION = qUESTION;
     }
     public void setOPTA(String oPTA) {
-        OPTA = oPTA;
+        OPTIONA = oPTA;
     }
     public void setOPTB(String oPTB) {
-        OPTB = oPTB;
+        OPTIONB = oPTB;
     }
     public void setOPTC(String oPTC) {
-        OPTC = oPTC;
+        OPTIONC = oPTC;
+    }
+    public void setOPTD(String oPTD) {
+        OPTIOND = oPTD;
     }
     public void setANSWER(String aNSWER) {
         ANSWER = aNSWER;
     }
-
 }

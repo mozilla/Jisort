@@ -1,11 +1,11 @@
 package com.mozilla.hackathon.kiboko.activities;
 
 import android.app.ActionBar;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
@@ -14,18 +14,16 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.mozilla.hackathon.kiboko.R;
 import com.mozilla.hackathon.kiboko.models.Question;
-import com.mozilla.hackathon.kiboko.utilities.DbHelper;
 
 import java.util.List;
 
 /**
  * Created by mwadime on 6/10/2016.
  */
-public class QuizActivity extends Activity {
+public class QuizActivity extends AppCompatActivity {
     List<Question> quesList;
     int score=0;
     int qid=0;
@@ -39,8 +37,8 @@ public class QuizActivity extends Activity {
         setContentView(R.layout.activity_quiz);
         ActionBar ab = getActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
-        DbHelper db=new DbHelper(this);
-        quesList=db.getAllQuestions();
+//        DbHelper db=new DbHelper(this);
+//        quesList=db.getAllQuestions();
         currentQ=quesList.get(qid);
         txtQuestion=(TextView)findViewById(R.id.textView1);
         rda=(RadioButton)findViewById(R.id.radio0);
@@ -109,7 +107,6 @@ public class QuizActivity extends Activity {
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-//                        Toast.makeText(getBaseContext(), "Cancelled", Toast.LENGTH_SHORT).show(); // just show a Toast, do nothing else
                     }
                 });
         dialog.create().show();
@@ -118,9 +115,10 @@ public class QuizActivity extends Activity {
     private void setQuestionView()
     {
         txtQuestion.setText(currentQ.getQUESTION());
-        rda.setText(currentQ.getOPTA());
-        rdb.setText(currentQ.getOPTB());
-        rdc.setText(currentQ.getOPTC());
+        rda.setText(currentQ.getOPTIONA());
+        rdb.setText(currentQ.getOPTIONB());
+        rdc.setText(currentQ.getOPTIONC());
+        rdc.setText(currentQ.getOPTIOND());
         qid++;
     }
 }

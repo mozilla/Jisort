@@ -46,6 +46,16 @@ public final class DsoContract {
         String TUTORIAL_IMPORT_HASHCODE = "tutorial_import_hashcode";
     }
 
+    interface QuizColumns {
+        String KEY_ID = "id";
+        String KEY_QUESTION = "question";
+        String KEY_ANSWER = "answer"; //correct option
+        String KEY_OPTIONA= "optiona"; //option a
+        String KEY_OPTIONB= "optionb"; //option b
+        String KEY_OPTIONC= "optionc"; //option c
+        String KEY_OPTIOND= "optiond"; //option d
+    }
+
     public static final String CONTENT_AUTHORITY = "com.mozilla.hackathon.kiboko";
 
     public static final Uri BASE_CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
