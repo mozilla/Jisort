@@ -36,7 +36,7 @@
         <org.sufficientlysecure.htmltextview.HtmlTextView
             android:id="@+id/step_description"
             style="?android:textAppearanceMedium"
-            android:lineSpacingMultiplier="1.5"
+            android:lineSpacingMultiplier="1.2"
             android:textColor="@color/colorTextPrimary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
