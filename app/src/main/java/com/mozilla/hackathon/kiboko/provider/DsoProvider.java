@@ -272,6 +272,11 @@ public class DsoProvider extends ContentProvider {
             case TUTORIALS: {
                 return builder.table(Tables.TUTORIALS);
             }
+            case TUTORIALS_ID: {
+                final String tutorialId = DsoContract.Tutorials.getTutorialId(uri);
+                return builder.table(Tables.TUTORIALS)
+                        .where(DsoContract.Tutorials.TUTORIAL_ID + "=?", tutorialId);
+            }
             default: {
                 throw new UnsupportedOperationException("Unknown uri: " + uri);
             }
