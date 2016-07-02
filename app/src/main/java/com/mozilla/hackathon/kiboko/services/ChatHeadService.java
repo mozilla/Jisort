@@ -19,6 +19,7 @@ import android.view.View.OnTouchListener;
 import android.view.WindowManager;
 import android.widget.RelativeLayout;
 
+import com.mozilla.hackathon.kiboko.Analytics;
 import com.mozilla.hackathon.kiboko.R;
 import com.mozilla.hackathon.kiboko.activities.DashboardActivity;
 import com.mozilla.hackathon.kiboko.events.BatteryStateChanged;
@@ -366,6 +367,7 @@ public class ChatHeadService extends Service {
      * Open application
      */
     private void openAppClicked() {
+        Analytics.add("ChatHeadService::Clicked");
         switchToNormalHead();
         Intent dashboardIntent = new Intent(this, DashboardActivity.class);
         dashboardIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED | Intent.FLAG_ACTIVITY_SINGLE_TOP);

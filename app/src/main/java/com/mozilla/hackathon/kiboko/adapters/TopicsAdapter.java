@@ -11,6 +11,7 @@ import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.mozilla.hackathon.kiboko.Analytics;
 import com.mozilla.hackathon.kiboko.R;
 import com.mozilla.hackathon.kiboko.activities.FindIconsActivity;
 import com.mozilla.hackathon.kiboko.activities.TutorialSlideActivity;
@@ -94,6 +95,7 @@ public class TopicsAdapter  extends BaseAdapter implements Filterable {
         viewItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Analytics.add("TopicsAdapter::Clicked", topic.getTag());
                 if(topic.getTag().equals("icons")){
                     Intent topicIntent = new Intent(context, FindIconsActivity.class);
 //                    topicIntent.putExtra("topic", topic.getName());
