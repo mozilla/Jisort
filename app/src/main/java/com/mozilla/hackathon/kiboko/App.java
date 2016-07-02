@@ -1,9 +1,9 @@
 package com.mozilla.hackathon.kiboko;
 
 import android.app.Application;
-import android.os.Looper;
-import android.os.Handler;
 import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
 
 import com.squareup.otto.Bus;
 import com.squareup.otto.ThreadEnforcer;
@@ -47,13 +47,12 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         context = getApplicationContext();
-
         mEventBus = new MainThreadBus();
+        // Battery receiver - Catches battery low system event
+        // context.registerReceiver(new DSOBatteryReceiver(), new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
     }
 
     public static Context getContext() {
         return context;
     }
-
-
 }

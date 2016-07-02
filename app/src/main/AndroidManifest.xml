@@ -10,6 +10,7 @@
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
@@ -99,7 +100,7 @@
             </intent-filter>
         </receiver>
 
-        <receiver android:name=".recievers.DSOBatteryReceiver" >
+        <receiver android:name=".recievers.DSOChangedBroadcastReceiver" >
             <intent-filter>
                 <action android:name="android.bluetooth.adapter.action.STATE_CHANGED" />
                 <action android:name="android.bluetooth.adapter.action.BATTERY_CHANGED" />
@@ -113,9 +114,7 @@
         </receiver>
 
         <receiver
-            android:name=".recievers.DSOInstalledBroadcastReceiver"
-            android:enabled="false"
-            android:exported="false">
+            android:name=".recievers.DSOInstalledBroadcastReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.PACKAGE_INSTALL" />
                 <action android:name="android.intent.action.PACKAGE_ADDED"/>
@@ -123,13 +122,16 @@
             </intent-filter>
         </receiver>
 
-        <receiver
-            android:enabled="false"
-            android:exported="false"
-            android:name=".recievers.DSONetworkStateReceiver" >
+        <receiver android:name=".recievers.DSONetworkStateReceiver" >
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
                 <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".recievers.DSOBatteryReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_BATTERY_LOW" />
             </intent-filter>
         </receiver>
 
@@ -143,7 +145,6 @@
         </service>
 
         <!-- Data, sync and schedule editing components -->
-
         <provider
             android:name=".provider.DsoProvider"
             android:authorities="com.mozilla.hackathon.kiboko"

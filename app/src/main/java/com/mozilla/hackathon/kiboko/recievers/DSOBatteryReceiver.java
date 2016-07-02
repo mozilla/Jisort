@@ -14,15 +14,10 @@ import com.mozilla.hackathon.kiboko.events.BatteryStateChanged;
 public class DSOBatteryReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
-        context.unregisterReceiver(this);
-        int rawlevel = intent.getIntExtra(BatteryManager.EXTRA_LEVEL, -1);
-        int scale = intent.getIntExtra(BatteryManager.EXTRA_SCALE, -1);
-        int level = -1;
-        if (rawlevel >= 0 && scale > 0) {
-            level = (rawlevel * 100) / scale;
-        }
+        // context.unregisterReceiver(this);
+        int rawlevel = intent.getIntExtra(BatteryManager.EXTRA_LEVEL, 0);
 
-        if(level <= 20){
+        if(rawlevel <= 25){
             App.getBus().post(new BatteryStateChanged(true) );
         }
     }
