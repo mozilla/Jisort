@@ -13,7 +13,7 @@
             "id": "2",
             "title": "Where do I get it? Who owns it?",
             "gifUrl": "wifi2",
-            "description": "Wi-Fi networks are created by \"hotspots\" that connect to the internet. Anyone can buy one and set it up at home, at work, or in a public space. If you can detect a Wi-Fi network on your phone, you might be able to connect to it. To learn more about connecting, look at Connecting to Wi-Fi."
+            "description": "Wi-Fi networks are created by \"hotspots\" that connect to the internet. Anyone can buy one and set it up at home, at work, or in a public space. If you can detect a Wi-Fi network on your phone, you might be able to connect to it. To learn more about connecting, look at Connecting to Wi-Fi [link]."
         }, {
             "id": "3",
             "title": "Saving Money",
@@ -59,17 +59,17 @@
             "id": "6",
             "title": "Entering a Password",
             "gifUrl": "connectwifi6",
-            "description": "<i>If your phone has already connected to the correct Wi-Fi hotspot, you can skip this step, and just go enjoy the Internet. :)</i>\nSome Wi-Fi hotspots require a password. In this case, a box will appear that asks for a password. If you don’t know the password, ask for help from the owner of the hotspot. Once you have the password, use the keyboard that pops up to enter it.\nIf you have trouble, jump to Fixing Problems."
+            "description": "<i>If your phone has already connected to the correct Wi-Fi hotspot, you can skip this step, and just go enjoy the Internet. :)</i>\nSome Wi-Fi hotspots require a password. In this case, a box will appear that asks for a password. If you don’t know the password, ask for help from the owner of the hotspot. Once you have the password, use the keyboard that pops up to enter it.\nIf you have trouble, jump to Fixing Problems. [button to next step]"
         }, {
             "id": "7",
             "title": "Fixing Problems",
             "gifUrl": "connectwifi7",
-            "description": "If you have problems connecting to a Wi-Fi hotspot, here is a list of things you can try:<ul><li>Make sure you have the right hotspot name.</li>Make sure you have the right password.</li>If you have the right password, make sure it's entered correctly.</li>Talk to the hotspot owner (shopkeeper, librarian, IT assistant, etc.) and explain your problems. They may be able to help solve your problem.</li></ul>"
+            "description": "If you have problems connecting to a Wi-Fi hotspot, here is a list of things you can try:<ul><li>Make sure you have the right hotspot name.</li><i>Make sure you have the right password.</li><li>If you have the right password, make sure it's entered correctly.</><li>Talk to the hotspot owner (shopkeeper, librarian, IT assistant, etc.) and explain your problems. They may be able to help solve your problem.</li></ul>"
         }, {
             "id": "8",
             "title": "Fixing Problems Continued",
             "gifUrl": "connectwifi8",
-            "description": "Sometimes even with the correct hotspot name and password, connection problems will persist. In this case, you can try removing the hotspot from your phone's memory and then reconnecting. Go to the Wi-Fi Settings Menu (see Frame 3 [link]), and find the problematic hotspot's name. Then, press and hold on the hotspot’s name until a menu appears. Choose \"Forget Network\". Then, try connecting again. You may have to re-enter your password, so have it ready.\nSometimes a hotspot will be set up to work with specific devices and it may not let you connect to the internet even though it looks like it should. If you really can't connect to the one you picked, try to find another hotspot."
+            "description": "Sometimes even with the correct hotspot name and password, connection problems will persist. In this case, you can try removing the hotspot from your phone's memory and then reconnecting. Go to the <b>Wi-Fi Settings Menu</b> (see Frame 3 [link]), and find the problematic hotspot's name. Then, press and hold on the hotspot’s name until a menu appears. Choose <b>\"Forget Network\"</b>. Then, try connecting again. You may have to re-enter your password, so have it ready.\nSometimes a hotspot will be set up to work with specific devices and it may not let you connect to the internet even though it looks like it should. If you really can't connect to the one you picked, try to find another hotspot."
         }, {
             "id": "9",
             "title": "Enjoy",
@@ -105,7 +105,7 @@
             "id": "5",
             "title": "Connect to Wi-Fi",
             "gifUrl": "connectwifi2",
-            "description": "The more Wi-Fi you use, the more data you save. Wi-Fi connections are usually stronger, more stable, and less costly than cellular (mobile) ones, though sometimes you have to pay to use someone else’s hotspot. To learn how to connect to Wi-Fi, check out Connecting to Wi-Fi."
+            "description": "The more Wi-Fi you use, the more data you save. Wi-Fi connections are usually stronger, more stable, and less costly than cellular (mobile) ones, though sometimes you have to pay to use someone else’s hotspot. To learn how to connect to Wi-Fi, look at Connecting to Wi-Fi [link]."
         }, {
             "id": "6",
             "title": "Disable Auto-update",
@@ -172,7 +172,7 @@
           "id": "4",
           "title": "Using Wi-Fi",
           "gifUrl": "airplanemode4",
-          "description": "Even with Airplane mode turned on, you are still able to use Wi-Fi if you switch it on explicitly. This will ensure that mobile data is not used. Check out Connecting to Wi-Fi for more information."
+          "description": "Even with Airplane mode turned on, you are still able to use Wi-Fi if you switch it on explicitly. This will ensure that mobile data is not used. Look at Connecting to Wi-Fi [link] for more information."
         }]
       },{
         "id": "6",
@@ -193,12 +193,12 @@
           "id": "3",
           "title": "Evaluating Items",
           "gifUrl": "storage3",
-          "description": "The size of content on your phone is measured in KB, MB, and GB, where KB is the smallest, and GB is the biggest. If an app consumes 2GB of space, it is much larger than an image that consumes 582KB.\nConfirm that the size of each type of content is as you expect and as you want. If your phone has 300MB of Images and you’re having trouble installing a new app, consider deleting some. Tapping the item in this list will give you options for cleaning it up."
+          "description": "The size of content on your phone is measured in MB, and GB, where MB is the smallest, and GB is the biggest. If an app consumes 2GB of space, it is much larger than an image that consumes 2MB.\nConfirm that the size of each type of content is as you expect and as you want. If your phone has many images and you’re having trouble installing a new app, consider deleting some."
         }, {
           "id": "4",
           "title": "Check your Apps",
           "gifUrl": "storage4",
-          "description": "Some apps like Whatsapp automatically download content that is sent to you from a friend or a group. You can delete this content from your phone and retrieve it again later, or prevent it from being downloaded to your phone automatically altogether.\nNote that videos and images you have shared on Whatsapp are always retrievable by the friend or group you’ve sent them to, regardless of whether or not those videos or images are currently on your phone."
+          "description": "Some apps like Whatsapp automatically download content that is sent to you from a friend or a group. You can delete this content from your phone and retrieve it again later, or prevent it from being downloaded to your phone automatically altogether.\nVideos and images you have shared on Whatsapp can always be downloaded by the friend or group you’ve sent them to, regardless of whether or not those videos or images are currently on your phone."
         }]
       },{
       "id": "7",
@@ -209,7 +209,7 @@
         "id": "1",
         "title": "Home of Many Apps",
         "gifUrl": "playstore1",
-        "description": "The Play Store lets you download apps and other content on your phone. You can search the app store for different kinds of apps like games, learning apps, messaging apps, photo-editing apps, and more.\nSome content on the Play Store is free, and some costs money. Don’t worry though: you will always be asked to confirm if you are about to spend money."
+        "description": "The Play Store lets you download apps on your phone. You can search the app store for different kinds of apps like games, learning apps, social media apps, photo-editing apps, and more.\nSome apps on the Play Store are free, and some costs money. Don’t worry though: you will always be asked to confirm if you are about to spend money."
       }, {
         "id": "2",
         "title": "Opening the Play Store",
@@ -234,17 +234,17 @@
         "id": "6",
         "title": " Reviewing and Downloading",
         "gifUrl": "playstore6",
-        "description": "Before downloading an app, always look at its rating and the comments posted about it by other people. Because apps can be made by anybody with a computer, ratings and comments are the best way to know if an app does what it claims, or if it is poorly made."
+        "description": "Before downloading an app, always look at its rating, description and the comments posted about it by other people to learn more about the app. Because apps can be made by anybody, ratings and comments are the best way to know if an app does what it claims, or if it is poorly made."
       }, {
         "id": "7",
         "title": "Reviewing and Downloading",
         "gifUrl": "playstore7",
-        "description": "Once you've downloaded and tried an app, you can rate it and comment on its entry in the Play Store. Your feedback helps create a safe environment by giving people reliable information about whether or not apps are well-made, useful, and appropriate."
+        "description": "Once you’ve downloaded and used an app, you can rate it and comment about it in the Play Store. Your feedback helps create a safe environment by giving people reliable information about whether or not apps are well-made, useful and appropriate."
       }, {
         "id": "8",
         "title": "Updating",
         "gifUrl": "playstore8",
-        "description": "Apps are rarely complete or perfect when their creator releases them to the public. So, often, creators will issue updates for their apps through the Play Store.\nUpdating apps consumes data. However, by default, the Play Store will try to download updates automatically when you’re connected to a Wi-Fi hotspot. Check out Disable Auto-Update if you suspect that apps are being updated with your mobile data connection."
+        "description": "Occasionally, app creators will need to update or change the content of the app. So, often, they issue updates for their apps through the Play Store.\nUpdating apps consumes data. However, the Play Store will try to download updates automatically when you’re connected to a Wi-Fi hotspot. Look at Disable Auto-Update [link] if you suspect that apps are being updated with your mobile data connection."
       }]
     },{
       "id": "8",
@@ -260,7 +260,7 @@
         "id": "2",
         "title": "Multiple Accounts",
         "gifUrl": "accountspasswords2",
-        "description": "Companies often want you to make an accounts specifically for their services. For example, Facebook wants you to have a Facebook account to interact with people there, and Google wants you to have a Google account to use apps like the Play Store."
+        "description": "Companies often want you to make an account specifically for their services. For example, Facebook wants you to have a Facebook account to interact with people there, and Google wants you to have a Google account to use apps like the Play Store."
       }, {
         "id": "3",
         "title": "A Different Password for Each Account",
@@ -270,12 +270,12 @@
         "id": "4",
         "title": "Making a Strong Password",
         "gifUrl": "accountspasswords4",
-        "description": "Strong passwords usually have\n<ul><li>At least 8 characters.</li><li>Uppercase and lowercase letters.</li><li>Letters, numbers, and punctuation marks.</li></ul>\nTry to pick passwords that are memorable to you, but not based on information other people can easily find out about you."
+        "description": "Strong passwords usually have\n<ul><li>At least 8 characters.</li><li>Uppercase and lowercase letters.</li><li>Letters, numbers, and punctuation marks.</li></ul>\nTry to pick passwords that are memorable to you, but not based on personal information other people can easily find out about you."
       }, {
         "id": "5",
         "title": "Using a Memorable Sentence",
         "gifUrl": "accountspasswords5",
-        "description": "To create and remember a strong password, think of a memorable sentence and use the first letter of each word. For example, \"<b>I won my first spelling bee at age 7</b>\" becomes \"<b>Iwm#1sbaa7</b>\" ."
+        "description": "To create and remember a strong password, think of a memorable sentence and use the first letter of each word. For example, \"<b>I buy 2 mangos at the market every week</b>\" becomes \"<b>Ib2matmew/b>\" ."
       }, {
         "id": "6",
         "title": "Using a String of Random Words",
@@ -285,7 +285,7 @@
         "id": "7",
         "title": "What kinds of passwords should I avoid?",
         "gifUrl": "accountspasswords7",
-        "description": "Impostors can easily break short passwords and passwords made up of sequential numbers like \"1234\". They can also can guess passwords that are made of simple words like \"mydata\". Impostors can use what they know about you to guess passwords based on important dates in your life (such as birthdays or anniversaries) or the names of people (including celebrities and sports teams) or places you know."
+        "description": "Impostors can easily break short passwords and passwords made up of sequential numbers like \"1234\". They can also guess passwords that are made of simple words like \"mydata\". Impostors can use what they know about you to guess passwords based on important dates in your life (such as birthdays or anniversaries) or the names of people (including celebrities and sports teams) or places you know."
       }]
     }]
 }
