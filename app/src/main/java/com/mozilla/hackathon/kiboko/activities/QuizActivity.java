@@ -5,7 +5,6 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
@@ -20,10 +19,13 @@ import com.mozilla.hackathon.kiboko.models.Question;
 
 import java.util.List;
 
+import static com.mozilla.hackathon.kiboko.utilities.LogUtils.LOGD;
+
 /**
  * Created by mwadime on 6/10/2016.
  */
-public class QuizActivity extends AppCompatActivity {
+public class QuizActivity extends DSOActivity {
+    private String TAG = QuizActivity.class.getSimpleName();
     List<Question> quesList;
     int score=0;
     int qid=0;
@@ -51,7 +53,7 @@ public class QuizActivity extends AppCompatActivity {
             public void onClick(View v) {
                 RadioGroup grp=(RadioGroup)findViewById(R.id.radioGroup1);
                 RadioButton answer=(RadioButton)findViewById(grp.getCheckedRadioButtonId());
-                Log.d("yourans", currentQ.getANSWER()+" "+answer.getText());
+                LOGD("yourans", currentQ.getANSWER()+" "+answer.getText());
                 if(currentQ.getANSWER().equals(answer.getText()))
                 {
                     score++;
@@ -101,12 +103,6 @@ public class QuizActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         finish(); // when click OK button, finish current activity!
                         onBackPressed();
-                    }
-                });
-        dialog.setNegativeButton("Cancel",
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
                     }
                 });
         dialog.create().show();
