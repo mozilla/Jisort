@@ -59,7 +59,7 @@ public class TopicsFragment extends ListFragment implements CompoundButton.OnChe
         list.add(get("data", "Using your data wisely", R.drawable.circular_money));
         list.add(get("playstore", "Find new apps!", R.drawable.circular_googleplay));
         list.add(get("storage", "Free up memory for new apps", R.drawable.circular_sdcard));
-        list.add(get("broken", "Fix broken images and videos", R.drawable.circular_badimage));
+        // list.add(get("broken", "Fix broken images and videos", R.drawable.circular_badimage));
         list.add(get("icons", "What is that icon?", R.drawable.circular_help));
         list.add(get("airplane_mode", "Using Airplane Mode", R.drawable.circular_airplane));
         list.add(get("accounts_passwords", "Strengthen your Passwords!", R.drawable.circular_account));
@@ -106,7 +106,6 @@ public class TopicsFragment extends ListFragment implements CompoundButton.OnChe
                             requestPermission(OVERLAY_PERMISSION_REQ_CODE_CHATHEAD);
                         }
                     }
-
                 }
                 break;
 
@@ -125,12 +124,6 @@ public class TopicsFragment extends ListFragment implements CompoundButton.OnChe
                         requestPermission(requestCode);
                     }
                 });
-        builder.setNegativeButton("Cancel", new android.content.DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-
-            }
-        });
         builder.setCancelable(false);
         builder.show();
     }
@@ -165,7 +158,6 @@ public class TopicsFragment extends ListFragment implements CompoundButton.OnChe
             }else{
                 startOverlayService();
             }
-
         }
     }
 }

@@ -11,6 +11,7 @@ import com.mozilla.hackathon.kiboko.R;
  * Created by Brian Mwadime on 06/06/2016.
  */
 public class TopicListActivity extends DSOActivity {
+    private String TAG = TopicListActivity.class.getSimpleName();
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
