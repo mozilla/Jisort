@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.mozilla.hackathon.kiboko.App;
 import com.mozilla.hackathon.kiboko.events.ApplicationStateChanged;
+import com.mozilla.hackathon.kiboko.services.DataBootstrapService;
 import com.squareup.otto.Bus;
 
 /**
@@ -16,6 +17,9 @@ public class DSOActivity extends AppCompatActivity {
     @Override
     protected void onResume()
     {
+        DataBootstrapService.startDataBootstrapIfNecessary(this);
+        bus.register(this);
+
         App.getBus().post(new ApplicationStateChanged(true));
         super.onResume();
         System.out.println("Resume");
@@ -25,6 +29,7 @@ public class DSOActivity extends AppCompatActivity {
     protected void onPause()
     {
         App.getBus().post(new ApplicationStateChanged(false));
+        bus.unregister(this);
         super.onPause();
         System.out.println("Pause");
     }
