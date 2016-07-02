@@ -131,7 +131,7 @@
         "id": "1",
         "title": "Data consumption",
         "gifUrl": "trackingdata1",
-        "description": "Each Android phone comes with a menu where you can follow your data consumption. You will be able to follow your data consumption over time, but also to see which apps consume data.\nIt might look different on different phones, but should be accessible within the <b>Settings</b> <img src=\"ic_settings_white_24dp\"/>  app. Find the option that says <b>Data Usage</b> <img src=\"ic_data_usage_white_24dp\"/>."
+        "description": "Each Android phone comes with a menu where you can follow your data consumption. You will be able to follow your data consumption over time, but also to see which apps consume data.\nIt might look different on different phones, but should be accessible within the <b>Settings</b> <img src=\"ic_settings_applications_white_24dp\"/> app. Find the option that says <b>Data Usage</b> <img src=\"ic_data_usage_white_24dp\"/>."
       }, {
         "id": "2",
         "title": "Inspecting your Data Usage",
@@ -167,7 +167,7 @@
           "id": "3",
           "title": "In the Wireless Settings Menu",
           "gifUrl": "airplanemode3",
-          "description": "You can also toggle Airplane Mode from the Settings menu. On all Android phones, including older phones, open <b>Settings</b> <img src=\"ic_settings_white_24dp\"/>, choose \"<b>More…</b>\" in the <b>Wireless & Networks</> section, and check the box that says \"<b>Airplane Mode</b>\"."
+          "description": "You can also toggle Airplane Mode from the Settings menu. On all Android phones, including older phones, open <b>Settings</b> <img src=\"ic_settings_applications_white_24dp\"/>, choose \"<b>More…</b>\" in the <b>Wireless & Networks</> section, and check the box that says \"<b>Airplane Mode</b>\"."
         }, {
           "id": "4",
           "title": "Using Wi-Fi",

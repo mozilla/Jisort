@@ -8,7 +8,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.mozilla.hackathon.kiboko.App;
 import com.mozilla.hackathon.kiboko.R;
@@ -17,7 +16,6 @@ import com.mozilla.hackathon.kiboko.events.BatteryStateChanged;
 import com.mozilla.hackathon.kiboko.events.LocationStateChanged;
 import com.mozilla.hackathon.kiboko.events.LowstorageStateChanged;
 import com.mozilla.hackathon.kiboko.events.NetworkStateChanged;
-import com.mozilla.hackathon.kiboko.services.DataBootstrapService;
 import com.mozilla.hackathon.kiboko.widgets.MessageCardView;
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
@@ -25,7 +23,7 @@ import com.squareup.otto.Subscribe;
 public class DashboardActivity extends DSOActivity {
     public static boolean active = false;
     public static FragmentActivity mDashboard;
-    private String TAG = MainActivity.class.getSimpleName();
+    private String TAG = DashboardActivity.class.getSimpleName();
     LinearLayout dashboard_summary;
     Bus bus = App.getBus();
     @Override
@@ -46,8 +44,6 @@ public class DashboardActivity extends DSOActivity {
     protected void onResume()
     {
         super.onResume();
-        DataBootstrapService.startDataBootstrapIfNecessary(this);
-        bus.register(this);
         active = true;
     }
 
@@ -55,7 +51,6 @@ public class DashboardActivity extends DSOActivity {
     protected void onPause()
     {
         super.onPause();
-        bus.unregister(this);
         active = true;
     }
 
@@ -82,7 +77,6 @@ public class DashboardActivity extends DSOActivity {
             wifiCard.setListener(new MessageCardView.OnMessageCardButtonClicked() {
                 @Override
                 public void onMessageCardButtonClicked(final String tag) {
-                    Toast.makeText(getApplicationContext(), tag, Toast.LENGTH_SHORT).show();
                     wifiCard.dismiss(true);
                     dashboard_summary.removeView(wifiCard);
 
@@ -117,7 +111,6 @@ public class DashboardActivity extends DSOActivity {
             wifiCard.setListener(new MessageCardView.OnMessageCardButtonClicked() {
                 @Override
                 public void onMessageCardButtonClicked(final String tag) {
-                    Toast.makeText(getApplicationContext(), tag, Toast.LENGTH_SHORT).show();
                     wifiCard.dismiss(true);
                     dashboard_summary.removeView(wifiCard);
 
@@ -151,7 +144,6 @@ public class DashboardActivity extends DSOActivity {
             batteryCard.setListener(new MessageCardView.OnMessageCardButtonClicked() {
                 @Override
                 public void onMessageCardButtonClicked(final String tag) {
-                    Toast.makeText(getApplicationContext(), tag, Toast.LENGTH_SHORT).show();
                     batteryCard.dismiss(true);
                     dashboard_summary.removeView(batteryCard);
 
@@ -184,7 +176,6 @@ public class DashboardActivity extends DSOActivity {
             batteryCard.setListener(new MessageCardView.OnMessageCardButtonClicked() {
                 @Override
                 public void onMessageCardButtonClicked(final String tag) {
-                    Toast.makeText(getApplicationContext(), tag, Toast.LENGTH_SHORT).show();
                     batteryCard.dismiss(true);
                     dashboard_summary.removeView(batteryCard);
 
@@ -218,7 +209,6 @@ public class DashboardActivity extends DSOActivity {
             locationCard.setListener(new MessageCardView.OnMessageCardButtonClicked() {
                 @Override
                 public void onMessageCardButtonClicked(final String tag) {
-                    Toast.makeText(getApplicationContext(), tag, Toast.LENGTH_SHORT).show();
                     locationCard.dismiss(true);
                     dashboard_summary.removeView(locationCard);
 
