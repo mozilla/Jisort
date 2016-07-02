@@ -173,6 +173,8 @@ public class ChatHeadService extends Service {
     private void dragTray(int action, int x, int y) {
         switch (action) {
             case MotionEvent.ACTION_DOWN:
+                pressStartTime = System.currentTimeMillis();
+                stayedWithinClickDistance = true;
                 // Cancel any currently running animations/automatic tray movements.
                 if (mTrayTimerTask != null) {
                     mTrayTimerTask.cancel();
@@ -214,11 +216,6 @@ public class ChatHeadService extends Service {
                 break;
             case MotionEvent.ACTION_CANCEL:
 
-                // When the tray is released, bring it back to "open" or "closed" state.
-                if ((mIsTrayOpen && (x - mStartDragX) <= 0) ||
-                        (!mIsTrayOpen && (x - mStartDragX) >= 0))
-                    mIsTrayOpen = !mIsTrayOpen;
-
                 mTrayTimerTask = new TrayAnimationTimerTask();
                 mTrayAnimationTimer = new Timer();
                 mTrayAnimationTimer.schedule(mTrayTimerTask, 0, ANIMATION_FRAME_RATE);
@@ -234,10 +231,6 @@ public class ChatHeadService extends Service {
             final int action = event.getActionMasked();
             switch (action) {
                 case MotionEvent.ACTION_DOWN:
-                    pressedX = event.getX();
-                    pressedY = event.getY();
-                    pressStartTime = System.currentTimeMillis();
-                    stayedWithinClickDistance = true;
                 case MotionEvent.ACTION_MOVE:
                 case MotionEvent.ACTION_UP:
                 case MotionEvent.ACTION_CANCEL:
@@ -268,8 +261,7 @@ public class ChatHeadService extends Service {
         DisplayMetrics metrics = calculateDisplayMetrics();
         int width = metrics.widthPixels - mRootLayout.getWidth();
         int height = metrics.heightPixels - mRootLayout.getHeight();
-//        if (mRootLayoutParams.x >= width)
-//            mRootLayoutParams.x = (width * 2) - 10;
+
         if (mRootLayoutParams.x >= width)
             mRootLayoutParams.x = width - mRootLayout.getWidth();
 

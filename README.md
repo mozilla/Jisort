@@ -5,16 +5,16 @@ Description goes here..
 
 <h2>Source</h2>
 
-The source code in this repository reflects the app's current tatus'.
+The source code in this repository reflects the app's current status.
 
 <h2>Features</h2>
 
 With the app, you can:
 
-- View the tutorial content.
-- View suggested topics based on system events like low battery; wifi, location or bluetooth status
+- View tutorial content.
+- View suggested topics based on system events like low battery; wifi, location or bluetooth status.
 - View detailed tutorial content.
-- Enable/disable app FAB
+- Enable/disable app FAB.
 
 <h2>How to Work with the Source</h2>
 

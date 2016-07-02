@@ -9,7 +9,7 @@ import com.squareup.otto.Bus;
 import com.squareup.otto.ThreadEnforcer;
 
 /**
- * Created by Audrey on 06/06/2016.
+ * Created by Brian Mwadime on 06/06/2016.
  */
 public class App extends Application {
 
