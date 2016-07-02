@@ -79,12 +79,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.DashboardActivity" />
         </activity>
-        <activity
-        android:name=".activities.DetailsActivity"
-        android:windowSoftInputMode="stateHidden"
-        android:label="@string/title_activity_details" >
-
-    </activity>
 
         <activity
             android:name=".activities.QuizActivity"
