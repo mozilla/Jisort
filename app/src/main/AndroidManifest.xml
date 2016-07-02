@@ -99,7 +99,7 @@
             </intent-filter>
         </receiver>
 
-        <receiver android:name=".recievers.DSOBatteryReceiver" >
+        <receiver android:name=".recievers.DSOChangedBroadcastReceiver" >
             <intent-filter>
                 <action android:name="android.bluetooth.adapter.action.STATE_CHANGED" />
                 <action android:name="android.bluetooth.adapter.action.BATTERY_CHANGED" />
@@ -130,6 +130,14 @@
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
                 <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:enabled="false"
+            android:name=".recievers.DSOBatteryReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_BATTERY_LOW" />
             </intent-filter>
         </receiver>
 
