@@ -44,6 +44,15 @@ public class IconsFragment extends Fragment {
         gridView = (GridView) rootView.findViewById(R.id.icons_gridview);
 
         view_icons = (Button) rootView.findViewById(R.id.icons_button);
+        view_icons.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                FindIconsActivity activity = (FindIconsActivity)getActivity();
+                Intent intent = new Intent(activity, IconQuizActivity.class);
+                getActivity().startActivity(intent);
+            }
+        });
 
         return rootView;
     }
@@ -78,7 +87,6 @@ public class IconsFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
         adapter = new IconsAdapter(this.getActivity(), getTopics());
         gridView.setAdapter(adapter);
     }
