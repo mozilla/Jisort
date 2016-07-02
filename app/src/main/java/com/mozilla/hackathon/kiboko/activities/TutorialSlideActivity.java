@@ -51,7 +51,7 @@ public class TutorialSlideActivity extends DSOActivity implements LoaderManager.
     private static final int LOADER_ID = 0x01;
     private List<Step> jsonSteps = new ArrayList<Step>();
     /**
-     * The number of pages (wizard steps) to show in this demo.
+     * The number of pages (wizard steps) to show.
      */
     private static final int NUM_PAGES = 5;
 
