@@ -78,7 +78,6 @@ public class IconsFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
         adapter = new IconsAdapter(this.getActivity(), getTopics());
         gridView.setAdapter(adapter);
     }
