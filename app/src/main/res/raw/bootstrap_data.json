@@ -13,7 +13,7 @@
             "id": "2",
             "title": "Where do I get it? Who owns it?",
             "gifUrl": "wifi2",
-            "description": "Wi-Fi networks are created by \"hotspots\" that connect to the internet. Anyone can buy one and set it up at home, at work, or in a public space. If you can detect a Wi-Fi network on your phone, you might be able to connect to it. To learn more about connecting, look at Connecting to Wi-Fi [link]."
+            "description": "Wi-Fi networks are created by \"hotspots\" that connect to the internet. Anyone can buy one and set it up at home, at work, or in a public space. If you can detect a Wi-Fi network on your phone, you might be able to connect to it. To learn more about connecting, read the Connecting to Wi-Fi section."
         }, {
             "id": "3",
             "title": "Saving Money",
@@ -54,12 +54,12 @@
             "id": "5",
             "title": "Connecting to a Wi-Fi hotspot",
             "gifUrl": "connectwifi5",
-            "description": "When you see the Wi-Fi hotspot that you want to connect to, tap it. If it doesn't require a password, your phone will try to connect. When it does, it will read <b>Connected</b>.\nYou may also see your phone say <b>Authenticating</b> or <b>Obtaining IP Address</b>. These are normal steps in making a Wi-Fi connection.\nIf asked for a password, usishtuke! Just go to the next step [button to next step]."
+            "description": "When you see the Wi-Fi hotspot that you want to connect to, tap it. If it doesn't require a password, your phone will try to connect. When it does, it will read <b>Connected</b>.\nYou may also see your phone say <b>Authenticating</b> or <b>Obtaining IP Address</b>. These are normal steps in making a Wi-Fi connection.\nIf asked for a password, usishtuke! Just go to the next step."
         }, {
             "id": "6",
             "title": "Entering a Password",
             "gifUrl": "connectwifi6",
-            "description": "<i>If your phone has already connected to the correct Wi-Fi hotspot, you can skip this step, and just go enjoy the Internet. :)</i>\nSome Wi-Fi hotspots require a password. In this case, a box will appear that asks for a password. If you don’t know the password, ask for help from the owner of the hotspot. Once you have the password, use the keyboard that pops up to enter it.\nIf you have trouble, jump to Fixing Problems. [button to next step]"
+            "description": "<i>If your phone has already connected to the correct Wi-Fi hotspot, you can skip this step, and just go enjoy the Internet. :)</i>\nSome Wi-Fi hotspots require a password. In this case, a box will appear that asks for a password. If you don’t know the password, ask for help from the owner of the hotspot. Once you have the password, use the keyboard that pops up to enter it.\nIf you have trouble, jump to Fixing Problems."
         }, {
             "id": "7",
             "title": "Fixing Problems",
@@ -69,7 +69,7 @@
             "id": "8",
             "title": "Fixing Problems Continued",
             "gifUrl": "connectwifi8",
-            "description": "Sometimes even with the correct hotspot name and password, connection problems will persist. In this case, you can try removing the hotspot from your phone's memory and then reconnecting. Go to the <b>Wi-Fi Settings Menu</b> (see Frame 3 [link]), and find the problematic hotspot's name. Then, press and hold on the hotspot’s name until a menu appears. Choose <b>\"Forget Network\"</b>. Then, try connecting again. You may have to re-enter your password, so have it ready.\nSometimes a hotspot will be set up to work with specific devices and it may not let you connect to the internet even though it looks like it should. If you really can't connect to the one you picked, try to find another hotspot."
+            "description": "Sometimes even with the correct hotspot name and password, connection problems will persist. In this case, you can try removing the hotspot from your phone's memory and then reconnecting. Go to the <b>Wi-Fi Settings Menu</b>, and find the problematic hotspot's name. Then, press and hold on the hotspot’s name until a menu appears. Choose <b>\"Forget Network\"</b>. Then, try connecting again. You may have to re-enter your password, so have it ready.\nSometimes a hotspot will be set up to work with specific devices and it may not let you connect to the internet even though it looks like it should. If you really can't connect to the one you picked, try to find another hotspot."
         }, {
             "id": "9",
             "title": "Enjoy",
@@ -105,7 +105,7 @@
             "id": "5",
             "title": "Connect to Wi-Fi",
             "gifUrl": "connectwifi2",
-            "description": "The more Wi-Fi you use, the more data you save. Wi-Fi connections are usually stronger, more stable, and less costly than cellular (mobile) ones, though sometimes you have to pay to use someone else’s hotspot. To learn how to connect to Wi-Fi, look at Connecting to Wi-Fi [link]."
+            "description": "The more Wi-Fi you use, the more data you save. Wi-Fi connections are usually stronger, more stable, and less costly than cellular (mobile) ones, though sometimes you have to pay to use someone else’s hotspot. To learn how to connect to Wi-Fi, read the Connecting to Wi-Fi section."
         }, {
             "id": "6",
             "title": "Disable Auto-update",
@@ -131,7 +131,7 @@
         "id": "1",
         "title": "Data consumption",
         "gifUrl": "trackingdata1",
-        "description": "Each Android phone comes with a menu where you can follow your data consumption. You will be able to follow your data consumption over time, but also to see which apps consume data.\nIt might look different on different phones, but should be accessible within the <b>Settings</b> [settings icon] app. Find the option that says <b>Data Usage</b> [data usage icon]."
+        "description": "Each Android phone comes with a menu where you can follow your data consumption. You will be able to follow your data consumption over time, but also to see which apps consume data.\nIt might look different on different phones, but should be accessible within the <b>Settings</b> <img src=\"ic_settings_white_24dp\"/>  app. Find the option that says <b>Data Usage</b> <img src=\"ic_data_usage_white_24dp\"/>."
       }, {
         "id": "2",
         "title": "Inspecting your Data Usage",
@@ -162,17 +162,17 @@
           "id": "2",
           "title": "In the Title Bar",
           "gifUrl": "airplanemode2",
-          "description": "On newer phones, simply swipe down the Title Bar at the top of your screen, and look for the airplane icon [airplane icon]. Tap the icon to turn Airplane Mode <b>ON</b> or <b>OFF</b>."
+          "description": "On newer phones, simply swipe down the Title Bar at the top of your screen, and look for the airplane icon <img src=\"ic_airplanemode_active_white_24dp\"/>. Tap the icon to turn Airplane Mode <b>ON</b> or <b>OFF</b>."
         }, {
           "id": "3",
           "title": "In the Wireless Settings Menu",
           "gifUrl": "airplanemode3",
-          "description": "You can also toggle Airplane Mode from the Settings menu. On all Android phones, including older phones, open <b>Settings</b> [settings icon], choose \"<b>More…</b>\" in the <b>Wireless & Networks</> section, and check the box that says \"<b>Airplane Mode</b>\"."
+          "description": "You can also toggle Airplane Mode from the Settings menu. On all Android phones, including older phones, open <b>Settings</b> <img src=\"ic_settings_white_24dp\"/>, choose \"<b>More…</b>\" in the <b>Wireless & Networks</> section, and check the box that says \"<b>Airplane Mode</b>\"."
         }, {
           "id": "4",
           "title": "Using Wi-Fi",
           "gifUrl": "airplanemode4",
-          "description": "Even with Airplane mode turned on, you are still able to use Wi-Fi if you switch it on explicitly. This will ensure that mobile data is not used. Look at Connecting to Wi-Fi [link] for more information."
+          "description": "Even with Airplane mode turned on, you are still able to use Wi-Fi if you switch it on explicitly. This will ensure that mobile data is not used. Read the Connecting to Wi-Fi section for more information."
         }]
       },{
         "id": "6",
@@ -188,7 +188,7 @@
           "id": "2",
           "title": "Checking your Storage",
           "gifUrl": "storage2",
-          "description": "Within the <b>Settings</b> <img src=\"ic_settings_applications_white_24dp\"/> app you’ll find the <b>Storage & USB</b> [storage icon] menu. You will be shown a breakdown of the Apps, Images, Videos, Audio, and Other content that's using up your phone's memory."
+          "description": "Within the <b>Settings</b> <img src=\"ic_settings_applications_white_24dp\"/> app you’ll find the <b>Storage & USB</b> <img src=\"ic_storage_white_24dp\"/> menu. You will be shown a breakdown of the Apps, Images, Videos, Audio, and Other content that's using up your phone's memory."
         }, {
           "id": "3",
           "title": "Evaluating Items",
@@ -244,7 +244,7 @@
         "id": "8",
         "title": "Updating",
         "gifUrl": "playstore8",
-        "description": "Occasionally, app creators will need to update or change the content of the app. So, often, they issue updates for their apps through the Play Store.\nUpdating apps consumes data. However, the Play Store will try to download updates automatically when you’re connected to a Wi-Fi hotspot. Look at Disable Auto-Update [link] if you suspect that apps are being updated with your mobile data connection."
+        "description": "Occasionally, app creators will need to update or change the content of the app. So, often, they issue updates for their apps through the Play Store.\nUpdating apps consumes data. However, the Play Store will try to download updates automatically when you’re connected to a Wi-Fi hotspot. Read the Disable Auto-Update section if you suspect that apps are being updated with your mobile data connection."
       }]
     },{
       "id": "8",
