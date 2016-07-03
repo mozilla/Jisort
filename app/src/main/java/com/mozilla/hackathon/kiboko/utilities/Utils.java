@@ -11,6 +11,8 @@ import android.graphics.Rect;
 import android.os.Build;
 import android.provider.Settings;
 
+import com.mozilla.hackathon.kiboko.App;
+
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -18,7 +20,11 @@ public class Utils {
     public static String LogTag = "Jisort";
     public static String EXTRA_MSG = "extra_msg";
 
-
+    /**
+     * Determines if the App has permission to draw overlays
+     * @param context app context.
+     * @return true/false
+     */
     public static boolean canDrawOverlays(Context context){
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
             return true;
@@ -87,5 +93,27 @@ public class Utils {
      */
     public static int dpToPixels(int dp, Resources res){
         return (int)(res.getDisplayMetrics().density*dp + 0.5f);
+    }
+
+    /**
+     * Get resource Id of a gif
+     * @param source the gif filename
+     * @return resource id
+     */
+    public static int getResId(String source) {
+        int id = App.getContext().getResources().getIdentifier(source, "drawable", App.getContext().getPackageName());
+
+        if (id == 0) {
+            // the drawable resource wasn't found in our package, maybe it is a stock android drawable?
+            id = App.getContext().getResources().getIdentifier(source, "drawable", "android");
+        }
+
+        if (id == 0) {
+            // prevent a crash if the resource still can't be found
+            return App.getContext().getResources().getIdentifier("blank", "drawable", App.getContext().getPackageName());
+        } else {
+
+            return id;
+        }
     }
 }

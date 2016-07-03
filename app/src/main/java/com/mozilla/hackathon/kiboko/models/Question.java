@@ -1,28 +1,22 @@
 package com.mozilla.hackathon.kiboko.models;
 
+import java.util.Random;
+
 /**
  * Created by mwadime on 6/10/2016.
  */
 public class Question {
-    private int ID;
-    private String QUESTION;
-    private String OPTIONA;
-    private String OPTIONB;
-    private String OPTIONC;
-    private String OPTIOND;
-    private String ANSWER;
-    public Question()
-    {
-        ID=0;
-        QUESTION="";
-        OPTIONA="";
-        OPTIONB="";
-        OPTIONC="";
-        OPTIOND="";
-        ANSWER="";
-    }
-    public Question(String qUESTION, String oPTA, String oPTB, String oPTC, String oPTD,
-                    String aNSWER) {
+    public String id;
+    public String QUESTION;
+    public String OPTIONA;
+    public String OPTIONB;
+    public String OPTIONC;
+    public String OPTIOND;
+    public String ANSWER;
+    public int groupingOrder;
+
+    public Question(String qUESTION,String aNSWER, String oPTA, String oPTB, String oPTC, String oPTD
+                    ) {
 
         QUESTION = qUESTION;
         OPTIONA = oPTA;
@@ -31,9 +25,9 @@ public class Question {
         OPTIOND = oPTD;
         ANSWER = aNSWER;
     }
-    public int getID()
+    public String getID()
     {
-        return ID;
+        return id;
     }
     public String getQUESTION() {
         return QUESTION;
@@ -53,9 +47,9 @@ public class Question {
     public String getANSWER() {
         return ANSWER;
     }
-    public void setID(int id)
+    public void setID(String id)
     {
-        ID=id;
+        this.id = id;
     }
     public void setQUESTION(String qUESTION) {
         QUESTION = qUESTION;
@@ -74,5 +68,9 @@ public class Question {
     }
     public void setANSWER(String aNSWER) {
         ANSWER = aNSWER;
+    }
+
+    public String getImportHashCode() {
+        return (new Random()).nextLong() + "";
     }
 }

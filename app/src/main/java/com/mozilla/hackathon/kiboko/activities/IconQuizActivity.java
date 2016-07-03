@@ -3,38 +3,45 @@ package com.mozilla.hackathon.kiboko.activities;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
+import android.support.v4.app.LoaderManager;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.content.CursorLoader;
+import android.support.v4.content.Loader;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.mozilla.hackathon.kiboko.R;
 import com.mozilla.hackathon.kiboko.models.Question;
+import com.mozilla.hackathon.kiboko.provider.DsoContract;
 import com.mozilla.hackathon.kiboko.widgets.CheckableLinearLayout;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.mozilla.hackathon.kiboko.utilities.LogUtils.LOGI;
+import static com.mozilla.hackathon.kiboko.utilities.LogUtils.makeLogTag;
+
 /**
  * Created by mwadime on 6/10/2016.
  */
-public class IconQuizActivity extends AppCompatActivity {
-    List<Question> quesList;
+public class IconQuizActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
+    private static final String TAG = makeLogTag(IconQuizActivity.class);
+    private static final int LOADER_ID = 0x02;
+    List<Question> quizList = new ArrayList<Question>();
     int score=0;
-    int qid=0;
-    Question currentQ;
+    int question_id=0;
+    Question currentQuestion;
+    private String mQuiz;
     TextView quizStepView;
-    ImageView imageView1,imageView2,imageView3,imageView4;
+    CheckableLinearLayout choiceOptionA, choiceOptionB, choiceOptionC, choiceOptionD;
+    ImageView imageOptionA,imageOptionB,imageOptionC,imageOptionD;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,47 +49,42 @@ public class IconQuizActivity extends AppCompatActivity {
         setContentView(R.layout.activity_icon_quiz);
         ActionBar ab = getSupportActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
-//        DbHelper db=new DbHelper(this);
-//        quesList=db.getAllQuestions();
 
-        quesList = new ArrayList();
+        choiceOptionA = (CheckableLinearLayout)findViewById(R.id.optionA);
+        choiceOptionB = (CheckableLinearLayout)findViewById(R.id.optionB);
+        choiceOptionC = (CheckableLinearLayout)findViewById(R.id.optionC);
+        choiceOptionD = (CheckableLinearLayout)findViewById(R.id.optionD);
 
-        Question  question  =new Question("What icon indicates battery low?", "ic_bluetooth_connected_black_48dp", "ic_phone_black_48dp", "ic_event_black_48dp", "ic_battery_20_black_48dp", String.valueOf(R.id.answer4));
-        quesList.add(question);
-        currentQ=quesList.get(qid);
-        quizStepView=(TextView)findViewById(R.id.quizStepView);
-        setQuestionView();
         //bootstrap content
-        CheckableLinearLayout choice1 = (CheckableLinearLayout)findViewById(R.id.choice1);
-        choice1.setOnClickListener(new View.OnClickListener() {
+        choiceOptionA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //imageView1.setImageDrawable();
-                checkAnswer(imageView1);
+//                checkAnswer(imageOptionA);
             }
         });
 
-        CheckableLinearLayout choice2 = (CheckableLinearLayout)findViewById(R.id.choice2);
-        choice2.setOnClickListener(new View.OnClickListener() {
+        choiceOptionB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //checkAnswer(imageView2);
+                //checkAnswer(imageOptionB);
             }
         });
-        CheckableLinearLayout choice3 = (CheckableLinearLayout)findViewById(R.id.choice3);
-        choice3.setOnClickListener(new View.OnClickListener() {
+
+        choiceOptionC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //checkAnswer(imageView3);
+                //checkAnswer(imageOptionC);
             }
         });
-        CheckableLinearLayout choice4 = (CheckableLinearLayout)findViewById(R.id.choice4);
-        choice4.setOnClickListener(new View.OnClickListener() {
+
+        choiceOptionD.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               // checkAnswer(imageView4);
+               // checkAnswer(imageOptionD);
             }
         });
+
+        getSupportLoaderManager().initLoader(LOADER_ID, null, this);
     }
 
     @Override
@@ -129,22 +131,22 @@ public class IconQuizActivity extends AppCompatActivity {
 
         boolean correct = false;
 
-        if(currentQ.getANSWER().equals(String.valueOf(imageView.getId())))
+        if(currentQuestion.getANSWER().equals(String.valueOf(imageView.getId())))
         {
             score++;
-            Log.d("score", "Your score"+score);
+            LOGI("score", "Your score" + score);
             correct=true;
         }
-        if(qid<5){
-            currentQ=quesList.get(qid);
+        if(question_id<5){
+            currentQuestion = quizList.get(question_id);
             setQuestionView();
         }else{
-            Intent intent = new Intent(IconQuizActivity.this, ResultActivity.class);
-            Bundle b = new Bundle();
-            b.putInt("score", score); //Your score
-            intent.putExtras(b); //Put your score to your next Intent
-            startActivity(intent);
-            finish();
+//            Intent intent = new Intent(IconQuizActivity.this, ResultActivity.class);
+//            Bundle b = new Bundle();
+//            b.putInt("score", score); //Your score
+//            intent.putExtras(b); //Put your score to your next Intent
+//            startActivity(intent);
+//            finish();
         }
 
         return correct;
@@ -152,17 +154,17 @@ public class IconQuizActivity extends AppCompatActivity {
 
     private void setQuestionView()
     {
-        imageView1 = (ImageView)findViewById(R.id.answer1);
-        imageView1.setImageDrawable(ContextCompat.getDrawable(IconQuizActivity.this,getDrawableId(quesList.get(qid).getOPTIONA())));
-        imageView2 = (ImageView)findViewById(R.id.answer2);
-        imageView2.setImageDrawable(ContextCompat.getDrawable(IconQuizActivity.this,getDrawableId(quesList.get(qid).getOPTIONB())));
-        imageView3 = (ImageView)findViewById(R.id.answer3);
-        imageView3.setImageDrawable(ContextCompat.getDrawable(IconQuizActivity.this,getDrawableId(quesList.get(qid).getOPTIONC())));
-        imageView4 = (ImageView)findViewById(R.id.answer4);
-        imageView4.setImageDrawable(ContextCompat.getDrawable(IconQuizActivity.this,getDrawableId(quesList.get(qid).getOPTIOND())));
+        imageOptionA = (ImageView)findViewById(R.id.answer1);
+        imageOptionA.setImageDrawable(ContextCompat.getDrawable(IconQuizActivity.this,getDrawableId(quizList.get(question_id).getOPTIONA())));
+        imageOptionB = (ImageView)findViewById(R.id.answer2);
+        imageOptionB.setImageDrawable(ContextCompat.getDrawable(IconQuizActivity.this,getDrawableId(quizList.get(question_id).getOPTIONB())));
+        imageOptionC = (ImageView)findViewById(R.id.answer3);
+        imageOptionC.setImageDrawable(ContextCompat.getDrawable(IconQuizActivity.this,getDrawableId(quizList.get(question_id).getOPTIONC())));
+        imageOptionD = (ImageView)findViewById(R.id.answer4);
+        imageOptionD.setImageDrawable(ContextCompat.getDrawable(IconQuizActivity.this,getDrawableId(quizList.get(question_id).getOPTIOND())));
 
 
-        qid++;
+        question_id++;
     }
 
     private int getDrawableId(String name){
@@ -182,5 +184,80 @@ public class IconQuizActivity extends AppCompatActivity {
                 break;
             }
         return id;
+    }
+
+    @Override
+    public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+        // Define the columns to retrieve
+        String[] projectionFields = new String[] {
+                DsoContract.Quizes.KEY_ID,
+                DsoContract.Quizes.KEY_QUESTION,
+                DsoContract.Quizes.KEY_ANSWER,
+                DsoContract.Quizes.KEY_OPTIONA,
+                DsoContract.Quizes.KEY_OPTIONB,
+                DsoContract.Quizes.KEY_OPTIONC,
+                DsoContract.Quizes.KEY_OPTIOND};
+
+        // Read all data for contactId
+        String selection = DsoContract.Quizes.KEY_ID + " = ?";
+        String[] selectionArgs = new String[]{mQuiz};
+
+        CursorLoader cursorLoader = new CursorLoader(IconQuizActivity.this,
+                DsoContract.Quizes.CONTENT_URI, // URI
+                projectionFields, // projection fields
+                null, // the selection criteria
+                null, // the selection args
+                null // the sort order
+        );
+        // Return the loader for use
+        return cursorLoader;
+    }
+
+    @Override
+    public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
+        if (cursor != null && cursor.getCount() > 0) {
+            cursor.moveToFirst();
+            int idIndex =
+                    cursor.getColumnIndex(DsoContract.Tutorials._ID);
+            int stepsIndex =
+                    cursor.getColumnIndex(DsoContract.Tutorials.TUTORIAL_STEPS);
+            cursor.moveToNext();
+        }
+
+        if (cursor.moveToFirst()) {
+            do {
+                Question question = loadQuizData(cursor);
+                quizList.add(question);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+
+        if(quizList.size() > 0){
+
+            currentQuestion = quizList.get(question_id);
+            setQuestionView();
+        }
+    }
+
+    private Question loadQuizData(Cursor cursor) {
+        // Get Question ID
+        int idIndex = cursor.getColumnIndex(DsoContract.Quizes.KEY_ID);
+        String contactId = cursor.getString(idIndex);
+        // Get Contact Name
+        int questionIndex = cursor.getColumnIndex(DsoContract.Quizes.KEY_QUESTION);
+        int answerIndex = cursor.getColumnIndex(DsoContract.Quizes.KEY_ANSWER);
+        int optionaIndex = cursor.getColumnIndex(DsoContract.Quizes.KEY_OPTIONA);
+        int optionbIndex = cursor.getColumnIndex(DsoContract.Quizes.KEY_OPTIONB);
+        int optioncIndex = cursor.getColumnIndex(DsoContract.Quizes.KEY_OPTIONC);
+        int optiondIndex = cursor.getColumnIndex(DsoContract.Quizes.KEY_OPTIOND);
+        Question question = new Question(cursor.getString(questionIndex), cursor.getString(answerIndex), cursor.getString(optionaIndex), cursor.getString(optionbIndex), cursor.getString(optioncIndex), cursor.getString(optiondIndex));
+//        fetchContactNumbers(c, contact);
+//        fetchContactEmails(c, contact);
+        return question;
+    }
+
+    @Override
+    public void onLoaderReset(Loader<Cursor> loader) {
+
     }
 }

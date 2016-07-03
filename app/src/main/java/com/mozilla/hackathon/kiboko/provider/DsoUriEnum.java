@@ -10,7 +10,10 @@ package com.mozilla.hackathon.kiboko.provider;
 public enum DsoUriEnum {
     TUTORIALS(400, "tutorials", DsoContract.Tutorials.CONTENT_TYPE_ID, false, DsoDatabase.Tables.TUTORIALS),
     TUTORIALS_SEARCH(403, "tutorials/search/*", DsoContract.Tutorials.CONTENT_TYPE_ID, false, null),
-    TUTORIALS_ID(405, "tutorials/*", DsoContract.Tutorials.CONTENT_TYPE_ID, true, null);
+    TUTORIALS_ID(405, "tutorials/*", DsoContract.Tutorials.CONTENT_TYPE_ID, true, null),
+    QUIZES(500, "quizes", DsoContract.Quizes.CONTENT_TYPE_ID, false, DsoDatabase.Tables.QUIZES),
+    QUIZES_SEARCH(503, "quizes/search/*", DsoContract.Quizes.CONTENT_TYPE_ID, false, null),
+    QUIZES_ID(505, "quizes/*", DsoContract.Quizes.CONTENT_TYPE_ID, true, null);
     public int code;
 
     /**
