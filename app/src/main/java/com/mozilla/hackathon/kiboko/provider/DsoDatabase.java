@@ -34,17 +34,7 @@ public class DsoDatabase extends SQLiteOpenHelper {
     interface Tables {
         String TUTORIALS = "tutorials";
         String MY_SCHEDULE = "myschedule";
-        String TABLE_QUEST = "quiz";
-
-//        String TUTORIALS_JOIN_MYSCHEDULE = "tutorials "
-//                + "LEFT OUTER JOIN myschedule ON tutorials.session_id=myschedule.session_id "
-//                + "AND myschedule.account_name=? ";
-
-        String TUTORIALS_SEARCH_JOIN_TUTORIALS_ROOMS = "tutorials_search "
-                + "LEFT OUTER JOIN tutorials ON tutorials_search.session_id=tutorials.session_id "
-                + "LEFT OUTER JOIN myschedule ON tutorials.session_id=myschedule.session_id "
-                + "AND myschedule.account_name=? "
-                + "LEFT OUTER JOIN rooms ON tutorials.room_id=rooms.room_id";
+        String QUIZES = "quizes";
 
         // When tables get deprecated, add them to this list (so they get correctly deleted
         // on database upgrades).
@@ -76,11 +66,6 @@ public class DsoDatabase extends SQLiteOpenHelper {
         String STEP_ID = "step_id";
     }
 
-    interface TutorialsSearchColumns {
-        String TUTORIAL_ID = "tutorial_id";
-        String BODY = "body";
-    }
-
     /** {@code REFERENCES} clauses. */
     private interface References {
         String TUTORIAL_ID = "REFERENCES " + Tables.TUTORIALS + "(" + Tutorials.TUTORIAL_ID + ")";
@@ -105,17 +90,18 @@ public class DsoDatabase extends SQLiteOpenHelper {
                 + TutorialsColumns.TUTORIAL_STEPS + " TEXT,"
                 + "UNIQUE (" + TutorialsColumns.TUTORIAL_ID + ") ON CONFLICT REPLACE)");
 
-        db.execSQL("CREATE TABLE IF NOT EXISTS " + Tables.TABLE_QUEST + " ( "
+        db.execSQL("CREATE TABLE IF NOT EXISTS " + Tables.QUIZES + " ( "
                 + BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + DsoContract.SyncColumns.UPDATED + " INTEGER NOT NULL,"
                 + QuizColumns.KEY_ID + " INTEGER NOT NULL, "
                 + QuizColumns.KEY_QUESTION + " TEXT,"
                 + QuizColumns.KEY_ANSWER + " TEXT,"
                 + QuizColumns.KEY_OPTIONA +" TEXT,"
                 + QuizColumns.KEY_OPTIONB +" TEXT,"
                 + QuizColumns.KEY_OPTIONC + " TEXT,"
+                + QuizColumns.KEY_OPTIOND + " TEXT,"
+                + QuizColumns.QUIZ_IMPORT_HASHCODE + " TEXT NOT NULL DEFAULT '',"
                 + "UNIQUE (" + QuizColumns.KEY_ID + ") ON CONFLICT REPLACE)");
-
-
 
         upgradeFrom2015Ato2015B(db);
     }

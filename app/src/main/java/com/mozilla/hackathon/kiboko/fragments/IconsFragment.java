@@ -1,5 +1,6 @@
 package com.mozilla.hackathon.kiboko.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.widget.Button;
 import android.widget.GridView;
 
 import com.mozilla.hackathon.kiboko.R;
+import com.mozilla.hackathon.kiboko.activities.IconQuizActivity;
 import com.mozilla.hackathon.kiboko.adapters.IconsAdapter;
 import com.mozilla.hackathon.kiboko.models.IconTopic;
 
@@ -47,9 +49,7 @@ public class IconsFragment extends Fragment {
         view_icons.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                FindIconsActivity activity = (FindIconsActivity)getActivity();
-                Intent intent = new Intent(activity, IconQuizActivity.class);
+                Intent intent = new Intent(getContext(), IconQuizActivity.class);
                 getActivity().startActivity(intent);
             }
         });
@@ -75,7 +75,6 @@ public class IconsFragment extends Fragment {
         list.add(get("android", "Android", "The friendly system running on your phone.", R.drawable.ic_android_white_48dp));
         list.add(get("sdcard", "SD Card", "Storage space for photos/apps/documents that can be removed or replaced.", R.drawable.ic_sd_storage_white_48dp));
         list.add(get("delete", "Delete", "Remove a photo/app/document from your phone.", R.drawable.ic_delete_white_48dp));
-        list.add(get("search", "Search", "Find something you need.", R.drawable.ic_search_white_48dp));
 
         return list;
     }

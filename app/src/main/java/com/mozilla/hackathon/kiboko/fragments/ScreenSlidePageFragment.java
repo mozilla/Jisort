@@ -15,13 +15,13 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.mozilla.hackathon.kiboko.R;
+import com.mozilla.hackathon.kiboko.utilities.Utils;
 
 import org.sufficientlysecure.htmltextview.HtmlTextView;
 
 import pl.droidsonroids.gif.GifDrawable;
 import pl.droidsonroids.gif.GifImageView;
 
-import static com.mozilla.hackathon.kiboko.utilities.LogUtils.LOGD;
 import static com.mozilla.hackathon.kiboko.utilities.LogUtils.makeLogTag;
 
 /**
@@ -96,9 +96,9 @@ public class ScreenSlidePageFragment extends Fragment {
         ((HtmlTextView) rootView.findViewById(R.id.step_description)).setHtmlFromString(mPageDescription,new HtmlTextView.LocalImageGetter());
 
         GifImageView gifImageView = (GifImageView) rootView.findViewById(R.id.step_image);
-        gifImageView.setImageResource(getResId(mPageImage));
+        gifImageView.setImageResource(Utils.getResId(mPageImage));
         // Remove imageView from layout if gif isn't available
-        if(getResId(mPageImage) == R.drawable.blank){
+        if(Utils.getResId(mPageImage) == R.drawable.blank){
             gifImageView.setVisibility(View.GONE);
         }
 
@@ -135,28 +135,5 @@ public class ScreenSlidePageFragment extends Fragment {
      */
     public String getPageTitle() {
         return mPageTitle;
-    }
-
-    /**
-     * Get resource Id of a gif
-     * @param source the gif filename
-     * @return resource id
-     */
-    public int getResId(String source) {
-        int id = getActivity().getResources().getIdentifier(source, "drawable", getActivity().getPackageName());
-
-        if (id == 0) {
-            // the drawable resource wasn't found in our package, maybe it is a stock android drawable?
-            id = getActivity().getResources().getIdentifier(source, "drawable", "android");
-        }
-
-        if (id == 0) {
-            // prevent a crash if the resource still can't be found
-            LOGD(TAG, "source could not be found: " + source);
-            return getActivity().getResources().getIdentifier("blank", "drawable", getActivity().getPackageName());
-        } else {
-
-            return id;
-        }
     }
 }

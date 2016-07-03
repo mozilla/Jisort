@@ -11,6 +11,7 @@ import android.preference.PreferenceManager;
 import com.google.gson.JsonParser;
 import com.google.gson.stream.JsonReader;
 import com.mozilla.hackathon.kiboko.io.JSONHandler;
+import com.mozilla.hackathon.kiboko.io.QuizHandler;
 import com.mozilla.hackathon.kiboko.io.TutorialsHandler;
 import com.mozilla.hackathon.kiboko.provider.DsoContract;
 import com.mozilla.hackathon.kiboko.services.SyncHelper;
@@ -35,35 +36,27 @@ import static com.mozilla.hackathon.kiboko.utilities.LogUtils.makeLogTag;
 */
 public class DsoDataHandler {
     private static final String TAG = makeLogTag(SyncHelper.class);
-
     // Shared settings_prefs key under which we store the timestamp that corresponds to
     // the data we currently have in our content provider.
     private static final String SP_KEY_DATA_TIMESTAMP = "data_timestamp";
-
     // symbolic timestamp to use when we are missing timestamp data (which means our data is
     // really old or nonexistent)
     private static final String DEFAULT_TIMESTAMP = "Sat, 1 Jan 2000 00:00:00 GMT";
-
     private static final String DATA_KEY_TUTORIALS = "tutorials";
-
+    private static final String DATA_KEY_QUIZES = "quizes";
     private static final String[] DATA_KEYS_IN_ORDER = {
             DATA_KEY_TUTORIALS,
-
+            DATA_KEY_QUIZES
     };
-
     Context mContext = null;
-
     // Handlers for each entity type:
     TutorialsHandler mTutorialsHandler = null;
-    
-
+    QuizHandler mQuizesHandler = null;
     // Convenience map that maps the key name to its corresponding handler (e.g.
     // "blocks" to mBlocksHandler (to avoid very tedious if-elses)
     HashMap<String, JSONHandler> mHandlerForKey = new HashMap<String, JSONHandler>();
-
     // Tally of total content provider operations we carried out (for statistical purposes)
     private int mContentProviderOperationsDone = 0;
-
     public DsoDataHandler(Context ctx) {
         mContext = ctx;
     }
@@ -83,8 +76,7 @@ public class DsoDataHandler {
 
         // create handlers for each data type
         mHandlerForKey.put(DATA_KEY_TUTORIALS, mTutorialsHandler = new TutorialsHandler(mContext));
-
-
+        mHandlerForKey.put(DATA_KEY_QUIZES, mQuizesHandler = new QuizHandler(mContext));
         // process the jsons. This will call each of the handlers when appropriate to deal
         // with the objects we see in the data.
         LOGD(TAG, "Processing " + dataBodies.length + " JSON objects.");
@@ -101,8 +93,6 @@ public class DsoDataHandler {
             LOGD(TAG, "Content provider operations so far: " + batch.size());
         }
         LOGD(TAG, "Total content provider operations: " + batch.size());
-
-
         // finally, push the changes into the Content Provider
         LOGD(TAG, "Applying " + batch.size() + " content provider operations.");
         try {
@@ -119,7 +109,6 @@ public class DsoDataHandler {
             LOGE(TAG, "OperationApplicationException while applying content provider operations.");
             throw new RuntimeException("Error executing content provider batch operation", ex);
         }
-
         // notify all top-level paths
         LOGD(TAG, "Notifying changes on all top-level paths on Content Resolver.");
         ContentResolver resolver = mContext.getContentResolver();
@@ -127,8 +116,6 @@ public class DsoDataHandler {
             Uri uri = DsoContract.BASE_CONTENT_URI.buildUpon().appendPath(path).build();
             resolver.notifyChange(uri, null);
         }
-
-
         // update our data timestamp
         setDataTimestamp(dataTimestamp);
         LOGD(TAG, "Done applying dso data.");

@@ -151,6 +151,9 @@ public class DsoProvider extends ContentProvider {
             case TUTORIALS: {
                 return DsoContract.Tutorials.buildTutorialUri(values.getAsString(DsoContract.Tutorials.TUTORIAL_ID));
             }
+            case QUIZES: {
+                return DsoContract.Tutorials.buildTutorialUri(values.getAsString(DsoContract.Quizes.KEY_ID));
+            }
             default: {
                 throw new UnsupportedOperationException("Unknown insert uri: " + uri);
             }
@@ -203,9 +206,6 @@ public class DsoProvider extends ContentProvider {
         if (!DsoContractHelper.isUriCalledFromSyncAdapter(uri)) {
             Context context = getContext();
             context.getContentResolver().notifyChange(uri, null);
-
-            // Widgets can't register content observers so we refresh widgets separately.
-//            context.sendBroadcast(ScheduleWidgetProvider.getRefreshBroadcastIntent(context, false));
         }
     }
 
@@ -243,6 +243,8 @@ public class DsoProvider extends ContentProvider {
         // The main Uris, corresponding to the root of each type of Uri, do not have any selection
         // criteria so the full table is used. The others apply a selection criteria.
         switch (matchingUriEnum) {
+            case QUIZES:
+                return builder.table(Tables.QUIZES);
             case TUTORIALS:
                 return builder.table(Tables.TUTORIALS);
             case TUTORIALS_ID: {
@@ -250,6 +252,12 @@ public class DsoProvider extends ContentProvider {
                 return builder.table(Tables.TUTORIALS)
                         .where(DsoContract.Tutorials.TUTORIAL_ID + "=?", tutorialId);
             }
+            case QUIZES_ID: {
+                final String quizId = DsoContract.Quizes.getQuizId(uri);
+                return builder.table(Tables.QUIZES)
+                        .where(DsoContract.Quizes.KEY_ID  + "=?", quizId);
+            }
+
             default: {
                 throw new UnsupportedOperationException("Unknown uri for " + uri);
             }
@@ -272,10 +280,18 @@ public class DsoProvider extends ContentProvider {
             case TUTORIALS: {
                 return builder.table(Tables.TUTORIALS);
             }
+            case QUIZES: {
+                return builder.table(Tables.QUIZES);
+            }
             case TUTORIALS_ID: {
                 final String tutorialId = DsoContract.Tutorials.getTutorialId(uri);
                 return builder.table(Tables.TUTORIALS)
                         .where(DsoContract.Tutorials.TUTORIAL_ID + "=?", tutorialId);
+            }
+            case QUIZES_ID: {
+                final String quizId = DsoContract.Quizes.getQuizId(uri);
+                return builder.table(Tables.QUIZES)
+                        .where(DsoContract.Quizes.KEY_ID + "=?", quizId);
             }
             default: {
                 throw new UnsupportedOperationException("Unknown uri: " + uri);
@@ -286,14 +302,5 @@ public class DsoProvider extends ContentProvider {
     @Override
     public ParcelFileDescriptor openFile(Uri uri, String mode) throws FileNotFoundException {
         throw new UnsupportedOperationException("openFile is not supported for " + uri);
-    }
-
-    /**
-     * {@link DsoContract} fields that are fully qualified with a specific
-     * parent {@link Tables}. Used when needed to work around SQL ambiguity.
-     */
-    private interface Qualified {
-        String TUTORIALS_TUTORIAL_ID = Tables.TUTORIALS + "." + DsoContract.Tutorials.TUTORIAL_ID;
-
     }
 }

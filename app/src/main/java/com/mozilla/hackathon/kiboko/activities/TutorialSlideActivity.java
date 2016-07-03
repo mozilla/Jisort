@@ -47,7 +47,7 @@ import static com.mozilla.hackathon.kiboko.utilities.LogUtils.makeLogTag;
  */
 public class TutorialSlideActivity extends DSOActivity implements LoaderManager.LoaderCallbacks<Cursor> {
     private static final String TAG = makeLogTag(TutorialSlideActivity.class);
-    private static final Uri BASE_APP_URI = Uri.parse("android-app://com.mozilla.hackathon.kiboko/http/mozilla-dso.com/recipe/");
+    private static final Uri BASE_APP_URI = Uri.parse("android-app://mozilladso.com/tutorials/");
     private static final int LOADER_ID = 0x01;
     private List<Step> jsonSteps = new ArrayList<Step>();
     /**

@@ -71,7 +71,6 @@ public class DataBootstrapService extends IntentService {
             SyncHelper.performPostSyncChores(appContext);
 
             LOGI(TAG, "End of bootstrap -- successful. Marking bootstrap as done.");
-//            SettingsUtils.markSyncSucceededNow(appContext);
             SettingsUtils.markDataBootstrapDone(appContext);
 //
             getContentResolver().notifyChange(Uri.parse(DsoContract.CONTENT_AUTHORITY),

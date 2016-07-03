@@ -2,7 +2,6 @@ package com.mozilla.hackathon.kiboko.provider;
 
 import android.net.Uri;
 import android.provider.BaseColumns;
-import android.text.TextUtils;
 
 /**
  * Contract class for interacting with {@link DsoProvider}. Unless otherwise noted, all
@@ -54,22 +53,25 @@ public final class DsoContract {
         String KEY_OPTIONB= "optionb"; //option b
         String KEY_OPTIONC= "optionc"; //option c
         String KEY_OPTIOND= "optiond"; //option d
+        /** The hashcode of the data used to create this record. */
+        String QUIZ_IMPORT_HASHCODE = "quiz_import_hashcode";
     }
 
     public static final String CONTENT_AUTHORITY = "com.mozilla.hackathon.kiboko";
 
     public static final Uri BASE_CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
-    
+
 
     private static final String PATH_TAGS = "tags";
 
     private static final String PATH_TUTORIALS = "tutorials";
+    private static final String PATH_QUIZ = "quizes";
 
     public static final String[] TOP_LEVEL_PATHS = {
-            //PATH_TAGS,
             PATH_TUTORIALS,
+            PATH_QUIZ
     };
-    
+
     public static String makeContentType(String id) {
         if (id != null) {
             return CONTENT_TYPE_BASE + id;
@@ -97,7 +99,7 @@ public final class DsoContract {
 
         public static final Uri CONTENT_URI =
                 BASE_CONTENT_URI.buildUpon().appendPath(PATH_TUTORIALS).build();
-      
+
         public static final String CONTENT_TYPE_ID = "tutorial";
 
         // ORDER BY clauses
@@ -116,147 +118,55 @@ public final class DsoContract {
         public static String[] buildAtTimeIntervalArgs(long intervalStart, long intervalEnd) {
             return new String[]{String.valueOf(intervalStart), String.valueOf(intervalEnd)};
         }
-        
 
-
-        /** Build {@link Uri} for requested {@link #TUTORIAL_ID}. */
+        /**
+         * Build {@link Uri} for requested {@link #TUTORIAL_ID}.
+         */
         public static Uri buildTutorialUri(String tutorialId) {
             return CONTENT_URI.buildUpon().appendPath(tutorialId).build();
         }
 
         /**
-         * Build {@link Uri} that references tutorials that match the query. The query can be
-         * multiple words separated with spaces.
-         *
-         * @param query The query. Can be multiple words separated by spaces.
-         * @return {@link Uri} to the tutorials
+         * Read {@link #TUTORIAL_ID} from {@link Tutorials} {@link Uri}.
          */
-//        public static Uri buildSearchUri(String query) {
-//            if (null == query) {
-//                query = "";
-//            }
-//            // convert "lorem ipsum dolor sit" to "lorem* ipsum* dolor* sit*"
-//            query = query.replaceAll(" +", " *") + "*";
-//            return CONTENT_URI.buildUpon()
-//                    .appendPath(PATH_SEARCH).appendPath(query).build();
-//        }
-//
-//        public static boolean isSearchUri(Uri uri) {
-//            List<String> pathSegments = uri.getPathSegments();
-//            return pathSegments.size() >= 2 && PATH_SEARCH.equals(pathSegments.get(1));
-//        }
-
-//        public static long[] getInterval(Uri uri) {
-//            if (uri == null) {
-//                return null;
-//            }
-//            List<String> segments = uri.getPathSegments();
-//            if (segments.size() == 3 && segments.get(2).indexOf('-') > 0) {
-//                String[] interval = segments.get(2).split("-");
-//                return new long[]{Long.parseLong(interval[0]), Long.parseLong(interval[1])};
-//            }
-//            return null;
-//        }
-
-        /** Read {@link #TUTORIAL_ID} from {@link Tutorials} {@link Uri}. */
         public static String getTutorialId(Uri uri) {
             return uri.getPathSegments().get(1);
         }
 
-        /** Read {@link #TUTORIAL_TAG} from {@link Tutorials} {@link Uri}. */
-        public static String getTutorialTag(Uri uri) {
-            return uri.getPathSegments().get(3);
-        }
-
-//        public static String getSearchQuery(Uri uri) {
-//            List<String> segments = uri.getPathSegments();
-//            if (2 < segments.size()) {
-//                return segments.get(2);
-//            }
-//            return null;
-//        }
-
-//        public static boolean hasFilterParam(Uri uri) {
-//            return uri != null && uri.getQueryParameter(QUERY_PARAMETER_TAG_FILTER) != null;
-//        }
-
-        /**
-         * Build {@link Uri} that references all tutorials that have ALL of the indicated tags.
-         * @param contentUri The base Uri that is used for adding the required tags.
-         * @param requiredTags The tags that are used for creating the query parameter.
-         * @return uri The uri updated to include the indicated tags.
-         */
-        @Deprecated
-        public static Uri buildTagFilterUri(Uri contentUri, String[] requiredTags) {
-            return buildCategoryTagFilterUri(contentUri, requiredTags,
-                    requiredTags == null ? 0 : requiredTags.length);
-        }
-
-        /** Build {@link Uri} that references all tutorials that have ALL of the indicated tags. */
-        @Deprecated
-        public static Uri buildTagFilterUri(String[] requiredTags) {
-            return buildTagFilterUri(CONTENT_URI, requiredTags);
-        }
-
-        /**
-         * Build {@link Uri} that references all tutorials that have the following tags and
-         * satisfy the requirement of containing ALL the categories
-         * @param contentUri The base Uri that is used for adding the query parameters.
-         * @param tags The various tags that can include topics, themes as well as types.
-         * @param categories The number of categories that are required. At most this can be 3,
-         *                   since a tutorial can belong only to one type + topic + theme.
-         * @return Uri representing the query parameters for the filter as well as the categories.
-         */
-        public static Uri buildCategoryTagFilterUri(Uri contentUri, String[] tags, int categories) {
-            StringBuilder sb = new StringBuilder();
-            for (String tag : tags) {
-                if (TextUtils.isEmpty(tag)) {
-                    continue;
-                }
-                if (sb.length() > 0) {
-                    sb.append(",");
-                }
-                sb.append(tag.trim());
-            }
-            if (sb.length() == 0) {
-                return contentUri;
-            } else {
-                return contentUri.buildUpon()
-                        .appendQueryParameter(QUERY_PARAMETER_TAG_FILTER, sb.toString())
-                        .appendQueryParameter(QUERY_PARAMETER_CATEGORIES,
-                                String.valueOf(categories))
-                        .build();
-            }
-        }
     }
 
-//    public static class SearchSuggest {
-//
-//        public static final Uri CONTENT_URI =
-//                BASE_CONTENT_URI.buildUpon().appendPath(PATH_SEARCH_SUGGEST).build();
-//
-//        public static final String DEFAULT_SORT = SearchManager.SUGGEST_COLUMN_TEXT_1
-//                + " COLLATE NOCASE ASC";
-//    }
-
-//    public static class SearchIndex {
-//
-//        public static final Uri CONTENT_URI =
-//                BASE_CONTENT_URI.buildUpon().appendPath(PATH_SEARCH_INDEX).build();
-//    }
-
     /**
-     * Columns for an in memory table created on query using
-     * the Tags table and the SearchTutorials table.
+     * Each tutorial has zero or more
      */
-//    public interface SearchTopicTutorialsColumns extends BaseColumns {
-//        /* This column contains either a tag_id or a tutorial_id */
-//        String TAG_OR_TUTORIAL_ID = "tag_or_tutorial_id";
-//        /* This column contains the search snippet to be shown to the user.*/
-//        String SEARCH_SNIPPET = "search_snippet";
-//        /* Indicates whether this row is a topic tag or a tutorial_id. */
-//        String IS_TOPIC_TAG = "is_topic_tag";
-//    }
+    public static class Quizes implements QuizColumns,
+            SyncColumns, BaseColumns {
+
+        public static final String QUERY_PARAMETER_TAG_FILTER = "filter";
+        public static final String QUERY_PARAMETER_CATEGORIES = "categories";
+
+        public static final Uri CONTENT_URI =
+                BASE_CONTENT_URI.buildUpon().appendPath(PATH_QUIZ).build();
+
+        public static final String CONTENT_TYPE_ID = "quiz";
+
+        public static String[] buildAtTimeIntervalArgs(long intervalStart, long intervalEnd) {
+            return new String[]{String.valueOf(intervalStart), String.valueOf(intervalEnd)};
+        }
+
+        /**
+         * Build {@link Uri} for requested {@link #KEY_ID}.
+         */
+        public static Uri buildQuizUri(String keyId) {
+            return CONTENT_URI.buildUpon().appendPath(keyId).build();
+        }
+
+        /**
+         * Read {@link #KEY_ID} from {@link Quizes} {@link Uri}.
+         */
+        public static String getQuizId(Uri uri) {
+            return uri.getPathSegments().get(1);
+        }
+    }
 
     private DsoContract() {
     }
