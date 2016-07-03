@@ -288,12 +288,29 @@
         "description": "Impostors can easily break short passwords and passwords made up of sequential numbers like \"1234\". They can also guess passwords that are made of simple words like \"mydata\". Impostors can use what they know about you to guess passwords based on important dates in your life (such as birthdays or anniversaries) or the names of people (including celebrities and sports teams) or places you know."
       }]
     }],
-  "quiz": [{
-      "question": "What is DSO?",
-      "answer": "Digital Skills Observatory",
-      "optiona": "Google",
-      "optionb": "Microsoft",
-      "optionc": "Hewlet Pakard",
-      "optiond": "Digital Skills Observatory"
+  "quizes": [{
+      "id": "1",
+      "question": "What icon indicates battery low?",
+      "answer": "ic_battery_20_white_48dp",
+      "optiona": "ic_bluetooth_connected_white_48dp",
+      "optionb": "ic_phone_white_48dp",
+      "optionc": "ic_event_white_48dp",
+      "optiond": "ic_battery_20_white_48dp"
+    },{
+      "id": "2",
+      "question": "What icon indicates wifi?",
+      "answer": "ic_network_wifi_white_24dp",
+      "optiona": "ic_bluetooth_connected_white_48dp",
+      "optionb": "ic_phone_white_48dp",
+      "optionc": "ic_event_white_48dp",
+      "optiond": "ic_network_wifi_white_24dp"
+    },{
+      "id": "3",
+      "question": "What icon indicates bluetooth?",
+      "answer": "ic_bluetooth_connected_white_48dp",
+      "optiona": "ic_bluetooth_connected_white_48dp",
+      "optionb": "ic_network_wifi_white_24dp",
+      "optionc": "ic_bluetooth_connected_white_48dp",
+      "optiond": "ic_phone_white_48dp"
     }]
 }
