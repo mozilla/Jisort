@@ -12,10 +12,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.mozilla.hackathon.kiboko.R;
 import com.mozilla.hackathon.kiboko.utilities.Utils;
+import com.mozilla.hackathon.kiboko.widgets.NotifyingScrollView;
 
 import org.sufficientlysecure.htmltextview.HtmlTextView;
 
@@ -96,25 +98,25 @@ public class ScreenSlidePageFragment extends Fragment {
         ((HtmlTextView) rootView.findViewById(R.id.step_description)).setHtmlFromString(mPageDescription,new HtmlTextView.LocalImageGetter());
 
         GifImageView gifImageView = (GifImageView) rootView.findViewById(R.id.step_image);
-        gifImageView.setImageResource(Utils.getResId(mPageImage));
+        gifImageView.setImageResource(Utils.getResId(getContext(), mPageImage));
         // Remove imageView from layout if gif isn't available
-        if(Utils.getResId(mPageImage) == R.drawable.blank){
+        if(Utils.getResId(getContext(), mPageImage) == R.drawable.blank){
             gifImageView.setVisibility(View.GONE);
         }
 
         return rootView;
     }
 
-//    private NotifyingScrollView.OnScrollChangedListener mOnScrollChangedListener = new NotifyingScrollView.OnScrollChangedListener() {
-//        public void onScrollChanged(ScrollView who, int l, int t, int oldl, int oldt) {
-//            float y = who.getScrollY();
-//            if (y >= mActionBarHeight && mActionBar.isShowing()) {
-//                mActionBar.hide();
-//            } else if ( y==0 && !mActionBar.isShowing()) {
-//                mActionBar.show();
-//            }
-//        }
-//    };
+    private NotifyingScrollView.OnScrollChangedListener mOnScrollChangedListener = new NotifyingScrollView.OnScrollChangedListener() {
+        public void onScrollChanged(ScrollView who, int l, int t, int oldl, int oldt) {
+            float y = who.getScrollY();
+            if (y >= mActionBarHeight && mActionBar.isShowing()) {
+                mActionBar.hide();
+            } else if ( y==0 && !mActionBar.isShowing()) {
+                mActionBar.show();
+            }
+        }
+    };
 
     /**
      * Returns the page number represented by this fragment object.

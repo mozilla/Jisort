@@ -11,4 +11,15 @@
         <attr name="button2emphasis" format="boolean" />
         <attr name="emphasisColor" format="color" />
     </declare-styleable>
+    <declare-styleable name="CheckableLinearLayout">
+        <attr name="is_checked" format="boolean" />
+
+        <attr name="type">
+            <enum name="radio" value="0" />
+            <enum name="check" value="1" />
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="DSORadioGroup">
+        <attr name="android:checkedButton" />
+    </declare-styleable>
 </resources>

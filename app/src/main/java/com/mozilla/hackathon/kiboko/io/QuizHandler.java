@@ -104,24 +104,24 @@ public class QuizHandler extends JSONHandler {
     private HashMap<String, String> loadQuizHashCodes() {
         Uri uri = DsoContractHelper.setUriAsCalledFromSyncAdapter(
                 DsoContract.Quizes.CONTENT_URI);
-        LOGD(TAG, "Loading tutorial hashcodes for tutorial import optimization.");
+        LOGD(TAG, "Loading quiz hashcodes for quizes import optimization.");
         Cursor cursor = null;
         try {
             cursor = mContext.getContentResolver().query(uri, quizHashcodeQuery.PROJECTION,
                     null, null, null);
             if (cursor == null || cursor.getCount() < 1) {
-                LOGW(TAG, "Warning: failed to load tutorial hashcodes. Not optimizing tutorial import.");
+                LOGW(TAG, "Warning: failed to load quiz hashcodes. Not optimizing tutorial import.");
                 return null;
             }
             HashMap<String, String> hashcodeMap = new HashMap<String, String>();
             if (cursor.moveToFirst()) {
                 do {
                     String quizId = cursor.getString(quizHashcodeQuery.KEY_ID);
-                    String hashcode = cursor.getString(quizHashcodeQuery.QUIZ_IMPORT_HASHCODE);
+                    String hashcode = cursor.getString(quizHashcodeQuery.KEY_IMPORT_HASHCODE);
                     hashcodeMap.put(quizId, hashcode == null ? "" : hashcode);
                 } while (cursor.moveToNext());
             }
-            LOGD(TAG, "quiz hashcodes loaded for " + hashcodeMap.size() + " tutorials.");
+            LOGD(TAG, "quiz hashcodes loaded for " + hashcodeMap.size() + " quizes.");
             return hashcodeMap;
         } finally {
             if (cursor != null) {
@@ -149,13 +149,13 @@ public class QuizHandler extends JSONHandler {
 
         builder.withValue(DsoContract.SyncColumns.UPDATED, System.currentTimeMillis())
                 .withValue(DsoContract.Quizes.KEY_ID, question.id)
-                .withValue(DsoContract.Quizes.KEY_QUESTION, question.QUESTION)
-                .withValue(DsoContract.Quizes.KEY_ANSWER, question.ANSWER)
-                .withValue(DsoContract.Quizes.KEY_OPTIONA, question.OPTIONA)
-                .withValue(DsoContract.Quizes.KEY_OPTIONB, question.OPTIONB)
-                .withValue(DsoContract.Quizes.KEY_OPTIONC, question.OPTIONC)
-                .withValue(DsoContract.Quizes.KEY_OPTIOND, question.OPTIOND)
-                .withValue(DsoContract.Quizes.QUIZ_IMPORT_HASHCODE,
+                .withValue(DsoContract.Quizes.KEY_QUESTION, question.question)
+                .withValue(DsoContract.Quizes.KEY_ANSWER, question.answer)
+                .withValue(DsoContract.Quizes.KEY_OPTIONA, question.optiona)
+                .withValue(DsoContract.Quizes.KEY_OPTIONB, question.optionb)
+                .withValue(DsoContract.Quizes.KEY_OPTIONC, question.optionc)
+                .withValue(DsoContract.Quizes.KEY_OPTIOND, question.optiond)
+                .withValue(DsoContract.Quizes.KEY_IMPORT_HASHCODE,
                         question.getImportHashCode());
         list.add(builder.build());
     }
@@ -175,10 +175,10 @@ public class QuizHandler extends JSONHandler {
         String[] PROJECTION = {
                 BaseColumns._ID,
                 DsoContract.Quizes.KEY_ID,
-                DsoContract.Quizes.QUIZ_IMPORT_HASHCODE
+                DsoContract.Quizes.KEY_IMPORT_HASHCODE
         };
         int _ID = 0;
         int KEY_ID = 1;
-        int QUIZ_IMPORT_HASHCODE = 2;
+        int KEY_IMPORT_HASHCODE = 2;
     };
 }

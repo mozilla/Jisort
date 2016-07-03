@@ -56,7 +56,7 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <!--<data android:mimeType="vnd.android.cursor.item/vnd.mozilladso2016.tutorial" />-->
+                <data android:mimeType="vnd.android.cursor.item/vnd.mozilladso2016.tutorial" />
                 <!-- Accepts URIs that begin with "http://mozilladso.com/tutorial" -->
                 <data android:scheme="http"
                     android:host="mozilladso.com"
@@ -68,6 +68,7 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
+                <data android:mimeType="vnd.android.cursor.item/vnd.mozilladso2016.tutorial" />
                 <data android:scheme="mozilladso" android:pathPrefix="/tutorials/*" />
             </intent-filter>
         </activity>
@@ -147,30 +148,31 @@
             </intent-filter>
         </receiver>
 
-        <service android:name="com.mozilla.hackathon.kiboko.services.ChatHeadService" >
+        <service android:label="@string/app_name"
+            android:name="com.mozilla.hackathon.kiboko.services.ChatHeadService" >
         </service>
 
         <!-- Data, sync and schedule editing components -->
         <provider
             android:name=".provider.DsoProvider"
             android:authorities="com.mozilla.hackathon.kiboko"
-            android:exported="true"
+            android:exported="false"
             android:label="@string/app_name"
-            android:syncable="true"
-            android:writePermission="com.mozilla.hakathon.kiboko.permission.WRITE_SCHEDULE" />
+            android:syncable="false"
+            android:writePermission="com.mozilla.hakathon.kiboko.permission.WRITE_CONTENT" />
 
-        <service
-            android:name=".sync.SyncService"
-            android:exported="true"
-            tools:ignore="ExportedService">
-            <intent-filter>
-                <action android:name="android.content.SyncAdapter" />
-            </intent-filter>
+        <!--<service-->
+            <!--android:name=".sync.SyncService"-->
+            <!--android:exported="true"-->
+            <!--tools:ignore="ExportedService">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.content.SyncAdapter" />-->
+            <!--</intent-filter>-->
 
-            <meta-data
-                android:name="android.content.SyncAdapter"
-                android:resource="@xml/syncadapter" />
-        </service>
+            <!--<meta-data-->
+                <!--android:name="android.content.SyncAdapter"-->
+                <!--android:resource="@xml/syncadapter" />-->
+        <!--</service>-->
 
         <!-- An IntentService responsible for bootstrapping the app with the necessary
             data such as tutorials, etc. This data is used prior to the app's

@@ -93,14 +93,14 @@ public class DsoDatabase extends SQLiteOpenHelper {
         db.execSQL("CREATE TABLE IF NOT EXISTS " + Tables.QUIZES + " ( "
                 + BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + DsoContract.SyncColumns.UPDATED + " INTEGER NOT NULL,"
-                + QuizColumns.KEY_ID + " INTEGER NOT NULL, "
+                + QuizColumns.KEY_IMPORT_HASHCODE + " TEXT NOT NULL DEFAULT '',"
+                + QuizColumns.KEY_ID + " TEXT NOT NULL, "
                 + QuizColumns.KEY_QUESTION + " TEXT,"
                 + QuizColumns.KEY_ANSWER + " TEXT,"
                 + QuizColumns.KEY_OPTIONA +" TEXT,"
                 + QuizColumns.KEY_OPTIONB +" TEXT,"
                 + QuizColumns.KEY_OPTIONC + " TEXT,"
                 + QuizColumns.KEY_OPTIOND + " TEXT,"
-                + QuizColumns.QUIZ_IMPORT_HASHCODE + " TEXT NOT NULL DEFAULT '',"
                 + "UNIQUE (" + QuizColumns.KEY_ID + ") ON CONFLICT REPLACE)");
 
         upgradeFrom2015Ato2015B(db);

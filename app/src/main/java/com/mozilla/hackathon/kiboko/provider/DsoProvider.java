@@ -13,6 +13,8 @@ import android.os.ParcelFileDescriptor;
 import android.util.Log;
 
 import com.mozilla.hackathon.kiboko.provider.DsoDatabase.Tables;
+import com.mozilla.hackathon.kiboko.provider.DsoContract.Tutorials;
+import com.mozilla.hackathon.kiboko.provider.DsoContract.Quizes;
 import com.mozilla.hackathon.kiboko.utilities.SelectionBuilder;
 
 import java.io.FileDescriptor;
@@ -243,17 +245,19 @@ public class DsoProvider extends ContentProvider {
         // The main Uris, corresponding to the root of each type of Uri, do not have any selection
         // criteria so the full table is used. The others apply a selection criteria.
         switch (matchingUriEnum) {
-            case QUIZES:
+            case QUIZES: {
                 return builder.table(Tables.QUIZES);
-            case TUTORIALS:
+            }
+            case TUTORIALS: {
                 return builder.table(Tables.TUTORIALS);
+            }
             case TUTORIALS_ID: {
-                final String tutorialId = DsoContract.Tutorials.getTutorialId(uri);
+                final String tutorialId = Tutorials.getTutorialId(uri);
                 return builder.table(Tables.TUTORIALS)
                         .where(DsoContract.Tutorials.TUTORIAL_ID + "=?", tutorialId);
             }
             case QUIZES_ID: {
-                final String quizId = DsoContract.Quizes.getQuizId(uri);
+                final String quizId = Quizes.getQuizId(uri);
                 return builder.table(Tables.QUIZES)
                         .where(DsoContract.Quizes.KEY_ID  + "=?", quizId);
             }

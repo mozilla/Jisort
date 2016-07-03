@@ -12,7 +12,7 @@ import com.squareup.otto.ThreadEnforcer;
  * Created by Brian Mwadime on 06/06/2016.
  */
 public class App extends Application {
-
+    public static String PACKAGE_NAME;
     protected class MainThreadBus extends Bus {
         private final Handler mHandler = new Handler(Looper.getMainLooper());
 
@@ -47,6 +47,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         context = getApplicationContext();
+        PACKAGE_NAME = context.getPackageName();
         mEventBus = new MainThreadBus();
         // Battery receiver - Catches battery low system event
         // context.registerReceiver(new DSOBatteryReceiver(), new IntentFilter(Intent.ACTION_BATTERY_CHANGED));

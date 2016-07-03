@@ -54,15 +54,12 @@ public final class DsoContract {
         String KEY_OPTIONC= "optionc"; //option c
         String KEY_OPTIOND= "optiond"; //option d
         /** The hashcode of the data used to create this record. */
-        String QUIZ_IMPORT_HASHCODE = "quiz_import_hashcode";
+        String KEY_IMPORT_HASHCODE = "quiz_import_hashcode";
     }
 
     public static final String CONTENT_AUTHORITY = "com.mozilla.hackathon.kiboko";
 
     public static final Uri BASE_CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
-
-
-    private static final String PATH_TAGS = "tags";
 
     private static final String PATH_TUTORIALS = "tutorials";
     private static final String PATH_QUIZ = "quizes";
@@ -101,18 +98,6 @@ public final class DsoContract {
                 BASE_CONTENT_URI.buildUpon().appendPath(PATH_TUTORIALS).build();
 
         public static final String CONTENT_TYPE_ID = "tutorial";
-
-        // ORDER BY clauses
-//        public static final String SORT_BY_TYPE_THEN_TIME = TUTORIAL_GROUPING_ORDER + " ASC,"
-//                + TUTORIAL_START + " ASC," + TUTORIAL_TITLE + " COLLATE NOCASE ASC";
-//
-//        public static final String LIVESTREAM_SELECTION =
-//                TUTORIAL_LIVESTREAM_ID + " is not null AND " + TUTORIAL_LIVESTREAM_ID + "!=''";
-//
-//        public static final String LIVESTREAM_OR_YOUTUBE_URL_SELECTION = "(" +
-//                TUTORIAL_LIVESTREAM_ID + " is not null AND " + TUTORIAL_LIVESTREAM_ID +
-//                "!='') OR (" +
-//                TUTORIAL_YOUTUBE_URL + " is not null AND " + TUTORIAL_YOUTUBE_URL + " != '')";
 
         // Builds selectionArgs for {@link STARTING_AT_TIME_INTERVAL_SELECTION}
         public static String[] buildAtTimeIntervalArgs(long intervalStart, long intervalEnd) {

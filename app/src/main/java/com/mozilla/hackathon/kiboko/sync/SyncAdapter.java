@@ -24,8 +24,8 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
     private static final String TAG = makeLogTag(SyncAdapter.class);
 
     private static final Pattern sSanitizeAccountNamePattern = Pattern.compile("(.).*?(.?)@");
-    public static final String EXTRA_SYNC_DATA_ONLY =
-            "com.mozilla.hackathon.kiboko.EXTRA_SYNC_DATA_ONLY";
+    public static final String EXTRA_SYNC_USER_DATA_ONLY =
+            "com.mozilla.hackathon.kiboko.EXTRA_SYNC_USER_DATA_ONLY";
 
     private final Context mContext;
 
@@ -50,7 +50,7 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
                               final ContentProviderClient provider, final SyncResult syncResult) {
         final boolean uploadOnly = extras.getBoolean(ContentResolver.SYNC_EXTRAS_UPLOAD, false);
         final boolean initialize = extras.getBoolean(ContentResolver.SYNC_EXTRAS_INITIALIZE, false);
-        final boolean userScheduleDataOnly = extras.getBoolean(EXTRA_SYNC_DATA_ONLY,
+        final boolean userScheduleDataOnly = extras.getBoolean(EXTRA_SYNC_USER_DATA_ONLY,
                 false);
 
         final String logSanitizedAccountName = sSanitizeAccountNamePattern
