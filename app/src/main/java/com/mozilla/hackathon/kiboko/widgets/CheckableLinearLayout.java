@@ -1,7 +1,7 @@
 package com.mozilla.hackathon.kiboko.widgets;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
+import android.content.res.TypedArray;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.AttributeSet;
@@ -11,26 +11,40 @@ import android.view.ViewGroup;
 import android.widget.Checkable;
 import android.widget.LinearLayout;
 
+import com.mozilla.hackathon.kiboko.R;
+
 public class CheckableLinearLayout extends LinearLayout implements Checkable {
 
     private boolean mChecked;
+    private int mType;
+    private boolean mBroadcasting;
+    private OnCheckedChangeListener mOnCheckedChangeListener;
+
 
     private static final int[] CHECKED_STATE_SET = {
-            android.R.attr.state_checked
+            R.attr.is_checked
     };
+
+    private static final int TYPE_RADIO_BUTTON = 0;
+    private static final int TYPE_CHECK_BOX = 1;
 
     public CheckableLinearLayout(Context context) {
         this(context, null);
-        init();
     }
 
     public CheckableLinearLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init();
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.CheckableLinearLayout);
+
+        mType = a.getInt(R.styleable.CheckableLinearLayout_type, TYPE_RADIO_BUTTON);
+        boolean checked = a.getBoolean(R.styleable.CheckableLinearLayout_is_checked, false);
+        setChecked(checked);
+
+        a.recycle();
     }
 
-    private void init() {
-//        setClickable(true);
+    private void init(Context context, AttributeSet attrs) {
+
     }
 
     /**********************/
@@ -39,7 +53,11 @@ public class CheckableLinearLayout extends LinearLayout implements Checkable {
 
     @Override
     public boolean performClick() {
-        toggle();
+        if (mType == TYPE_RADIO_BUTTON) {
+            setChecked(true);
+        } else if (mType == TYPE_CHECK_BOX) {
+            toggle();
+        }
         return super.performClick();
     }
 
@@ -64,8 +82,44 @@ public class CheckableLinearLayout extends LinearLayout implements Checkable {
         if (mChecked != checked) {
             mChecked = checked;
             refreshDrawableState();
-            setCheckedRecursive(this, checked);
+//            setCheckedRecursive(this, checked);
+            // Avoid infinite recursions if setChecked() is called from a listener
+            if (mBroadcasting) {
+                return;
+            }
+
+            mBroadcasting = true;
+            if (mOnCheckedChangeListener != null) {
+                mOnCheckedChangeListener.onCheckedChanged(this, mChecked);
+            }
+
+            mBroadcasting = false;
         }
+    }
+
+    /**
+     * Register a callback to be invoked when the checked state of this button changes.
+     *
+     * @param listener
+     *            the callback to call on checked state change
+     */
+    public void setOnCheckedChangeListener(OnCheckedChangeListener listener) {
+        mOnCheckedChangeListener = listener;
+    }
+
+    /**
+     * Interface definition for a callback.
+     */
+    public static interface OnCheckedChangeListener {
+        /**
+         * Called when the checked state of a button has changed.
+         *
+         * @param button
+         *            The button view whose state has changed.
+         * @param isChecked
+         *            The new checked state of button.
+         */
+        void onCheckedChanged(CheckableLinearLayout button, boolean isChecked);
     }
 
     private void setCheckedRecursive(ViewGroup parent, boolean checked) {
@@ -98,13 +152,7 @@ public class CheckableLinearLayout extends LinearLayout implements Checkable {
     @Override
     protected void drawableStateChanged() {
         super.drawableStateChanged();
-
-        Drawable drawable = getBackground();
-        if (drawable != null) {
-            int[] myDrawableState = getDrawableState();
-            drawable.setState(myDrawableState);
-            invalidate();
-        }
+        invalidate();
     }
 
     /**************************/
