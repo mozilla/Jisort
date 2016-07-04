@@ -2,7 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.QuizActivity"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".activities.IconQuizActivity"
     android:background="@color/colorPrimary">
 
     <LinearLayout
@@ -15,7 +16,7 @@
 
         <TextView
             android:layout_gravity="center_horizontal"
-            android:id="@+id/textView1"
+            android:id="@+id/quizStepView"
             android:layout_width="wrap_content"
             android:textColor="@color/colorTextPrimary"
             android:gravity="center_horizontal"
@@ -24,52 +25,61 @@
             android:text="What icon indicates battery low?"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
-        <RadioGroup
+        <com.mozilla.hackathon.kiboko.widgets.DSORadioGroup
             android:id="@+id/quizGroup"
             android:layout_gravity="center_horizontal|center_vertical"
             android:gravity="center_horizontal|center_vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
             <com.mozilla.hackathon.kiboko.widgets.CheckableLinearLayout
                 android:id="@+id/optionA"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:background="@drawable/checkable_image_selector"
                 android:layout_margin="5dp"
+                android:layout_marginStart="20dp"
                 android:layout_marginLeft="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="15dp"
-                android:text="A">
+                android:checked="true"
+                android:padding="15dp">
                 <ImageView
                     android:layout_margin="10dp"
-                    android:id="@+id/answer1"
+                    android:id="@+id/answera"
                     android:src="@drawable/ic_bluetooth_connected_white_48dp"
                     android:layout_width="58dp"
                     android:layout_height="58dp" />
-                </com.mozilla.hackathon.kiboko.widgets.CheckableLinearLayout>
+            </com.mozilla.hackathon.kiboko.widgets.CheckableLinearLayout>
             <com.mozilla.hackathon.kiboko.widgets.CheckableLinearLayout
                 android:layout_margin="5dp"
+                android:layout_toRightOf="@+id/optionA"
+                android:layout_toEndOf="@+id/optionA"
+                android:layout_alignParentTop="true"
                 android:id="@+id/optionB"
+                android:background="@drawable/checkable_image_selector"
                 android:padding="15dp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="B">
+                android:layout_height="wrap_content">
                 <ImageView
-                    android:id="@+id/answer2"
+                    android:id="@+id/answerb"
                     android:layout_margin="10dp"
                     android:src="@drawable/ic_phone_white_48dp"
                     android:layout_width="58dp"
                     android:layout_height="58dp" />
             </com.mozilla.hackathon.kiboko.widgets.CheckableLinearLayout>
             <com.mozilla.hackathon.kiboko.widgets.CheckableLinearLayout
-
                 android:layout_margin="5dp"
-
+                android:layout_below="@+id/optionA"
+                android:layout_alignLeft="@+id/optionA"
+                android:layout_alignStart="@+id/optionA"
                 android:id="@+id/optionC"
+                android:background="@drawable/checkable_image_selector"
                 android:padding="15dp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="C">
+                android:layout_height="wrap_content">
                 <ImageView
-                    android:id="@+id/answer3"
+                    android:id="@+id/answerc"
                     android:layout_margin="10dp"
                     android:src="@drawable/ic_event_white_48dp"
                     android:layout_width="58dp"
@@ -77,20 +87,23 @@
             </com.mozilla.hackathon.kiboko.widgets.CheckableLinearLayout>
             <com.mozilla.hackathon.kiboko.widgets.CheckableLinearLayout
                 android:layout_margin="5dp"
-
                 android:padding="15dp"
-
+                android:layout_below="@+id/optionB"
+                android:layout_toRightOf="@+id/optionC"
+                android:layout_toEndOf="@+id/optionC"
+                android:background="@drawable/checkable_image_selector"
+                android:layout_alignLeft="@+id/optionB"
+                android:layout_alignStart="@+id/optionB"
                 android:id="@+id/optionD"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="D">
+                android:layout_height="wrap_content">
                 <ImageView
-                    android:id="@+id/answer4"
+                    android:id="@+id/answerd"
                     android:layout_margin="10dp"
                     android:src="@drawable/ic_battery_20_white_48dp"
                     android:layout_width="58dp"
                     android:layout_height="58dp"/>
             </com.mozilla.hackathon.kiboko.widgets.CheckableLinearLayout>
-        </RadioGroup>
+        </com.mozilla.hackathon.kiboko.widgets.DSORadioGroup>
     </LinearLayout>
 </RelativeLayout>

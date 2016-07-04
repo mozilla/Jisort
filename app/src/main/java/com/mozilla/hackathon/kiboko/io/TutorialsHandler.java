@@ -150,33 +150,6 @@ public class TutorialsHandler  extends JSONHandler {
             builder = ContentProviderOperation.newUpdate(thistutorialUri);
         }
 
-//        String speakerNames = "";
-//        if (mSpeakerMap != null) {
-//            // build human-readable list of speakers
-//            mStringBuilder.setLength(0);
-//            for (int i = 0; i < tutorial.speakers.length; ++i) {
-//                if (mSpeakerMap.containsKey(tutorial.speakers[i])) {
-//                    mStringBuilder
-//                            .append(i == 0 ? "" : i == tutorial.speakers.length - 1 ? " and " : ", ")
-//                            .append(mSpeakerMap.get(tutorial.speakers[i]).name.trim());
-//                } else {
-//                    LOGW(TAG, "Unknown speaker ID " + tutorial.speakers[i] + " in tutorial " + tutorial.id);
-//                }
-//            }
-//            speakerNames = mStringBuilder.toString();
-//        } else {
-//            LOGE(TAG, "Can't build speaker names -- speaker map is null.");
-//        }
-
-//        int color = mDefaulttutorialColor;
-//        try {
-//            if (!TextUtils.isEmpty(tutorial.color)) {
-//                color = Color.parseColor(tutorial.color);
-//            }
-//        } catch (IllegalArgumentException ex) {
-//            LOGD(TAG, "Ignoring invalid formatted tutorial color: "+tutorial.color);
-//        }
-
         builder.withValue(DsoContract.SyncColumns.UPDATED, System.currentTimeMillis())
                 .withValue(Tutorials.TUTORIAL_ID, tutorial.id)
                 .withValue(Tutorials.TUTORIAL_TAG, tutorial.tag)

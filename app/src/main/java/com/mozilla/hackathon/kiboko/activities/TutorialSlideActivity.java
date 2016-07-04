@@ -205,7 +205,7 @@ public class TutorialSlideActivity extends DSOActivity implements LoaderManager.
                 DsoContract.Tutorials.TUTORIAL_STEPS };
 
         // Read all data for contactId
-        String selection = DsoContract.Tutorials.TUTORIAL_TAG + " = ?";
+        String selection = DsoContract.Tutorials.TUTORIAL_TAG + " =?";
         String[] selectionArgs = new String[]{mTopic};
 
         CursorLoader cursorLoader = new CursorLoader(TutorialSlideActivity.this,
@@ -221,22 +221,26 @@ public class TutorialSlideActivity extends DSOActivity implements LoaderManager.
 
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
-        if (cursor != null && cursor.getCount() > 0) {
-            cursor.moveToFirst();
-            int idIndex =
-                    cursor.getColumnIndex(DsoContract.Tutorials._ID);
-            int stepsIndex =
-                    cursor.getColumnIndex(DsoContract.Tutorials.TUTORIAL_STEPS);
+        switch (loader.getId()) {
+            case LOADER_ID:
+                if (cursor != null && cursor.getCount() > 0) {
+                    cursor.moveToFirst();
+                    int idIndex =
+                            cursor.getColumnIndex(DsoContract.Tutorials._ID);
+                    int stepsIndex =
+                            cursor.getColumnIndex(DsoContract.Tutorials.TUTORIAL_STEPS);
 
-            String jsonArray = cursor.getString(stepsIndex);
-            LOGD(TAG, jsonArray);
-            Type listType = new TypeToken<List<Step>>(){}.getType();
+                    String jsonArray = cursor.getString(stepsIndex);
+                    LOGD(TAG, jsonArray);
+                    Type listType = new TypeToken<List<Step>>(){}.getType();
 
-            jsonSteps = (List<Step>) new Gson().fromJson(jsonArray,listType);
-            mPagerAdapter.notifyDataSetChanged();
+                    jsonSteps = (List<Step>) new Gson().fromJson(jsonArray,listType);
+                    mPagerAdapter.notifyDataSetChanged();
 
-            txtCaption.setText(getString(R.string.tutorial_template_step, 1, mPager.getAdapter().getCount()));
+                    txtCaption.setText(getString(R.string.tutorial_template_step, 1, mPager.getAdapter().getCount()));
+                }
         }
+
     }
 
     @Override

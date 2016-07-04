@@ -27,11 +27,12 @@ import java.util.HashMap;
 
 import static com.mozilla.hackathon.kiboko.utilities.LogUtils.LOGD;
 import static com.mozilla.hackathon.kiboko.utilities.LogUtils.LOGE;
+import static com.mozilla.hackathon.kiboko.utilities.LogUtils.LOGI;
 import static com.mozilla.hackathon.kiboko.utilities.LogUtils.LOGW;
 import static com.mozilla.hackathon.kiboko.utilities.LogUtils.makeLogTag;
 
 /**
-* Helper class that parses conference data and imports them into the app's
+* Helper class that parses data and imports them into the app's
 * Content Provider.
 */
 public class DsoDataHandler {
@@ -72,35 +73,35 @@ public class DsoDataHandler {
      */
     public void applyDSOData(String[] dataBodies, String dataTimestamp,
                                     boolean downloadsAllowed) throws IOException {
-        LOGD(TAG, "Applying data from " + dataBodies.length + " files, timestamp " + dataTimestamp);
+        LOGI(TAG, "Applying data from " + dataBodies.length + " files, timestamp " + dataTimestamp);
 
         // create handlers for each data type
         mHandlerForKey.put(DATA_KEY_TUTORIALS, mTutorialsHandler = new TutorialsHandler(mContext));
         mHandlerForKey.put(DATA_KEY_QUIZES, mQuizesHandler = new QuizHandler(mContext));
         // process the jsons. This will call each of the handlers when appropriate to deal
         // with the objects we see in the data.
-        LOGD(TAG, "Processing " + dataBodies.length + " JSON objects.");
+        LOGI(TAG, "Processing " + dataBodies.length + " JSON objects.");
         for (int i = 0; i < dataBodies.length; i++) {
-            LOGD(TAG, "Processing json object #" + (i + 1) + " of " + dataBodies.length);
+            LOGI(TAG, "Processing json object #" + (i + 1) + " of " + dataBodies.length);
             processDataBody(dataBodies[i]);
         }
 
         // produce the necessary content provider operations
         ArrayList<ContentProviderOperation> batch = new ArrayList<ContentProviderOperation>();
         for (String key : DATA_KEYS_IN_ORDER) {
-            LOGD(TAG, "Building content provider operations for: " + key);
+            LOGI(TAG, "Building content provider operations for: " + key);
             mHandlerForKey.get(key).makeContentProviderOperations(batch);
-            LOGD(TAG, "Content provider operations so far: " + batch.size());
+            LOGI(TAG, "Content provider operations so far: " + batch.size());
         }
-        LOGD(TAG, "Total content provider operations: " + batch.size());
+        LOGI(TAG, "Total content provider operations: " + batch.size());
         // finally, push the changes into the Content Provider
-        LOGD(TAG, "Applying " + batch.size() + " content provider operations.");
+        LOGI(TAG, "Applying " + batch.size() + " content provider operations.");
         try {
             int operations = batch.size();
             if (operations > 0) {
                 mContext.getContentResolver().applyBatch(DsoContract.CONTENT_AUTHORITY, batch);
             }
-            LOGD(TAG, "Successfully applied " + operations + " content provider operations.");
+            LOGI(TAG, "Successfully applied " + operations + " content provider operations.");
             mContentProviderOperationsDone += operations;
         } catch (RemoteException ex) {
             LOGE(TAG, "RemoteException while applying content provider operations.");
@@ -118,7 +119,7 @@ public class DsoDataHandler {
         }
         // update our data timestamp
         setDataTimestamp(dataTimestamp);
-        LOGD(TAG, "Done applying dso data.");
+        LOGI(TAG, "Done applying dso data.");
     }
 
     public int getContentProviderOperationsDone() {
@@ -142,7 +143,7 @@ public class DsoDataHandler {
             reader.beginObject();
 
             while (reader.hasNext()) {
-                // the key is "tutorials", "icons", etc.
+                // the key is "tutorials", "quizes", etc.
                 String key = reader.nextName();
                 if (mHandlerForKey.containsKey(key)) {
                     // pass the value to the corresponding handler

@@ -30,5 +30,16 @@
     <style name="DSOActionBarTitle" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
         <item name="android:textColor" tools:ignore="NewApi">@color/colorTextPrimary</item>
     </style>
+    <declare-styleable name="CheckableLinearLayout">
+        <attr name="is_checked" format="boolean" />
 
+        <attr name="type">
+            <enum name="radio" value="0" />
+            <enum name="check" value="1" />
+        </attr>
+    </declare-styleable>
+
+    <style name="DSOCheckedButton">
+        <item name="android:background">@drawable/checkable_image_selector</item>
+    </style>
 </resources>

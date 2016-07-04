@@ -11,4 +11,7 @@
         <attr name="button2emphasis" format="boolean" />
         <attr name="emphasisColor" format="color" />
     </declare-styleable>
+    <declare-styleable name="DSORadioGroup">
+        <attr name="android:checkedButton" />
+    </declare-styleable>
 </resources>

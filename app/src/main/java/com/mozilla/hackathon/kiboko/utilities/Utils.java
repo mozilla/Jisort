@@ -11,8 +11,6 @@ import android.graphics.Rect;
 import android.os.Build;
 import android.provider.Settings;
 
-import com.mozilla.hackathon.kiboko.App;
-
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -97,20 +95,21 @@ public class Utils {
 
     /**
      * Get resource Id of a gif
-     * @param source the gif filename
+     * @param source the drawable filename without the extension
      * @return resource id
      */
-    public static int getResId(String source) {
-        int id = App.getContext().getResources().getIdentifier(source, "drawable", App.getContext().getPackageName());
+    public static int getResId(Context context, String source) {
+        // get the drawable resource from our package
+        int id = context.getResources().getIdentifier(source, "drawable", context.getPackageName());
 
         if (id == 0) {
             // the drawable resource wasn't found in our package, maybe it is a stock android drawable?
-            id = App.getContext().getResources().getIdentifier(source, "drawable", "android");
+            id = context.getResources().getIdentifier(source, "drawable", "android");
         }
 
         if (id == 0) {
             // prevent a crash if the resource still can't be found
-            return App.getContext().getResources().getIdentifier("blank", "drawable", App.getContext().getPackageName());
+            return context.getResources().getIdentifier("blank", "drawable", context.getPackageName());
         } else {
 
             return id;

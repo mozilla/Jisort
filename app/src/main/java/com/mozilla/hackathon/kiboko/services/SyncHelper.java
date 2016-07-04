@@ -51,7 +51,7 @@ public class SyncHelper {
             b.putBoolean(ContentResolver.SYNC_EXTRAS_MANUAL, true);
             b.putBoolean(ContentResolver.SYNC_EXTRAS_EXPEDITED, true);
             if (userDataSyncOnly) {
-                b.putBoolean(SyncAdapter.EXTRA_SYNC_DATA_ONLY, true);
+                b.putBoolean(SyncAdapter.EXTRA_SYNC_USER_DATA_ONLY, true);
             }
             ContentResolver
                     .setSyncAutomatically(mChosenAccount, DsoContract.CONTENT_AUTHORITY, true);

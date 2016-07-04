@@ -20,8 +20,6 @@ import com.mozilla.hackathon.kiboko.widgets.MessageCardView;
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
 
-import com.mozilla.hackathon.kiboko.Analytics;
-
 public class DashboardActivity extends DSOActivity {
     public static boolean active = false;
     public static FragmentActivity mDashboard;
@@ -35,13 +33,13 @@ public class DashboardActivity extends DSOActivity {
         dashboard_summary = (LinearLayout) findViewById(R.id.dashboard_summary);
         mDashboard = DashboardActivity.this;
         bus.post(new NetworkStateChanged(false) );
-        Analytics.add("Dashboard", "create");
+//        Analytics.add("Dashboard", "create");
     }
 
     public void findIconsClicked(View view){
         Intent dashboardIntent = new Intent(this, FindIconsActivity.class);
         startActivity(dashboardIntent);
-        Analytics.add("Dashboard::FindIcons", "click");
+//        Analytics.add("Dashboard::FindIcons", "click");
     }
 
     @Override
@@ -62,8 +60,8 @@ public class DashboardActivity extends DSOActivity {
     protected void onDestroy() {
         super.onDestroy();
         active = false;
-       Analytics.add("Dashboard", "destroy");
-        Analytics.flush();
+//       Analytics.add("Dashboard", "destroy");
+//        Analytics.flush();
     }
 
     // method that will be called when the device posts an event NetworkStateChanged
@@ -87,11 +85,11 @@ public class DashboardActivity extends DSOActivity {
                     dashboard_summary.removeView(wifiCard);
 
                     if(tag.equals("cancel")){
-                        Analytics.add("Dashboard::NetworkEvent", "dismiss");
+//                        Analytics.add("Dashboard::NetworkEvent", "dismiss");
                         return;
                     }
 
-                    Analytics.add("Dashboard::NetworkEvent", "learn more");
+//                    Analytics.add("Dashboard::NetworkEvent", "learn more");
                     Intent dashboardIntent = new Intent(DashboardActivity.this, TutorialSlideActivity.class);
                     dashboardIntent.putExtra("header","Wifi ni noma!");
                     dashboardIntent.putExtra("topic","wifi");
@@ -123,11 +121,11 @@ public class DashboardActivity extends DSOActivity {
                     dashboard_summary.removeView(wifiCard);
 
                     if(tag.equals("cancel")){
-                        Analytics.add("Dashboard::LowStorageEvent", "dismiss");
+//                        Analytics.add("Dashboard::LowStorageEvent", "dismiss");
                         return;
                     }
 
-                    Analytics.add("Dashboard::LowStorageEvent", "learn more");
+//                    Analytics.add("Dashboard::LowStorageEvent", "learn more");
                     Intent dashboardIntent = new Intent(DashboardActivity.this, TutorialSlideActivity.class);
                     dashboardIntent.putExtra("header","Freeing up Memory!");
                     dashboardIntent.putExtra("topic","storage");
@@ -158,11 +156,11 @@ public class DashboardActivity extends DSOActivity {
                     dashboard_summary.removeView(batteryCard);
 
                     if(tag.equals("cancel")){
-                        Analytics.add("Dashboard::BatteryEvent", "dismiss");
+//                        Analytics.add("Dashboard::BatteryEvent", "dismiss");
                         return;
                     }
 
-                    Analytics.add("Dashboard::BatteryEvent", "learn more");
+//                    Analytics.add("Dashboard::BatteryEvent", "learn more");
                     Intent dashboardIntent = new Intent(DashboardActivity.this, TutorialSlideActivity.class);
                     dashboardIntent.putExtra("title","Phone battery");
                     dashboardIntent.putExtra("topic","battery");
@@ -192,11 +190,11 @@ public class DashboardActivity extends DSOActivity {
                     dashboard_summary.removeView(batteryCard);
 
                     if(tag.equals("cancel")){
-                        Analytics.add("Dashboard::AirplaneModeEvent", "dismiss");
+//                        Analytics.add("Dashboard::AirplaneModeEvent", "dismiss");
                         return;
                     }
 
-                    Analytics.add("Dashboard::AirplaneModeEvent", "learn more");
+//                    Analytics.add("Dashboard::AirplaneModeEvent", "learn more");
                     Intent dashboardIntent = new Intent(DashboardActivity.this, TutorialSlideActivity.class);
                     dashboardIntent.putExtra("title","Airplane Mode");
                     dashboardIntent.putExtra("topic","airplane_mode");
@@ -227,11 +225,11 @@ public class DashboardActivity extends DSOActivity {
                     dashboard_summary.removeView(locationCard);
 
                     if(tag.equals("cancel")){
-                        Analytics.add("Dashboard::LocationEvent", "dismiss");
+//                        Analytics.add("Dashboard::LocationEvent", "dismiss");
                         return;
                     }
 
-                    Analytics.add("Dashboard::AirplaneModeEvent", "learn more");
+//                    Analytics.add("Dashboard::AirplaneModeEvent", "learn more");
                     Intent dashboardIntent = new Intent(DashboardActivity.this, TutorialSlideActivity.class);
                     dashboardIntent.putExtra("title","Using location services.");
                     dashboardIntent.putExtra("topic","location");

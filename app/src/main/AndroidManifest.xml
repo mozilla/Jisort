@@ -56,7 +56,7 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <!--<data android:mimeType="vnd.android.cursor.item/vnd.mozilladso2016.tutorial" />-->
+                <data android:mimeType="vnd.android.cursor.item/vnd.mozilladso2016.tutorial" />
                 <!-- Accepts URIs that begin with "http://mozilladso.com/tutorial" -->
                 <data android:scheme="http"
                     android:host="mozilladso.com"
@@ -147,7 +147,8 @@
             </intent-filter>
         </receiver>
 
-        <service android:name="com.mozilla.hackathon.kiboko.services.ChatHeadService" >
+        <service android:label="@string/app_name"
+            android:name="com.mozilla.hackathon.kiboko.services.ChatHeadService" >
         </service>
 
         <!-- Data, sync and schedule editing components -->
@@ -157,7 +158,7 @@
             android:exported="true"
             android:label="@string/app_name"
             android:syncable="true"
-            android:writePermission="com.mozilla.hakathon.kiboko.permission.WRITE_SCHEDULE" />
+            android:writePermission="com.mozilla.hakathon.kiboko.permission.WRITE_CONTENT" />
 
         <service
             android:name=".sync.SyncService"

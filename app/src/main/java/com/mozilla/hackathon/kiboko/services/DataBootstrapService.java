@@ -84,7 +84,7 @@ public class DataBootstrapService extends IntentService {
             LOGE(TAG, "*** ERROR DURING BOOTSTRAP! Problem in bootstrap data?", ex);
             LOGE(TAG,
                     "Applying fallback -- marking boostrap as done; sync might fix problem.");
-//            SettingsUtils.markDataBootstrapDone(appContext);
+            SettingsUtils.markDataBootstrapDone(appContext);
         } finally {
             // Request a manual sync immediately after the bootstrapping process, in case we
             // have an active connection. Otherwise, the scheduled sync could take a while.

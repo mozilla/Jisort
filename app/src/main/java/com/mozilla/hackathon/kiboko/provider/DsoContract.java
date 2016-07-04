@@ -24,20 +24,16 @@ public final class DsoContract {
             + CONTENT_TYPE_APP_BASE;
 
     public interface SyncColumns {
-
         /** Last time this entry was updated or synchronized. */
         String UPDATED = "updated";
     }
 
     interface TutorialsColumns {
-
         /** Unique string identifying this tutorial. */
         String TUTORIAL_ID = "tutorial_id";
         /** Tutorial header. */
         String TUTORIAL_HEADER = "tutorial_header";
-
         String TUTORIAL_TAG = "tutorial_tag";
-
         String TUTORIAL_PHOTO_URL = "tutorial_photo_url";
         /** The Tutorials's steps. */
         String TUTORIAL_STEPS = "tutorial_steps";
@@ -54,15 +50,12 @@ public final class DsoContract {
         String KEY_OPTIONC= "optionc"; //option c
         String KEY_OPTIOND= "optiond"; //option d
         /** The hashcode of the data used to create this record. */
-        String QUIZ_IMPORT_HASHCODE = "quiz_import_hashcode";
+        String KEY_IMPORT_HASHCODE = "quiz_import_hashcode";
     }
 
     public static final String CONTENT_AUTHORITY = "com.mozilla.hackathon.kiboko";
 
     public static final Uri BASE_CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
-
-
-    private static final String PATH_TAGS = "tags";
 
     private static final String PATH_TUTORIALS = "tutorials";
     private static final String PATH_QUIZ = "quizes";
@@ -102,18 +95,6 @@ public final class DsoContract {
 
         public static final String CONTENT_TYPE_ID = "tutorial";
 
-        // ORDER BY clauses
-//        public static final String SORT_BY_TYPE_THEN_TIME = TUTORIAL_GROUPING_ORDER + " ASC,"
-//                + TUTORIAL_START + " ASC," + TUTORIAL_TITLE + " COLLATE NOCASE ASC";
-//
-//        public static final String LIVESTREAM_SELECTION =
-//                TUTORIAL_LIVESTREAM_ID + " is not null AND " + TUTORIAL_LIVESTREAM_ID + "!=''";
-//
-//        public static final String LIVESTREAM_OR_YOUTUBE_URL_SELECTION = "(" +
-//                TUTORIAL_LIVESTREAM_ID + " is not null AND " + TUTORIAL_LIVESTREAM_ID +
-//                "!='') OR (" +
-//                TUTORIAL_YOUTUBE_URL + " is not null AND " + TUTORIAL_YOUTUBE_URL + " != '')";
-
         // Builds selectionArgs for {@link STARTING_AT_TIME_INTERVAL_SELECTION}
         public static String[] buildAtTimeIntervalArgs(long intervalStart, long intervalEnd) {
             return new String[]{String.valueOf(intervalStart), String.valueOf(intervalEnd)};
@@ -140,9 +121,6 @@ public final class DsoContract {
      */
     public static class Quizes implements QuizColumns,
             SyncColumns, BaseColumns {
-
-        public static final String QUERY_PARAMETER_TAG_FILTER = "filter";
-        public static final String QUERY_PARAMETER_CATEGORIES = "categories";
 
         public static final Uri CONTENT_URI =
                 BASE_CONTENT_URI.buildUpon().appendPath(PATH_QUIZ).build();

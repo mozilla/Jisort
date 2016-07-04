@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.CursorLoader;
@@ -20,7 +21,9 @@ import android.widget.TextView;
 import com.mozilla.hackathon.kiboko.R;
 import com.mozilla.hackathon.kiboko.models.Question;
 import com.mozilla.hackathon.kiboko.provider.DsoContract;
+import com.mozilla.hackathon.kiboko.utilities.Utils;
 import com.mozilla.hackathon.kiboko.widgets.CheckableLinearLayout;
+import com.mozilla.hackathon.kiboko.widgets.DSORadioGroup;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,6 +45,7 @@ public class IconQuizActivity extends AppCompatActivity implements LoaderManager
     TextView quizStepView;
     CheckableLinearLayout choiceOptionA, choiceOptionB, choiceOptionC, choiceOptionD;
     ImageView imageOptionA,imageOptionB,imageOptionC,imageOptionD;
+    DSORadioGroup quizGroup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +58,27 @@ public class IconQuizActivity extends AppCompatActivity implements LoaderManager
         choiceOptionB = (CheckableLinearLayout)findViewById(R.id.optionB);
         choiceOptionC = (CheckableLinearLayout)findViewById(R.id.optionC);
         choiceOptionD = (CheckableLinearLayout)findViewById(R.id.optionD);
+
+        imageOptionA  = (ImageView)findViewById(R.id.answera);
+        imageOptionB  = (ImageView)findViewById(R.id.answerb);
+        imageOptionC  = (ImageView)findViewById(R.id.answerc);
+        imageOptionD  = (ImageView)findViewById(R.id.answerd);
+
+        quizStepView  = (TextView) findViewById(R.id.quizStepView);
+
+        quizGroup = (DSORadioGroup)findViewById(R.id.quizGroup);
+
+        quizGroup.setOnCheckedChangeListener(new DSORadioGroup.OnCheckedChangeListener()
+        {
+
+            @Override
+            public void onCheckedChanged(DSORadioGroup group, @IdRes int checkedId) {
+                if(checkedId != -1){
+                    CheckableLinearLayout checkedView = (CheckableLinearLayout) findViewById(checkedId);
+                    checkAnswer(checkedView);
+                }
+            }
+        });
 
         //bootstrap content
         choiceOptionA.setOnClickListener(new View.OnClickListener() {
@@ -101,7 +126,7 @@ public class IconQuizActivity extends AppCompatActivity implements LoaderManager
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) { // this is override method
         if(keyCode == KeyEvent.KEYCODE_BACK){
-            showExitConfirmDialog(); // call the function below
+//            showExitConfirmDialog(); // call the function below
         }
         return super.onKeyDown(keyCode, event);
     }
@@ -127,19 +152,23 @@ public class IconQuizActivity extends AppCompatActivity implements LoaderManager
         dialog.create().show();
     }
 
-    public boolean checkAnswer(ImageView imageView){
+    public boolean checkAnswer(CheckableLinearLayout checkedView){
 
         boolean correct = false;
 
-        if(currentQuestion.getANSWER().equals(String.valueOf(imageView.getId())))
+        LOGI("yourans", currentQuestion.getANSWER() + " " + checkedView.getTag());
+        if(currentQuestion.getANSWER().equals(checkedView.getTag()))
         {
             score++;
-            LOGI("score", "Your score" + score);
-            correct=true;
+            LOGI(TAG, "Your score" + score);
+            correct = true;
+        }else {
+            correct = false;
         }
-        if(question_id<5){
+
+        if(question_id < quizList.size() && correct){
             currentQuestion = quizList.get(question_id);
-            setQuestionView();
+            setQuestionView(currentQuestion);
         }else{
 //            Intent intent = new Intent(IconQuizActivity.this, ResultActivity.class);
 //            Bundle b = new Bundle();
@@ -149,41 +178,27 @@ public class IconQuizActivity extends AppCompatActivity implements LoaderManager
 //            finish();
         }
 
+        quizGroup.clearCheck();
+
         return correct;
     }
 
-    private void setQuestionView()
+    /**
+     * Populate quiz question view
+     */
+    private void setQuestionView(Question question)
     {
-        imageOptionA = (ImageView)findViewById(R.id.answer1);
-        imageOptionA.setImageDrawable(ContextCompat.getDrawable(IconQuizActivity.this,getDrawableId(quizList.get(question_id).getOPTIONA())));
-        imageOptionB = (ImageView)findViewById(R.id.answer2);
-        imageOptionB.setImageDrawable(ContextCompat.getDrawable(IconQuizActivity.this,getDrawableId(quizList.get(question_id).getOPTIONB())));
-        imageOptionC = (ImageView)findViewById(R.id.answer3);
-        imageOptionC.setImageDrawable(ContextCompat.getDrawable(IconQuizActivity.this,getDrawableId(quizList.get(question_id).getOPTIONC())));
-        imageOptionD = (ImageView)findViewById(R.id.answer4);
-        imageOptionD.setImageDrawable(ContextCompat.getDrawable(IconQuizActivity.this,getDrawableId(quizList.get(question_id).getOPTIOND())));
-
+        quizStepView.setText(question.getQUESTION());
+        choiceOptionA.setTag(question.getOPTIONA());
+        imageOptionA.setImageDrawable(ContextCompat.getDrawable(this, Utils.getResId(this, question.getOPTIONA())));
+        choiceOptionB.setTag(question.getOPTIONB());
+        imageOptionB.setImageDrawable(ContextCompat.getDrawable(this, Utils.getResId(this, question.getOPTIONB())));
+        choiceOptionC.setTag(question.getOPTIONC());
+        imageOptionC.setImageDrawable(ContextCompat.getDrawable(this, Utils.getResId(this, question.getOPTIONC())));
+        choiceOptionD.setTag(question.getOPTIOND());
+        imageOptionD.setImageDrawable(ContextCompat.getDrawable(this, Utils.getResId(this, question.getOPTIOND())));
 
         question_id++;
-    }
-
-    private int getDrawableId(String name){
-        int id = 0;
-            switch(name){
-                case "ic_bluetooth_connected_black_48dp":
-                    id = R.drawable.ic_bluetooth_black_48dp;
-                break;
-                case "ic_phone_black_48dp":
-                    id = R.drawable.ic_phone_black_48dp;
-                break;
-                case "ic_battery_20_black_48dp":
-                    id = R.drawable.ic_battery_20_black_48dp;
-                break;
-                case "ic_event_black_48dp":
-                    id = R.drawable.ic_event_black_48dp;
-                break;
-            }
-        return id;
     }
 
     @Override
@@ -198,8 +213,8 @@ public class IconQuizActivity extends AppCompatActivity implements LoaderManager
                 DsoContract.Quizes.KEY_OPTIONC,
                 DsoContract.Quizes.KEY_OPTIOND};
 
-        // Read all data for contactId
-        String selection = DsoContract.Quizes.KEY_ID + " = ?";
+        // Read all data for quiz question Id
+        String selection = DsoContract.Quizes.KEY_ID + " =?";
         String[] selectionArgs = new String[]{mQuiz};
 
         CursorLoader cursorLoader = new CursorLoader(IconQuizActivity.this,
@@ -216,34 +231,29 @@ public class IconQuizActivity extends AppCompatActivity implements LoaderManager
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
         if (cursor != null && cursor.getCount() > 0) {
-            cursor.moveToFirst();
-            int idIndex =
-                    cursor.getColumnIndex(DsoContract.Tutorials._ID);
-            int stepsIndex =
-                    cursor.getColumnIndex(DsoContract.Tutorials.TUTORIAL_STEPS);
-            cursor.moveToNext();
+            if (cursor.moveToFirst()) {
+                do {
+                    Question question = loadQuizData(cursor);
+                    quizList.add(question);
+                } while (cursor.moveToNext());
+            }
         }
-
-        if (cursor.moveToFirst()) {
-            do {
-                Question question = loadQuizData(cursor);
-                quizList.add(question);
-            } while (cursor.moveToNext());
-        }
-        cursor.close();
 
         if(quizList.size() > 0){
 
             currentQuestion = quizList.get(question_id);
-            setQuestionView();
+            setQuestionView(currentQuestion);
         }
     }
 
+    /**
+     * Populate quiz {@link Question} with data from {@link Cursor}.
+     * @param cursor
+     * @return
+     */
     private Question loadQuizData(Cursor cursor) {
         // Get Question ID
         int idIndex = cursor.getColumnIndex(DsoContract.Quizes.KEY_ID);
-        String contactId = cursor.getString(idIndex);
-        // Get Contact Name
         int questionIndex = cursor.getColumnIndex(DsoContract.Quizes.KEY_QUESTION);
         int answerIndex = cursor.getColumnIndex(DsoContract.Quizes.KEY_ANSWER);
         int optionaIndex = cursor.getColumnIndex(DsoContract.Quizes.KEY_OPTIONA);
@@ -251,8 +261,6 @@ public class IconQuizActivity extends AppCompatActivity implements LoaderManager
         int optioncIndex = cursor.getColumnIndex(DsoContract.Quizes.KEY_OPTIONC);
         int optiondIndex = cursor.getColumnIndex(DsoContract.Quizes.KEY_OPTIOND);
         Question question = new Question(cursor.getString(questionIndex), cursor.getString(answerIndex), cursor.getString(optionaIndex), cursor.getString(optionbIndex), cursor.getString(optioncIndex), cursor.getString(optiondIndex));
-//        fetchContactNumbers(c, contact);
-//        fetchContactEmails(c, contact);
         return question;
     }
 
