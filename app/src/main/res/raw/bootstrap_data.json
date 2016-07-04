@@ -59,7 +59,7 @@
             "id": "6",
             "title": "Entering a Password",
             "gifUrl": "connectwifi6",
-            "description": "<i>If your phone has already connected to the correct Wi-Fi hotspot, you can skip this step, and just go enjoy the Internet. :)</i>\nSome Wi-Fi hotspots require a password. In this case, a box will appear that asks for a password. If you don’t know the password, ask for help from the owner of the hotspot. Once you have the password, use the keyboard that pops up to enter it.\nIf you have trouble, jump to Fixing Problems."
+            "description": "<i>If your phone has already connected to the correct Wi-Fi hotspot, you can skip this step, and just go enjoy the Internet. :)</i>\nSome Wi-Fi hotspots require a password. In this case, a box will appear that asks for a password. If you don’t know the password, ask for help from the owner of the hotspot. Once you have the password, use the keyboard that pops up to enter it."
         }, {
             "id": "7",
             "title": "Fixing Problems",
@@ -95,7 +95,7 @@
             "id": "3",
             "title": "Use Airplane Mode",
             "gifUrl": "airplanemode1",
-            "description": "When you are not using your phone or expecting a call from anyone, you can turn on <b>Airplane Mode</b>. This will turn off your phone’s wireless radios completely. Phone calls, mobile data, and bluetooth connections will all be blocked, so no airtime or data will be used. To learn how to turn it on, check out Airplane Mode."
+            "description": "When you are not using your phone or expecting a call from anyone, you can turn on <b>Airplane Mode</b>. This will turn off your phone’s wireless radios completely. Phone calls, mobile data, and bluetooth connections will all be blocked, so no airtime or data will be used. To learn how to turn it on, check out <a href=\"android-app://com.mozilla.hackathon/kiboko/tutorials/airplane_mode\">Airplane Mode</a>."
         }, {
             "id": "4",
             "title": "Restrict Background Data",
@@ -105,7 +105,7 @@
             "id": "5",
             "title": "Connect to Wi-Fi",
             "gifUrl": "connectwifi2",
-            "description": "The more Wi-Fi you use, the more data you save. Wi-Fi connections are usually stronger, more stable, and less costly than cellular (mobile) ones, though sometimes you have to pay to use someone else’s hotspot. To learn how to connect to Wi-Fi, read the Connecting to Wi-Fi section."
+            "description": "The more Wi-Fi you use, the more data you save. Wi-Fi connections are usually stronger, more stable, and less costly than cellular (mobile) ones, though sometimes you have to pay to use someone else’s hotspot. To learn how to connect to Wi-Fi, <a href=\"mozilladso:///tutorials/connect_wifi\">Connecting Wi-Fi</a>."
         }, {
             "id": "6",
             "title": "Disable Auto-update",
@@ -146,7 +146,7 @@
         "id": "4",
         "title": "Data Usage Tips",
         "gifUrl": "data2",
-        "description": "There are many ways to make sure your phone uses small amounts of data, or only uses data when you want it to.\nFor more information and tips, check out Mobile Data Consumption."
+        "description": "There are many ways to make sure your phone uses small amounts of data, or only uses data when you want it to.\nFor more information and tips, check out <a href=\"mozilladso:///tutorials/data\">Mobile Data Consumption</a>."
       }]
     },{
         "id": "5",
@@ -172,7 +172,7 @@
           "id": "4",
           "title": "Using Wi-Fi",
           "gifUrl": "airplanemode4",
-          "description": "Even with Airplane mode turned on, you are still able to use Wi-Fi if you switch it on explicitly. This will ensure that mobile data is not used. Read the Connecting to Wi-Fi section for more information."
+          "description": "Even with Airplane mode turned on, you are still able to use Wi-Fi if you switch it on explicitly. This will ensure that mobile data is not used. Check out <a href=\"mozilladso:///tutorials/connect_wifi\">Connecting to Wi-Fi</a> for more information."
         }]
       },{
         "id": "6",
@@ -219,7 +219,7 @@
         "id": "3",
         "title": "Accounts",
         "gifUrl": "playstore2",
-        "description": "The size of content on your phone is measured in KB, MB, and GB, where KB is the smallest, and GB is the biggest. If an app consumes 2GB of space, it is much larger than an image that consumes 582KB.\nConfirm that the size of each type of content is as you expect and as you want. If your phone has 300MB of Images and you’re having trouble installing a new app, consider deleting some. Tapping the item in this list will give you options for cleaning it up."
+        "description": "Google, the company that created both Android and the Play Store, wants you to have a Google account with them before you use the Play Store. If you’re using the Play Store for the first time, you may be asked to set up a Google account. You can pick a username and a strong password for your account when you sign up. If you need help coming up with a good password, look at <a href=\"mozilladso:///tutorials/accounts_passwords\">Accounts and Passwords</a>."
       }, {
         "id": "4",
         "title": "Searching for Apps",
@@ -244,7 +244,7 @@
         "id": "8",
         "title": "Updating",
         "gifUrl": "playstore8",
-        "description": "Occasionally, app creators will need to update or change the content of the app. So, often, they issue updates for their apps through the Play Store.\nUpdating apps consumes data. However, the Play Store will try to download updates automatically when you’re connected to a Wi-Fi hotspot. Read the Disable Auto-Update section if you suspect that apps are being updated with your mobile data connection."
+        "description": "Occasionally, app creators will need to update or change the content of the app. So, often, they issue updates for their apps through the Play Store.\nUpdating apps consumes data. However, the Play Store will try to download updates automatically when you’re connected to a Wi-Fi hotspot. Check out <a href=\"mozilladso:///tutorials/data/8\">Disable Auto-Update</a> if you suspect that apps are being updated with your mobile data connection."
       }]
     },{
       "id": "8",
@@ -299,18 +299,18 @@
     },{
       "id": "2",
       "question": "What icon indicates wifi?",
-      "answer": "ic_network_wifi_white_24dp",
+      "answer": "ic_network_wifi_white_48dp",
       "optiona": "ic_bluetooth_connected_white_48dp",
       "optionb": "ic_phone_white_48dp",
       "optionc": "ic_event_white_48dp",
-      "optiond": "ic_network_wifi_white_24dp"
+      "optiond": "ic_network_wifi_white_48dp"
     },{
       "id": "3",
       "question": "What icon indicates bluetooth?",
       "answer": "ic_bluetooth_connected_white_48dp",
       "optiona": "ic_bluetooth_connected_white_48dp",
-      "optionb": "ic_network_wifi_white_24dp",
-      "optionc": "ic_bluetooth_connected_white_48dp",
+      "optionb": "ic_network_wifi_white_48dp",
+      "optionc": "ic_access_alarms_white_48dp",
       "optiond": "ic_phone_white_48dp"
     }]
 }

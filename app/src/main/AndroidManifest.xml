@@ -25,7 +25,7 @@
         <activity
             android:name=".activities.IconQuizActivity"
             android:windowSoftInputMode="stateHidden"
-            android:label="Icon Usage Quiz" >
+            android:label="@string/title_activity_iconquiz" >
         </activity>
         <activity
             android:name=".activities.DashboardActivity"
@@ -54,8 +54,8 @@
             <!--Handle website links-->
             <intent-filter android:label="@string/app_name">
                 <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
                 <data android:mimeType="vnd.android.cursor.item/vnd.mozilladso2016.tutorial" />
                 <!-- Accepts URIs that begin with "http://mozilladso.com/tutorial" -->
                 <data android:scheme="http"
@@ -66,32 +66,25 @@
             <!-- handle app links -->
             <intent-filter android:label="@string/app_name">
                 <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
                 <data android:scheme="mozilladso" android:pathPrefix="/tutorials/*" />
             </intent-filter>
         </activity>
         <activity
             android:name=".activities.TopicListActivity"
             android:windowSoftInputMode="stateHidden"
-            android:label="Phone Usage" >
+            android:label="@string/title_activity_topiclist">
 
         </activity>
         <activity
             android:name=".activities.ResultActivity"
             android:windowSoftInputMode="stateHidden"
             android:parentActivityName=".activities.DashboardActivity"
-            android:label="Phone Usage" >
+            android:label="@string/title_activity_quizresult" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.DashboardActivity" />
-        </activity>
-
-        <activity
-            android:name=".activities.QuizActivity"
-            android:windowSoftInputMode="stateHidden"
-            android:label="Usage Topic Quiz" >
-
         </activity>
 
         <receiver android:enabled="true" android:name=".recievers.DSOAirplaneModeReceiver">

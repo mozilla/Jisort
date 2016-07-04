@@ -28,9 +28,7 @@ import static com.mozilla.hackathon.kiboko.utilities.LogUtils.makeLogTag;
 public class DsoProvider extends ContentProvider {
 
     private static final String TAG = makeLogTag(DsoProvider.class);
-
     private DsoDatabase mOpenHelper;
-
     private DsoProviderUriMatcher mUriMatcher;
 
     /**
@@ -53,8 +51,6 @@ public class DsoProvider extends ContentProvider {
 //            writer.println(new java.util.Date(SettingsUtils.getLastSyncSucceededTime(context)));
 //            writer.print("Current sync interval: ");
 //            writer.println(SettingsUtils.getCurSyncInterval(context));
-
-
         } catch (Exception exception) {
             writer.append("Exception while dumping state: ");
             exception.printStackTrace(writer);
@@ -107,9 +103,7 @@ public class DsoProvider extends ContentProvider {
 
         String tagsFilter = uri.getQueryParameter(DsoContract.Tutorials.QUERY_PARAMETER_TAG_FILTER);
         String categories = uri.getQueryParameter(DsoContract.Tutorials.QUERY_PARAMETER_CATEGORIES);
-
         DsoUriEnum matchingUriEnum = mUriMatcher.matchUri(uri);
-
         // Avoid the expensive string concatenation below if not loggable.
         if (Log.isLoggable(TAG, Log.VERBOSE)) {
             Log.v(TAG, "uri=" + uri + " code=" + matchingUriEnum.code + " proj=" +
@@ -121,14 +115,10 @@ public class DsoProvider extends ContentProvider {
             default: {
                 // Most cases are handled with simple SelectionBuilder.
                 final SelectionBuilder builder = buildExpandedSelection(uri, matchingUriEnum.code);
-
-
                 boolean distinct = DsoContractHelper.isQueryDistinct(uri);
-
                 Cursor cursor = builder
                         .where(selection, selectionArgs)
                         .query(db, distinct, projection, sortOrder, null);
-
                 Context context = getContext();
                 if (null != context) {
                     cursor.setNotificationUri(context.getContentResolver(), uri);
@@ -148,7 +138,6 @@ public class DsoProvider extends ContentProvider {
             db.insertOrThrow(matchingUriEnum.table, null, values);
             notifyChange(uri);
         }
-
         switch (matchingUriEnum) {
             case TUTORIALS: {
                 return Tutorials.buildTutorialUri(values.getAsString(DsoContract.Tutorials.TUTORIAL_ID));
@@ -168,9 +157,7 @@ public class DsoProvider extends ContentProvider {
 
         final SQLiteDatabase db = mOpenHelper.getWritableDatabase();
         DsoUriEnum matchingUriEnum = mUriMatcher.matchUri(uri);
-
         final SelectionBuilder builder = buildSimpleSelection(uri);
-
         int retVal = builder.where(selection, selectionArgs).update(db, values);
         notifyChange(uri);
         return retVal;
@@ -189,8 +176,6 @@ public class DsoProvider extends ContentProvider {
         final SQLiteDatabase db = mOpenHelper.getWritableDatabase();
         final SelectionBuilder builder = buildSimpleSelection(uri);
         DsoUriEnum matchingUriEnum = mUriMatcher.matchUri(uri);
-
-
         int retVal = builder.where(selection, selectionArgs).delete(db);
         notifyChange(uri);
         return retVal;
@@ -258,11 +243,9 @@ public class DsoProvider extends ContentProvider {
                 return builder.table(Tables.QUIZES)
                         .where(DsoContract.Quizes.KEY_ID  + "=?", quizId);
             }
-
             default: {
                 throw new UnsupportedOperationException("Unknown uri for " + uri);
             }
-
         }
     }
 
