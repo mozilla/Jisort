@@ -59,7 +59,6 @@ public class TutorialSlideActivity extends DSOActivity implements LoaderManager.
      * and next wizard steps.
      */
     private ViewPager mPager;
-
     /**
      * The pager adapter, which provides the pages to the view pager widget.
      */
@@ -67,9 +66,8 @@ public class TutorialSlideActivity extends DSOActivity implements LoaderManager.
     private Button mPrev;
     private Button mNext;
     private String mTopic;
+    private int mStepFrame = -1;
     TextView txtCaption;
-
-    private boolean fromLink;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,21 +77,7 @@ public class TutorialSlideActivity extends DSOActivity implements LoaderManager.
         ActionBar ab = getSupportActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
 
-        Bundle bundle = getIntent().getExtras();
-
-        if(!(bundle == null)){
-            if(bundle.getString("title") != null) {
-                setTitle((String)bundle.get("title"));
-            }
-
-            if(bundle.getString("topic") != null)
-            {
-                mTopic = (String)bundle.get("topic");
-            }
-        }else {
-            onNewIntent(getIntent());
-        }
-
+        onNewIntent(getIntent());
         // Instantiate a ViewPager and a PagerAdapter.
         mPager = (ViewPager) findViewById(R.id.pager);
         mNext = (Button) findViewById(R.id.mNext);
@@ -105,7 +89,6 @@ public class TutorialSlideActivity extends DSOActivity implements LoaderManager.
         mPrev.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 if(!(mPager.getCurrentItem() > mPagerAdapter.getCount() - 1)){
                     mPager.setCurrentItem(mPager.getCurrentItem() - 1);
                 }else{
@@ -132,7 +115,6 @@ public class TutorialSlideActivity extends DSOActivity implements LoaderManager.
         mPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
             @Override
             public void onPageSelected(int position) {
-
                 txtCaption.setText(getString(R.string.tutorial_template_step, position + 1, mPager.getAdapter().getCount()));
                 // When changing pages, reset the action bar actions since they are dependent
                 // on which page is currently active. An alternative approach is to have each
@@ -149,10 +131,25 @@ public class TutorialSlideActivity extends DSOActivity implements LoaderManager.
         String action = intent.getAction();
         String data = intent.getDataString();
         if (Intent.ACTION_VIEW.equals(action) && data != null) {
-            String tutorialTag = data.substring(data.lastIndexOf("/") + 1);
-            mTopic = tutorialTag;
+            String[] tutorialTag = data.split("/");
+//            mStepFrame = Integer.parseInt(data.substring(data.lastIndexOf("/") + 1 ));
+            if(tutorialTag.length >= 6){
+                mStepFrame = Integer.parseInt(tutorialTag[tutorialTag.length - 1]);
+                mTopic     = tutorialTag[tutorialTag.length - 2];
+            }else {
+                mTopic = tutorialTag[tutorialTag.length - 1];
+            }
+
             Uri contentUri = DsoContract.Tutorials.CONTENT_URI.buildUpon()
-                    .appendPath(tutorialTag).build();
+                    .appendPath(tutorialTag[0]).build();
+        }else {
+            if(intent.getExtras().getString("title") != null) {
+                setTitle((String)intent.getExtras().get("title"));
+            }
+            if(intent.getExtras().getString("topic") != null)
+            {
+                mTopic = (String)intent.getExtras().get("topic");
+            }
         }
     }
 
@@ -180,9 +177,7 @@ public class TutorialSlideActivity extends DSOActivity implements LoaderManager.
         String selection;
         // Read all data for contactId
         selection = DsoContract.Tutorials.TUTORIAL_TAG + " =?";
-
         String[] selectionArgs = new String[]{mTopic};
-
         CursorLoader cursorLoader = new CursorLoader(TutorialSlideActivity.this,
                 DsoContract.Tutorials.CONTENT_URI, // URI
                 projectionFields, // projection fields
@@ -200,22 +195,22 @@ public class TutorialSlideActivity extends DSOActivity implements LoaderManager.
             case LOADER_ID:
                 if (cursor != null && cursor.getCount() > 0) {
                     cursor.moveToFirst();
-                    int idIndex =
-                            cursor.getColumnIndex(DsoContract.Tutorials._ID);
+                    int titleIndex =
+                            cursor.getColumnIndex(DsoContract.Tutorials.TUTORIAL_HEADER);
                     int stepsIndex =
                             cursor.getColumnIndex(DsoContract.Tutorials.TUTORIAL_STEPS);
-
                     String jsonArray = cursor.getString(stepsIndex);
                     LOGD(TAG, jsonArray);
                     Type listType = new TypeToken<List<Step>>(){}.getType();
-
+                    setTitle(cursor.getString(titleIndex));
                     jsonSteps = (List<Step>) new Gson().fromJson(jsonArray,listType);
                     mPagerAdapter.notifyDataSetChanged();
-
                     txtCaption.setText(getString(R.string.tutorial_template_step, 1, mPager.getAdapter().getCount()));
+
+                    if(mStepFrame != -1)
+                        mPager.setCurrentItem(mStepFrame);
                 }
         }
-
         cursor.close();
 
     }

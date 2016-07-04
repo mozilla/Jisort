@@ -23,6 +23,8 @@ We hope the source code for this app is useful for you as a reference or startin
   * [Build instructions](doc/BUILDING.md): instructions on how to build and run the code.
   * [Customization guide](doc/CUSTOM.md)
 
+<h2>Contributors/Credits</h2>
+More contributor information can be found in the [CREDITS.md](CREDITS.md) file.
 <h2>Copyright</h2>
 
     Copyright 2014 Mozilla Foundation. All rights reserved.

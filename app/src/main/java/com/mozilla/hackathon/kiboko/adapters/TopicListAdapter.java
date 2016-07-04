@@ -10,12 +10,9 @@ import android.widget.Button;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.TextView;
-
 import com.mozilla.hackathon.kiboko.R;
-import com.mozilla.hackathon.kiboko.activities.QuizActivity;
 import com.mozilla.hackathon.kiboko.activities.TutorialSlideActivity;
 import com.mozilla.hackathon.kiboko.models.TopicItem;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,8 +48,8 @@ public class TopicListAdapter extends BaseAdapter implements Filterable {
     /* *********************************
 	 * We use the holder pattern
 	 * It makes the view faster and avoid finding the component
-	 * **********************************/
-
+	 * *********************************
+	 **/
     private static class Holder
     {
         TextView name;
@@ -95,13 +92,13 @@ public class TopicListAdapter extends BaseAdapter implements Filterable {
                 }
             });
 
-            quiz_button.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(context, QuizActivity.class);
-                    context.startActivity(intent);
-                }
-            });
+//            quiz_button.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    Intent intent = new Intent(context, QuizActivity.class);
+//                    context.startActivity(intent);
+//                }
+//            });
 
             viewItem.setTag(holder);
         }
