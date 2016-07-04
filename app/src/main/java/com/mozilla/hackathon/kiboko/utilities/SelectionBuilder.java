@@ -11,6 +11,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.mozilla.hackathon.kiboko.utilities.LogUtils.LOGI;
 import static com.mozilla.hackathon.kiboko.utilities.LogUtils.LOGV;
 import static com.mozilla.hackathon.kiboko.utilities.LogUtils.makeLogTag;
 
@@ -165,7 +166,7 @@ public class SelectionBuilder {
                         String limit) {
         assertTable();
         if (columns != null) mapColumns(columns);
-        LOGV(TAG, "query(columns=" + Arrays.toString(columns)
+        LOGI(TAG, "query(columns=" + Arrays.toString(columns)
                 + ", distinct=" + distinct + ") " + this);
         return db.query(distinct, mTable, columns, getSelection(), getSelectionArgs(), mGroupBy,
                 mHaving, orderBy, limit);

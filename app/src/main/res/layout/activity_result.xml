@@ -1,35 +1,38 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".activities.ResultActivity"
-    android:background="@drawable/gray_border">
-
-    <LinearLayout
-        android:layout_width="wrap_content"
+    android:background="@color/colorPrimary">
+    <TextView
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:layout_width="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:orientation="vertical" >
+        android:text="@string/game_over_text"
+        android:textColor="@color/colorTextPrimary"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+    <TextView
+        android:layout_margin="@dimen/activity_vertical_margin"
+        android:id="@+id/quizResult"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
+        android:textColor="@color/colorTextPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/quiz_template_points"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+    <Button
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:layout_width="wrap_content"
+        android:background="#222222"
+        android:padding="@dimen/activity_horizontal_margin"
+        android:textColor="@color/colorTextPrimary"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
+        android:layout_height="wrap_content"
+        android:text="@string/play_again_text"/>
 
-
-        <RatingBar
-            android:id="@+id/ratingBar1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:numStars="5"
-            android:stepSize="1.0"
-            android:rating="0.0"/>
-
-        <TextView
-            android:id="@+id/textResult"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.08"
-            android:text="Large Text"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-    </LinearLayout>
-
-</RelativeLayout>
+</LinearLayout>

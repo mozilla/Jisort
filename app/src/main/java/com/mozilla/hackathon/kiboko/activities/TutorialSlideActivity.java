@@ -24,7 +24,6 @@ import com.google.gson.reflect.TypeToken;
 import com.mozilla.hackathon.kiboko.R;
 import com.mozilla.hackathon.kiboko.fragments.ScreenSlidePageFragment;
 import com.mozilla.hackathon.kiboko.models.Step;
-import com.mozilla.hackathon.kiboko.models.Tutorial;
 import com.mozilla.hackathon.kiboko.provider.DsoContract;
 
 import java.lang.reflect.Type;
@@ -70,7 +69,7 @@ public class TutorialSlideActivity extends DSOActivity implements LoaderManager.
     private String mTopic;
     TextView txtCaption;
 
-    private Tutorial tutorial;
+    private boolean fromLink;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -150,37 +149,11 @@ public class TutorialSlideActivity extends DSOActivity implements LoaderManager.
         String action = intent.getAction();
         String data = intent.getDataString();
         if (Intent.ACTION_VIEW.equals(action) && data != null) {
-            String tutorialId = data.substring(data.lastIndexOf("/") + 1);
+            String tutorialTag = data.substring(data.lastIndexOf("/") + 1);
+            mTopic = tutorialTag;
             Uri contentUri = DsoContract.Tutorials.CONTENT_URI.buildUpon()
-                    .appendPath(tutorialId).build();
-            showTutorial(contentUri);
+                    .appendPath(tutorialTag).build();
         }
-    }
-
-    private void showTutorial(Uri tutorialUri) {
-        LOGD("Tutorial Uri", tutorialUri.toString());
-
-        String[] projection = { DsoContract.Tutorials.TUTORIAL_ID,
-                DsoContract.Tutorials.TUTORIAL_TAG,
-                DsoContract.Tutorials.TUTORIAL_HEADER,
-                DsoContract.Tutorials.TUTORIAL_PHOTO_URL,
-                DsoContract.Tutorials.TUTORIAL_STEPS};
-
-        // Read all data for contactId
-        String selection = DsoContract.Tutorials.TUTORIAL_ID + " = ?";
-        String[] selectionArgs = new String[]{mTopic};
-
-//        Cursor cursor = getContentResolver().query(tutorialUri, projection, null, null, null);
-//
-//        if (cursor != null && cursor.moveToFirst()) {
-//            // always close the cursor
-//            cursor.close();
-//        } else {
-//            Toast toast = Toast.makeText(getApplicationContext(),
-//                    "No match for deep link " + tutorialUri.toString(),
-//                    Toast.LENGTH_SHORT);
-//            toast.show();
-//        }
     }
 
     @Override
@@ -204,8 +177,10 @@ public class TutorialSlideActivity extends DSOActivity implements LoaderManager.
                 DsoContract.Tutorials.TUTORIAL_PHOTO_URL,
                 DsoContract.Tutorials.TUTORIAL_STEPS };
 
+        String selection;
         // Read all data for contactId
-        String selection = DsoContract.Tutorials.TUTORIAL_TAG + " =?";
+        selection = DsoContract.Tutorials.TUTORIAL_TAG + " =?";
+
         String[] selectionArgs = new String[]{mTopic};
 
         CursorLoader cursorLoader = new CursorLoader(TutorialSlideActivity.this,
@@ -240,6 +215,8 @@ public class TutorialSlideActivity extends DSOActivity implements LoaderManager.
                     txtCaption.setText(getString(R.string.tutorial_template_step, 1, mPager.getAdapter().getCount()));
                 }
         }
+
+        cursor.close();
 
     }
 
