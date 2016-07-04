@@ -13,12 +13,22 @@
         android:gravity="center_vertical"
         android:layout_centerInParent="true"
         android:layout_centerHorizontal="true">
-
+        <TextView
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/quizStepScore"
+            android:layout_width="wrap_content"
+            android:textColor="@color/colorTextPrimary"
+            android:gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/activity_horizontal_margin"
+            android:layout_height="wrap_content"
+            android:text="@string/placeholder_quiz_score"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
         <TextView
             android:layout_gravity="center_horizontal"
             android:id="@+id/quizStepView"
             android:layout_width="wrap_content"
             android:textColor="@color/colorTextPrimary"
+            android:textStyle="bold"
             android:gravity="center_horizontal"
             android:layout_marginBottom="@dimen/activity_horizontal_margin"
             android:layout_height="wrap_content"

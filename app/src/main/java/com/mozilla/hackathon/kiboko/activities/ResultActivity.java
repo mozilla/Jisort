@@ -1,10 +1,9 @@
 package com.mozilla.hackathon.kiboko.activities;
 
-import android.app.ActionBar;
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.mozilla.hackathon.kiboko.R;
@@ -12,36 +11,33 @@ import com.mozilla.hackathon.kiboko.R;
 /**
  * Created by mwadime on 6/10/2016.
  */
-public class ResultActivity extends Activity {
+public class ResultActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
 
-        ActionBar ab = getActionBar();
+        ActionBar ab = getSupportActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
-        //get rating bar object
-        RatingBar bar=(RatingBar)findViewById(R.id.ratingBar1);
-        bar.setNumStars(5);
-        bar.setStepSize(0.5f);
-        //get text view
-        TextView t=(TextView)findViewById(R.id.textResult);
+
+        TextView txtPoints = (TextView) findViewById(R.id.quizResult);
         //get score
         Bundle b = getIntent().getExtras();
         int score= b.getInt("score");
+
+        txtPoints.setText(getString(R.string.quiz_template_points, score));
         //display score
-        bar.setRating(score);
-        switch (score)
-        {
-            case 1:
-            case 2: t.setText("Opps, try again bro, keep learning");
-                break;
-            case 3:
-            case 4:t.setText("Nice Try");
-                break;
-            case 5:t.setText("Who are you? A student in JP???");
-                break;
-        }
+//        switch (score)
+//        {
+//            case 1:
+//            case 2: t.setText("Opps, try again bro, keep learning");
+//                break;
+//            case 3:
+//            case 4:t.setText("Nice Try");
+//                break;
+//            case 5:t.setText("Who are you? A student in JP???");
+//                break;
+//        }
     }
 
     @Override
