@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".activities.QuizActivity"
+    tools:context=".activities.IconQuizActivity"
     android:background="@color/colorPrimary">
 
     <LinearLayout
@@ -33,17 +33,17 @@
             android:layout_height="match_parent">
             <com.mozilla.hackathon.kiboko.widgets.CheckableLinearLayout
                 android:id="@+id/optionA"
-                app:type="radio"
                 android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
                 android:background="@drawable/checkable_image_selector"
                 android:layout_margin="5dp"
+                android:layout_marginStart="20dp"
                 android:layout_marginLeft="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="true"
-                android:padding="15dp"
-                android:text="A">
+                android:padding="15dp">
                 <ImageView
                     android:layout_margin="10dp"
                     android:id="@+id/answera"
@@ -54,13 +54,13 @@
             <com.mozilla.hackathon.kiboko.widgets.CheckableLinearLayout
                 android:layout_margin="5dp"
                 android:layout_toRightOf="@+id/optionA"
+                android:layout_toEndOf="@+id/optionA"
                 android:layout_alignParentTop="true"
                 android:id="@+id/optionB"
                 android:background="@drawable/checkable_image_selector"
                 android:padding="15dp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="B">
+                android:layout_height="wrap_content">
                 <ImageView
                     android:id="@+id/answerb"
                     android:layout_margin="10dp"
@@ -72,12 +72,12 @@
                 android:layout_margin="5dp"
                 android:layout_below="@+id/optionA"
                 android:layout_alignLeft="@+id/optionA"
+                android:layout_alignStart="@+id/optionA"
                 android:id="@+id/optionC"
                 android:background="@drawable/checkable_image_selector"
                 android:padding="15dp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="C">
+                android:layout_height="wrap_content">
                 <ImageView
                     android:id="@+id/answerc"
                     android:layout_margin="10dp"
@@ -90,12 +90,13 @@
                 android:padding="15dp"
                 android:layout_below="@+id/optionB"
                 android:layout_toRightOf="@+id/optionC"
+                android:layout_toEndOf="@+id/optionC"
                 android:background="@drawable/checkable_image_selector"
                 android:layout_alignLeft="@+id/optionB"
+                android:layout_alignStart="@+id/optionB"
                 android:id="@+id/optionD"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="D">
+                android:layout_height="wrap_content">
                 <ImageView
                     android:id="@+id/answerd"
                     android:layout_margin="10dp"

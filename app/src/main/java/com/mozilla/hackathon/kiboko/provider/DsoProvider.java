@@ -47,7 +47,7 @@ public class DsoProvider extends ContentProvider {
         try {
             // Calling append in multiple calls is typically better than creating net new strings to
             // pass to method invocations.
-//            writer.print("Last sync attempted: ");
+            writer.print("Last sync attempted: ");
 //            writer.println(new java.util.Date(SettingsUtils.getLastSyncAttemptedTime(context)));
 //            writer.print("Last sync successful: ");
 //            writer.println(new java.util.Date(SettingsUtils.getLastSyncSucceededTime(context)));
@@ -151,10 +151,10 @@ public class DsoProvider extends ContentProvider {
 
         switch (matchingUriEnum) {
             case TUTORIALS: {
-                return DsoContract.Tutorials.buildTutorialUri(values.getAsString(DsoContract.Tutorials.TUTORIAL_ID));
+                return Tutorials.buildTutorialUri(values.getAsString(DsoContract.Tutorials.TUTORIAL_ID));
             }
             case QUIZES: {
-                return DsoContract.Tutorials.buildTutorialUri(values.getAsString(DsoContract.Quizes.KEY_ID));
+                return Quizes.buildQuizUri(values.getAsString(DsoContract.Quizes.KEY_ID));
             }
             default: {
                 throw new UnsupportedOperationException("Unknown insert uri: " + uri);
@@ -245,12 +245,9 @@ public class DsoProvider extends ContentProvider {
         // The main Uris, corresponding to the root of each type of Uri, do not have any selection
         // criteria so the full table is used. The others apply a selection criteria.
         switch (matchingUriEnum) {
-            case QUIZES: {
-                return builder.table(Tables.QUIZES);
-            }
-            case TUTORIALS: {
-                return builder.table(Tables.TUTORIALS);
-            }
+            case TUTORIALS:
+            case QUIZES:
+                return builder.table(matchingUriEnum.table);
             case TUTORIALS_ID: {
                 final String tutorialId = Tutorials.getTutorialId(uri);
                 return builder.table(Tables.TUTORIALS)

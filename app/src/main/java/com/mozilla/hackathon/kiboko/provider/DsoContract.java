@@ -24,20 +24,16 @@ public final class DsoContract {
             + CONTENT_TYPE_APP_BASE;
 
     public interface SyncColumns {
-
         /** Last time this entry was updated or synchronized. */
         String UPDATED = "updated";
     }
 
     interface TutorialsColumns {
-
         /** Unique string identifying this tutorial. */
         String TUTORIAL_ID = "tutorial_id";
         /** Tutorial header. */
         String TUTORIAL_HEADER = "tutorial_header";
-
         String TUTORIAL_TAG = "tutorial_tag";
-
         String TUTORIAL_PHOTO_URL = "tutorial_photo_url";
         /** The Tutorials's steps. */
         String TUTORIAL_STEPS = "tutorial_steps";
@@ -125,9 +121,6 @@ public final class DsoContract {
      */
     public static class Quizes implements QuizColumns,
             SyncColumns, BaseColumns {
-
-        public static final String QUERY_PARAMETER_TAG_FILTER = "filter";
-        public static final String QUERY_PARAMETER_CATEGORIES = "categories";
 
         public static final Uri CONTENT_URI =
                 BASE_CONTENT_URI.buildUpon().appendPath(PATH_QUIZ).build();

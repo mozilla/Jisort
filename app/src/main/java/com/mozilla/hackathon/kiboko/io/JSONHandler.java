@@ -30,7 +30,7 @@ public abstract class JSONHandler {
     public static String parseResource(Context context, int resource) throws IOException {
         InputStream is = context.getResources().openRawResource(resource);
         Writer writer = new StringWriter();
-        char[] buffer = new char[1024]; //new char[1024];
+        char[] buffer = new char[is.available()]; //new char[1024];
         try {
             Reader reader = new BufferedReader(new InputStreamReader(is, Charsets.UTF_8));
             int n;

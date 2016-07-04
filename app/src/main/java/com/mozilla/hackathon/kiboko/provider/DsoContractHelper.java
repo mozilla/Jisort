@@ -7,7 +7,6 @@ import android.text.TextUtils;
  * Provides helper methods for specifying query parameters on {@code Uri}s.
  */
 public class DsoContractHelper {
-
     public static final String QUERY_PARAMETER_DISTINCT = "distinct";
 
     private static final String QUERY_PARAMETER_CALLER_IS_SYNC_ADAPTER = "callerIsSyncAdapter";

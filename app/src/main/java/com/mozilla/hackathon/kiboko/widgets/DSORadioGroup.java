@@ -2,6 +2,7 @@ package com.mozilla.hackathon.kiboko.widgets;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.os.Build;
 import android.support.annotation.IdRes;
 import android.util.AttributeSet;
 import android.view.View;
@@ -49,7 +50,9 @@ public class DSORadioGroup extends RelativeLayout {
      */
     public DSORadioGroup(Context context) {
         super(context);
-        init();
+        if (!isInEditMode()) {
+            init();
+        }
     }
 
     /**
@@ -60,16 +63,18 @@ public class DSORadioGroup extends RelativeLayout {
 
         // retrieve selected radio button as requested by the user in the
         // XML layout file
-        TypedArray attributes = context.obtainStyledAttributes(
-                attrs, R.styleable.DSORadioGroup, R.attr.radioButtonStyle, 0);
+        if (!isInEditMode()) {
+            TypedArray attributes = context.obtainStyledAttributes(
+                        attrs, R.styleable.DSORadioGroup, 0, R.style.DSOCheckedButton);
 
-        int value = attributes.getResourceId(R.styleable.DSORadioGroup_android_checkedButton, View.NO_ID);
-        if (value != View.NO_ID) {
-            mCheckedId = value;
+            int value = attributes.getResourceId(R.styleable.DSORadioGroup_android_checkedButton, View.NO_ID);
+            if (value != View.NO_ID) {
+                mCheckedId = value;
+            }
+
+            attributes.recycle();
+            init();
         }
-
-        attributes.recycle();
-        init();
     }
 
     private void init() {
@@ -212,7 +217,7 @@ public class DSORadioGroup extends RelativeLayout {
      */
     @Override
     protected boolean checkLayoutParams(ViewGroup.LayoutParams p) {
-        return p instanceof CheckableLinearLayout.LayoutParams;
+        return p instanceof DSORadioGroup.LayoutParams;
     }
 
     @Override
@@ -231,7 +236,7 @@ public class DSORadioGroup extends RelativeLayout {
      * XML file. Otherwise, this class ussed the value read from the XML file.</p>
      *
      * <p>See
-     * {@link android.R.styleable#RelativeLayout_Layout LinearLayout Attributes}
+     * {@link android.R.styleable#LinearLayout_Layout LinearLayout Attributes}
      * for a list of all child view attributes that this class supports.</p>
      *
      */
@@ -343,7 +348,9 @@ public class DSORadioGroup extends RelativeLayout {
                 int id = child.getId();
                 // generates an id if it's missing
                 if (id == View.NO_ID) {
-//                    id = View.generateViewId();
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                        id = View.generateViewId();
+                    }
                     child.setId(id);
                 }
                 ((CheckableLinearLayout) child).setOnCheckedChangeListener(

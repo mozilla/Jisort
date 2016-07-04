@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.CursorLoader;
@@ -67,6 +68,18 @@ public class IconQuizActivity extends AppCompatActivity implements LoaderManager
 
         quizGroup = (DSORadioGroup)findViewById(R.id.quizGroup);
 
+        quizGroup.setOnCheckedChangeListener(new DSORadioGroup.OnCheckedChangeListener()
+        {
+
+            @Override
+            public void onCheckedChanged(DSORadioGroup group, @IdRes int checkedId) {
+                if(checkedId != -1){
+                    CheckableLinearLayout checkedView = (CheckableLinearLayout) findViewById(checkedId);
+                    checkAnswer(checkedView);
+                }
+            }
+        });
+
         //bootstrap content
         choiceOptionA.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -113,7 +126,7 @@ public class IconQuizActivity extends AppCompatActivity implements LoaderManager
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) { // this is override method
         if(keyCode == KeyEvent.KEYCODE_BACK){
-            showExitConfirmDialog(); // call the function below
+//            showExitConfirmDialog(); // call the function below
         }
         return super.onKeyDown(keyCode, event);
     }
@@ -139,28 +152,23 @@ public class IconQuizActivity extends AppCompatActivity implements LoaderManager
         dialog.create().show();
     }
 
-    public boolean checkAnswer(ImageView imageView){
+    public boolean checkAnswer(CheckableLinearLayout checkedView){
 
         boolean correct = false;
 
-//        RadioGroup grp=(RadioGroup)findViewById(R.id.radioGroup1);
-//        RadioButton answer=(RadioButton)findViewById(grp.getCheckedRadioButtonId());
-//        Log.d("yourans", currentQ.getANSWER()+" "+answer.getText());
-//        if(currentQ.getANSWER().equals(answer.getText()))
-//        {
-//            score++;
-//            Log.d("score", "Your score"+score);
-//        }
-
-        if(currentQuestion.getANSWER().equals(String.valueOf(imageView.getId())))
+        LOGI("yourans", currentQuestion.getANSWER() + " " + checkedView.getTag());
+        if(currentQuestion.getANSWER().equals(checkedView.getTag()))
         {
             score++;
-            LOGI("score", "Your score" + score);
-            correct=true;
+            LOGI(TAG, "Your score" + score);
+            correct = true;
+        }else {
+            correct = false;
         }
-        if(question_id < quizList.size()){
+
+        if(question_id < quizList.size() && correct){
             currentQuestion = quizList.get(question_id);
-            setQuestionView();
+            setQuestionView(currentQuestion);
         }else{
 //            Intent intent = new Intent(IconQuizActivity.this, ResultActivity.class);
 //            Bundle b = new Bundle();
@@ -170,20 +178,25 @@ public class IconQuizActivity extends AppCompatActivity implements LoaderManager
 //            finish();
         }
 
+        quizGroup.clearCheck();
+
         return correct;
     }
 
     /**
      * Populate quiz question view
      */
-    private void setQuestionView()
+    private void setQuestionView(Question question)
     {
-        quizStepView.setText(currentQuestion.getQUESTION());
-        imageOptionA.setImageDrawable(ContextCompat.getDrawable(this, Utils.getResId(this, currentQuestion.getOPTIONA())));
-        imageOptionB.setImageDrawable(ContextCompat.getDrawable(this, Utils.getResId(this, currentQuestion.getOPTIONB())));
-        imageOptionC.setImageDrawable(ContextCompat.getDrawable(this, Utils.getResId(this, currentQuestion.getOPTIONC())));
-        imageOptionD.setImageDrawable(ContextCompat.getDrawable(this, Utils.getResId(this, currentQuestion.getOPTIOND())));
-
+        quizStepView.setText(question.getQUESTION());
+        choiceOptionA.setTag(question.getOPTIONA());
+        imageOptionA.setImageDrawable(ContextCompat.getDrawable(this, Utils.getResId(this, question.getOPTIONA())));
+        choiceOptionB.setTag(question.getOPTIONB());
+        imageOptionB.setImageDrawable(ContextCompat.getDrawable(this, Utils.getResId(this, question.getOPTIONB())));
+        choiceOptionC.setTag(question.getOPTIONC());
+        imageOptionC.setImageDrawable(ContextCompat.getDrawable(this, Utils.getResId(this, question.getOPTIONC())));
+        choiceOptionD.setTag(question.getOPTIOND());
+        imageOptionD.setImageDrawable(ContextCompat.getDrawable(this, Utils.getResId(this, question.getOPTIOND())));
 
         question_id++;
     }
@@ -218,26 +231,18 @@ public class IconQuizActivity extends AppCompatActivity implements LoaderManager
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
         if (cursor != null && cursor.getCount() > 0) {
-            cursor.moveToFirst();
-            int idIndex =
-                    cursor.getColumnIndex(DsoContract.Tutorials._ID);
-            int stepsIndex =
-                    cursor.getColumnIndex(DsoContract.Tutorials.TUTORIAL_STEPS);
-            cursor.moveToNext();
+            if (cursor.moveToFirst()) {
+                do {
+                    Question question = loadQuizData(cursor);
+                    quizList.add(question);
+                } while (cursor.moveToNext());
+            }
         }
-
-        if (cursor.moveToFirst()) {
-            do {
-                Question question = loadQuizData(cursor);
-                quizList.add(question);
-            } while (cursor.moveToNext());
-        }
-        cursor.close();
 
         if(quizList.size() > 0){
 
             currentQuestion = quizList.get(question_id);
-            setQuestionView();
+            setQuestionView(currentQuestion);
         }
     }
 

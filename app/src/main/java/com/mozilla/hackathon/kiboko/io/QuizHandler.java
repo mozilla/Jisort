@@ -10,7 +10,6 @@ import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.mozilla.hackathon.kiboko.models.Question;
 import com.mozilla.hackathon.kiboko.provider.DsoContract;
-import com.mozilla.hackathon.kiboko.provider.DsoContract.Tutorials;
 import com.mozilla.hackathon.kiboko.provider.DsoContractHelper;
 
 import java.util.ArrayList;
@@ -45,7 +44,7 @@ public class QuizHandler extends JSONHandler {
     @Override
     public void makeContentProviderOperations(ArrayList<ContentProviderOperation> list) {
         Uri uri = DsoContractHelper.setUriAsCalledFromSyncAdapter(
-                Tutorials.CONTENT_URI);
+                DsoContract.Quizes.CONTENT_URI);
 
         // build a map of tutorial to tutorial import hashcode so we know what to update,
         // what to insert, and what to delete

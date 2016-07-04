@@ -241,8 +241,6 @@ public class TutorialSlideActivity extends DSOActivity implements LoaderManager.
                 }
         }
 
-        cursor.close();
-
     }
 
     @Override
