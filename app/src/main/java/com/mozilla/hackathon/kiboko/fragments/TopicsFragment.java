@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 
+import com.mozilla.hackathon.kiboko.Analytics;
 import com.mozilla.hackathon.kiboko.R;
 import com.mozilla.hackathon.kiboko.adapters.TopicsAdapter;
 import com.mozilla.hackathon.kiboko.models.Topic;
@@ -98,9 +99,9 @@ public class TopicsFragment extends ListFragment implements CompoundButton.OnChe
             case R.id.toggleSwitch:
                 if(!isChecked){
                     getContext().stopService(new Intent(getContext(), ChatHeadService.class));
-//                    Analytics.add("TopicsFragment::FABSwitch", "off");
+                    Analytics.add("TopicsFragment::FABSwitch", "off");
                 }else{
-//                    Analytics.add("TopicsFragment::FABSwitch", "on");
+                    Analytics.add("TopicsFragment::FABSwitch", "on");
                     if(!isServiceRunning()){
                         if(Utils.canDrawOverlays(getContext()))
                             startOverlayService();

@@ -45,4 +45,5 @@
     <string name="title_activity_iconquiz">Icon Quiz</string>
     <string name="title_activity_topiclist">Phone Usage</string>
     <string name="title_activity_quizresult">Icon Quiz</string>
+    <string name="play_icon_quiz_text">Play the Icon Quiz!</string>
 </resources>

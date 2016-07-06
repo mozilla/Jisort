@@ -10,9 +10,9 @@
 
     <Button
         android:id="@+id/icons_button"
-        android:text="Icon Quiz"
+        android:text="@string/play_icon_quiz_text"
         android:textColor="@color/colorTextPrimary"
-        android:background="#222222"
+        android:background="@color/colorIcons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

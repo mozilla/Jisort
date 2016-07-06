@@ -95,7 +95,7 @@
             "id": "3",
             "title": "Use Airplane Mode",
             "gifUrl": "airplanemode1",
-            "description": "When you are not using your phone or expecting a call from anyone, you can turn on <b>Airplane Mode</b>. This will turn off your phone’s wireless radios completely. Phone calls, mobile data, and bluetooth connections will all be blocked, so no airtime or data will be used. To learn how to turn it on, check out <a href=\"android-app://com.mozilla.hackathon/kiboko/tutorials/airplane_mode\">Airplane Mode</a>."
+            "description": "When you are not using your phone or expecting a call from anyone, you can turn on <b>Airplane Mode</b>. This will turn off your phone’s wireless radios completely. Phone calls, mobile data, and bluetooth connections will all be blocked, so no airtime or data will be used. To learn how to turn it on, check out <a href=\"android-app://com.mozilla.hackathon.kiboko/tutorials/airplane_mode\">Airplane Mode</a>."
         }, {
             "id": "4",
             "title": "Restrict Background Data",
@@ -310,7 +310,7 @@
       "answer": "ic_bluetooth_connected_white_48dp",
       "optiona": "ic_bluetooth_connected_white_48dp",
       "optionb": "ic_network_wifi_white_48dp",
-      "optionc": "ic_access_alarms_white_48dp",
+      "optionc": "ic_delete_white_48dp",
       "optiond": "ic_phone_white_48dp"
     }]
 }

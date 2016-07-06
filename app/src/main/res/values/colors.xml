@@ -14,5 +14,5 @@
 
     <color name="simpletooltip_background">#CCCCCC</color>
     <color name="simpletooltip_text">#222222</color>
-    <color name="simpletooltip_arrow">#CCCCCC</color>
+    <color name="simpletooltip_arrow">#FFFFFF</color>
 </resources>

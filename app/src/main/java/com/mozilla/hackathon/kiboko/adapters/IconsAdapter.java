@@ -1,7 +1,6 @@
 package com.mozilla.hackathon.kiboko.adapters;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,7 +12,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.mozilla.hackathon.kiboko.R;
-import com.mozilla.hackathon.kiboko.activities.TutorialSlideActivity;
 import com.mozilla.hackathon.kiboko.models.IconTopic;
 
 import java.util.ArrayList;
@@ -91,7 +89,6 @@ public class IconsAdapter extends BaseAdapter implements Filterable {
         viewItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Toast.makeText(context, "You Clicked "+ topic.getDescription(), Toast.LENGTH_LONG).show();
                 final SimpleTooltip tooltip = new SimpleTooltip.Builder(context)
                         .anchorView(v)
                         .text(topic.getDescription())
@@ -106,18 +103,18 @@ public class IconsAdapter extends BaseAdapter implements Filterable {
                 TextView text = tooltip.findViewById(R.id.tv_title);
                 text.setText(topic.getTitle());
 
-                tooltip.findViewById(R.id.btn_confirm).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v2) {
-                        if (tooltip.isShowing())
-                            tooltip.dismiss();
-
-                        Intent topicIntent = new Intent(context, TutorialSlideActivity.class);
-                        topicIntent.putExtra("title", topic.getDescription());
-                        topicIntent.putExtra("topic", topic.getTag());
-                        context.startActivity(topicIntent);
-                    }
-                });
+//                tooltip.findViewById(R.id.btn_confirm).setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v2) {
+//                        if (tooltip.isShowing())
+//                            tooltip.dismiss();
+//
+//                        Intent topicIntent = new Intent(context, TutorialSlideActivity.class);
+//                        topicIntent.putExtra("title", topic.getDescription());
+//                        topicIntent.putExtra("topic", topic.getTag());
+//                        context.startActivity(topicIntent);
+//                    }
+//                });
                 tooltip.show();
             }
         });

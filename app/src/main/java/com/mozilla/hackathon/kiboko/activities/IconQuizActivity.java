@@ -95,9 +95,9 @@ public class IconQuizActivity extends AppCompatActivity implements LoaderManager
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) { // this is override method
-        if(keyCode == KeyEvent.KEYCODE_BACK){
-            showExitConfirmDialog(); // call the function below
-        }
+//        if(keyCode == KeyEvent.KEYCODE_BACK){
+//            showExitConfirmDialog(); // call the function below
+//        }
         return super.onKeyDown(keyCode, event);
     }
 
@@ -207,7 +207,7 @@ public class IconQuizActivity extends AppCompatActivity implements LoaderManager
                 } while (cursor.moveToNext());
             }
         }
-
+        // Check whether we have any questions and setup the view.
         if(quizList.size() > 0){
             currentQuestion = quizList.get(question_id);
             setQuestionView(currentQuestion);

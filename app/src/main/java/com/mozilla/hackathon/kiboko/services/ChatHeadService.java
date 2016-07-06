@@ -19,6 +19,7 @@ import android.view.View.OnTouchListener;
 import android.view.WindowManager;
 import android.widget.RelativeLayout;
 
+import com.mozilla.hackathon.kiboko.Analytics;
 import com.mozilla.hackathon.kiboko.App;
 import com.mozilla.hackathon.kiboko.R;
 import com.mozilla.hackathon.kiboko.activities.DashboardActivity;
@@ -287,7 +288,6 @@ public class ChatHeadService extends Service {
             super();
 
             mDestX = -mRootLayout.getWidth() / TRAY_HIDDEN_FRACTION;
-//
 //            // Keep upper edge of the widget within the upper limit of screen
             int screenHeight = getResources().getDisplayMetrics().heightPixels;
             mDestY = Math.max(
@@ -328,26 +328,7 @@ public class ChatHeadService extends Service {
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-
         App.getBus().register(ChatHeadService.this);
-
-//        if (intent.getBooleanExtra("stop_jisort_service", false)){
-//            // If it's a call from the notification, stop the service.
-//            stopSelf();
-//        }else{
-//            // Make the service run in foreground so that the system does not shut it down.
-//            Intent notificationIntent = new Intent(this, ChatHeadService.class);
-//            notificationIntent.putExtra("stop_jisort_service", true);
-//            PendingIntent pendingIntent = PendingIntent.getService(this, 0, notificationIntent, 0);
-//            Notification notification = new Notification.Builder(getApplicationContext())
-//                    .setContentTitle("Jisort Tray")
-//                    .setContentText("Tap to close the widget.")
-//                    .setSmallIcon(R.drawable.ic_launcher)
-//                    .setContentIntent(pendingIntent)
-//                    .build();
-//            startForeground(86, notification);
-//        }
-//        return START_STICKY;
         return START_STICKY;
     }
 
@@ -355,7 +336,7 @@ public class ChatHeadService extends Service {
      * Open application
      */
     private void openAppClicked() {
-//        Analytics.add("ChatHeadService::Clicked");
+        Analytics.add("ChatHeadService::Clicked");
         switchToNormalHead();
         Intent dashboardIntent = new Intent(this, DashboardActivity.class);
         dashboardIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED | Intent.FLAG_ACTIVITY_SINGLE_TOP);

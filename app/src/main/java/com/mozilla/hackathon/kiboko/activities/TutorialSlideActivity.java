@@ -132,7 +132,6 @@ public class TutorialSlideActivity extends DSOActivity implements LoaderManager.
         String data = intent.getDataString();
         if (Intent.ACTION_VIEW.equals(action) && data != null) {
             String[] tutorialTag = data.split("/");
-//            mStepFrame = Integer.parseInt(data.substring(data.lastIndexOf("/") + 1 ));
             if(tutorialTag.length >= 6){
                 mStepFrame = Integer.parseInt(tutorialTag[tutorialTag.length - 1]);
                 mTopic     = tutorialTag[tutorialTag.length - 2];
