@@ -5,36 +5,28 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.BaseColumns;
-
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.mozilla.hackathon.kiboko.models.Tutorial;
 import com.mozilla.hackathon.kiboko.provider.DsoContract;
 import com.mozilla.hackathon.kiboko.provider.DsoContract.Tutorials;
 import com.mozilla.hackathon.kiboko.provider.DsoContractHelper;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-
 import static com.mozilla.hackathon.kiboko.utilities.LogUtils.LOGD;
 import static com.mozilla.hackathon.kiboko.utilities.LogUtils.LOGW;
 import static com.mozilla.hackathon.kiboko.utilities.LogUtils.makeLogTag;
-
 /**
  * Created by Brian Mwadime on 25/06/2016.
  */
 public class TutorialsHandler  extends JSONHandler {
     private static final String TAG = makeLogTag(TutorialsHandler.class);
     private HashMap<String, Tutorial> mTutorials = new HashMap<String, Tutorial>();
-
-
     public TutorialsHandler(Context context) {
         super(context);
-
     }
-
     @Override
     public void process(JsonElement element) {
         for (Tutorial tutorial : new Gson().fromJson(element, Tutorial[].class)) {
@@ -46,43 +38,33 @@ public class TutorialsHandler  extends JSONHandler {
     public void makeContentProviderOperations(ArrayList<ContentProviderOperation> list) {
         Uri uri = DsoContractHelper.setUriAsCalledFromSyncAdapter(
                 DsoContract.Tutorials.CONTENT_URI);
-
         // build a map of tutorial to tutorial import hashcode so we know what to update,
         // what to insert, and what to delete
         HashMap<String, String> tutorialHashCodes = loadTutorialHashCodes();
         boolean incrementalUpdate = (tutorialHashCodes != null) && (tutorialHashCodes.size() > 0);
-
         // set of tutorials that we want to keep after the sync
         HashSet<String> tutorialsToKeep = new HashSet<String>();
-
         if (incrementalUpdate) {
             LOGD(TAG, "Doing incremental update for tutorials.");
         } else {
             LOGD(TAG, "Doing full (non-incremental) update for tutorials.");
             list.add(ContentProviderOperation.newDelete(uri).build());
         }
-
         int updatedtutorials = 0;
         for (Tutorial tutorial : mTutorials.values()) {
             // Set the tutorial grouping order in the object, so it can be used in hash calculation
             tutorial.groupingOrder = computeTypeOrder(tutorial);
-
             // compute the incoming tutorial's hashcode to figure out if we need to update
             String hashCode = tutorial.getImportHashCode();
             tutorialsToKeep.add(tutorial.id);
-
             // add tutorial, if necessary
             if (!incrementalUpdate || !tutorialHashCodes.containsKey(tutorial.id) ||
                     !tutorialHashCodes.get(tutorial.id).equals(hashCode)) {
                 ++updatedtutorials;
                 boolean isNew = !incrementalUpdate || !tutorialHashCodes.containsKey(tutorial.id);
                 buildTutorial(isNew, tutorial, list);
-                // add relationships to speakers and track
-//                buildtutorialSpeakerMapping(tutorial, list);
-//                buildTagsMapping(tutorial, list);
             }
         }
-
         int deletedtutorials = 0;
         if (incrementalUpdate) {
             for (String tutorialId : tutorialHashCodes.keySet()) {
@@ -92,18 +74,15 @@ public class TutorialsHandler  extends JSONHandler {
                 }
             }
         }
-
         LOGD(TAG, "tutorials: " + (incrementalUpdate ? "INCREMENTAL" : "FULL") + " update. " +
                 updatedtutorials + " to update, " + deletedtutorials + " to delete. New total: " +
                 mTutorials.size());
     }
-
     private void buildDeleteOperation(String tutorialId, List<ContentProviderOperation> list) {
         Uri tutorialUri = DsoContractHelper.setUriAsCalledFromSyncAdapter(
                 DsoContract.Tutorials.buildTutorialUri(tutorialId));
         list.add(ContentProviderOperation.newDelete(tutorialUri).build());
     }
-
     private HashMap<String, String> loadTutorialHashCodes() {
         Uri uri = DsoContractHelper.setUriAsCalledFromSyncAdapter(
                 DsoContract.Tutorials.CONTENT_URI);

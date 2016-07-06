@@ -48,8 +48,8 @@ public class TopicsFragment extends ListFragment implements CompoundButton.OnChe
 
     private List<Topic> getTopics() {
         List<Topic> list = new ArrayList<Topic>();
-        list.add(get("connect_wifi", "Connecting to WiFi", R.drawable.circular_wifi));
         list.add(get("wifi", "Wi-Fi ni Noma!", R.drawable.circular_wifi));
+        list.add(get("connect_wifi", "Connecting to WiFi", R.drawable.circular_wifi));
         list.add(get("tracking_data", "How much data are you using?", R.drawable.circular_cell));
         list.add(get("data", "Using your data wisely", R.drawable.circular_money));
         list.add(get("playstore", "Find new apps!", R.drawable.circular_googleplay));
@@ -57,7 +57,6 @@ public class TopicsFragment extends ListFragment implements CompoundButton.OnChe
         list.add(get("icons", "What is that icon?", R.drawable.circular_help));
         list.add(get("airplane_mode", "Using Airplane Mode", R.drawable.circular_airplane));
         list.add(get("accounts_passwords", "Strengthen your Passwords!", R.drawable.circular_account));
-
         return list;
     }
 
@@ -104,7 +103,7 @@ public class TopicsFragment extends ListFragment implements CompoundButton.OnChe
 
     private void needPermissionDialog(final int requestCode){
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-        builder.setMessage("You need to allow permission");
+        builder.setMessage("Jisort needs permissions.");
         builder.setPositiveButton("OK",
                 new android.content.DialogInterface.OnClickListener() {
                     @Override

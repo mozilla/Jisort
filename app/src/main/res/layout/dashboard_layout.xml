@@ -33,6 +33,7 @@
                 android:layout_gravity="center_horizontal"
                 android:gravity="center_horizontal"
                 android:textSize="@dimen/text_size_large"
+                style="?android:textAppearanceLarge"
                 android:layout_height="wrap_content"
                 android:text="@string/dashboard_question_text"/>
         <fragment android:name="com.mozilla.hackathon.kiboko.fragments.TopicsFragment"
