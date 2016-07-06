@@ -5,5 +5,5 @@
             <solid android:color="@color/colorIcons"/>
         </shape>
     </item>
-    <item android:drawable="@drawable/ic_network_wifi_black_48dp" />
+    <item android:drawable="@drawable/wifi" />
 </layer-list>
