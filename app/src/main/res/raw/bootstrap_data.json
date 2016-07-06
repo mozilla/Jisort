@@ -109,7 +109,7 @@
         }, {
             "id": "6",
             "title": "Disable Auto-update",
-            "gifUrl": "data6",
+            "gifUrl": "auto-update",
             "description": "A lot of data is also consumed by your phone automatically updating your apps. If your apps were downloaded through Google Play (most are) it may be using \"auto-update\" and could be chewing its way through your data without you even knowing."
         }, {
             "id": "7",
