@@ -1,8 +1,6 @@
 package com.mozilla.hackathon.kiboko.fragments;
 
-import android.app.ActivityManager;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
@@ -15,21 +13,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
-
+import com.mozilla.hackathon.kiboko.Analytics;
+import com.mozilla.hackathon.kiboko.App;
 import com.mozilla.hackathon.kiboko.R;
 import com.mozilla.hackathon.kiboko.adapters.TopicsAdapter;
 import com.mozilla.hackathon.kiboko.models.Topic;
 import com.mozilla.hackathon.kiboko.services.ChatHeadService;
 import com.mozilla.hackathon.kiboko.utilities.Utils;
-
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class TopicsFragment extends ListFragment implements CompoundButton.OnCheckedChangeListener {
-
     public static int OVERLAY_PERMISSION_REQ_CODE_CHATHEAD = 1234;
-
     TopicsAdapter adapter;
     private LinearLayout listFooterView;
     private SwitchCompat toggleSwitch = null;
@@ -59,7 +54,6 @@ public class TopicsFragment extends ListFragment implements CompoundButton.OnChe
         list.add(get("data", "Using your data wisely", R.drawable.circular_money));
         list.add(get("playstore", "Find new apps!", R.drawable.circular_googleplay));
         list.add(get("storage", "Free up memory for new apps", R.drawable.circular_sdcard));
-        // list.add(get("broken", "Fix broken images and videos", R.drawable.circular_badimage));
         list.add(get("icons", "What is that icon?", R.drawable.circular_help));
         list.add(get("airplane_mode", "Using Airplane Mode", R.drawable.circular_airplane));
         list.add(get("accounts_passwords", "Strengthen your Passwords!", R.drawable.circular_account));
@@ -71,25 +65,18 @@ public class TopicsFragment extends ListFragment implements CompoundButton.OnChe
         return new Topic(t, s, i);
     }
 
-
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
         adapter = new TopicsAdapter(getContext(), getTopics());
-
         // Inflate footer view
         listFooterView = (LinearLayout) LayoutInflater.from(this.getActivity()).inflate(R.layout.dashboard_footer_view, null);
         toggleSwitch = (SwitchCompat) listFooterView.findViewById(R.id.toggleSwitch);
-
-        toggleSwitch.setChecked(isServiceRunning());
+        toggleSwitch.setChecked(App.isServiceRunning());
         //attach a listener to check for changes in state
         toggleSwitch.setOnCheckedChangeListener(this);
-
         setListAdapter(adapter);
-
         getListView().addFooterView(listFooterView);
-
     }
 
     @Override
@@ -98,10 +85,10 @@ public class TopicsFragment extends ListFragment implements CompoundButton.OnChe
             case R.id.toggleSwitch:
                 if(!isChecked){
                     getContext().stopService(new Intent(getContext(), ChatHeadService.class));
-//                    Analytics.add("TopicsFragment::FABSwitch", "off");
+                    Analytics.add("TopicsFragment::FABSwitch", "off");
                 }else{
-//                    Analytics.add("TopicsFragment::FABSwitch", "on");
-                    if(!isServiceRunning()){
+                    Analytics.add("TopicsFragment::FABSwitch", "on");
+                    if(!App.isServiceRunning()){
                         if(Utils.canDrawOverlays(getContext()))
                             startOverlayService();
                         else{
@@ -110,7 +97,6 @@ public class TopicsFragment extends ListFragment implements CompoundButton.OnChe
                     }
                 }
                 break;
-
             default:
                 break;
         }
@@ -140,20 +126,9 @@ public class TopicsFragment extends ListFragment implements CompoundButton.OnChe
         startActivityForResult(intent, requestCode);
     }
 
-    private boolean isServiceRunning() {
-        ActivityManager manager = (ActivityManager)getContext().getSystemService(Context.ACTIVITY_SERVICE);
-        for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)){
-            if("com.mozilla.hackathon.kiboko.services.ChatHeadService".equals(service.service.getClassName())) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
         if (requestCode == OVERLAY_PERMISSION_REQ_CODE_CHATHEAD) {
             if (!Utils.canDrawOverlays(getContext())) {
                 needPermissionDialog(requestCode);

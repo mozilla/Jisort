@@ -1,5 +1,6 @@
 package com.mozilla.hackathon.kiboko;
 
+import android.app.ActivityManager;
 import android.app.Application;
 import android.content.Context;
 import android.os.Handler;
@@ -41,6 +42,16 @@ public class App extends Application {
 
     public static Bus getBus() {
         return mEventBus;
+    }
+
+    public static boolean isServiceRunning() {
+        ActivityManager manager = (ActivityManager)getContext().getSystemService(Context.ACTIVITY_SERVICE);
+        for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)){
+            if("com.mozilla.hackathon.kiboko.services.ChatHeadService".equals(service.service.getClassName())) {
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override

@@ -20,10 +20,8 @@ import java.util.List;
 
 public class IconsFragment extends Fragment {
     private GridView gridView;
-
     // Listview Adapter
     IconsAdapter adapter;
-
     // Search EditText
     Button view_icons;
 
@@ -33,7 +31,6 @@ public class IconsFragment extends Fragment {
     public static IconsFragment newInstance() {
         IconsFragment fragment = new IconsFragment();
         Bundle args = new Bundle();
-
         fragment.setArguments(args);
         return fragment;
     }
@@ -42,9 +39,7 @@ public class IconsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_icons_layout, container, false);
-
         gridView = (GridView) rootView.findViewById(R.id.icons_gridview);
-
         view_icons = (Button) rootView.findViewById(R.id.icons_button);
         view_icons.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,7 +54,7 @@ public class IconsFragment extends Fragment {
 
     private List<IconTopic> getTopics() {
         List<IconTopic> list = new ArrayList<IconTopic>();
-        list.add(get("wifi", "Wi-Fi", "Connect to a Wi-Fi hotspot for internet access.", R.drawable.ic_wifi_tethering_white_48dp));
+        list.add(get("wifi", "Wi-Fi", "Connect to a Wi-Fi hotspot for internet access.", R.drawable.ic_network_wifi_white_48dp));
         list.add(get("phone", "Phone", "Make a voice call.", R.drawable.ic_phone_white_48dp));
         list.add(get("app", "Download", "Download an app", R.drawable.ic_get_app_white_48dp));
         list.add(get("account", "Account", "Personal information used by your phone or an app.", R.drawable.ic_account_box_white_48dp));
