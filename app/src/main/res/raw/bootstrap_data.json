@@ -13,7 +13,7 @@
             "id": "2",
             "title": "Where do I get it? Who owns it?",
             "gifUrl": "wifi2",
-            "description": "Wi-Fi networks are created by \"hotspots\" that connect to the internet. Anyone can buy one and set it up at home, at work, or in a public space. If you can detect a Wi-Fi network on your phone, you might be able to connect to it. To learn more about connecting, read the Connecting to Wi-Fi section."
+            "description": "Wi-Fi networks are created by \"hotspots\" that connect to the internet. Anyone can buy one and set it up at home, at work, or in a public space. If you can detect a Wi-Fi network on your phone, you might be able to connect to it. To learn more about connecting, check out <a href=\"mozilladso:///tutorials/connect_wifi\">Connecting to Wi-Fi</a>."
         }, {
             "id": "3",
             "title": "Saving Money",
@@ -59,7 +59,7 @@
             "id": "6",
             "title": "Entering a Password",
             "gifUrl": "connectwifi6",
-            "description": "<i>If your phone has already connected to the correct Wi-Fi hotspot, you can skip this step, and just go enjoy the Internet. :)</i>\nSome Wi-Fi hotspots require a password. In this case, a box will appear that asks for a password. If you don’t know the password, ask for help from the owner of the hotspot. Once you have the password, use the keyboard that pops up to enter it."
+            "description": "<i>If your phone has already connected to the correct Wi-Fi hotspot, you can skip this step, and just go enjoy the Internet. :)</i><br>Some Wi-Fi hotspots require a password. In this case, a box will appear that asks for a password. If you don’t know the password, ask for help from the owner of the hotspot. Once you have the password, use the keyboard that pops up to enter it."
         }, {
             "id": "7",
             "title": "Fixing Problems",

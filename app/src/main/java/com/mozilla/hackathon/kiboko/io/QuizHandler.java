@@ -5,22 +5,18 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.BaseColumns;
-
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.mozilla.hackathon.kiboko.models.Question;
 import com.mozilla.hackathon.kiboko.provider.DsoContract;
 import com.mozilla.hackathon.kiboko.provider.DsoContractHelper;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-
 import static com.mozilla.hackathon.kiboko.utilities.LogUtils.LOGD;
 import static com.mozilla.hackathon.kiboko.utilities.LogUtils.LOGW;
 import static com.mozilla.hackathon.kiboko.utilities.LogUtils.makeLogTag;
-
 /**
  * Created by Brian Mwadime on 25/06/2016.
  */
@@ -28,10 +24,8 @@ public class QuizHandler extends JSONHandler {
     private static final String TAG = makeLogTag(QuizHandler.class);
     private HashMap<String, Question> mQuiz = new HashMap<String, Question>();
 
-
     public QuizHandler(Context context) {
         super(context);
-
     }
 
     @Override
@@ -45,15 +39,12 @@ public class QuizHandler extends JSONHandler {
     public void makeContentProviderOperations(ArrayList<ContentProviderOperation> list) {
         Uri uri = DsoContractHelper.setUriAsCalledFromSyncAdapter(
                 DsoContract.Quizes.CONTENT_URI);
-
         // build a map of tutorial to tutorial import hashcode so we know what to update,
         // what to insert, and what to delete
         HashMap<String, String> tutorialHashCodes = loadQuizHashCodes();
         boolean incrementalUpdate = (tutorialHashCodes != null) && (tutorialHashCodes.size() > 0);
-
         // set of tutorials that we want to keep after the sync
         HashSet<String> tutorialsToKeep = new HashSet<String>();
-
         if (incrementalUpdate) {
             LOGD(TAG, "Doing incremental update for tutorials.");
         } else {
@@ -65,11 +56,9 @@ public class QuizHandler extends JSONHandler {
         for (Question question : mQuiz.values()) {
             // Set the tutorial grouping order in the object, so it can be used in hash calculation
             question.groupingOrder = computeTypeOrder(question);
-
             // compute the incoming tutorial's hashcode to figure out if we need to update
             String hashCode = question.getID();
             tutorialsToKeep.add(question.id);
-
             // add tutorial, if necessary
             if (!incrementalUpdate || !tutorialHashCodes.containsKey(question.id) ||
                     !tutorialHashCodes.get(question.id).equals(hashCode)) {
@@ -130,7 +119,6 @@ public class QuizHandler extends JSONHandler {
     }
 
     StringBuilder mStringBuilder = new StringBuilder();
-
     private void buildQuiz(boolean isInsert,
                               Question question, ArrayList<ContentProviderOperation> list) {
         ContentProviderOperation.Builder builder;
@@ -139,13 +127,11 @@ public class QuizHandler extends JSONHandler {
         Uri thisQuizUri = DsoContractHelper
                 .setUriAsCalledFromSyncAdapter(DsoContract.Quizes.buildQuizUri(
                         question.id));
-
         if (isInsert) {
             builder = ContentProviderOperation.newInsert(allQuizsUri);
         } else {
             builder = ContentProviderOperation.newUpdate(thisQuizUri);
         }
-
         builder.withValue(DsoContract.SyncColumns.UPDATED, System.currentTimeMillis())
                 .withValue(DsoContract.Quizes.KEY_ID, question.id)
                 .withValue(DsoContract.Quizes.KEY_QUESTION, question.question)
@@ -166,7 +152,6 @@ public class QuizHandler extends JSONHandler {
     private int computeTypeOrder(Question tutorial) {
         int order = Integer.MAX_VALUE;
         int quizOrder = -1;
-
         return order;
     }
 

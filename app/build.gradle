@@ -27,7 +27,6 @@ android {
         debug {
             debuggable true
             minifyEnabled true
-            //applicationIdSuffix ".dev"
             shrinkResources true
             signingConfig signingConfigs.debug
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -36,7 +35,6 @@ android {
         qualityassurance {
             debuggable true
             minifyEnabled true
-            //applicationIdSuffix ".dev"
             shrinkResources true
             signingConfig signingConfigs.debug
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
