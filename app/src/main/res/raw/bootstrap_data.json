@@ -90,12 +90,12 @@
             "id": "2",
             "title": "Apps Use Data",
             "gifUrl": "data2",
-            "description": "<b>Data is used to move content around the internet.</b> Many apps (Google, Yahoo, Facebook, WhatsApp, Opera, Instagram, Branch) will consume data because they connect to the internet. Applications like Opera Mini use less data than others because they restrict images and video. Other, like YouTube, use much more data because they use video content."
+            "description": "<b>Data is used to move content around the internet.</b> Many apps (Google, Yahoo, Facebook, WhatsApp, Opera, Instagram, Branch) will consume data because they connect to the internet. Applications like Opera Mini use less data than others because they restrict images and video. Others, like YouTube, use much more data because they use video content."
         }, {
             "id": "3",
             "title": "Use Airplane Mode",
             "gifUrl": "airplanemode1",
-            "description": "When you are not using your phone or expecting a call from anyone, you can turn on <b>Airplane Mode</b>. This will turn off your phone’s wireless radios completely. Phone calls, mobile data, and bluetooth connections will all be blocked, so no airtime or data will be used. To learn how to turn it on, check out <a href=\"android-app://com.mozilla.hackathon.kiboko/tutorials/airplane_mode\">Airplane Mode</a>."
+            "description": "When you are not using your phone or expecting a call from anyone, you can turn on <b>Airplane Mode</b>. This will turn off your phone’s wireless radios completely. Phone calls, mobile data, and bluetooth connections will all be blocked, so no airtime or data will be used. To learn how to turn it on, check out <a href=\"mozilladso:///tutorials/airplane_mode\">Airplane Mode</a>."
         }, {
             "id": "4",
             "title": "Restrict Background Data",
@@ -237,7 +237,7 @@
         "description": "Before downloading an app, always look at its rating, description and the comments posted about it by other people to learn more about the app. Because apps can be made by anybody, ratings and comments are the best way to know if an app does what it claims, or if it is poorly made."
       }, {
         "id": "7",
-        "title": "Reviewing and Downloading",
+        "title": "Reviewing and Downloading (cont'd)",
         "gifUrl": "playstore7",
         "description": "Once you’ve downloaded and used an app, you can rate it and comment about it in the Play Store. Your feedback helps create a safe environment by giving people reliable information about whether or not apps are well-made, useful and appropriate."
       }, {
@@ -254,37 +254,37 @@
       "steps": [{
         "id": "1",
         "title": "Accounts",
-        "gifUrl": "accountspasswords1",
-        "description": "As you may have already seen, your phone has limited space for apps, videos, images, and other content you have stored. There are a few things you can check to free up some space."
+        "gifUrl": "accounts1",
+        "description": "An account is the identity you use to sign into and use an app or service. Companies and other people can often observe your account activity to see how you use apps, services, and websites."
       }, {
         "id": "2",
         "title": "Multiple Accounts",
-        "gifUrl": "accountspasswords2",
+        "gifUrl": "accounts2",
         "description": "Companies often want you to make an account specifically for their services. For example, Facebook wants you to have a Facebook account to interact with people there, and Google wants you to have a Google account to use apps like the Play Store."
       }, {
         "id": "3",
         "title": "A Different Password for Each Account",
-        "gifUrl": "accountspasswords3",
+        "gifUrl": "accounts3",
         "description": "<b>You should use a different password for every account you make.</b>\nImagine you use Facebook and Gmail with the same password. If someone discovers your Facebook password, they also have access to your Gmail. By using a different password for every account, the only account they have access to is Facebook."
       }, {
         "id": "4",
         "title": "Making a Strong Password",
-        "gifUrl": "accountspasswords4",
+        "gifUrl": "accounts4",
         "description": "Strong passwords usually have\n<ul><li>At least 8 characters.</li><li>Uppercase and lowercase letters.</li><li>Letters, numbers, and punctuation marks.</li></ul>\nTry to pick passwords that are memorable to you, but not based on personal information other people can easily find out about you."
       }, {
         "id": "5",
         "title": "Using a Memorable Sentence",
-        "gifUrl": "accountspasswords5",
+        "gifUrl": "accounts5",
         "description": "To create and remember a strong password, think of a memorable sentence and use the first letter of each word. For example, \"<b>I buy 2 mangos at the market every week</b>\" becomes \"<b>Ib2matmew/b>\" ."
       }, {
         "id": "6",
         "title": "Using a String of Random Words",
-        "gifUrl": "accountspasswords6",
+        "gifUrl": "accounts6",
         "description": "Random strings of common words, such as \"Mousetrap Sandwich Hospital Anecdote,\" tend to work well, too.\nTo help you remember the words you choose, use them to imagine a scene. For example, cat, home, battery, and cake, might become \"a cat living in a house on a cake made of batteries\"."
       }, {
         "id": "7",
         "title": "What kinds of passwords should I avoid?",
-        "gifUrl": "accountspasswords7",
+        "gifUrl": "accounts7",
         "description": "Impostors can easily break short passwords and passwords made up of sequential numbers like \"1234\". They can also guess passwords that are made of simple words like \"mydata\". Impostors can use what they know about you to guess passwords based on important dates in your life (such as birthdays or anniversaries) or the names of people (including celebrities and sports teams) or places you know."
       }]
     }],
