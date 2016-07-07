@@ -2,147 +2,161 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.mozilla.hackathon.kiboko"
+    android:installLocation="auto"
     android:versionCode="1"
-    android:versionName="1.0.0"
-    android:installLocation="auto">
+    android:versionName="1.0.0">
 
     <uses-permission android:name="android.permission.READ_SYNC_STATS" />
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
 
     <application
-        android:name="com.mozilla.hackathon.kiboko.App"
-        android:theme="@style/AppTheme"
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name">
-        
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
         <activity
             android:name=".activities.IconQuizActivity"
-            android:windowSoftInputMode="stateHidden"
-            android:label="@string/title_activity_iconquiz" >
-        </activity>
+            android:label="@string/title_activity_iconquiz"
+            android:windowSoftInputMode="stateHidden"></activity>
         <activity
             android:name=".activities.DashboardActivity"
-            android:windowSoftInputMode="stateHidden"
+            android:label="@string/app_name"
             android:launchMode="singleTop"
             android:theme="@style/AppTheme.SplashTheme"
-            android:label="@string/app_name" >
+            android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".activities.FindIconsActivity"
+            android:label="@string/title_activity_findicons"
             android:parentActivityName=".activities.DashboardActivity"
-            android:windowSoftInputMode="stateHidden"
-            android:label="@string/title_activity_findicons" >
+            android:windowSoftInputMode="stateHidden">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.DashboardActivity" />
         </activity>
         <activity
             android:name=".activities.TutorialSlideActivity"
-            android:windowSoftInputMode="stateHidden"
-            android:label="Usage Topic" >
-            <!--Handle website links-->
+            android:label="Usage Topic"
+            android:windowSoftInputMode="stateHidden">
+
+            <!-- Handle website links -->
             <intent-filter android:label="@string/app_name">
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.BROWSABLE" />
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:mimeType="vnd.android.cursor.item/vnd.mozilladso2016.tutorial" />
                 <!-- Accepts URIs that begin with "http://mozilladso.com/tutorial" -->
-                <data android:scheme="http"
+                <data
                     android:host="mozilladso.com"
-                    android:pathPrefix="/tutorials/*" />
+                    android:pathPrefix="/tutorials/*"
+                    android:scheme="http" />
             </intent-filter>
 
             <!-- handle app links -->
             <intent-filter android:label="@string/app_name">
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.BROWSABLE" />
                 <category android:name="android.intent.category.DEFAULT" />
-                <data android:scheme="mozilladso" android:pathPrefix="/tutorials/*" />
+
+                <data
+                    android:pathPrefix="/tutorials/*"
+                    android:scheme="mozilladso" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.ActionsActivity"
+            android:label=""
+            android:windowSoftInputMode="stateHidden">
+            <!-- handle app links -->
+            <intent-filter android:label="@string/app_name">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data
+                    android:pathPrefix="/actions/*"
+                    android:scheme="mozilladso" />
             </intent-filter>
         </activity>
         <activity
             android:name=".activities.TopicListActivity"
-            android:windowSoftInputMode="stateHidden"
-            android:label="@string/title_activity_topiclist">
-
-        </activity>
+            android:label="@string/title_activity_topiclist"
+            android:windowSoftInputMode="stateHidden"></activity>
         <activity
             android:name=".activities.ResultActivity"
-            android:windowSoftInputMode="stateHidden"
+            android:label="@string/title_activity_quizresult"
             android:parentActivityName=".activities.DashboardActivity"
-            android:label="@string/title_activity_quizresult" >
+            android:windowSoftInputMode="stateHidden">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.DashboardActivity" />
         </activity>
 
-        <receiver android:enabled="true" android:name=".recievers.DSOAirplaneModeReceiver">
+        <receiver
+            android:name=".recievers.DSOAirplaneModeReceiver"
+            android:enabled="true">
             <intent-filter>
-                <action android:name="android.intent.action.AIRPLANE_MODE"/>
+                <action android:name="android.intent.action.AIRPLANE_MODE" />
             </intent-filter>
         </receiver>
-
-        <receiver android:name=".recievers.DSOReceiver" >
+        <receiver android:name=".recievers.DSOReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-
-        <receiver android:name=".recievers.DSOChangedBroadcastReceiver" >
+        <receiver android:name=".recievers.DSOChangedBroadcastReceiver">
             <intent-filter>
                 <action android:name="android.bluetooth.adapter.action.STATE_CHANGED" />
                 <action android:name="android.bluetooth.adapter.action.BATTERY_CHANGED" />
             </intent-filter>
         </receiver>
-
-        <receiver android:name=".recievers.DSOStorageReceiver" >
+        <receiver android:name=".recievers.DSOStorageReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.DEVICE_STORAGE_LOW" />
             </intent-filter>
         </receiver>
-
-        <receiver
-            android:name=".recievers.DSOInstalledBroadcastReceiver">
+        <receiver android:name=".recievers.DSOInstalledBroadcastReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.PACKAGE_INSTALL" />
-                <action android:name="android.intent.action.PACKAGE_ADDED"/>
-                <data android:scheme="package"/>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+
+                <data android:scheme="package" />
             </intent-filter>
         </receiver>
-
-        <receiver android:name=".recievers.DSONetworkStateReceiver" >
+        <receiver android:name=".recievers.DSONetworkStateReceiver">
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
                 <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
             </intent-filter>
         </receiver>
-
-        <receiver android:name=".recievers.DSOBatteryReceiver" >
+        <receiver android:name=".recievers.DSOBatteryReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.ACTION_BATTERY_LOW" />
             </intent-filter>
         </receiver>
-
         <receiver android:name=".recievers.DSOLocationReceiver">
             <intent-filter>
                 <action android:name="android.location.PROVIDERS_CHANGED" />
             </intent-filter>
         </receiver>
 
-        <service android:label="@string/app_name"
-            android:name="com.mozilla.hackathon.kiboko.services.ChatHeadService" >
-        </service>
+        <service
+            android:name=".services.ChatHeadService"
+            android:label="@string/app_name"></service>
 
         <!-- Data, sync and schedule editing components -->
         <provider
@@ -166,13 +180,14 @@
                 android:resource="@xml/syncadapter" />
         </service>
 
-        <!-- An IntentService responsible for bootstrapping the app with the necessary
+        <!--
+             An IntentService responsible for bootstrapping the app with the necessary
             data such as tutorials, etc. This data is used prior to the app's
-            first sync to the backend server. -->
+            first sync to the backend server.
+        -->
         <service
             android:name=".services.DataBootstrapService"
             android:exported="false" />
-
     </application>
 
 </manifest>
