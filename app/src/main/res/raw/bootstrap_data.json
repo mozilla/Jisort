@@ -39,7 +39,7 @@
             "id": "2",
             "title": "Turning on Wi-Fi",
             "gifUrl": "connectwifi2",
-            "description": "On most Android phones, you can swipe down the Title Bar at the top of the screen and tap the Wi-Fi <img src=\"ic_network_wifi_white_24dp\"/> icon. If you are close to a Wi-Fi network you have joined before, <b>your phone will try to connect to it automatically</b>."
+            "description": "On most Android phones, you can swipe down the Notification Bar at the top of the screen and tap the Wi-Fi <img src=\"ic_network_wifi_white_24dp\"/> icon. If you are close to a Wi-Fi network you have joined before, <b>your phone will try to connect to it automatically</b>."
         }, {
             "id": "3",
             "title": "Turning on Wi-Fi from the Wireless Settings Menu",
@@ -160,9 +160,9 @@
           "description": "Turning on Airplane Mode instantly disables <b>all wireless functionality</b> of your phone. For example, Wi-Fi, Cell, Bluetooth, and GPS will not operate.\nThis feature is useful for keeping your phone on, but limiting its contact with networks. Until you turn Airplane Mode off, you will not be able to receive phone calls or access the internet."
         }, {
           "id": "2",
-          "title": "In the Title Bar",
+          "title": "In the Notification Bar",
           "gifUrl": "airplanemode2",
-          "description": "On newer phones, simply swipe down the Title Bar at the top of your screen, and look for the airplane icon <img src=\"ic_airplanemode_active_white_24dp\"/>. Tap the icon to turn Airplane Mode <b>ON</b> or <b>OFF</b>."
+          "description": "On newer phones, simply swipe down the Notification Bar at the top of your screen, and look for the airplane icon <img src=\"ic_airplanemode_active_white_24dp\"/>. Tap the icon to turn Airplane Mode <b>ON</b> or <b>OFF</b>."
         }, {
           "id": "3",
           "title": "In the Wireless Settings Menu",
