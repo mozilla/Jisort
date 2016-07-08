@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -50,11 +51,6 @@ public class TutorialSlideActivity extends DSOActivity implements LoaderManager.
     private static final int LOADER_ID = 0x01;
     private List<Step> jsonSteps = new ArrayList<Step>();
     /**
-     * The number of pages (wizard steps) to show.
-     */
-    private static final int NUM_PAGES = 5;
-
-    /**
      * The pager widget, which handles animation and allows swiping horizontally to access previous
      * and next wizard steps.
      */
@@ -75,6 +71,7 @@ public class TutorialSlideActivity extends DSOActivity implements LoaderManager.
         getWindow().requestFeature(Window.FEATURE_ACTION_BAR_OVERLAY);
         setContentView(R.layout.activity_tutorial_slide);
         ActionBar ab = getSupportActionBar();
+        assert ab != null;
         ab.setDisplayHomeAsUpEnabled(true);
 
         onNewIntent(getIntent());
@@ -125,6 +122,14 @@ public class TutorialSlideActivity extends DSOActivity implements LoaderManager.
         });
 
         getSupportLoaderManager().initLoader(LOADER_ID, null, this);
+    }
+
+    public void navigateToSettings(View view){
+
+        switch (view.getTag().toString()){
+            default:
+                startActivity(new Intent(Settings.ACTION_SETTINGS));
+        }
     }
 
     protected void onNewIntent(Intent intent) {

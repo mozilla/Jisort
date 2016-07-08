@@ -34,7 +34,7 @@
             "id": "1",
             "title": "Finding Names and Passwords",
             "gifUrl": "connectwifi1",
-            "description": "To connect to a Wi-Fi hotspot, you will need <b>the name of the hotspot</b> and, in some cases, <b>its password</b>. If you are in a business, cafe, or other public space, you can usually ask the owner of the hotspot for this information. Some places charge a small fee for using their Wi-Fi."
+            "description": "To connect to a Wi-Fi hotspot, you will need <b color=\"#E4BC4D\">the name of the hotspot</b> and, in some cases, <b color=\"#E4BC4D\">its password</b>. If you are in a business, cafe, or other public space, you can usually ask the owner of the hotspot for this information. Some places charge a small fee for using their Wi-Fi."
         }, {
             "id": "2",
             "title": "Turning on Wi-Fi",
@@ -162,7 +162,7 @@
           "id": "2",
           "title": "In the Notification Bar",
           "gifUrl": "airplanemode2",
-          "description": "On newer phones, simply swipe down the Notification Bar at the top of your screen, and look for the airplane icon <img src=\"ic_airplanemode_active_white_24dp\"/>. Tap the icon to turn Airplane Mode <b>ON</b> or <b>OFF</b>."
+          "description": "On newer phones, simply swipe down the Title Bar at the top of your screen, and look for the airplane icon<img src=\"ic_airplanemode_active_white_24dp\"/>. Tap the icon to turn Airplane Mode <b>ON</b> or <b>OFF</b>."
         }, {
           "id": "3",
           "title": "In the Wireless Settings Menu",

@@ -26,6 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/activity_horizontal_margin"
             android:scaleType="fitXY"
+            android:onClick="navigateToSettings"
             android:adjustViewBounds="true"
             android:src="@drawable/connectwifi9"
             android:layout_gravity="center_horizontal"
