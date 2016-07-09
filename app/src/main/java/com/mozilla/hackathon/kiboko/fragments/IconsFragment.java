@@ -58,7 +58,7 @@ public class IconsFragment extends Fragment {
         list.add(get("phone", "Phone", "Make a voice call.", R.drawable.ic_phone_white_48dp));
         list.add(get("app", "Download", "Download an app", R.drawable.ic_get_app_white_48dp));
         list.add(get("account", "Account", "Personal information used by your phone or an app.", R.drawable.ic_account_box_white_48dp));
-        list.add(get("calendar", "Calendar", "Your daily schedule.", R.drawable.ic_perm_contact_calendar_white_48dp));
+        list.add(get("calendar", "Calendar", "Your daily schedule.", R.drawable.calendar_white));
         list.add(get("alarm", "Alarm", "Wakes you up in the morning.", R.drawable.ic_alarm_white_48dp));
         list.add(get("settings", "Settings", "Options and preferences for using your phone or an app.", R.drawable.ic_settings_applications_white_48dp));
         list.add(get("search", "Search", "Find something you need.", R.drawable.ic_search_white_48dp));
@@ -72,6 +72,8 @@ public class IconsFragment extends Fragment {
         list.add(get("delete", "Delete", "Remove a photo/app/document from your phone.", R.drawable.ic_delete_white_48dp));
         list.add(get("whatsapp", "WhatsApp", "Everyone's favourite chat app.", R.drawable.whatsapp_white));
         list.add(get("facebook", "Facebook", "A social media app for friends, news, events, and games.", R.drawable.facebook_white));
+        list.add(get("playstore", "Play Store", "Where you can download apps, music, and more.", R.drawable.googleplay_white));
+        list.add(get("airplanemode", "Airplane Mode", "Prevents all incoming and outgoing signals.", R.drawable.ic_airplanemode_active_white_48dp));
 
         return list;
     }

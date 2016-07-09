@@ -26,6 +26,7 @@ import com.mozilla.hackathon.kiboko.widgets.CheckableLinearLayout;
 import com.mozilla.hackathon.kiboko.widgets.DSORadioGroup;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import static com.mozilla.hackathon.kiboko.utilities.LogUtils.makeLogTag;
@@ -33,7 +34,43 @@ import static com.mozilla.hackathon.kiboko.utilities.LogUtils.makeLogTag;
 /**
  * Created by mwadime on 6/10/2016.
  */
+
 public class IconQuizActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
+    private static final List<Integer> possibleIcons;
+    static {
+        List<Integer> icons = new ArrayList<Integer>();
+
+        icons.add(R.drawable.ic_network_wifi_white_48dp);
+        icons.add(R.drawable.ic_phone_white_48dp);
+        icons.add(R.drawable.ic_get_app_white_48dp);
+        icons.add(R.drawable.ic_account_box_white_48dp);
+        icons.add(R.drawable.ic_perm_contact_calendar_white_48dp);
+        icons.add(R.drawable.ic_alarm_white_48dp);
+        icons.add(R.drawable.ic_settings_applications_white_48dp);
+        icons.add(R.drawable.ic_search_white_48dp);
+        icons.add(R.drawable.ic_location_on_white_48dp);
+        icons.add(R.drawable.ic_power_settings_new_white_48dp);
+        icons.add(R.drawable.ic_battery_full_white_48dp);
+        icons.add(R.drawable.ic_bluetooth_connected_white_48dp);
+        icons.add(R.drawable.ic_email_white_48dp);
+        icons.add(R.drawable.ic_android_white_48dp);
+        icons.add(R.drawable.ic_sd_storage_white_48dp);
+        icons.add(R.drawable.ic_delete_white_48dp);
+        icons.add(R.drawable.whatsapp_white);
+        icons.add(R.drawable.googleplay_white);
+        icons.add(R.drawable.ic_battery_20_white_48dp);
+        icons.add(R.drawable.ic_airplanemode_active_white_48dp);
+        icons.add(R.drawable.ic_contacts_white_48dp);
+        icons.add(R.drawable.twitter_white);
+        icons.add(R.drawable.ic_android_white_48dp);
+        icons.add(R.drawable.ic_get_app_white_48dp);
+        icons.add(R.drawable.facebook_white);
+        icons.add(R.drawable.calendar_white);
+        icons.add(R.drawable.opera_white);
+
+        possibleIcons = Collections.unmodifiableList(icons);
+    }
+
     private static final String TAG = makeLogTag(IconQuizActivity.class);
     private static final int LOADER_ID = 0x02;
     List<Question> quizList = new ArrayList<Question>();
@@ -42,8 +79,8 @@ public class IconQuizActivity extends AppCompatActivity implements LoaderManager
     Question currentQuestion;
     private String mQuiz;
     TextView quizStepView, quizStepScore;
-    CheckableLinearLayout choiceOptionA, choiceOptionB, choiceOptionC, choiceOptionD;
-    ImageView imageOptionA,imageOptionB,imageOptionC,imageOptionD;
+    CheckableLinearLayout[] choiceOptions;
+    ImageView[] imageOptions;
     DSORadioGroup quizGroup;
 
     @Override
@@ -53,15 +90,18 @@ public class IconQuizActivity extends AppCompatActivity implements LoaderManager
         ActionBar ab = getSupportActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
 
-        choiceOptionA = (CheckableLinearLayout)findViewById(R.id.optionA);
-        choiceOptionB = (CheckableLinearLayout)findViewById(R.id.optionB);
-        choiceOptionC = (CheckableLinearLayout)findViewById(R.id.optionC);
-        choiceOptionD = (CheckableLinearLayout)findViewById(R.id.optionD);
+        choiceOptions = new CheckableLinearLayout[4];
+        imageOptions = new ImageView[4];
 
-        imageOptionA  = (ImageView)findViewById(R.id.answera);
-        imageOptionB  = (ImageView)findViewById(R.id.answerb);
-        imageOptionC  = (ImageView)findViewById(R.id.answerc);
-        imageOptionD  = (ImageView)findViewById(R.id.answerd);
+        choiceOptions[0] = (CheckableLinearLayout)findViewById(R.id.optionA);
+        choiceOptions[1] = (CheckableLinearLayout)findViewById(R.id.optionB);
+        choiceOptions[2] = (CheckableLinearLayout)findViewById(R.id.optionC);
+        choiceOptions[3] = (CheckableLinearLayout)findViewById(R.id.optionD);
+
+        imageOptions[0]  = (ImageView)findViewById(R.id.answera);
+        imageOptions[1]  = (ImageView)findViewById(R.id.answerb);
+        imageOptions[2]  = (ImageView)findViewById(R.id.answerc);
+        imageOptions[3]  = (ImageView)findViewById(R.id.answerd);
 
         quizStepView  = (TextView) findViewById(R.id.quizStepView);
         quizStepScore = (TextView) findViewById(R.id.quizStepScore);
@@ -158,21 +198,40 @@ public class IconQuizActivity extends AppCompatActivity implements LoaderManager
         return correct;
     }
 
+    private int getChoice(int answerResId) {
+        int choiceResId = -1;
+
+        while (true) {
+            choiceResId = possibleIcons.get(new Double(Math.floor(Math.random() * possibleIcons.size())).intValue());
+            if (choiceResId != answerResId) {
+                return choiceResId;
+            }
+        }
+    }
+
     /**
      * Populate quiz question view {@link Question}
      */
     private void setQuestionView(Question question)
     {
         quizStepView.setText(question.getQUESTION());
-        choiceOptionA.setTag(question.getOPTIONA());
-        imageOptionA.setImageDrawable(ContextCompat.getDrawable(this, Utils.getResId(this, question.getOPTIONA())));
-        choiceOptionB.setTag(question.getOPTIONB());
-        imageOptionB.setImageDrawable(ContextCompat.getDrawable(this, Utils.getResId(this, question.getOPTIONB())));
-        choiceOptionC.setTag(question.getOPTIONC());
-        imageOptionC.setImageDrawable(ContextCompat.getDrawable(this, Utils.getResId(this, question.getOPTIONC())));
-        choiceOptionD.setTag(question.getOPTIOND());
-        imageOptionD.setImageDrawable(ContextCompat.getDrawable(this, Utils.getResId(this, question.getOPTIOND())));
-        question_id ++;
+        choiceOptions[0].setTag(question.getOPTIONA());
+
+        int answerIndex = new Double(Math.floor(Math.random()*4)).intValue();
+        int answerResId = Utils.getResId(this, question.getANSWER());
+
+        choiceOptions[answerIndex].setTag(question.getANSWER());
+        imageOptions[answerIndex].setImageDrawable(ContextCompat.getDrawable(this, answerResId));
+
+        for (int i = 0; i < 4; ++i) {
+            if (i != answerIndex) {
+                int choiceResId = getChoice(answerResId);
+                choiceOptions[i].setTag("");
+                imageOptions[i].setImageDrawable(ContextCompat.getDrawable(this, choiceResId));
+            }
+        }
+
+        question_id++;
     }
 
     @Override

@@ -48,6 +48,7 @@ public class TopicsFragment extends ListFragment implements CompoundButton.OnChe
 
     private List<Topic> getTopics() {
         List<Topic> list = new ArrayList<Topic>();
+        list.add(get("icons", "Play the Icon Game!", R.drawable.circular_blue_help));
         list.add(get("wifi", "Wi-Fi ni Noma!", R.drawable.circular_wifi));
         list.add(get("connect_wifi", "Connecting to WiFi", R.drawable.circular_wifi));
         list.add(get("tracking_data", "Data Consumption", R.drawable.circular_cell));

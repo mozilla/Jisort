@@ -3,6 +3,7 @@
 
     <color name="colorPrimary">#353535</color>
     <color name="colorIcons">#E4BC4D</color>
+    <color name="colorIconsSecondary">#69A5E3</color>
     <color name="colortogglePrimary">#69A5E3</color>
     <color name="colorToggleSecondary">#496161</color>
     <color name="colorAccent">#69A5E3</color>
