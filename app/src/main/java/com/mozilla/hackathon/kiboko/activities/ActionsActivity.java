@@ -11,7 +11,7 @@ public class ActionsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        onNewIntent(getIntent());
+//        onNewIntent(getIntent());
         finish();
     }
 
