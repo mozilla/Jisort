@@ -11,7 +11,9 @@ public enum DsoUriEnum {
     TUTORIALS(100, "tutorials", DsoContract.Tutorials.CONTENT_TYPE_ID, false, DsoDatabase.Tables.TUTORIALS),
     TUTORIALS_ID(101, "tutorials/*", DsoContract.Tutorials.CONTENT_TYPE_ID, true, null),
     QUIZES(200, "quizes", DsoContract.Quizes.CONTENT_TYPE_ID, false, DsoDatabase.Tables.QUIZES),
-    QUIZES_ID(201, "quizes/*", DsoContract.Quizes.CONTENT_TYPE_ID, true, null);
+    QUIZES_ID(201, "quizes/*", DsoContract.Quizes.CONTENT_TYPE_ID, true, null),
+    ACTIONS(300, "actions", DsoContract.Actions.CONTENT_TYPE_ID, false, DsoDatabase.Tables.ACTIONS),
+    ACTIONS_ID(301, "actions/*", "action", true, null);
     public int code;
 
     /**

@@ -1,7 +1,7 @@
 /local.properties
 /.gradle
-/Mozilla-DSO-Quiz-Application.iml
 /.idea
 /build
 /app/mirror
 .DS_Store
+*.iml

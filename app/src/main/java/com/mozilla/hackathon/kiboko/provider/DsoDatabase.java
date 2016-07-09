@@ -34,6 +34,7 @@ public class DsoDatabase extends SQLiteOpenHelper {
     interface Tables {
         String TUTORIALS = "tutorials";
         String QUIZES = "quizes";
+        String ACTIONS = "actions";
 
         // When tables get deprecated, add them to this list (so they get correctly deleted
         // on database upgrades).
