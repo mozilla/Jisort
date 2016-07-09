@@ -70,6 +70,8 @@ public class IconsFragment extends Fragment {
         list.add(get("android", "Android", "The friendly system running on your phone.", R.drawable.ic_android_white_48dp));
         list.add(get("sdcard", "SD Card", "Storage space for photos/apps/documents that can be removed or replaced.", R.drawable.ic_sd_storage_white_48dp));
         list.add(get("delete", "Delete", "Remove a photo/app/document from your phone.", R.drawable.ic_delete_white_48dp));
+        list.add(get("whatsapp", "WhatsApp", "Everyone's favourite chat app.", R.drawable.whatsapp_white));
+        list.add(get("facebook", "Facebook", "A social media app for friends, news, events, and games.", R.drawable.facebook_white));
 
         return list;
     }
