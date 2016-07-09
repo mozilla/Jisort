@@ -59,10 +59,12 @@ public final class DsoContract {
 
     private static final String PATH_TUTORIALS = "tutorials";
     private static final String PATH_QUIZ = "quizes";
+    private static final String PATH_ACTIONS = "actions";
 
     public static final String[] TOP_LEVEL_PATHS = {
             PATH_TUTORIALS,
-            PATH_QUIZ
+            PATH_QUIZ,
+            PATH_ACTIONS
     };
 
     public static String makeContentType(String id) {
@@ -116,9 +118,6 @@ public final class DsoContract {
 
     }
 
-    /**
-     * Each tutorial has zero or more
-     */
     public static class Quizes implements QuizColumns,
             SyncColumns, BaseColumns {
 
@@ -144,6 +143,12 @@ public final class DsoContract {
         public static String getQuizId(Uri uri) {
             return uri.getPathSegments().get(1);
         }
+    }
+
+    public static class Actions implements SyncColumns, BaseColumns{
+        public static final Uri CONTENT_URI =
+                BASE_CONTENT_URI.buildUpon().appendPath(PATH_ACTIONS).build();
+        public static final String CONTENT_TYPE_ID = "action";
     }
 
     private DsoContract() {

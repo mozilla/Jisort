@@ -39,7 +39,7 @@
             "id": "2",
             "title": "Turning on Wi-Fi",
             "gifUrl": "connectwifi2",
-            "description": "On most Android phones, you can swipe down the Notification Bar at the top of the screen and tap the Wi-Fi <img src=\"ic_network_wifi_white_24dp\"/> icon. If you are close to a Wi-Fi network you have joined before, <b>your phone will try to connect to it automatically</b>."
+            "description": "On most Android phones, you can swipe down the Notification Bar at the top of the screen and tap the Wi-Fi <a href=\"mozilladso:///actions/connect_wifi\"><img src=\"ic_network_wifi_white_24dp\"/></a> icon. If you are close to a Wi-Fi network you have joined before, <b>your phone will try to connect to it automatically</b>."
         }, {
             "id": "3",
             "title": "Turning on Wi-Fi from the Wireless Settings Menu",
