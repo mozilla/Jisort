@@ -98,6 +98,7 @@ public class ScreenSlidePageFragment extends Fragment {
         ((HtmlTextView) rootView.findViewById(R.id.step_description)).setHtmlFromString(mPageDescription,new HtmlTextView.LocalImageGetter());
 
         GifImageView gifImageView = (GifImageView) rootView.findViewById(R.id.step_image);
+        gifImageView.setTag(mPageImage);
         gifImageView.setImageResource(Utils.getResId(getContext(), mPageImage));
         // Remove imageView from layout if gif isn't available
         if(Utils.getResId(getContext(), mPageImage) == R.drawable.blank){
