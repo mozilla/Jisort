@@ -5,3 +5,4 @@
 /build
 /app/mirror
 .DS_Store
+*.iml
