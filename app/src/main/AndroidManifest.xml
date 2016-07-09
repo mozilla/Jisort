@@ -51,42 +51,40 @@
             android:label="@string/app_name"
             android:windowSoftInputMode="stateHidden">
             <!-- Handle website links -->
-            <intent-filter android:label="@string/app_name">
+            <intent-filter android:label="@string/app_name_tutorials">
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <data android:mimeType="vnd.android.cursor.item/vnd.mozilladso2016.tutorial" />
-                <!-- Accepts URIs that begin with "http://mozilladso.com/tutorial" -->
+                <!-- Accepts URIs that begin with "http://mozilladso.com/tutorials" -->
                 <data
                     android:host="mozilladso.com"
                     android:pathPrefix="/tutorials/*"
                     android:scheme="http" />
             </intent-filter>
             <!-- handle app links -->
-            <intent-filter android:label="@string/app_name">
+            <intent-filter android:label="@string/app_name_tutorials">
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <category android:name="android.intent.category.DEFAULT" />
-                <data android:mimeType="vnd.android.cursor.item/vnd.mozilladso2016.tutorial" />
+
+                <data android:scheme="mozilladso" android:pathPrefix="/tutorials/*"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.ActionsActivity"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="stateHidden">
+            <!-- handle app links -->
+            <intent-filter android:label="@string/app_name_actions">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
                 <data
-                    android:pathPrefix="/tutorials/*"
+                    android:pathPrefix="/actions/*"
                     android:scheme="mozilladso" />
             </intent-filter>
         </activity>
-        <!--<activity-->
-            <!--android:name=".activities.ActionsActivity"-->
-            <!--android:label="@string/app_name"-->
-            <!--android:windowSoftInputMode="stateHidden">-->
-            <!--&lt;!&ndash; handle app links &ndash;&gt;-->
-            <!--<intent-filter android:label="@string/app_name">-->
-                <!--<action android:name="android.intent.action.VIEW" />-->
-                <!--<category android:name="android.intent.category.BROWSABLE" />-->
-                <!--<category android:name="android.intent.category.DEFAULT" />-->
-                <!--<data-->
-                    <!--android:pathPrefix="/actions/*"-->
-                    <!--android:scheme="mozilladso" />-->
-            <!--</intent-filter>-->
-        <!--</activity>-->
         <activity
             android:name=".activities.TopicListActivity"
             android:label="@string/title_activity_topiclist"
