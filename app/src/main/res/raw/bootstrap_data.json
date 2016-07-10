@@ -244,7 +244,7 @@
         "id": "8",
         "title": "Updating",
         "gifUrl": "playstore8",
-        "description": "Occasionally, app creators will need to update or change the content of the app. So, often, they issue updates for their apps through the Play Store.\nUpdating apps consumes data. However, the Play Store will try to download updates automatically when you’re connected to a Wi-Fi hotspot. Check out <a href=\"mozilladso:///tutorials/data/8\">Disable Auto-Update</a> if you suspect that apps are being updated with your mobile data connection."
+        "description": "Occasionally, app creators will need to update or change the content of the app. So, often, they issue updates for their apps through the Play Store.\nUpdating apps consumes data. However, the Play Store will try to download updates automatically when you’re connected to a Wi-Fi hotspot. Check out <a href=\"mozilladso:///tutorials/data/6\">Disable Auto-Update</a> if you suspect that apps are being updated with your mobile data connection."
       }]
     },{
       "id": "8",
