@@ -89,13 +89,13 @@
         }, {
             "id": "5",
             "title": "Check your Apps' Settings",
-            "gifUrl": "data7",
+            "gifUrl": "data5",
             "description": "Some applications are designed to do work even when you're not specifically using them. Most of them use <b>data by default</b> usually to provide you with regular notifications or updates.\n<br>Check the settings or preferences in your apps to verify that they aren't using data all the time. In some cases, you can have the choice to \"sync\" (connect to the internet) over Wi-Fi only.<br><br><b>In Chrome</b>, you can turn on \"Data Saver\" in the settings to save up to 35% of your data usage.<br><br><b>In Opera</b>, you can use \"compression\" that will let you enjoy the internet and save data."
         }, {
             "id": "6",
-            "title": "Check your Whatsapp Settings",
-            "gifUrl": "data8",
-            "description": "You can also restrict the data consumption inside WhatsApp by changing some of its settings. <ul><li>Open Whatsapp</li><li>Click on settings</li><li>Click on <b>Data Usage</b></li><li>Choose the content that your phone can download over mobile data</li><li>Choose the content that you allow your phone to download on Wi-Fi</li><li>Choose if you want to lower the amount of data usage during Whatsapp calls</li></ul>"
+            "title": "Check your WhatsApp Settings",
+            "gifUrl": "data6",
+            "description": "You can also restrict the data consumption inside WhatsApp by changing some of its settings. <ul><li>Open WhatsApp</li><li>Click on settings</li><li>Click on <b>Data Usage</b></li><li>Choose the content that your phone can download over mobile data</li><li>Choose the content that you allow your phone to download on Wi-Fi</li><li>Choose if you want to lower the amount of data usage during WhatsApp calls</li></ul>"
         }]
     },{
       "id": "4",
