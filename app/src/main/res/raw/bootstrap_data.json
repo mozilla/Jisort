@@ -156,9 +156,9 @@
         "photoUrl": "url",
         "steps": [{
           "id": "1",
-          "title": "Storage & USB",
+          "title": "Storage Space",
           "gifUrl": "storage1",
-          "description": "As you may have already seen, your phone has limited space for apps, videos, images, and other content you have stored. There are a few things you can check to free up some space."
+          "description": "Your phone has limited space for apps, videos, images, and other content you have stored. There are a few things you can check to free up some space."
         }, {
           "id": "2",
           "title": "Checking your Storage",
@@ -169,11 +169,6 @@
           "title": "Evaluating Items",
           "gifUrl": "storage3",
           "description": "The size of content on your phone is measured in MB, and GB, where MB is the smallest, and GB is the biggest. If an app consumes 2GB of space, it is much larger than an image that consumes 2MB.\nConfirm that the size of each type of content is as you expect and as you want. If your phone has many images and you’re having trouble installing a new app, consider deleting some."
-        }, {
-          "id": "4",
-          "title": "Check your Apps",
-          "gifUrl": "storage4",
-          "description": "Some apps like Whatsapp automatically download content that is sent to you from a friend or a group. You can delete this content from your phone and retrieve it again later, or prevent it from being downloaded to your phone automatically altogether.\nVideos and images you have shared on Whatsapp can always be downloaded by the friend or group you’ve sent them to, regardless of whether or not those videos or images are currently on your phone."
         }]
       },{
       "id": "7",
