@@ -70,7 +70,7 @@
             "id": "1",
             "title": "Mobile Data vs. Wi-Fi",
             "gifUrl": "data1",
-            "description": "To access the internet, your phone uses a <b>mobile data</b> connection or a <b>Wi-Fi</b> connection. <br><ul><li>Mobile data is sold by your service provider and is measured in kilobytes, megabytes and gigabytes.</ul></li>  <br><ul><li>Wi-Fi hotspots rely on service providers for their internet, too. So, <b>connecting to a Wi-Fi hotspot, will use its data instead of yours.</b></ul></li>  "
+            "description": "To access the internet, your phone uses a <b>mobile data</b> connection or a <b>Wi-Fi</b> connection.<br><ul><li>Mobile data is sold by your service provider and is measured in kilobytes, megabytes and gigabytes.</li><li>Wi-Fi hotspots rely on service providers for their internet, too. So, <b>connecting to a Wi-Fi hotspot, will use its data instead of yours.</b></li></ul>"
         }, {
             "id": "2",
             "title": "Apps Use Data",
@@ -78,31 +78,21 @@
             "description": "<b>Data is used to move content around the internet.</b> Many apps (Google, Yahoo, Facebook, WhatsApp, Opera, Instagram, Branch) will consume data because they connect to the internet. Applications like Opera Mini use less data than others because they restrict images and video. Others, like YouTube, use much more data because they use video content."
         }, {
             "id": "3",
-            "title": "Use Airplane Mode",
-            "gifUrl": "airplanemode1",
-            "description": "When you are not using your phone or expecting a call from anyone, you can turn on <b>Airplane Mode</b>. This will turn off your phone’s wireless radios completely. Phone calls, mobile data, and bluetooth connections will all be blocked, so no airtime or data will be used. To learn how to turn it on, check out <a href=\"mozilladso:///tutorials/airplane_mode\">Airplane Mode</a>."
-        }, {
-            "id": "4",
             "title": "Restrict Background Data",
             "gifUrl": "data4",
             "description": "The easiest way to save data is to tell your apps (or the Android system itself) to <b>restrict background data</b>. Some apps continue to use data (in the \"background\") when you're not specifically using them: syncing email, updating feeds, checking the weather, etc."
         }, {
-            "id": "5",
-            "title": "Connect to Wi-Fi",
-            "gifUrl": "connectwifi2",
-            "description": "The more Wi-Fi you use, the more data you save. Wi-Fi connections are usually stronger, more stable, and less costly than cellular (mobile) ones, though sometimes you have to pay to use someone else’s hotspot. To learn how to connect to Wi-Fi, <a href=\"mozilladso:///tutorials/connect_wifi\">Connecting Wi-Fi</a>."
-        }, {
-            "id": "6",
+            "id": "4",
             "title": "Disable Auto-update",
             "gifUrl": "auto_update",
             "description": "A lot of data is also consumed by your phone automatically updating your apps. If your apps were downloaded through Google Play (most are) it may be using \"auto-update\" and could be chewing its way through your data without you even knowing."
         }, {
-            "id": "7",
+            "id": "5",
             "title": "Check your Apps' Settings",
             "gifUrl": "data7",
-            "description": "Some applications are designed to do work even when you're not specifically using them. Most of them use <b>data by default</b> usually to provide you with regular notifications or updates.\n<br>Check the settings or preferences in your apps to verify that they aren't using data all the time. In some cases, you can have the choice to \"sync\" (connect to the internet) over Wi-Fi only.\n\n<br><b>In Chrome</b>, you can turn on \"Data Saver\" in the settings to save up to 35% of your data usage.\n\n<br><b>In Opera</b>, you can use \"compression\" that will let you enjoy the internet and save data."
+            "description": "Some applications are designed to do work even when you're not specifically using them. Most of them use <b>data by default</b> usually to provide you with regular notifications or updates.\n<br>Check the settings or preferences in your apps to verify that they aren't using data all the time. In some cases, you can have the choice to \"sync\" (connect to the internet) over Wi-Fi only.<br><br><b>In Chrome</b>, you can turn on \"Data Saver\" in the settings to save up to 35% of your data usage.<br><br><b>In Opera</b>, you can use \"compression\" that will let you enjoy the internet and save data."
         }, {
-            "id": "8",
+            "id": "6",
             "title": "Check your Whatsapp Settings",
             "gifUrl": "data8",
             "description": "You can also restrict the data consumption inside WhatsApp by changing some of its settings. <ul><li>Open Whatsapp</li><li>Click on settings</li><li>Click on <b>Data Usage</b></li><li>Choose the content that your phone can download over mobile data</li><li>Choose the content that you allow your phone to download on Wi-Fi</li><li>Choose if you want to lower the amount of data usage during Whatsapp calls</li></ul>"
