@@ -132,22 +132,17 @@
           "id": "1",
           "title": "Finding the Airplane Mode button",
           "gifUrl": "airplanemode1",
-          "description": "Turning on Airplane Mode instantly disables <b>all wireless functionality</b> of your phone. For example, Wi-Fi, Cell, Bluetooth, and GPS will not operate.\nThis feature is useful for keeping your phone on, but limiting its contact with networks. Until you turn Airplane Mode off, you will not be able to receive phone calls or access the internet."
+          "description": "Turning on Airplane Mode instantly disables <b>all wireless functionality</b> of your phone. For example, Wi-Fi, Cell, Bluetooth, and GPS will not operate.<br><br>This feature is useful for keeping your phone on, but restricting its network access. Until you turn Airplane Mode off, you will not be able to receive phone calls or access the internet."
         }, {
           "id": "2",
           "title": "In the Notification Bar",
           "gifUrl": "airplanemode2",
-          "description": "On newer phones, simply swipe down the Title Bar at the top of your screen, and look for the airplane icon<img src=\"ic_airplanemode_active_white_24dp\"/>. Tap the icon to turn Airplane Mode <b>ON</b> or <b>OFF</b>. <br> You can also find this feature in the settings or from your power button."
+          "description": "On newer phones, simply swipe down the Notification Bar at the top of your screen, and look for the airplane icon<img src=\"ic_airplanemode_active_white_24dp\"/>. Tap the icon to turn Airplane Mode <b>ON</b> or <b>OFF</b>. <br><br> You can also find this feature in Settings <img src=\"ic_settings_applications_white_24dp\"/> or from your phone's power button."
         }, {
           "id": "3",
           "title": "In the Wireless Settings Menu",
           "gifUrl": "airplanemode3",
           "description": "You can also toggle Airplane Mode from the Settings menu. On all Android phones, including older phones, open <b>Settings</b> <img src=\"ic_settings_applications_white_24dp\"/>, choose \"<b>More…</b>\" in the <b>Wireless & Networks</> section, and check the box that says \"<b>Airplane Mode</b>\"."
-        }, {
-          "id": "4",
-          "title": "Using Wi-Fi",
-          "gifUrl": "airplanemode4",
-          "description": "Even with Airplane mode turned on, you are still able to use Wi-Fi if you switch it on explicitly. This will ensure that mobile data is not used. Check out <a href=\"mozilladso:///tutorials/connect_wifi\">Connecting to Wi-Fi</a> for more information."
         }]
       },{
         "id": "6",
