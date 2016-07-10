@@ -64,7 +64,7 @@
             "id": "7",
             "title": "Fixing Problems",
             "gifUrl": "connectwifi7",
-            "description": "If you have problems connecting to a Wi-Fi hotspot, here is a list of things you can try:<ul><li>Make sure you have the right hotspot name.</li><i>Make sure you have the right password.</li><li>If you have the right password, make sure it's entered correctly.</><li>Talk to the hotspot owner (shopkeeper, librarian, IT assistant, etc.) and explain your problems. They may be able to help solve your problem.</li></ul>"
+            "description": "If you have problems connecting, here are some things you can try:<ul><li>Make sure you're not too far from the hotspot.</li><li>Make sure you have the right hotspot name.</li><li>Make sure you have the right password.</li><li>If you have the right password, make sure it's entered correctly.</><li>Talk to the hotspot owner (shopkeeper, librarian, IT assistant, etc.) and explain your problems.</li><li>As a last resort, reboot your phone.</li></ul>"
         }, {
             "id": "8",
             "title": "Fixing Problems Continued",
