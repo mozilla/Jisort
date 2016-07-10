@@ -50,13 +50,13 @@ public class TopicsFragment extends ListFragment implements CompoundButton.OnChe
         List<Topic> list = new ArrayList<Topic>();
         list.add(get("wifi", "Wi-Fi ni Noma!", R.drawable.circular_wifi));
         list.add(get("connect_wifi", "Connecting to WiFi", R.drawable.circular_wifi));
-        list.add(get("tracking_data", "How much data are you using?", R.drawable.circular_cell));
-        list.add(get("data", "Using your data wisely", R.drawable.circular_money));
-        list.add(get("playstore", "Find new apps!", R.drawable.circular_googleplay));
-        list.add(get("storage", "Free up memory for new apps", R.drawable.circular_sdcard));
+        list.add(get("tracking_data", "Data Consumption", R.drawable.circular_cell));
+        list.add(get("data", "Using Data Wisely", R.drawable.circular_money));
+        list.add(get("playstore", "Downloading new Apps", R.drawable.circular_googleplay));
+        list.add(get("storage", "Freeing up Storage", R.drawable.circular_sdcard));
         list.add(get("icons", "What is that icon?", R.drawable.circular_help));
         list.add(get("airplane_mode", "Using Airplane Mode", R.drawable.circular_airplane));
-        list.add(get("accounts_passwords", "Strengthen your Passwords!", R.drawable.circular_account));
+        list.add(get("accounts_passwords", "Accounts and Passwords", R.drawable.circular_account));
         return list;
     }
 
