@@ -8,7 +8,7 @@
             "id": "1",
             "title": "What is Wi-Fi?",
             "gifUrl": "wifi1",
-            "description": "Wi-Fi is a technology that helps your phone connect to the internet, similar to airtime or mobile data. However, <b>Wi-Fi doesn't use your airtime or mobile data.</b> Instead, in coffee shops or public spaces, Wi-Fi is often free."
+            "description": "Wi-Fi is a technology that helps your phone connect to the internet, similar to airtime or mobile data. However, <b>Wi-Fi doesn't use your airtime or mobile data.</b> Wi-Fi can often be free in coffee shops, or accessible at a small fee."
         }, {
             "id": "2",
             "title": "Where do I get it? Who owns it?",
@@ -39,7 +39,7 @@
             "id": "2",
             "title": "Turning on Wi-Fi",
             "gifUrl": "connectwifi2",
-            "description": "On most Android phones, you can swipe down the Notification Bar at the top of the screen and tap the Wi-Fi <a href=\"mozilladso:///actions/connect_wifi\"><img src=\"ic_network_wifi_white_24dp\"/></a> icon. If you are close to a Wi-Fi network you have joined before, <b>your phone will try to connect to it automatically</b>."
+            "description": "On most Android phones, you can swipe down the Notification Bar at the top of the screen and tap the Wi-Fi <a href=\"mozilladso:///actions/connect_wifi\"><img src=\"ic_network_wifi_white_24dp\"/></a> icon. If you are close to a Wi-Fi network you have joined before, <b>your phone will try to connect to it automatically</b>. You can also manage your Wi-Fi connection by clicking on the Settings <img src=\"ic_settings_applications_white_24dp\"/> and checking out the Wi-Fi section."
         }, {
             "id": "3",
             "title": "Turning on Wi-Fi from the Wireless Settings Menu",
@@ -49,22 +49,22 @@
             "id": "4",
             "title": "Finding your hotspot in the Wi-Fi list",
             "gifUrl": "connectwifi4",
-            "description": "If your phone hasn't already automatically connected to a Wi-Fi hotspot, you will need to use your phone to search for the hotspot you want to connect to.\n If you are already in the Wi-Fi Settings Menu from the last step, simply wait until you see the name of the Wi-Fi hotspot that you want to connect to. Otherwise, open the Settings app <img src=\"ic_settings_applications_white_24dp\"/>, and click on the Wi-Fi icon <img src=\"ic_network_wifi_white_24dp\"/>. If your Wi-Fi is on, you will see a list of all the Wi-Fi hotspots around you."
+            "description": "After turning on Wi-Fi (see Step 2), look at the different networks appearing on your screen and click on the one that you can connect to."
         }, {
             "id": "5",
             "title": "Connecting to a Wi-Fi hotspot",
             "gifUrl": "connectwifi5",
-            "description": "When you see the Wi-Fi hotspot that you want to connect to, tap it. If it doesn't require a password, your phone will try to connect. When it does, it will read <b>Connected</b>.\nYou may also see your phone say <b>Authenticating</b> or <b>Obtaining IP Address</b>. These are normal steps in making a Wi-Fi connection.\nIf asked for a password, usishtuke! Just go to the next step."
+            "description": "If the network doesn't require a password, your phone will try to connect. When it does, it will read <b>Connected</b>.\nYou may also see your phone say <b>Authenticating</b> or <b>Obtaining IP Address</b>. These are normal steps in making a Wi-Fi connection.\nIf asked for a password, usishtuke! Just go to the next step."
         }, {
             "id": "6",
             "title": "Entering a Password",
             "gifUrl": "connectwifi6",
-            "description": "<i>If your phone has already connected to the correct Wi-Fi hotspot, you can skip this step, and just go enjoy the Internet. :)</i><br>Some Wi-Fi hotspots require a password. In this case, a box will appear that asks for a password. If you don’t know the password, ask for help from the owner of the hotspot. Once you have the password, use the keyboard that pops up to enter it."
+            "description": "<i>If your phone has already connected to the correct Wi-Fi hotspot, you can skip this step, and just go enjoy the Internet. :) </i> <br>Some Wi-Fi hotspots require a password. In this case, a box will appear that asks for a password. If you don’t know the password, ask for help from the owner of the hotspot. Once you have the password, use the keyboard that pops up to enter it."
         }, {
             "id": "7",
             "title": "Fixing Problems",
             "gifUrl": "connectwifi7",
-            "description": "If you have problems connecting to a Wi-Fi hotspot, here is a list of things you can try:<ul><li>Make sure you have the right hotspot name.</li><i>Make sure you have the right password.</li><li>If you have the right password, make sure it's entered correctly.</><li>Talk to the hotspot owner (shopkeeper, librarian, IT assistant, etc.) and explain your problems. They may be able to help solve your problem.</li></ul>"
+            "description": "If you have problems connecting to a Wi-Fi hotspot, here is a list of things you can try:<ul><li>Make sure you have the right hotspot name.</li>Make sure you have the right password.</li><li>If you have the right password, make sure it's entered correctly.</><li>Talk to the hotspot owner (shopkeeper, librarian, IT assistant, etc.) and explain your problems. They may be able to help solve your problem.</li></ul>"
         }, {
             "id": "8",
             "title": "Fixing Problems Continued",
@@ -85,7 +85,7 @@
             "id": "1",
             "title": "Mobile Data vs. Wi-Fi",
             "gifUrl": "data1",
-            "description": "To access the internet, your phone uses a <b>mobile data</b> connection or a <b>Wi-Fi</b> connection. Mobile data is sold by your service provider and is measured in kilobytes, megabytes and gigabytes. Wi-Fi hotspots rely on service providers for their internet, too. So, <b>connecting to a Wi-Fi hotspot, will use its data instead of yours.</b>"
+            "description": "To access the internet, your phone uses a <b>mobile data</b> connection or a <b>Wi-Fi</b> connection. <br><ul><li>Mobile data is sold by your service provider and is measured in kilobytes, megabytes and gigabytes.</ul></li>  <br><ul><li>Wi-Fi hotspots rely on service providers for their internet, too. So, <b>connecting to a Wi-Fi hotspot, will use its data instead of yours.</b></ul></li>  "
         }, {
             "id": "2",
             "title": "Apps Use Data",
@@ -100,7 +100,7 @@
             "id": "4",
             "title": "Restrict Background Data",
             "gifUrl": "data4",
-            "description": "The easiest way to save data is to tell your apps (or the Android system itself) to restrict background data. Some apps continue to use data (in the \"background\") when you're not specifically using them: syncing email, updating feeds, checking the weather, etc."
+            "description": "The easiest way to save data is to tell your apps (or the Android system itself) to <b>restrict background data</b>. Some apps continue to use data (in the \"background\") when you're not specifically using them: syncing email, updating feeds, checking the weather, etc."
         }, {
             "id": "5",
             "title": "Connect to Wi-Fi",
@@ -115,12 +115,16 @@
             "id": "7",
             "title": "Check your Apps' Settings",
             "gifUrl": "data7",
-            "description": "Some applications are designed to do work even when you're not specifically using them. Most of them use data by default usually to provide you with regular notifications or updates.\nCheck the settings or preferences in your apps to verify that they aren't using data all the time. In some cases, you can have the choice to \"sync\" (connect to the internet) over Wi-Fi only.\n\n<b>In Chrome</b>, you can turn on \"Data Saver\" in the settings to save up to 35% of your data usage.\n\n<b>In Opera</b>, you can use \"compression\" that will let you enjoy the internet and save data."
+            "description": "Some applications are designed to do work even when you're not specifically using them. Most of them use <b>data by default</b> usually to provide you with regular notifications or updates.\n<br>Check the settings or preferences in your apps to verify that they aren't using data all the time. In some cases, you can have the choice to \"sync\" (connect to the internet) over Wi-Fi only.\n\n<br><b>In Chrome</b>, you can turn on \"Data Saver\" in the settings to save up to 35% of your data usage.\n\n<br><b>In Opera</b>, you can use \"compression\" that will let you enjoy the internet and save data."
         }, {
             "id": "8",
             "title": "Check your Whatsapp Settings",
             "gifUrl": "data8",
-            "description": "<b>Whatsapp</b> >> <b>Settings</b> >> <b>Data Usage</b> >> <b>Media-auto-download</b>"
+            "description": "You can also restrict the data consumption inside WhatsApp by changing some of its settings. Go on Whatsapp, and click on settings. Click on Data usage
+    Choose the content that your phone can download over mobile data
+    Choose the content that you allow your phone to download on Wi-Fi
+    Choose if you want to lower the amount of data usage during Whatsapp calls
+"
         }]
     },{
       "id": "4",
@@ -131,22 +135,22 @@
         "id": "1",
         "title": "Data consumption",
         "gifUrl": "trackingdata1",
-        "description": "Each Android phone comes with a menu where you can follow your data consumption. You will be able to follow your data consumption over time, but also to see which apps consume data.\nIt might look different on different phones, but should be accessible within the <b>Settings</b> <img src=\"ic_settings_applications_white_24dp\"/> app. Find the option that says <b>Data Usage</b> <img src=\"ic_data_usage_white_24dp\"/>."
+        "description": "Each Android phone comes with a menu where you can follow your data consumption. You can follow it over time, but also to see which apps consume data.\nIt might look different on different phones, but should be accessible within the <b>Settings</b> <img src=\"ic_settings_applications_white_24dp\"/> app. Find the option that says <b>Data Usage</b> <img src=\"ic_data_usage_white_24dp\"/>."
       }, {
         "id": "2",
         "title": "Inspecting your Data Usage",
         "gifUrl": "trackingdata2",
-        "description": "With <b>Data Usage</b> there are two things to notice:\nThe graph at the top shows how much data you use over time. At the end of each day, you can see how much of your data has been consumed. You can reset this graph when you buy data."
+        "description": "The graph at the top shows how much data you use over time. At the end of each day, you can see how much of your data has been consumed. You can reset this graph when you buy data."
       }, {
         "id": "3",
         "title": "Apps",
         "gifUrl": "trackingdata3",
-        "description": "Below the graph is a list of apps that have been consuming data. Check this list to make sure there are no apps you didn’t expect to be there. For example, you might discover that Gmail consumed 50MB of data recently, but you rarely use Gmail. This might mean that you should change your settings inside the app, or restrict the apps data usage.\nTo see the usage of any app in particular, simply click on its icon in the list."
+        "description": "Below the graph is a list of apps that have been consuming data. <b>Check this list to make sure there are no apps you didn’t expect to be there</b>. <br>For example, you might discover that Gmail consumed 50MB of data recently, but you rarely use Gmail. This might mean that you should change your settings inside the app, or restrict the apps data usage.<br>To see the usage of any app in particular, simply click on its icon in the list."
       }, {
         "id": "4",
         "title": "Data Usage Tips",
         "gifUrl": "data2",
-        "description": "There are many ways to make sure your phone uses small amounts of data, or only uses data when you want it to.\nFor more information and tips, check out <a href=\"mozilladso:///tutorials/data\">Mobile Data Consumption</a>."
+        "description": "There are many ways to make sure your phone uses small amounts of data, or only uses data when you want it to.\nFor more information and tips, check out the next tutorial called <a href=\"mozilladso:///tutorials/data\">Using your data wisely</a>."
       }]
     },{
         "id": "5",
@@ -162,7 +166,7 @@
           "id": "2",
           "title": "In the Notification Bar",
           "gifUrl": "airplanemode2",
-          "description": "On newer phones, simply swipe down the Title Bar at the top of your screen, and look for the airplane icon<img src=\"ic_airplanemode_active_white_24dp\"/>. Tap the icon to turn Airplane Mode <b>ON</b> or <b>OFF</b>."
+          "description": "On newer phones, simply swipe down the Title Bar at the top of your screen, and look for the airplane icon<img src=\"ic_airplanemode_active_white_24dp\"/>. Tap the icon to turn Airplane Mode <b>ON</b> or <b>OFF</b>. <br> You can also find this feature in the settings or from your power button."
         }, {
           "id": "3",
           "title": "In the Wireless Settings Menu",
@@ -209,7 +213,7 @@
         "id": "1",
         "title": "Home of Many Apps",
         "gifUrl": "playstore1",
-        "description": "The Play Store lets you download apps on your phone. You can search the app store for different kinds of apps like games, learning apps, social media apps, photo-editing apps, and more.\nSome apps on the Play Store are free, and some costs money. Don’t worry though: you will always be asked to confirm if you are about to spend money."
+        "description": "The Play Store lets you download apps on your phone. You can search for different kinds of apps like games, learning apps, social media apps, photo-editing apps, and more.\nSome apps on the Play Store are free, and some costs money. Don’t worry though: you will always be asked to confirm if you are about to spend money."
       }, {
         "id": "2",
         "title": "Opening the Play Store",
@@ -237,7 +241,7 @@
         "description": "Before downloading an app, always look at its rating, description and the comments posted about it by other people to learn more about the app. Because apps can be made by anybody, ratings and comments are the best way to know if an app does what it claims, or if it is poorly made."
       }, {
         "id": "7",
-        "title": "Reviewing and Downloading (cont'd)",
+        "title": "Giving your own review",
         "gifUrl": "playstore7",
         "description": "Once you’ve downloaded and used an app, you can rate it and comment about it in the Play Store. Your feedback helps create a safe environment by giving people reliable information about whether or not apps are well-made, useful and appropriate."
       }, {
