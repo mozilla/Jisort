@@ -72,9 +72,9 @@
             "description": "Sometimes even with the correct hotspot name and password, connection problems will persist. In this case, you can try removing the hotspot from your phone's memory and then reconnecting. Go to the Wi-Fi Settings Menu (see Frame), and find the problematic hotspot's name. Then, press and hold on the hotspot’s name until a menu appears. Choose \"Forget Network\". Then, try connecting again. You may have to re-enter your password, so have it ready.\nSometimes a hotspot will be set up to work with specific devices and it may not let you connect to the internet even though it looks like it should. If you really can't connect to the one you picked, try to find another hotspot."
         }, {
             "id": "9",
-            "title": "Enjoy",
+            "title": "Enjoy :happy2:",
             "gifUrl": "connectwifi9",
-            "description": "Now, you should be connected! Enjoy!"
+            "description": "Now, you should be connected! Enjoy! :happy:"
         }]
     }, {
         "id": "3",

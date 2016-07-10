@@ -12,14 +12,13 @@ import java.util.regex.Pattern;
  */
 public class EmojiUtils {
     public static final Map<String, Integer> emojiMap;
-    private static final Set<String> emojiKeys;
 
     static {
         HashMap<String, Integer> map = new HashMap<String, Integer>();
 
         map.put(":happy:", 0x1F601);
         map.put(":happy2:", 0x1F602);
-        map.put(":happ3:", 0x1F603);
+        map.put(":happy3:", 0x1F603);
         map.put(":happy4:", 0x1F604);
         map.put(":happy5:", 0x1F605);
         map.put(":happy6:", 0x1F606);
@@ -76,8 +75,6 @@ public class EmojiUtils {
         map.put(":folded-hands-person:", 0x1F64F);
 
         emojiMap = Collections.unmodifiableMap(map);
-
-        emojiKeys = emojiMap.keySet();
     }
 
     public static String parse(String input) {
