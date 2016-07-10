@@ -25,6 +25,7 @@ import com.mozilla.hackathon.kiboko.R;
 import com.mozilla.hackathon.kiboko.fragments.ScreenSlidePageFragment;
 import com.mozilla.hackathon.kiboko.models.Step;
 import com.mozilla.hackathon.kiboko.provider.DsoContract;
+import com.mozilla.hackathon.kiboko.utilities.EmojiUtils;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -207,7 +208,7 @@ public class TutorialSlideActivity extends DSOActivity implements LoaderManager.
                     String jsonArray = cursor.getString(stepsIndex);
                     LOGD(TAG, jsonArray);
                     Type listType = new TypeToken<List<Step>>(){}.getType();
-                    setTitle(cursor.getString(titleIndex));
+                    setTitle(EmojiUtils.parse(cursor.getString(titleIndex)));
                     jsonSteps = (List<Step>) new Gson().fromJson(jsonArray,listType);
                     mPagerAdapter.notifyDataSetChanged();
                     txtCaption.setText(getString(R.string.tutorial_template_step, 1, mPager.getAdapter().getCount()));
