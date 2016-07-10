@@ -44,7 +44,7 @@ public class TopicListFragment extends ListFragment {
 
     private List<TopicItem> getTopics() {
         List<TopicItem> list = new ArrayList<TopicItem>();
-        list.add(get(1, "Phone Topic 1",decription ));
+        list.add(get(1, "Phone Topic 1", decription));
         list.add(get(2, "Phone Topic 2",decription));
         list.add(get(3, "App Topic 3", decription));
         list.add(get(4, "Account Topic 4", decription));

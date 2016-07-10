@@ -16,6 +16,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.mozilla.hackathon.kiboko.R;
+import com.mozilla.hackathon.kiboko.utilities.EmojiUtils;
 import com.mozilla.hackathon.kiboko.utilities.Utils;
 import com.mozilla.hackathon.kiboko.widgets.NotifyingScrollView;
 
@@ -31,6 +32,7 @@ import static com.mozilla.hackathon.kiboko.utilities.LogUtils.makeLogTag;
  * the page number, along with some dummy text.
  */
 public class ScreenSlidePageFragment extends Fragment {
+
     private static final String TAG = makeLogTag(ScreenSlidePageFragment.class);
     /**
      * The argument key for the page number this fragment represents.
@@ -93,9 +95,11 @@ public class ScreenSlidePageFragment extends Fragment {
 
 //        ((NotifyingScrollView) rootView.findViewById(R.id.content)).setOnScrollChangedListener(mOnScrollChangedListener);
         // Set the title view to show the page number.
-        ((TextView) rootView.findViewById(R.id.step_title)).setText(mPageTitle);
+        ((TextView) rootView.findViewById(R.id.step_title)).setText(EmojiUtils.parse(mPageTitle));
 
-        ((HtmlTextView) rootView.findViewById(R.id.step_description)).setHtmlFromString(mPageDescription,new HtmlTextView.LocalImageGetter());
+        String emojiDescription = EmojiUtils.parse(mPageDescription);
+        ((HtmlTextView) rootView.findViewById(R.id.step_description)).setHtmlFromString(emojiDescription,
+                new HtmlTextView.LocalImageGetter());
 
         GifImageView gifImageView = (GifImageView) rootView.findViewById(R.id.step_image);
         gifImageView.setTag(mPageImage);
