@@ -10,10 +10,21 @@ import android.widget.TextView;
 
 import com.mozilla.hackathon.kiboko.R;
 
+import pl.droidsonroids.gif.GifImageView;
+
 /**
  * Created by mwadime on 6/10/2016.
  */
 public class ResultActivity extends AppCompatActivity {
+    private static int[] imageResources = new int[]{
+        R.drawable.bmo,
+        R.drawable.carlton,
+        R.drawable.beach,
+        R.drawable.ok,
+        R.drawable.rainbow,
+        R.drawable.party
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +37,9 @@ public class ResultActivity extends AppCompatActivity {
         int score= b.getInt("score");
         txtPoints.setText(getString(R.string.quiz_template_points, score));
 
+        GifImageView gifImageView = (GifImageView) findViewById((R.id.result_image));
+        int randomIndex = new Double(Math.random() * imageResources.length).intValue();
+        gifImageView.setImageResource(imageResources[randomIndex]);
     }
 
     @Override
