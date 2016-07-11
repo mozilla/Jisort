@@ -1,9 +1,7 @@
 package com.mozilla.hackathon.kiboko.fragments;
-
 /**
  * Created by mwadime on 6/9/2016.
  */
-
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -16,6 +14,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.mozilla.hackathon.kiboko.R;
+import com.mozilla.hackathon.kiboko.settings.SettingsUtils;
 import com.mozilla.hackathon.kiboko.utilities.Utils;
 import com.mozilla.hackathon.kiboko.widgets.NotifyingScrollView;
 
@@ -25,7 +24,6 @@ import pl.droidsonroids.gif.GifDrawable;
 import pl.droidsonroids.gif.GifImageView;
 
 import static com.mozilla.hackathon.kiboko.utilities.LogUtils.makeLogTag;
-
 /**
  * A fragment representing a single step in a wizard. The fragment shows a dummy title indicating
  * the page number, along with some dummy text.
@@ -39,19 +37,14 @@ public class ScreenSlidePageFragment extends Fragment {
     public static final String ARG_PAGE_TITLE = "page_title";
     public static final String ARG_PAGE_DESCRIPTION = "page_description";
     public static final String ARG_PAGE_IMAGE = "page_image";
-
     private float mActionBarHeight;
     private ActionBar mActionBar;
-
-
     private GifDrawable gifDrawable;
-
     /**
      * The fragment's page number, which is set to the argument value for {@link #ARG_PAGE}.
      */
     private int mPageNumber;
     private String mPageDescription, mPageTitle, mPageImage;
-
     /**
      * Factory method for this fragment class. Constructs a new fragment for the given page number.
      */
@@ -95,6 +88,7 @@ public class ScreenSlidePageFragment extends Fragment {
         // Set the title view to show the page number.
         ((TextView) rootView.findViewById(R.id.step_title)).setText(mPageTitle);
 
+        ((HtmlTextView) rootView.findViewById(R.id.step_description)).setFunMode(SettingsUtils.isFunModeEnabled(getContext()));
         ((HtmlTextView) rootView.findViewById(R.id.step_description)).setHtmlFromString(mPageDescription,new HtmlTextView.LocalImageGetter());
 
         GifImageView gifImageView = (GifImageView) rootView.findViewById(R.id.step_image);

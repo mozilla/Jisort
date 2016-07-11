@@ -3,39 +3,50 @@ package org.sufficientlysecure.htmltextview;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
  * Created by secretrobotron on 7/10/16.
+ * Class for converting :-) emoji text or github style :smile: into emojis
  */
 public class EmojiUtils {
     public static final Map<String, Integer> emojiMap;
-    private static final Set<String> emojiKeys;
+    private static final String EMOTICON_DELIMITER = "";
+    // Normal text smiles pattern :-) etc
+    public static final Pattern SMILEY_REGEX_PATTERN = Pattern.compile(":[)DdpP]|:[ -]\\)|<3");
+    // github style pattern :happy: etc
+    public static final Pattern GITHUB_REGEX_PATTERN = Pattern.compile(":[^:]+:");
+    // frowny pattern :( etc
+    public static final Pattern FROWNY_REGEX_PATTERN = Pattern.compile(":[(<]|:[ -]\\(");
+    public static final Pattern EMOTICON_REGEX_PATTERN =
+            Pattern.compile("(?<=^|" + EMOTICON_DELIMITER + ")("
+                    + SMILEY_REGEX_PATTERN.pattern() + "|" + FROWNY_REGEX_PATTERN.pattern() + "|" + GITHUB_REGEX_PATTERN.pattern()
+                    + ")+(?=$|" + EMOTICON_DELIMITER + ")");
 
+    //TODO: add missing icons/smilies
     static {
         HashMap<String, Integer> map = new HashMap<String, Integer>();
 
-        map.put(":happy:", 0x1F601);
+        map.put(":-)", 0x1F601);
         map.put(":happy2:", 0x1F602);
         map.put(":happ3:", 0x1F603);
         map.put(":happy4:", 0x1F604);
         map.put(":happy5:", 0x1F605);
         map.put(":happy6:", 0x1F606);
-        map.put(":wink:", 0x1F609);
-        map.put(":blush:", 0x1F60A);
+        map.put(";-)", 0x1F609);
+        map.put(":$", 0x1F60A);
         map.put(":delicious:", 0x1F60B);
         map.put(":relief:", 0x1F60C);
         map.put(":hearts:", 0x1F60D);
         map.put(":smirk:", 0x1F60F);
         map.put(":unamused:", 0x1F612);
-        map.put(":sweating:", 0x1F613);
+        map.put("(:|", 0x1F613);
         map.put(":pensive:", 0x1F614);
         map.put(":confounded:", 0x1F616);
         map.put(":kiss:", 0x1F618);
         map.put(":kiss2:", 0x1F61A);
-        map.put(":tongue", 0x1F61C);
+        map.put(":P", 0x1F61C);
         map.put(":tongue2:", 0x1F61D);
         map.put(":disappointed:", 0x1F61E);
         map.put(":angry:", 0x1F620);
@@ -77,18 +88,18 @@ public class EmojiUtils {
 
         emojiMap = Collections.unmodifiableMap(map);
 
-        emojiKeys = emojiMap.keySet();
     }
 
+    /**
+     * Does the actual replacing for emojis. see {@link Pattern} {@link Pattern}
+     * @param input test with emoticons
+     * @return converted string with emojis
+     */
     public static String parse(String input) {
-        Pattern pattern = Pattern.compile("(:[^:]+:)");
-        Matcher matcher = pattern.matcher(input);
-
+        Matcher matcher = EMOTICON_REGEX_PATTERN.matcher(input);
         String output = "";
-
         int start = 0;
         int end = 0;
-
         while (matcher.find()) {
             String match = matcher.group();
             start = matcher.start();
