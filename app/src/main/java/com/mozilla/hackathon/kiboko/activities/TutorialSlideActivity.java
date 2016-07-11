@@ -89,6 +89,7 @@ public class TutorialSlideActivity extends DSOActivity implements LoaderManager.
             public void onClick(View v) {
                 if(!(mPager.getCurrentItem() > mPagerAdapter.getCount() - 1)){
                     mPager.setCurrentItem(mPager.getCurrentItem() - 1);
+                    mNext.setEnabled(true);
                 }else{
                     mNext.setEnabled(true);
                     mPrev.setEnabled(false);
@@ -101,6 +102,7 @@ public class TutorialSlideActivity extends DSOActivity implements LoaderManager.
             public void onClick(View v) {
                 if(!(mPager.getCurrentItem() == mPagerAdapter.getCount() - 1)){
                     mPager.setCurrentItem(mPager.getCurrentItem() + 1);
+                    mPrev.setEnabled(true);
                 }else{
                     mNext.setEnabled(false);
                     mPrev.setEnabled(true);
