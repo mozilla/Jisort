@@ -92,7 +92,6 @@ public class TopicsAdapter  extends BaseAdapter implements Filterable {
             holder = (Holder) viewItem.getTag();
 
         final Topic topic = topics.get(position);
-        holder.tv.setText(topic.getName());
         
         if(SettingsUtils.isFunModeEnabled(context)){
             holder.tv.setText(EmojiUtils.parse(topic.getName()));

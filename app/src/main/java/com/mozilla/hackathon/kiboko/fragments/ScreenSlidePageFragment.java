@@ -2,6 +2,7 @@ package com.mozilla.hackathon.kiboko.fragments;
 /**
  * Created by mwadime on 6/9/2016.
  */
+
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -18,6 +19,7 @@ import com.mozilla.hackathon.kiboko.settings.SettingsUtils;
 import com.mozilla.hackathon.kiboko.utilities.Utils;
 import com.mozilla.hackathon.kiboko.widgets.NotifyingScrollView;
 
+import org.sufficientlysecure.htmltextview.EmojiUtils;
 import org.sufficientlysecure.htmltextview.HtmlTextView;
 
 import pl.droidsonroids.gif.GifDrawable;
@@ -85,8 +87,12 @@ public class ScreenSlidePageFragment extends Fragment {
                 .inflate(R.layout.fragment_screen_slide_page, container, false);
 
 //        ((NotifyingScrollView) rootView.findViewById(R.id.content)).setOnScrollChangedListener(mOnScrollChangedListener);
-        // Set the title view to show the page number.
-        ((TextView) rootView.findViewById(R.id.step_title)).setText(mPageTitle);
+        if(SettingsUtils.isFunModeEnabled(getContext())){
+            ((TextView) rootView.findViewById(R.id.step_title)).setText(EmojiUtils.parse(mPageTitle));
+        }else{
+            ((TextView) rootView.findViewById(R.id.step_title)).setText(mPageTitle);
+        }
+
 
         ((HtmlTextView) rootView.findViewById(R.id.step_description)).setFunMode(SettingsUtils.isFunModeEnabled(getContext()));
         ((HtmlTextView) rootView.findViewById(R.id.step_description)).setHtmlFromString(mPageDescription,new HtmlTextView.LocalImageGetter());
