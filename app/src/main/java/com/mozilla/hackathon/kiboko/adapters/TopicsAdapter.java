@@ -16,6 +16,9 @@ import com.mozilla.hackathon.kiboko.R;
 import com.mozilla.hackathon.kiboko.activities.FindIconsActivity;
 import com.mozilla.hackathon.kiboko.activities.TutorialSlideActivity;
 import com.mozilla.hackathon.kiboko.models.Topic;
+import com.mozilla.hackathon.kiboko.settings.SettingsUtils;
+
+import org.sufficientlysecure.htmltextview.EmojiUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -90,6 +93,12 @@ public class TopicsAdapter  extends BaseAdapter implements Filterable {
 
         final Topic topic = topics.get(position);
         holder.tv.setText(topic.getName());
+        
+        if(SettingsUtils.isFunModeEnabled(context)){
+            holder.tv.setText(EmojiUtils.parse(topic.getName()));
+        }else{
+            holder.tv.setText(topic.getName());
+        }
         holder.img.setImageResource(topic.getImage());
 
         viewItem.setOnClickListener(new View.OnClickListener() {

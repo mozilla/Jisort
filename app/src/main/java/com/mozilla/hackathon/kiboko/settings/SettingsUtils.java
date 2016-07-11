@@ -26,6 +26,11 @@ public class SettingsUtils {
     public static final String PREF_ANALYTICS_ENABLED = "pref_analytics_enabled";
 
     /**
+     * Boolean preference indicating whether the app is in fun mode
+     */
+    public static final String PREF_FUNMODE_ENABLED = "pref_funmode_enabled";
+
+    /**
      * Mark that the app has finished loading the {@code R.raw.bootstrap_data bootstrap data}.
      *
      * @param context Context to be used to edit the {@link android.content.SharedPreferences}.
@@ -67,6 +72,17 @@ public class SettingsUtils {
 //    }
 
     /**
+     * Set fun mode.
+     *
+     * @param context  Context to be used to edit the {@link android.content.SharedPreferences}.
+     * @param newValue New value that will be set.
+     */
+    public static void setFunMode(final Context context, boolean newValue) {
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
+        sp.edit().putBoolean(PREF_FUNMODE_ENABLED, newValue).apply();
+    }
+
+    /**
      * Return true if analytics are enabled, false if user has disabled them.
      *
      * @param context Context to be used to lookup the {@link android.content.SharedPreferences}.
@@ -74,6 +90,16 @@ public class SettingsUtils {
     public static boolean isAnalyticsEnabled(final Context context) {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
         return sp.getBoolean(PREF_ANALYTICS_ENABLED, true);
+    }
+
+    /**
+     * Return true if fun mode is enabled, false if user has disabled them.
+     *
+     * @param context Context to be used to lookup the {@link android.content.SharedPreferences}.
+     */
+    public static boolean isFunModeEnabled(final Context context) {
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
+        return sp.getBoolean(PREF_FUNMODE_ENABLED, false);
     }
 
     /**

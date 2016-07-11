@@ -31,6 +31,7 @@ public class HtmlTextView extends JellyBeanSpanFixTextView {
     public static final boolean DEBUG = false;
     boolean mDontConsumeNonUrlClicks = true;
     boolean mLinkHit;
+    private boolean mfunMode = false;
     private boolean removeFromHtmlSpace = false;
     private ClickableTableSpan mClickableTableSpan;
     private DrawTableLinkSpan mDrawTableLinkSpan;
@@ -52,6 +53,14 @@ public class HtmlTextView extends JellyBeanSpanFixTextView {
      */
     public void setRemoveFromHtmlSpace(boolean removeFromHtmlSpace) {
         this.removeFromHtmlSpace = removeFromHtmlSpace;
+    }
+
+    /**
+     * Note that this must be called before setting text for it to work
+     * @param funMode true/false
+     */
+    public void setFunMode(boolean funMode) {
+        this.mfunMode = funMode;
     }
 
     public interface ImageGetter {
@@ -137,11 +146,17 @@ public class HtmlTextView extends JellyBeanSpanFixTextView {
         final HtmlTagHandler htmlTagHandler = new HtmlTagHandler();
         htmlTagHandler.setClickableTableSpan(mClickableTableSpan);
         htmlTagHandler.setDrawTableLinkSpan(mDrawTableLinkSpan);
+
+        if(mfunMode){
+            html = EmojiUtils.parse(html);
+        }
+
         if (removeFromHtmlSpace) {
             setText(removeHtmlBottomPadding(Html.fromHtml(html, htmlImageGetter, htmlTagHandler)));
         } else {
             setText(Html.fromHtml(html, htmlImageGetter, htmlTagHandler));
         }
+
         // make links work
         setMovementMethod(LocalLinkMovementMethod.getInstance());
     }
