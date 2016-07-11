@@ -15,4 +15,15 @@
         android:textColor="@color/colorTextPrimary"
         android:layout_margin="@dimen/activity_vertical_margin"
         />
+    <android.support.v7.widget.SwitchCompat
+        android:id="@+id/funmodeSwitch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textOn="show"
+        android:textOff="hide"
+        app:showText="false"
+        android:text="@string/enable_funmode_description"
+        android:textColor="@color/colorTextPrimary"
+        android:layout_margin="@dimen/activity_vertical_margin"
+        />
 </LinearLayout>

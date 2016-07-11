@@ -19,6 +19,7 @@ import com.mozilla.hackathon.kiboko.R;
 import com.mozilla.hackathon.kiboko.adapters.TopicsAdapter;
 import com.mozilla.hackathon.kiboko.models.Topic;
 import com.mozilla.hackathon.kiboko.services.ChatHeadService;
+import com.mozilla.hackathon.kiboko.settings.SettingsUtils;
 import com.mozilla.hackathon.kiboko.utilities.Utils;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +28,7 @@ public class TopicsFragment extends ListFragment implements CompoundButton.OnChe
     public static int OVERLAY_PERMISSION_REQ_CODE_CHATHEAD = 1234;
     TopicsAdapter adapter;
     private LinearLayout listFooterView;
-    private SwitchCompat toggleSwitch = null;
+    private SwitchCompat toggleSwitch, funmodeSwitch = null;
 
     public TopicsFragment() {
     }
@@ -72,9 +73,13 @@ public class TopicsFragment extends ListFragment implements CompoundButton.OnChe
         // Inflate footer view
         listFooterView = (LinearLayout) LayoutInflater.from(this.getActivity()).inflate(R.layout.dashboard_footer_view, null);
         toggleSwitch = (SwitchCompat) listFooterView.findViewById(R.id.toggleSwitch);
+        funmodeSwitch = (SwitchCompat) listFooterView.findViewById(R.id.funmodeSwitch);
         toggleSwitch.setChecked(App.isServiceRunning());
+
+        funmodeSwitch.setChecked(SettingsUtils.isFunModeEnabled(getContext()));
         //attach a listener to check for changes in state
         toggleSwitch.setOnCheckedChangeListener(this);
+        funmodeSwitch.setOnCheckedChangeListener(this);
         setListAdapter(adapter);
         getListView().addFooterView(listFooterView);
     }
@@ -96,6 +101,14 @@ public class TopicsFragment extends ListFragment implements CompoundButton.OnChe
                         }
                     }
                 }
+                break;
+            case R.id.funmodeSwitch:
+                if(!isChecked){
+                    Analytics.add("TopicsFragment::FunMode Switch", "Off");
+                }else{
+                    Analytics.add("TopicsFragment::FunMode Switch", "On");
+                }
+                SettingsUtils.setFunMode(getContext(), isChecked);
                 break;
             default:
                 break;
