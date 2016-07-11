@@ -36,4 +36,17 @@
         android:layout_height="wrap_content"
         android:text="@string/play_again_text"/>
 
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/result_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:scaleType="fitXY"
+        android:adjustViewBounds="true"
+        android:src="@drawable/connectwifi9"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
+        android:background="@android:color/transparent"
+        />
+
 </LinearLayout>

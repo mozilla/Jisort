@@ -8,34 +8,50 @@
     android:orientation="vertical"
     tools:context="com.mozilla.hackathon.kiboko.fragments.IconsFragment">
 
-    <GridView
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:verticalSpacing="10dp"
-        android:horizontalSpacing="10dp"
-        android:id="@+id/icons_gridview"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="430dp"
-        android:numColumns="4"
-        android:layout_below="@+id/icons_button"
-        android:columnWidth="50dp">
+        android:fillViewport="true"
+        android:background="@color/colorPrimary"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:layout_height="match_parent">
 
-    </GridView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Ready for a challenge?"
-        android:id="@+id/textView"
-        android:layout_gravity="center_horizontal"
-        android:textColor="@color/colorTextPrimary" />
+            <GridView
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:verticalSpacing="10dp"
+                android:horizontalSpacing="10dp"
+                android:id="@+id/icons_gridview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:numColumns="4"
+                android:layout_below="@+id/icons_button"
+                android:columnWidth="50dp">
+            </GridView>
 
-    <Button
-        android:id="@+id/icons_button"
-        android:text="@string/play_icon_quiz_text"
-        android:textColor="@color/colorTextPrimary"
-        android:background="@color/colorAccent"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+            <TextView
+                android:layout_marginTop="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/quiz_challenge_text"
+                android:id="@+id/textView"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/colorTextPrimary" />
+
+            <Button
+                android:layout_marginTop="5dp"
+                android:id="@+id/icons_button"
+                android:text="@string/play_icon_quiz_text"
+                android:textColor="@color/colorTextPrimary"
+                android:background="@color/colorAccent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

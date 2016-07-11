@@ -253,29 +253,108 @@
         "description": "Impostors can easily break short passwords and passwords made up of sequential numbers like \"1234\". They can also guess passwords that are made of simple words like \"mydata\". Impostors can use what they know about you to guess passwords based on important dates in your life (such as birthdays or anniversaries) or the names of people (including celebrities and sports teams) or places you know."
       }]
     }],
-  "quizes": [{
+  "quizes": [
+    {
       "id": "1",
-      "question": "What icon indicates battery low?",
-      "answer": "ic_battery_20_white_48dp",
-      "optiona": "ic_bluetooth_connected_white_48dp",
-      "optionb": "ic_phone_white_48dp",
-      "optionc": "ic_event_white_48dp",
-      "optiond": "ic_battery_20_white_48dp"
-    },{
+      "question": "to set an alarm on your phone.",
+      "answer": "ic_alarm_white_48dp",
+      "optiona": "","optionb": "","optionc": "","optiond": ""
+    },
+    {
       "id": "2",
-      "question": "What icon indicates wifi?",
-      "answer": "ic_network_wifi_white_48dp",
-      "optiona": "ic_bluetooth_connected_white_48dp",
-      "optionb": "ic_phone_white_48dp",
-      "optionc": "ic_event_white_48dp",
-      "optiond": "ic_network_wifi_white_48dp"
-    },{
-      "id": "3",
-      "question": "What icon indicates bluetooth?",
+      "question": "to share music with a friend.",
       "answer": "ic_bluetooth_connected_white_48dp",
-      "optiona": "ic_bluetooth_connected_white_48dp",
-      "optionb": "ic_network_wifi_white_48dp",
-      "optionc": "ic_delete_white_48dp",
-      "optiond": "ic_phone_white_48dp"
-    }]
+      "optiona": "","optionb": "","optionc": "","optiond": ""
+    },
+    {
+      "id": "3",
+      "question": "to use an online map.",
+      "answer": "ic_location_on_white_48dp",
+      "optiona": "","optionb": "","optionc": "","optiond": ""
+    },
+    {
+      "id": "4",
+      "question": "to customise and manage your phone.",
+      "answer": "ic_settings_applications_white_48dp",
+      "optiona": "","optionb": "","optionc": "","optiond": ""
+    },
+    {
+      "id": "5",
+      "question": "to use someone else’s internet over Wi-Fi.",
+      "answer": "ic_network_wifi_white_48dp",
+      "optiona": "","optionb": "","optionc": "","optiond": ""
+    },
+    {
+      "id": "6",
+      "question": "to discover and download new apps.",
+      "answer": "googleplay_white",
+      "optiona": "","optionb": "","optionc": "","optiond": ""
+    },
+    {
+      "id": "7",
+      "question": "to add and edit contacts.",
+      "answer": "ic_contacts_white_48dp",
+      "optiona": "","optionb": "","optionc": "","optiond": ""
+    },
+    {
+      "id": "8",
+      "question": "to send tweets and see what's going on in the world.",
+      "answer": "twitter_white",
+      "optiona": "","optionb": "","optionc": "","optiond": ""
+    },
+    {
+      "id": "9",
+      "question": "to disconnect all signals to and from your phone.",
+      "answer": "ic_airplanemode_active_white_48dp",
+      "optiona": "","optionb": "","optionc": "","optiond": ""
+    },
+    {
+      "id": "10",
+      "question": "to use everyone’s favourite chat app.",
+      "answer": "whatsapp_white",
+      "optiona": "","optionb": "","optionc": "","optiond": ""
+    },
+    {
+      "id": "11",
+      "question": "that represents your phone's operating system.",
+      "answer": "ic_android_white_48dp",
+      "optiona": "","optionb": "","optionc": "","optiond": ""
+    },
+    {
+      "id": "12",
+      "question": "to know that something is being downloaded.",
+      "answer": "ic_get_app_white_48dp",
+      "optiona": "","optionb": "","optionc": "","optiond": ""
+    },
+    {
+      "id": "13",
+      "question": "that represents the world's biggest social network.",
+      "answer": "facebook_white",
+      "optiona": "","optionb": "","optionc": "","optiond": ""
+    },
+    {
+      "id": "14",
+      "question": "to search for something.",
+      "answer": "ic_search_white_48dp",
+      "optiona": "","optionb": "","optionc": "","optiond": ""
+    },
+    {
+      "id": "15",
+      "question": "see your week's important events",
+      "answer": "calendar_white",
+      "optiona": "","optionb": "","optionc": "","optiond": ""
+    },
+    {
+      "id": "16",
+      "question": "to search for information or websites.",
+      "answer": "opera_white",
+      "optiona": "","optionb": "","optionc": "","optiond": ""
+    },
+    {
+      "id": "17",
+      "question": "to search for apps.",
+      "answer": "googleplay_white",
+      "optiona": "","optionb": "","optionc": "","optiond": ""
+    }
+  ]
 }

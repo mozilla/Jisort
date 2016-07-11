@@ -42,6 +42,8 @@
     <string name="play_again_text">Play Again</string>
     <string name="quiz_template_points"><xliff:g id="current_step_number">%1$d</xliff:g> Points</string>
     <string name="placeholder_quiz_score">Score: 0</string>
+    <string name="quiz_challenge_text">Ready for a challenge?</string>
+    <string name="quiz_title_text">Choose the icon&#8230;</string>
     <string name="title_activity_iconquiz">Icon Quiz</string>
     <string name="title_activity_topiclist">Phone Usage</string>
     <string name="title_activity_quizresult">Icon Quiz</string>
