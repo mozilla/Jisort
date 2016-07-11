@@ -216,8 +216,6 @@ public class TutorialSlideActivity extends DSOActivity implements LoaderManager.
                         mPager.setCurrentItem(mStepFrame);
                 }
         }
-        cursor.close();
-
     }
 
     @Override
