@@ -1,258 +1,293 @@
 {
-    "tutorials": [{
-        "id": "1",
-        "tag": "wifi",
-        "header": "Wi-Fi ni Noma!",
-        "photoUrl": "url",
-        "steps": [{
-            "id": "1",
-            "title": "What is Wi-Fi?",
-            "gifUrl": "wifi1",
-            "description": "Wi-Fi is a technology that helps your phone connect to the internet, similar to airtime or mobile data. However, <b>Wi-Fi doesn't use your airtime or mobile data.</b> Wi-Fi can often be free in coffee shops, or accessible at a small fee."
-        }, {
-            "id": "2",
-            "title": "Where do I get it? Who owns it?",
-            "gifUrl": "wifi2",
-            "description": "Wi-Fi networks are created by \"hotspots\" that connect to the internet. Anyone can buy one and set it up at home, at work, or in a public space. If you can detect a Wi-Fi network on your phone, you might be able to connect to it. To learn more about connecting, check out <a href=\"mozilladso:///tutorials/connect_wifi\">Connecting to Wi-Fi</a>."
-        }, {
-            "id": "3",
-            "title": "Saving Money",
-            "gifUrl": "wifi3",
-            "description": "Connecting to a Wi-Fi hotspot saves money because it lets you use the internet without using mobile data or airtime on your phone. Remember, though, sometimes you have to pay a small fee to use Wi-Fi at a business or cafe, or buy some goods.<br><br>Many phones are capable of creating hotspots <img src=\"ic_wifi_tethering_white_24dp\"/>. <b>If you let other people connect to your phone's hotspot, it may consume your data.</b>"
-        }, {
-            "id": "4",
-            "title": "Speed and Stability",
-            "gifUrl": "wifi4",
-            "description": "Wi-Fi networks are generally more stable and faster than mobile data networks. Downloading files or watching videos is best over Wi-Fi.\n<b>Be aware:</b> it is not <b>always</b> the case that Wi-Fi is faster and more stable than mobile data. Depending on infrastructure, popularity, and other environmental factors, Wi-Fi may not be as responsive or reliable."
-        }]
+  "tutorials": [{
+    "id": "1",
+    "tag": "wifi",
+    "header": "Wi-Fi ni Noma!",
+    "photoUrl": "url",
+    "steps": [{
+      "id": "1",
+      "title": "What is Wi-Fi?",
+      "gifUrl": "wifi1",
+      "description": "Wi-Fi is a technology that helps your phone connect to the internet, similar to airtime or mobile data. However, <b>Wi-Fi doesn't use your airtime or mobile data.</b> Instead, in coffee shops or public spaces, Wi-Fi is often free."
     }, {
-        "id": "2",
-        "tag": "connect_wifi",
-        "header": "Connecting to Wi-Fi",
-        "photoUrl": "url",
-        "steps": [{
-            "id": "1",
-            "title": "Finding Names and Passwords",
-            "gifUrl": "connectwifi1",
-            "description": "To connect to a Wi-Fi hotspot, you will need <b color=\"#E4BC4D\">the name of the hotspot</b> and, in some cases, <b color=\"#E4BC4D\">its password</b>. If you are in a business, cafe, or other public space, you can usually ask the owner of the hotspot for this information. Some places charge a small fee for using their Wi-Fi."
-        }, {
-            "id": "2",
-            "title": "Turning on Wi-Fi",
-            "gifUrl": "connectwifi2",
-            "description": "On most Android phones, you can swipe down the Notification Bar at the top of the screen and tap the Wi-Fi <a href=\"mozilladso:///actions/connect_wifi\"><img src=\"ic_network_wifi_white_24dp\"/></a> icon. If you are close to a Wi-Fi network you have joined before, <b>your phone will try to connect to it automatically</b>. You can also manage your Wi-Fi connection by clicking on the Settings <img src=\"ic_settings_applications_white_24dp\"/> and checking out the Wi-Fi section."
-        }, {
-            "id": "3",
-            "title": "Finding your hotspot in the Wi-Fi list",
-            "gifUrl": "connectwifi4",
-            "description": "Look at the list of networks that appear and click on the one that you want to connect to."
-        }, {
-            "id": "4",
-            "title": "Entering a Password",
-            "gifUrl": "connectwifi6",
-            "description": "<i>If your phone has already connected to the correct Wi-Fi hotspot, you can skip this step.</i><br><br>Some Wi-Fi hotspots require a password. In this case, a box will appear that asks for a password. If you don’t know the password, ask for help from the owner of the hotspot. Once you have the password, use the keyboard that pops up to enter it."
-        }, {
-            "id": "5",
-            "title": "Fixing Problems",
-            "gifUrl": "connectwifi7",
-            "description": "If you have problems connecting to a Wi-Fi hotspot, here is a list of things you can try:<ul><li>Make sure you have the right hotspot name.</li><li>Make sure you have the right password.</li><li>If you have the right password, make sure it's entered correctly.</li><li>Talk to the hotspot owner (shopkeeper, librarian, IT assistant, etc.) and explain your problems. They may be able to help solve your problem.</li><li>In the Wi-Fi menu, delete the hotspot by holding its name until a menu appears. Then, choose <b>\"Forget Network\"</b>, and connect again.</li></ul>"
-        }, {
-            "id": "6",
-            "title": "Enjoy :-)",
-            "gifUrl": "connectwifi9",
-            "description": "Now, you should be connected! Enjoy! :-)"
-        }]
+      "id": "2",
+      "title": "Where do I get it? Who owns it?",
+      "gifUrl": "wifi2",
+      "description": "Wi-Fi networks are created by \"hotspots\" that connect to the internet. Anyone can buy one and set it up at home, at work, or in a public space. If you can detect a Wi-Fi network on your phone, you might be able to connect to it. To learn more about connecting, check out <a href=\"mozilladso:///tutorials/connect_wifi\">Connecting to Wi-Fi</a>."
     }, {
-        "id": "3",
-        "tag": "data",
-        "header": "Mobile Data Consumption",
-        "photoUrl": "url",
-        "steps": [{
-            "id": "1",
-            "title": "Mobile Data vs. Wi-Fi",
-            "gifUrl": "data1",
-            "description": "To access the internet, your phone uses a <b>mobile data</b> connection or a <b>Wi-Fi</b> connection.<br><ul><li>Mobile data is sold by your service provider and is measured in kilobytes, megabytes and gigabytes.</li><li>Wi-Fi hotspots rely on service providers for their internet, too. So, <b>connecting to a Wi-Fi hotspot, will use its data instead of yours.</b></li></ul>"
-        }, {
-            "id": "2",
-            "title": "Apps Use Data",
-            "gifUrl": "data2",
-            "description": "<b>Data is used to move content around the internet.</b> Many apps (Google, Yahoo, Facebook, WhatsApp, Opera, Instagram, Branch) will consume data because they connect to the internet. Applications like Opera Mini use less data than others because they restrict images and video. Others, like YouTube, use much more data because they use video content."
-        }, {
-            "id": "3",
-            "title": "Restrict Background Data",
-            "gifUrl": "data4",
-            "description": "The easiest way to save data is to tell your apps (or the Android system itself) to <b>restrict background data</b>. Some apps continue to use data (in the \"background\") when you're not specifically using them: syncing email, updating feeds, checking the weather, etc."
-        }, {
-            "id": "4",
-            "title": "Disable Auto-update",
-            "gifUrl": "auto_update",
-            "description": "A lot of data is also consumed by your phone automatically updating your apps. If your apps were downloaded through Google Play (most are) it may be using \"auto-update\" and could be chewing its way through your data without you even knowing."
-        }, {
-            "id": "5",
-            "title": "Check your Apps' Settings",
-            "gifUrl": "data5",
-            "description": "Some applications are designed to do work even when you're not specifically using them. Most of them use <b>data by default</b> usually to provide you with regular notifications or updates.\n<br>Check the settings or preferences in your apps to verify that they aren't using data all the time. In some cases, you can have the choice to \"sync\" (connect to the internet) over Wi-Fi only.<br><br><b>In Chrome</b>, you can turn on \"Data Saver\" in the settings to save up to 35% of your data usage.<br><br><b>In Opera</b>, you can use \"compression\" that will let you enjoy the internet and save data."
-        }, {
-            "id": "6",
-            "title": "Check your WhatsApp Settings",
-            "gifUrl": "data6",
-            "description": "You can also restrict the data consumption inside WhatsApp by changing some of its settings. <ul><li>Open WhatsApp</li><li>Click on settings</li><li>Click on <b>Data Usage</b></li><li>Choose the content that your phone can download over mobile data</li><li>Choose the content that you allow your phone to download on Wi-Fi</li><li>Choose if you want to lower the amount of data usage during WhatsApp calls</li></ul>"
-        }]
-    },{
+      "id": "3",
+      "title": "Saving Money",
+      "gifUrl": "wifi3",
+      "description": "Connecting to a Wi-Fi hotspot saves money because it lets you use the internet without using mobile data or airtime on your phone. Remember, though, sometimes you have to pay a small fee to use Wi-Fi at a business or cafe, or buy some goods.<br><br>Many phones are capable of creating hotspots <img src=\"ic_wifi_tethering_white_24dp\"/>. <b>If you let other people connect to your phone's hotspot, it may consume your data.</b>"
+    }, {
       "id": "4",
-      "tag": "tracking_data",
-      "header": "Tracking your Data",
-      "photoUrl": "url",
-      "steps": [{
-        "id": "1",
-        "title": "Data consumption",
-        "gifUrl": "trackingdata1",
-        "description": "Each Android phone comes with a menu where you can follow your data consumption. You can follow it over time, but also to see which apps consume data.\nIt might look different on different phones, but should be accessible within the <b>Settings</b> <img src=\"ic_settings_applications_white_24dp\"/> app. Find the option that says <b>Data Usage</b> <img src=\"ic_data_usage_white_24dp\"/>."
-      }, {
-        "id": "2",
-        "title": "Inspecting your Data Usage",
-        "gifUrl": "trackingdata2",
-        "description": "The graph at the top shows how much data you use over time. At the end of each day, you can see how much of your data has been consumed. You can reset this graph when you buy data."
-      }, {
-        "id": "3",
-        "title": "Apps",
-        "gifUrl": "trackingdata3",
-        "description": "Below the graph is a list of apps that have been consuming data. <b>Check this list to make sure there are no apps you didn’t expect to be there</b>. <br>For example, you might discover that Gmail consumed 50MB of data recently, but you rarely use Gmail. This might mean that you should change your settings inside the app, or restrict the apps data usage.<br>To see the usage of any app in particular, simply click on its icon in the list."
-      }, {
-        "id": "4",
-        "title": "Data Usage Tips",
-        "gifUrl": "data2",
-        "description": "There are many ways to make sure your phone uses small amounts of data, or only uses data when you want it to.\nFor more information and tips, check out the next tutorial called <a href=\"mozilladso:///tutorials/data\">Using your data wisely</a>."
-      }]
-    },{
-        "id": "5",
-        "tag": "airplane_mode",
-        "header": "Airplane Mode",
-        "photoUrl": "url",
-        "steps": [{
-          "id": "1",
-          "title": "Finding the Airplane Mode button",
-          "gifUrl": "airplanemode1",
-          "description": "Turning on Airplane Mode instantly disables <b>all wireless functionality</b> of your phone. For example, Wi-Fi, Cell, Bluetooth, and GPS will not operate.<br><br>This feature is useful for keeping your phone on, but restricting its network access. Until you turn Airplane Mode off, you will not be able to receive phone calls or access the internet."
-        }, {
-          "id": "2",
-          "title": "In the Notification Bar",
-          "gifUrl": "airplanemode2",
-          "description": "On newer phones, simply swipe down the Notification Bar at the top of your screen, and look for the airplane icon<img src=\"ic_airplanemode_active_white_24dp\"/>. Tap the icon to turn Airplane Mode <b>ON</b> or <b>OFF</b>. <br><br> You can also find this feature in Settings <img src=\"ic_settings_applications_white_24dp\"/> or from your phone's power button."
-        }, {
-          "id": "3",
-          "title": "In the Wireless Settings Menu",
-          "gifUrl": "airplanemode3",
-          "description": "You can also toggle Airplane Mode from the Settings menu. On all Android phones, including older phones, open <b>Settings</b> <img src=\"ic_settings_applications_white_24dp\"/>, choose \"<b>More…</b>\" in the <b>Wireless & Networks</> section, and check the box that says \"<b>Airplane Mode</b>\"."
-        }]
-      },{
-        "id": "6",
-        "tag": "storage",
-        "header": "Freeing up Memory",
-        "photoUrl": "url",
-        "steps": [{
-          "id": "1",
-          "title": "Storage Space",
-          "gifUrl": "storage1",
-          "description": "Your phone has limited space for apps, videos, images, and other content you have stored. There are a few things you can check to free up some space."
-        }, {
-          "id": "2",
-          "title": "Checking your Storage",
-          "gifUrl": "storage2",
-          "description": "Within the <b>Settings</b> <img src=\"ic_settings_applications_white_24dp\"/> app you’ll find the <b>Storage & USB</b> <img src=\"ic_storage_white_24dp\"/> menu. You will be shown a breakdown of the Apps, Images, Videos, Audio, and Other content that's using up your phone's memory."
-        }, {
-          "id": "3",
-          "title": "Evaluating Items",
-          "gifUrl": "storage3",
-          "description": "The size of content on your phone is measured in MB, and GB, where MB is the smallest, and GB is the biggest. If an app consumes 2GB of space, it is much larger than an image that consumes 2MB.\nConfirm that the size of each type of content is as you expect and as you want. If your phone has many images and you’re having trouble installing a new app, consider deleting some."
-        }]
-      },{
+      "title": "Speed and Stability",
+      "gifUrl": "wifi4",
+      "description": "Wi-Fi networks are generally more stable and faster than mobile data networks. Downloading files or watching videos is best over Wi-Fi.\n<b>Be aware:</b> it is not <b>always</b> the case that Wi-Fi is faster and more stable than mobile data. Depending on infrastructure, popularity, and other environmental factors, Wi-Fi may not be as responsive or reliable."
+    }]
+  }, {
+    "id": "2",
+    "tag": "connect_wifi",
+    "header": "Connecting to Wi-Fi",
+    "photoUrl": "url",
+    "steps": [{
+      "id": "1",
+      "title": "Finding Names and Passwords",
+      "gifUrl": "connectwifi1",
+      "description": "To connect to a Wi-Fi hotspot, you will need <b color=\"#E4BC4D\">the name of the hotspot</b> and, in some cases, <b color=\"#E4BC4D\">its password</b>. If you are in a business, cafe, or other public space, you can usually ask the owner of the hotspot for this information. Some places charge a small fee for using their Wi-Fi."
+    }, {
+      "id": "2",
+      "title": "Turning on Wi-Fi",
+      "gifUrl": "connectwifi2",
+      "description": "On most Android phones, you can swipe down the Notification Bar at the top of the screen and tap the Wi-Fi <a href=\"mozilladso:///actions/connect_wifi\"><img src=\"ic_network_wifi_white_24dp\"/></a> icon. If you are close to a Wi-Fi network you have joined before, <b>your phone will try to connect to it automatically</b>."
+    }, {
+      "id": "3",
+      "title": "Turning on Wi-Fi from the Wireless Settings Menu",
+      "gifUrl": "connectwifi3",
+      "description": "On Android phones, to make sure your Wi-Fi is on, open the <b>Settings</b> app <img src=\"ic_settings_applications_white_24dp\"/>, and tap <b>Wi-Fi</b> icon <img src=\"ic_network_wifi_white_24dp\"/>. If your Wi-Fi is OFF,  look near the top of the screen and then tap the toggle switch [cropped screenshot] to move it into the \"ON\" position."
+    }, {
+      "id": "4",
+      "title": "Finding your hotspot in the Wi-Fi list",
+      "gifUrl": "connectwifi4",
+      "description": "If your phone hasn't already automatically connected to a Wi-Fi hotspot, you will need to use your phone to search for the hotspot you want to connect to.\n If you are already in the Wi-Fi Settings Menu from the last step, simply wait until you see the name of the Wi-Fi hotspot that you want to connect to. Otherwise, open the Settings app <img src=\"ic_settings_applications_white_24dp\"/>, and click on the Wi-Fi icon <img src=\"ic_network_wifi_white_24dp\"/>. If your Wi-Fi is on, you will see a list of all the Wi-Fi hotspots around you."
+    }, {
+      "id": "5",
+      "title": "Connecting to a Wi-Fi hotspot",
+      "gifUrl": "connectwifi5",
+      "description": "When you see the Wi-Fi hotspot that you want to connect to, tap it. If it doesn't require a password, your phone will try to connect. When it does, it will read <b>Connected</b>.\nYou may also see your phone say <b>Authenticating</b> or <b>Obtaining IP Address</b>. These are normal steps in making a Wi-Fi connection.\nIf asked for a password, usishtuke! Just go to the next step."
+    }, {
+      "id": "6",
+      "title": "Entering a Password",
+      "gifUrl": "connectwifi6",
+      "description": "<i>If your phone has already connected to the correct Wi-Fi hotspot, you can skip this step, and just go enjoy the Internet. :)</i><br>Some Wi-Fi hotspots require a password. In this case, a box will appear that asks for a password. If you don’t know the password, ask for help from the owner of the hotspot. Once you have the password, use the keyboard that pops up to enter it."
+    }, {
       "id": "7",
-      "tag": "playstore",
-      "header": "The Play Store",
-      "photoUrl": "url",
-      "steps": [{
-        "id": "1",
-        "title": "Home of Many Apps",
-        "gifUrl": "playstore1",
-        "description": "The Play Store lets you download apps on your phone. You can search for different kinds of apps like games, learning apps, social media apps, photo-editing apps, and more.\nSome apps on the Play Store are free, and some costs money. Don’t worry though: you will always be asked to confirm if you are about to spend money."
-      }, {
-        "id": "2",
-        "title": "Opening the Play Store",
-        "gifUrl": "storage2",
-        "description": "To start, look for the Play Store icon on your phone’s screen. If you can’t find it, try looking in the apps <img src=\"ic_blur_circular_white_24dp\"/> menu."
-      }, {
-        "id": "3",
-        "title": "Accounts",
-        "gifUrl": "playstore2",
-        "description": "Google, the company that created both Android and the Play Store, wants you to have a Google account with them before you use the Play Store. If you’re using the Play Store for the first time, you may be asked to set up a Google account. You can pick a username and a strong password for your account when you sign up. If you need help coming up with a good password, look at <a href=\"mozilladso:///tutorials/accounts_passwords\">Accounts and Passwords</a>."
-      }, {
-        "id": "4",
-        "title": "Searching for Apps",
-        "gifUrl": "playstore4",
-        "description": "Now that you have access to the Play Store, you can look for apps you want! There are millions to choose from to help organize your life, search for information, have fun, and more. You just have to search!"
-      }, {
-        "id": "5",
-        "title": "Browsing for Apps",
-        "gifUrl": "playstore5",
-        "description": "You can also look at lists of apps in different categories and discover new ones as you look.  Try clicking on the different categories to look for new and interesting apps."
-      }, {
-        "id": "6",
-        "title": " Reviewing and Downloading",
-        "gifUrl": "playstore6",
-        "description": "Before downloading an app, always look at its rating, description and the comments posted about it by other people to learn more about the app. Because apps can be made by anybody, ratings and comments are the best way to know if an app does what it claims, or if it is poorly made."
-      }, {
-        "id": "7",
-        "title": "Giving your own review",
-        "gifUrl": "playstore7",
-        "description": "Once you’ve downloaded and used an app, you can rate it and comment about it in the Play Store. Your feedback helps create a safe environment by giving people reliable information about whether or not apps are well-made, useful and appropriate."
-      }, {
-        "id": "8",
-        "title": "Updating",
-        "gifUrl": "playstore8",
-        "description": "Occasionally, app creators will need to update or change the content of the app. So, often, they issue updates for their apps through the Play Store.\nUpdating apps consumes data. However, the Play Store will try to download updates automatically when you’re connected to a Wi-Fi hotspot. Check out <a href=\"mozilladso:///tutorials/data/6\">Disable Auto-Update</a> if you suspect that apps are being updated with your mobile data connection."
-      }]
-    },{
+      "title": "Fixing Problems",
+      "gifUrl": "connectwifi7",
+      "description": "If you have problems connecting, here are some things you can try:<ul><li>Make sure you're not too far from the hotspot.</li><li>Make sure you have the right hotspot name.</li><li>Make sure you have the right password.</li><li>If you have the right password, make sure it's entered correctly.</><li>Talk to the hotspot owner (shopkeeper, librarian, IT assistant, etc.) and explain your problems.</li><li>As a last resort, reboot your phone.</li></ul>"
+    }, {
       "id": "8",
-      "tag": "accounts_passwords",
-      "header": "Accounts and Passwords",
-      "photoUrl": "url",
-      "steps": [{
-        "id": "1",
-        "title": "Accounts",
-        "gifUrl": "accounts1",
-        "description": "An account is the identity you use to sign into and use an app or service. Companies and other people can often observe your account activity to see how you use apps, services, and websites."
-      }, {
-        "id": "2",
-        "title": "Multiple Accounts",
-        "gifUrl": "accounts2",
-        "description": "Companies often want you to make an account specifically for their services. For example, Facebook wants you to have a Facebook account to interact with people there, and Google wants you to have a Google account to use apps like the Play Store."
-      }, {
-        "id": "3",
-        "title": "A Different Password for Each Account",
-        "gifUrl": "accounts3",
-        "description": "<b>You should use a different password for every account you make.</b>\nImagine you use Facebook and Gmail with the same password. If someone discovers your Facebook password, they also have access to your Gmail. By using a different password for every account, the only account they have access to is Facebook."
-      }, {
-        "id": "4",
-        "title": "Making a Strong Password",
-        "gifUrl": "accounts4",
-        "description": "Strong passwords usually have\n<ul><li>At least 8 characters.</li><li>Uppercase and lowercase letters.</li><li>Letters, numbers, and punctuation marks.</li></ul>\nTry to pick passwords that are memorable to you, but not based on personal information other people can easily find out about you."
-      }, {
-        "id": "5",
-        "title": "Using a Memorable Sentence",
-        "gifUrl": "accounts5",
-        "description": "To create and remember a strong password, think of a memorable sentence and use the first letter of each word. For example, \"<b>I buy 2 mangos at the market every week</b>\" becomes \"<b>Ib2matmew/b>\" ."
-      }, {
-        "id": "6",
-        "title": "Using a String of Random Words",
-        "gifUrl": "accounts6",
-        "description": "Random strings of common words, such as \"Mousetrap Sandwich Hospital Anecdote,\" tend to work well, too.\nTo help you remember the words you choose, use them to imagine a scene. For example, cat, home, battery, and cake, might become \"a cat living in a house on a cake made of batteries\"."
-      }, {
-        "id": "7",
-        "title": "What kinds of passwords should I avoid?",
-        "gifUrl": "accounts7",
-        "description": "Impostors can easily break short passwords and passwords made up of sequential numbers like \"1234\". They can also guess passwords that are made of simple words like \"mydata\". Impostors can use what they know about you to guess passwords based on important dates in your life (such as birthdays or anniversaries) or the names of people (including celebrities and sports teams) or places you know."
-      }]
-    }],
+      "title": "Fixing Problems Continued",
+      "gifUrl": "connectwifi8",
+      "description": "Sometimes even with the correct hotspot name and password, connection problems will persist. In this case, you can try removing the hotspot from your phone's memory and then reconnecting. Go to the Wi-Fi Settings Menu (see Frame), and find the problematic hotspot's name. Then, press and hold on the hotspot’s name until a menu appears. Choose \"Forget Network\". Then, try connecting again. You may have to re-enter your password, so have it ready.\nSometimes a hotspot will be set up to work with specific devices and it may not let you connect to the internet even though it looks like it should. If you really can't connect to the one you picked, try to find another hotspot."
+    }, {
+      "id": "9",
+      "title": "Enjoy :-)",
+      "gifUrl": "connectwifi9",
+      "description": "Now, you should be connected! Enjoy! :-)"
+    }]
+  }, {
+    "id": "3",
+    "tag": "data",
+    "header": "Mobile Data Consumption",
+    "photoUrl": "url",
+    "steps": [{
+      "id": "1",
+      "title": "Mobile Data vs. Wi-Fi",
+      "gifUrl": "data1",
+      "description": "To access the internet, your phone uses a <b>mobile data</b> connection or a <b>Wi-Fi</b> connection. Mobile data is sold by your service provider and is measured in kilobytes, megabytes and gigabytes. Wi-Fi hotspots rely on service providers for their internet, too. So, <b>connecting to a Wi-Fi hotspot, will use its data instead of yours.</b>"
+    }, {
+      "id": "2",
+      "title": "Apps Use Data",
+      "gifUrl": "data2",
+      "description": "<b>Data is used to move content around the internet.</b> Many apps (Google, Yahoo, Facebook, WhatsApp, Opera, Instagram, Branch) will consume data because they connect to the internet. Applications like Opera Mini use less data than others because they restrict images and video. Others, like YouTube, use much more data because they use video content."
+    }, {
+      "id": "3",
+      "title": "Use Airplane Mode",
+      "gifUrl": "airplanemode1",
+      "description": "When you are not using your phone or expecting a call from anyone, you can turn on <b>Airplane Mode</b>. This will turn off your phone’s wireless radios completely. Phone calls, mobile data, and bluetooth connections will all be blocked, so no airtime or data will be used. To learn how to turn it on, check out <a href=\"mozilladso:///tutorials/airplane_mode\">Airplane Mode</a>."
+    }, {
+      "id": "4",
+      "title": "Restrict Background Data",
+      "gifUrl": "data4",
+      "description": "The easiest way to save data is to tell your apps (or the Android system itself) to restrict background data. Some apps continue to use data (in the \"background\") when you're not specifically using them: syncing email, updating feeds, checking the weather, etc."
+    }, {
+      "id": "5",
+      "title": "Connect to Wi-Fi",
+      "gifUrl": "connectwifi2",
+      "description": "The more Wi-Fi you use, the more data you save. Wi-Fi connections are usually stronger, more stable, and less costly than cellular (mobile) ones, though sometimes you have to pay to use someone else’s hotspot. To learn how to connect to Wi-Fi, <a href=\"mozilladso:///tutorials/connect_wifi\">Connecting Wi-Fi</a>."
+    }, {
+      "id": "6",
+      "title": "Disable Auto-update",
+      "gifUrl": "auto_update",
+      "description": "A lot of data is also consumed by your phone automatically updating your apps. If your apps were downloaded through Google Play (most are) it may be using \"auto-update\" and could be chewing its way through your data without you even knowing."
+    }, {
+      "id": "7",
+      "title": "Check your Apps' Settings",
+      "gifUrl": "data7",
+      "description": "Some applications are designed to do work even when you're not specifically using them. Most of them use data by default usually to provide you with regular notifications or updates.\nCheck the settings or preferences in your apps to verify that they aren't using data all the time. In some cases, you can have the choice to \"sync\" (connect to the internet) over Wi-Fi only.\n\n<b>In Chrome</b>, you can turn on \"Data Saver\" in the settings to save up to 35% of your data usage.\n\n<b>In Opera</b>, you can use \"compression\" that will let you enjoy the internet and save data."
+    }, {
+      "id": "8",
+      "title": "Check your Whatsapp Settings",
+      "gifUrl": "data8",
+      "description": "<b>Whatsapp</b> >> <b>Settings</b> >> <b>Data Usage</b> >> <b>Media-auto-download</b>"
+    }]
+  },{
+    "id": "4",
+    "tag": "tracking_data",
+    "header": "Tracking your Data",
+    "photoUrl": "url",
+    "steps": [{
+      "id": "1",
+      "title": "Data consumption",
+      "gifUrl": "trackingdata1",
+      "description": "Each Android phone comes with a menu where you can follow your data consumption. You will be able to follow your data consumption over time, but also to see which apps consume data.\nIt might look different on different phones, but should be accessible within the <b>Settings</b> <img src=\"ic_settings_applications_white_24dp\"/> app. Find the option that says <b>Data Usage</b> <img src=\"ic_data_usage_white_24dp\"/>."
+    }, {
+      "id": "2",
+      "title": "Inspecting your Data Usage",
+      "gifUrl": "trackingdata2",
+      "description": "With <b>Data Usage</b> there are two things to notice:\nThe graph at the top shows how much data you use over time. At the end of each day, you can see how much of your data has been consumed. You can reset this graph when you buy data."
+    }, {
+      "id": "3",
+      "title": "Apps",
+      "gifUrl": "trackingdata3",
+      "description": "Below the graph is a list of apps that have been consuming data. Check this list to make sure there are no apps you didn’t expect to be there. For example, you might discover that Gmail consumed 50MB of data recently, but you rarely use Gmail. This might mean that you should change your settings inside the app, or restrict the apps data usage.\nTo see the usage of any app in particular, simply click on its icon in the list."
+    }, {
+      "id": "4",
+      "title": "Data Usage Tips",
+      "gifUrl": "data2",
+      "description": "There are many ways to make sure your phone uses small amounts of data, or only uses data when you want it to.\nFor more information and tips, check out <a href=\"mozilladso:///tutorials/data\">Mobile Data Consumption</a>."
+    }]
+  },{
+    "id": "5",
+    "tag": "airplane_mode",
+    "header": "Airplane Mode",
+    "photoUrl": "url",
+    "steps": [{
+      "id": "1",
+      "title": "Finding the Airplane Mode button",
+      "gifUrl": "airplanemode1",
+      "description": "Turning on Airplane Mode instantly disables <b>all wireless functionality</b> of your phone. For example, Wi-Fi, Cell, Bluetooth, and GPS will not operate.\nThis feature is useful for keeping your phone on, but limiting its contact with networks. Until you turn Airplane Mode off, you will not be able to receive phone calls or access the internet."
+    }, {
+      "id": "2",
+      "title": "In the Notification Bar",
+      "gifUrl": "airplanemode2",
+      "description": "On newer phones, simply swipe down the Title Bar at the top of your screen, and look for the airplane icon<img src=\"ic_airplanemode_active_white_24dp\"/>. Tap the icon to turn Airplane Mode <b>ON</b> or <b>OFF</b>."
+    }, {
+      "id": "3",
+      "title": "In the Wireless Settings Menu",
+      "gifUrl": "airplanemode3",
+      "description": "You can also toggle Airplane Mode from the Settings menu. On all Android phones, including older phones, open <b>Settings</b> <img src=\"ic_settings_applications_white_24dp\"/>, choose \"<b>More…</b>\" in the <b>Wireless & Networks</> section, and check the box that says \"<b>Airplane Mode</b>\"."
+    }, {
+      "id": "4",
+      "title": "Using Wi-Fi",
+      "gifUrl": "airplanemode4",
+      "description": "Even with Airplane mode turned on, you are still able to use Wi-Fi if you switch it on explicitly. This will ensure that mobile data is not used. Check out <a href=\"mozilladso:///tutorials/connect_wifi\">Connecting to Wi-Fi</a> for more information."
+    }]
+  },{
+    "id": "6",
+    "tag": "storage",
+    "header": "Freeing up Memory",
+    "photoUrl": "url",
+    "steps": [{
+      "id": "1",
+      "title": "Storage & USB",
+      "gifUrl": "storage1",
+      "description": "As you may have already seen, your phone has limited space for apps, videos, images, and other content you have stored. There are a few things you can check to free up some space."
+    }, {
+      "id": "2",
+      "title": "Checking your Storage",
+      "gifUrl": "storage2",
+      "description": "Within the <b>Settings</b> <img src=\"ic_settings_applications_white_24dp\"/> app you’ll find the <b>Storage & USB</b> <img src=\"ic_storage_white_24dp\"/> menu. You will be shown a breakdown of the Apps, Images, Videos, Audio, and Other content that's using up your phone's memory."
+    }, {
+      "id": "3",
+      "title": "Evaluating Items",
+      "gifUrl": "storage3",
+      "description": "The size of content on your phone is measured in MB, and GB, where MB is the smallest, and GB is the biggest. If an app consumes 2GB of space, it is much larger than an image that consumes 2MB.\nConfirm that the size of each type of content is as you expect and as you want. If your phone has many images and you’re having trouble installing a new app, consider deleting some."
+    }, {
+      "id": "4",
+      "title": "Check your Apps",
+      "gifUrl": "storage4",
+      "description": "Some apps like Whatsapp automatically download content that is sent to you from a friend or a group. You can delete this content from your phone and retrieve it again later, or prevent it from being downloaded to your phone automatically altogether.\nVideos and images you have shared on Whatsapp can always be downloaded by the friend or group you’ve sent them to, regardless of whether or not those videos or images are currently on your phone."
+    }]
+  },{
+    "id": "7",
+    "tag": "playstore",
+    "header": "The Play Store",
+    "photoUrl": "url",
+    "steps": [{
+      "id": "1",
+      "title": "Home of Many Apps",
+      "gifUrl": "playstore1",
+      "description": "The Play Store lets you download apps on your phone. You can search the app store for different kinds of apps like games, learning apps, social media apps, photo-editing apps, and more.\nSome apps on the Play Store are free, and some costs money. Don’t worry though: you will always be asked to confirm if you are about to spend money."
+    }, {
+      "id": "2",
+      "title": "Opening the Play Store",
+      "gifUrl": "storage2",
+      "description": "To start, look for the Play Store icon on your phone’s screen. If you can’t find it, try looking in the apps <img src=\"ic_blur_circular_white_24dp\"/> menu."
+    }, {
+      "id": "3",
+      "title": "Accounts",
+      "gifUrl": "playstore2",
+      "description": "Google, the company that created both Android and the Play Store, wants you to have a Google account with them before you use the Play Store. If you’re using the Play Store for the first time, you may be asked to set up a Google account. You can pick a username and a strong password for your account when you sign up. If you need help coming up with a good password, look at <a href=\"mozilladso:///tutorials/accounts_passwords\">Accounts and Passwords</a>."
+    }, {
+      "id": "4",
+      "title": "Searching for Apps",
+      "gifUrl": "playstore4",
+      "description": "Now that you have access to the Play Store, you can look for apps you want! There are millions to choose from to help organize your life, search for information, have fun, and more. You just have to search!"
+    }, {
+      "id": "5",
+      "title": "Browsing for Apps",
+      "gifUrl": "playstore5",
+      "description": "You can also look at lists of apps in different categories and discover new ones as you look.  Try clicking on the different categories to look for new and interesting apps."
+    }, {
+      "id": "6",
+      "title": " Reviewing and Downloading",
+      "gifUrl": "playstore6",
+      "description": "Before downloading an app, always look at its rating, description and the comments posted about it by other people to learn more about the app. Because apps can be made by anybody, ratings and comments are the best way to know if an app does what it claims, or if it is poorly made."
+    }, {
+      "id": "7",
+      "title": "Reviewing and Downloading (cont'd)",
+      "gifUrl": "playstore7",
+      "description": "Once you’ve downloaded and used an app, you can rate it and comment about it in the Play Store. Your feedback helps create a safe environment by giving people reliable information about whether or not apps are well-made, useful and appropriate."
+    }, {
+      "id": "8",
+      "title": "Updating",
+      "gifUrl": "playstore8",
+      "description": "Occasionally, app creators will need to update or change the content of the app. So, often, they issue updates for their apps through the Play Store.\nUpdating apps consumes data. However, the Play Store will try to download updates automatically when you’re connected to a Wi-Fi hotspot. Check out <a href=\"mozilladso:///tutorials/data/8\">Disable Auto-Update</a> if you suspect that apps are being updated with your mobile data connection."
+    }]
+  },{
+    "id": "8",
+    "tag": "accounts_passwords",
+    "header": "Accounts and Passwords",
+    "photoUrl": "url",
+    "steps": [{
+      "id": "1",
+      "title": "Accounts",
+      "gifUrl": "accounts1",
+      "description": "An account is the identity you use to sign into and use an app or service. Companies and other people can often observe your account activity to see how you use apps, services, and websites."
+    }, {
+      "id": "2",
+      "title": "Multiple Accounts",
+      "gifUrl": "accounts2",
+      "description": "Companies often want you to make an account specifically for their services. For example, Facebook wants you to have a Facebook account to interact with people there, and Google wants you to have a Google account to use apps like the Play Store."
+    }, {
+      "id": "3",
+      "title": "A Different Password for Each Account",
+      "gifUrl": "accounts3",
+      "description": "<b>You should use a different password for every account you make.</b>\nImagine you use Facebook and Gmail with the same password. If someone discovers your Facebook password, they also have access to your Gmail. By using a different password for every account, the only account they have access to is Facebook."
+    }, {
+      "id": "4",
+      "title": "Making a Strong Password",
+      "gifUrl": "accounts4",
+      "description": "Strong passwords usually have\n<ul><li>At least 8 characters.</li><li>Uppercase and lowercase letters.</li><li>Letters, numbers, and punctuation marks.</li></ul>\nTry to pick passwords that are memorable to you, but not based on personal information other people can easily find out about you."
+    }, {
+      "id": "5",
+      "title": "Using a Memorable Sentence",
+      "gifUrl": "accounts5",
+      "description": "To create and remember a strong password, think of a memorable sentence and use the first letter of each word. For example, \"<b>I buy 2 mangos at the market every week</b>\" becomes \"<b>Ib2matmew/b>\" ."
+    }, {
+      "id": "6",
+      "title": "Using a String of Random Words",
+      "gifUrl": "accounts6",
+      "description": "Random strings of common words, such as \"Mousetrap Sandwich Hospital Anecdote,\" tend to work well, too.\nTo help you remember the words you choose, use them to imagine a scene. For example, cat, home, battery, and cake, might become \"a cat living in a house on a cake made of batteries\"."
+    }, {
+      "id": "7",
+      "title": "What kinds of passwords should I avoid?",
+      "gifUrl": "accounts7",
+      "description": "Impostors can easily break short passwords and passwords made up of sequential numbers like \"1234\". They can also guess passwords that are made of simple words like \"mydata\". Impostors can use what they know about you to guess passwords based on important dates in your life (such as birthdays or anniversaries) or the names of people (including celebrities and sports teams) or places you know."
+    }]
+  }],
   "quizes": [
     {
       "id": "1",
