@@ -43,7 +43,7 @@
         android:layout_margin="@dimen/activity_horizontal_margin"
         android:scaleType="fitXY"
         android:adjustViewBounds="true"
-        android:src="@drawable/connectwifi9"
+        android:src="@drawable/bmo"
         android:layout_gravity="center_horizontal"
         android:gravity="center_horizontal"
         android:background="@android:color/transparent"

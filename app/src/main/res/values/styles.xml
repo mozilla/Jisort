@@ -18,7 +18,14 @@
     </style>
 
     <style name="AppTheme.SplashTheme" parent="AppTheme">
+        <item name="actionBarStyle">@style/DSOActionBar.Dashboard</item>
+        <item name="android:actionBarStyle" tools:ignore="NewApi">@style/DSOActionBar.Dashboard</item>
         <item name="android:windowBackground">@drawable/background_splash</item>
+    </style>
+
+    <style name="AppTheme.Dashboard" parent="AppTheme">
+        <item name="actionBarStyle">@style/DSOActionBar.Dashboard</item>
+        <item name="android:actionBarStyle" tools:ignore="NewApi">@style/DSOActionBar.Dashboard</item>
     </style>
 
     <style name="DSOActionBar" parent="@style/Widget.AppCompat.Light.ActionBar">
@@ -27,8 +34,17 @@
         <item name="background">@color/colorPrimary</item>
     </style>
 
+    <style name="DSOActionBar.Dashboard" parent="@style/Widget.AppCompat.Light.ActionBar">
+        <item name="android:titleTextStyle" tools:ignore="NewApi">@style/DSOActionBarTitle.Dashboard</item>
+        <item name="android:background" tools:ignore="NewApi">@color/colorPrimary</item>
+        <item name="background">@color/colorPrimary</item>
+    </style>
+
     <style name="DSOActionBarTitle" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
         <item name="android:textColor" tools:ignore="NewApi">@color/colorTextPrimary</item>
+    </style>
+    <style name="DSOActionBarTitle.Dashboard" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor" tools:ignore="NewApi">@color/colorIcons</item>
     </style>
     <declare-styleable name="CheckableLinearLayout">
         <attr name="is_checked" format="boolean" />

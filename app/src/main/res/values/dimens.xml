@@ -12,6 +12,8 @@
 
     <dimen name="card_elevation">2dp</dimen>
 
+    <dimen name="tooltip_button_margin">10dp</dimen>
+
     <dimen name="stream_card_corner_radius">0dp</dimen>
     <dimen name="card_corner_radius">2dp</dimen>
 

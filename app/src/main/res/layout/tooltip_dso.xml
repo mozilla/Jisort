@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:padding="@dimen/tooltip_button_margin"
     android:background="@drawable/popup_border"
     android:orientation="vertical">
 
@@ -25,14 +26,16 @@
         android:textAppearance="@android:style/TextAppearance.Small"
         tools:ignore="RtlHardcoded" />
 
-    <!--<Button-->
-        <!--android:id="@+id/btn_confirm"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_gravity="end"-->
-        <!--android:paddingRight="10dp"-->
-        <!--android:paddingLeft="10dp"-->
-        <!--android:background="#999999"-->
-        <!--android:textColor="#FFFFFF"-->
-        <!--android:text="@string/btn_more" />-->
+    <Button
+        android:id="@+id/btn_confirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginTop="@dimen/tooltip_button_margin"
+        android:paddingRight="10dp"
+        android:visibility="gone"
+        android:paddingLeft="10dp"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/colorTextPrimary"
+        android:text="@string/btn_more" />
 </LinearLayout>
