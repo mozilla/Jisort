@@ -5,72 +5,62 @@
     "header": "Wi-Fi ni Noma!",
     "photoUrl": "url",
     "steps": [{
-      "id": "1",
-      "title": "What is Wi-Fi?",
-      "gifUrl": "wifi1",
-      "description": "Wi-Fi <a href=\"mozilladso:///actions/connect_wifi\"><img src=\"ic_network_wifi_white_24dp\"/></a> is a technology that helps your phone connect to the internet, similar to airtime or mobile data. However, <b>Wi-Fi doesn't use your airtime or mobile data <a href=\"mozilladso:///actions/data\"><img src=\"ic_data_usage_white_24dp\"/></a>.</b> Instead, in coffee shops or public spaces, Wi-Fi is often free."
+        "id": "1",
+        "title": "What is Wi-Fi?",
+        "gifUrl": "wifi1",
+        "description": "Wi-Fi <a href=\"mozilladso:///actions/connect_wifi\"><img src=\"ic_network_wifi_white_24dp\"/></a> is a technology that helps your phone connect to the internet, similar to airtime or mobile data. However, <b>Wi-Fi doesn't use your airtime or mobile data.</b> Wi-Fi can often be free in coffee shops, or accessible at a small fee."
     }, {
-      "id": "2",
-      "title": "Where do I get it? Who owns it?",
-      "gifUrl": "wifi2",
-      "description": "Wi-Fi networks are created by \"hotspots\" that connect to the internet. Anyone can buy one and set it up at home, at work, or in a public space. If you can detect a Wi-Fi network on your phone, you might be able to connect to it. To learn more about connecting, check out <a href=\"mozilladso:///tutorials/connect_wifi\">Connecting to Wi-Fi</a>."
+        "id": "2",
+        "title": "Where do I get it? Who owns it?",
+        "gifUrl": "wifi2",
+        "description": "Wi-Fi networks are created by \"hotspots\" that connect to the internet. Anyone can buy one and set it up at home, at work, or in a public space. If you can detect a Wi-Fi network on your phone, you might be able to connect to it. To learn more about connecting, check out <a href=\"mozilladso:///tutorials/connect_wifi\">Connecting to Wi-Fi</a>."
     }, {
-      "id": "3",
-      "title": "Saving Money",
-      "gifUrl": "wifi3",
-      "description": "Connecting to a Wi-Fi hotspot saves money because it lets you use the internet without using mobile data or airtime on your phone. Remember, though, sometimes you have to pay a small fee to use Wi-Fi at a business or cafe, or buy some goods.<br><br>Many phones are capable of creating hotspots <img src=\"ic_wifi_tethering_white_24dp\"/>. <b>If you let other people connect to your phone's hotspot, it may consume your data <a href=\"mozilladso:///actions/data\"><img src=\"ic_data_usage_white_24dp\"/></a>.</b>"
+        "id": "3",
+        "title": "Saving Money",
+        "gifUrl": "wifi3",
+        "description": "Connecting to a Wi-Fi hotspot saves money because it lets you use the internet without using mobile data or airtime on your phone. Remember, though, sometimes you have to pay a small fee to use Wi-Fi at a business or cafe, or buy some goods.<br><br>Many phones are capable of creating hotspots <img src=\"ic_wifi_tethering_white_24dp\"/>. <b>If you let other people connect to your phone's hotspot, it may consume your data.</b>"
     }, {
-      "id": "4",
-      "title": "Speed and Stability",
-      "gifUrl": "wifi4",
-      "description": "Wi-Fi networks are generally more stable and faster than mobile data networks. Downloading files or watching videos is best over Wi-Fi.\n<b>Be aware:</b> it is not <b>always</b> the case that Wi-Fi is faster and more stable than mobile data. Depending on infrastructure, popularity, and other environmental factors, Wi-Fi may not be as responsive or reliable."
+        "id": "4",
+        "title": "Speed and Stability",
+        "gifUrl": "wifi4",
+        "description": "Wi-Fi networks are generally more stable and faster than mobile data networks. Downloading files or watching videos is best over Wi-Fi.\n<b>Be aware:</b> it is not <b>always</b> the case that Wi-Fi is faster and more stable than mobile data. Depending on infrastructure, popularity, and other environmental factors, Wi-Fi may not be as responsive or reliable."
     }]
-  }, {
+  },{
     "id": "2",
     "tag": "connect_wifi",
     "header": "Connecting to Wi-Fi",
     "photoUrl": "url",
     "steps": [{
-      "id": "1",
-      "title": "Finding Names and Passwords",
-      "gifUrl": "connectwifi1",
-      "description": "To connect to a Wi-Fi hotspot, you will need <b color=\"#E4BC4D\">the name of the hotspot</b> and, in some cases, <b color=\"#E4BC4D\">its password</b>. If you are in a business, cafe, or other public space, you can usually ask the owner of the hotspot for this information. Some places charge a small fee for using their Wi-Fi."
+        "id": "1",
+        "title": "Finding Names and Passwords",
+        "gifUrl": "connectwifi1",
+        "description": "To connect to a Wi-Fi hotspot, you will need <b color=\"#E4BC4D\">the name of the hotspot</b> and, in some cases, <b color=\"#E4BC4D\">its password</b>. If you are in a business, cafe, or other public space, you can usually ask the owner of the hotspot for this information. Some places charge a small fee for using their Wi-Fi."
     }, {
-      "id": "2",
-      "title": "Turning on Wi-Fi",
-      "gifUrl": "connectwifi2",
-      "description": "On most Android phones, you can swipe down the Notification Bar at the top of the screen and tap the Wi-Fi <a href=\"mozilladso:///actions/connect_wifi\"><img src=\"ic_network_wifi_white_24dp\"/></a> icon. If you are close to a Wi-Fi network you have joined before, <b>your phone will try to connect to it automatically</b>."
+        "id": "2",
+        "title": "Turning on Wi-Fi",
+        "gifUrl": "connectwifi2",
+        "description": "On most Android phones, you can swipe down the Notification Bar at the top of the screen and tap the Wi-Fi <a href=\"mozilladso:///actions/connect_wifi\"><img src=\"ic_network_wifi_white_24dp\"/></a> icon. If you are close to a Wi-Fi network you have joined before, <b>your phone will try to connect to it automatically</b>. You can also manage your Wi-Fi connection by clicking on the Settings <img src=\"ic_settings_applications_white_24dp\"/> and checking out the Wi-Fi section."
     }, {
-      "id": "3",
-      "title": "Turning on Wi-Fi from the Wireless Settings Menu",
-      "gifUrl": "connectwifi3",
-      "description": "On Android phones, to make sure your Wi-Fi is on, open the <b>Settings</b> app <img src=\"ic_settings_applications_white_24dp\"/>, and tap <b>Wi-Fi</b> icon <img src=\"ic_network_wifi_white_24dp\"/>. If your Wi-Fi is OFF,  look near the top of the screen and then tap the toggle switch [cropped screenshot] to move it into the \"ON\" position."
+        "id": "3",
+        "title": "Finding your hotspot in the Wi-Fi list",
+        "gifUrl": "connectwifi4",
+        "description": "Look at the list of networks that appear and click on the one that you want to connect to."
     }, {
-      "id": "4",
-      "title": "Finding your hotspot in the Wi-Fi list",
-      "gifUrl": "connectwifi4",
-      "description": "If your phone hasn't already automatically connected to a Wi-Fi hotspot, you will need to use your phone to search for the hotspot you want to connect to.\n If you are already in the Wi-Fi Settings Menu from the last step, simply wait until you see the name of the Wi-Fi hotspot that you want to connect to. Otherwise, open the Settings app <img src=\"ic_settings_applications_white_24dp\"/>, and click on the Wi-Fi icon <img src=\"ic_network_wifi_white_24dp\"/>. If your Wi-Fi is on, you will see a list of all the Wi-Fi hotspots around you."
+        "id": "4",
+        "title": "Entering a Password",
+        "gifUrl": "connectwifi6",
+        "description": "<i>If your phone has already connected to the correct Wi-Fi hotspot, you can skip this step.</i><br><br>Some Wi-Fi hotspots require a password. In this case, a box will appear that asks for a password. If you don’t know the password, ask for help from the owner of the hotspot. Once you have the password, use the keyboard that pops up to enter it."
     }, {
-      "id": "5",
-      "title": "Connecting to a Wi-Fi hotspot",
-      "gifUrl": "connectwifi5",
-      "description": "When you see the Wi-Fi hotspot that you want to connect to, tap it. If it doesn't require a password, your phone will try to connect. When it does, it will read <b>Connected</b>.\nYou may also see your phone say <b>Authenticating</b> or <b>Obtaining IP Address</b>. These are normal steps in making a Wi-Fi connection.\nIf asked for a password, usishtuke! Just go to the next step."
+        "id": "5",
+        "title": "Fixing Problems",
+        "gifUrl": "connectwifi7",
+        "description": "If you have problems connecting to a Wi-Fi hotspot, here is a list of things you can try:<ul><li>Make sure you have the right hotspot name.</li><li>Make sure you have the right password.</li><li>If you have the right password, make sure it's entered correctly.</li><li>Talk to the hotspot owner (shopkeeper, librarian, IT assistant, etc.) and explain your problems. They may be able to help solve your problem.</li><li>In the Wi-Fi menu, delete the hotspot by holding its name until a menu appears. Then, choose <b>\"Forget Network\"</b>, and connect again.</li></ul>"
     }, {
-      "id": "6",
-      "title": "Entering a Password",
-      "gifUrl": "connectwifi6",
-      "description": "<i>If your phone has already connected to the correct Wi-Fi hotspot, you can skip this step, and just go enjoy the Internet. :-)</i><br><br>Some Wi-Fi hotspots require a password. In this case, a box will appear that asks for a password. If you don’t know the password, ask for help from the owner of the hotspot. Once you have the password, use the keyboard that pops up to enter it."
-    }, {
-      "id": "7",
-      "title": "Fixing Problems",
-      "gifUrl": "connectwifi7",
-      "description": "If you have problems connecting, here are some things you can try:\n<ul><li>Make sure you're not too far from the hotspot.</li><li>Make sure you have the right hotspot name.</li><li>Make sure you have the right password.</li><li>If you have the right password, make sure it's entered correctly.</li><li>In the Wi-Fi networks list, press and hold on the hotspot’s name and choose \"Forget Network\". Then, try connecting again.</li><li>Talk to the hotspot owner (shopkeeper, librarian, IT assistant, etc.) and explain your problems.</li><li>As a last resort, reboot your phone.</li></ul>"
-    }, {
-      "id": "9",
-      "title": "Enjoy :happy:",
-      "gifUrl": "connectwifi9",
-      "description": "Now, you should be connected! Enjoy! :-)"
-    }]
+        "id": "6",
+        "title": "Enjoy :happy:",
+        "gifUrl": "connectwifi9",
+        "description": "Now, you should be connected! Enjoy! :happy:"
+      }]
   }, {
     "id": "3",
     "tag": "data",
@@ -166,9 +156,9 @@
     "photoUrl": "url",
     "steps": [{
       "id": "1",
-      "title": "Storage & USB",
+      "title": "Storage Space",
       "gifUrl": "storage1",
-      "description": "As you may have already seen, your phone has limited space for apps, videos, images, and other content you have stored. There are a few things you can check to free up some space."
+      "description": "Your phone has limited space for apps, videos, images, and other content you have stored. There are a few things you can check to free up some space."
     }, {
       "id": "2",
       "title": "Checking your Storage",
@@ -179,14 +169,9 @@
       "title": "Evaluating Items",
       "gifUrl": "storage3",
       "description": "The size of content on your phone is measured in MB, and GB, where MB is the smallest, and GB is the biggest. If an app consumes 2GB of space, it is much larger than an image that consumes 2MB.\nConfirm that the size of each type of content is as you expect and as you want. If your phone has many images and you’re having trouble installing a new app, consider deleting some."
-    }, {
-      "id": "4",
-      "title": "Check your Apps",
-      "gifUrl": "storage4",
-      "description": "Some apps like Whatsapp automatically download content that is sent to you from a friend or a group. You can delete this content from your phone and retrieve it again later, or prevent it from being downloaded to your phone automatically altogether.\nVideos and images you have shared on Whatsapp can always be downloaded by the friend or group you’ve sent them to, regardless of whether or not those videos or images are currently on your phone."
     }]
   },{
-    "id": "7",
+  "id": "7",
     "tag": "playstore",
     "header": "The Play Store",
     "photoUrl": "url",
@@ -194,7 +179,7 @@
       "id": "1",
       "title": "Home of Many Apps",
       "gifUrl": "playstore1",
-      "description": "The Play Store lets you download apps on your phone. You can search the app store for different kinds of apps like games, learning apps, social media apps, photo-editing apps, and more.\nSome apps on the Play Store are free, and some costs money. Don’t worry though: you will always be asked to confirm if you are about to spend money."
+      "description": "The Play Store lets you download apps on your phone. You can search for different kinds of apps like games, learning apps, social media apps, photo-editing apps, and more.\nSome apps on the Play Store are free, and some costs money. Don’t worry though: you will always be asked to confirm if you are about to spend money."
     }, {
       "id": "2",
       "title": "Opening the Play Store",
@@ -222,7 +207,7 @@
       "description": "Before downloading an app, always look at its rating, description and the comments posted about it by other people to learn more about the app. Because apps can be made by anybody, ratings and comments are the best way to know if an app does what it claims, or if it is poorly made."
     }, {
       "id": "7",
-      "title": "Reviewing and Downloading (cont'd)",
+      "title": "Giving your own review",
       "gifUrl": "playstore7",
       "description": "Once you’ve downloaded and used an app, you can rate it and comment about it in the Play Store. Your feedback helps create a safe environment by giving people reliable information about whether or not apps are well-made, useful and appropriate."
     }, {
