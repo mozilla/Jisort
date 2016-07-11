@@ -8,7 +8,7 @@
       "id": "1",
       "title": "What is Wi-Fi?",
       "gifUrl": "wifi1",
-      "description": "Wi-Fi is a technology that helps your phone connect to the internet, similar to airtime or mobile data. However, <b>Wi-Fi doesn't use your airtime or mobile data.</b> Instead, in coffee shops or public spaces, Wi-Fi is often free."
+      "description": "Wi-Fi <a href=\"mozilladso:///actions/connect_wifi\"><img src=\"ic_network_wifi_white_24dp\"/></a> is a technology that helps your phone connect to the internet, similar to airtime or mobile data. However, <b>Wi-Fi doesn't use your airtime or mobile data <a href=\"mozilladso:///actions/data\"><img src=\"ic_data_usage_white_24dp\"/></a>.</b> Instead, in coffee shops or public spaces, Wi-Fi is often free."
     }, {
       "id": "2",
       "title": "Where do I get it? Who owns it?",
@@ -18,7 +18,7 @@
       "id": "3",
       "title": "Saving Money",
       "gifUrl": "wifi3",
-      "description": "Connecting to a Wi-Fi hotspot saves money because it lets you use the internet without using mobile data or airtime on your phone. Remember, though, sometimes you have to pay a small fee to use Wi-Fi at a business or cafe, or buy some goods.<br><br>Many phones are capable of creating hotspots <img src=\"ic_wifi_tethering_white_24dp\"/>. <b>If you let other people connect to your phone's hotspot, it may consume your data.</b>"
+      "description": "Connecting to a Wi-Fi hotspot saves money because it lets you use the internet without using mobile data or airtime on your phone. Remember, though, sometimes you have to pay a small fee to use Wi-Fi at a business or cafe, or buy some goods.<br><br>Many phones are capable of creating hotspots <img src=\"ic_wifi_tethering_white_24dp\"/>. <b>If you let other people connect to your phone's hotspot, it may consume your data <a href=\"mozilladso:///actions/data\"><img src=\"ic_data_usage_white_24dp\"/></a>.</b>"
     }, {
       "id": "4",
       "title": "Speed and Stability",
@@ -59,7 +59,7 @@
       "id": "6",
       "title": "Entering a Password",
       "gifUrl": "connectwifi6",
-      "description": "<i>If your phone has already connected to the correct Wi-Fi hotspot, you can skip this step, and just go enjoy the Internet. :)</i><br>Some Wi-Fi hotspots require a password. In this case, a box will appear that asks for a password. If you don’t know the password, ask for help from the owner of the hotspot. Once you have the password, use the keyboard that pops up to enter it."
+      "description": "<i>If your phone has already connected to the correct Wi-Fi hotspot, you can skip this step, and just go enjoy the Internet. :-)</i><br><br>Some Wi-Fi hotspots require a password. In this case, a box will appear that asks for a password. If you don’t know the password, ask for help from the owner of the hotspot. Once you have the password, use the keyboard that pops up to enter it."
     }, {
       "id": "7",
       "title": "Fixing Problems",
@@ -85,7 +85,7 @@
       "id": "1",
       "title": "Mobile Data vs. Wi-Fi",
       "gifUrl": "data1",
-      "description": "To access the internet, your phone uses a <b>mobile data</b> connection or a <b>Wi-Fi</b> connection. Mobile data is sold by your service provider and is measured in kilobytes, megabytes and gigabytes. Wi-Fi hotspots rely on service providers for their internet, too. So, <b>connecting to a Wi-Fi hotspot, will use its data instead of yours.</b>"
+      "description": "To access the internet, your phone uses a <b>mobile data</b> connection or a <b>Wi-Fi</b> connection. Mobile data is sold by your service provider and is measured in kilobytes, megabytes and gigabytes. Wi-Fi hotspots rely on service providers for their internet, too. So, <b>connecting to a Wi-Fi hotspot, will use its data instead of yours."
     }, {
       "id": "2",
       "title": "Apps Use Data",
@@ -141,7 +141,7 @@
       "id": "3",
       "title": "Apps",
       "gifUrl": "trackingdata3",
-      "description": "Below the graph is a list of apps that have been consuming data. Check this list to make sure there are no apps you didn’t expect to be there. For example, you might discover that Gmail consumed 50MB of data recently, but you rarely use Gmail. This might mean that you should change your settings inside the app, or restrict the apps data usage.\nTo see the usage of any app in particular, simply click on its icon in the list."
+      "description": "Below the graph is a list of apps that have been consuming data. Check this list to make sure there are no apps you didn’t expect to be there. For example, you might discover that Gmail <img href=\"gmail_24dp\"/> consumed 50MB of data recently, but you rarely use Gmail. This might mean that you should change your settings inside the app, or restrict the apps data usage.\nTo see the usage of any app in particular, simply click on its icon in the list."
     }, {
       "id": "4",
       "title": "Data Usage Tips",
