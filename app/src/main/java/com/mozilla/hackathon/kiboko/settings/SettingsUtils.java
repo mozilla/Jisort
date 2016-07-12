@@ -99,7 +99,7 @@ public class SettingsUtils {
      */
     public static boolean isFunModeEnabled(final Context context) {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
-        return sp.getBoolean(PREF_FUNMODE_ENABLED, false);
+        return sp.getBoolean(PREF_FUNMODE_ENABLED, true);
     }
 
     /**
