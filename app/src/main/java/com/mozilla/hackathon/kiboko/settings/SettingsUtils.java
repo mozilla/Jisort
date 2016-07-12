@@ -10,26 +10,21 @@ import static com.mozilla.hackathon.kiboko.utilities.LogUtils.makeLogTag;
  * Utilities and constants related to app settings_prefs.
  */
 public class SettingsUtils {
-
     private static final String TAG = makeLogTag(SettingsUtils.class);
-
     /**
      * Boolean preference indicating whether the app has
      * {@code com.google.samples.apps.iosched.ui.BaseActivity.performDataBootstrap installed} the
      * {@code R.raw.bootstrap_data bootstrap data}.
      */
     public static final String PREF_DATA_BOOTSTRAP_DONE = "pref_data_bootstrap_done";
-
     /**
      * Boolean indicating if the app can collect Analytics.
      */
     public static final String PREF_ANALYTICS_ENABLED = "pref_analytics_enabled";
-
     /**
      * Boolean preference indicating whether the app is in fun mode
      */
     public static final String PREF_FUNMODE_ENABLED = "pref_funmode_enabled";
-
     /**
      * Mark that the app has finished loading the {@code R.raw.bootstrap_data bootstrap data}.
      *
@@ -39,7 +34,6 @@ public class SettingsUtils {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
         sp.edit().putBoolean(PREF_DATA_BOOTSTRAP_DONE, true).apply();
     }
-
     /**
      * Return true when the {@code R.raw.bootstrap_data_json bootstrap data} has been marked loaded.
      *
@@ -49,28 +43,6 @@ public class SettingsUtils {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
         return sp.getBoolean(PREF_DATA_BOOTSTRAP_DONE, false);
     }
-
-//    /**
-//     * Return true if user has already declined WiFi setup, but false if they haven't yet.
-//     *
-//     * @param context Context to be used to lookup the {@link android.content.SharedPreferences}.
-//     */
-//    public static boolean hasDeclinedWifiSetup(Context context) {
-//        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
-//        return sp.getBoolean(PREF_DECLINED_WIFI_SETUP, false);
-//    }
-
-//    /**
-//     * Mark that the user has explicitly declined WiFi setup assistance.
-//     *
-//     * @param context  Context to be used to edit the {@link android.content.SharedPreferences}.
-//     * @param newValue New value that will be set.
-//     */
-//    public static void markDeclinedWifiSetup(final Context context, boolean newValue) {
-//        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
-//        sp.edit().putBoolean(PREF_DECLINED_WIFI_SETUP, newValue).apply();
-//    }
-
     /**
      * Set fun mode.
      *
@@ -81,7 +53,6 @@ public class SettingsUtils {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
         sp.edit().putBoolean(PREF_FUNMODE_ENABLED, newValue).apply();
     }
-
     /**
      * Return true if analytics are enabled, false if user has disabled them.
      *
@@ -91,7 +62,6 @@ public class SettingsUtils {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
         return sp.getBoolean(PREF_ANALYTICS_ENABLED, true);
     }
-
     /**
      * Return true if fun mode is enabled, false if user has disabled them.
      *
@@ -101,7 +71,6 @@ public class SettingsUtils {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
         return sp.getBoolean(PREF_FUNMODE_ENABLED, true);
     }
-
     /**
      * Helper method to register a settings_prefs listener. This method does not automatically handle
      * {@code unregisterOnSharedPreferenceChangeListener() un-registering} the listener at the end
