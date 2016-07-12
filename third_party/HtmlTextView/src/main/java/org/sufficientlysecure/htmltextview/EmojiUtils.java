@@ -29,8 +29,9 @@ public class EmojiUtils {
         HashMap<String, Integer> map = new HashMap<String, Integer>();
 
         map.put(":-)", 0x1F601);
+        map.put(":happy:", 0x1F601);
         map.put(":happy2:", 0x1F602);
-        map.put(":happ3:", 0x1F603);
+        map.put(":happy3:", 0x1F603);
         map.put(":happy4:", 0x1F604);
         map.put(":happy5:", 0x1F605);
         map.put(":happy6:", 0x1F606);
