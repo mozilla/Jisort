@@ -5,7 +5,6 @@
     android:scrollbarStyle="outsideOverlay"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
     <!-- Dummy content. -->
     <LinearLayout
         android:layout_width="match_parent"
@@ -37,7 +36,7 @@
         <org.sufficientlysecure.htmltextview.HtmlTextView
             android:id="@+id/step_description"
             style="?android:textAppearanceMedium"
-            android:lineSpacingMultiplier="1.2"
+            android:lineSpacingMultiplier="1.1"
             android:textColor="@color/colorTextPrimary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -8,7 +8,7 @@
         "id": "1",
         "title": "What is Wi-Fi?",
         "gifUrl": "wifi1",
-        "description": "Wi-Fi <a href=\"mozilladso:///actions/connect_wifi\"><img src=\"ic_network_wifi_white_24dp\"/></a> is a technology that helps your phone connect to the internet, similar to airtime or mobile data. However, <b>Wi-Fi doesn't use your airtime or mobile data.</b> Wi-Fi can often be free in coffee shops, or accessible at a small fee."
+        "description": "Wi-Fi <img src=\"ic_network_wifi_white_24dp\"/> is a technology that helps your phone connect to the internet, similar to airtime or mobile data. However, <b>Wi-Fi doesn't use your airtime or mobile data.</b> Wi-Fi can often be free in coffee shops, or accessible at a small fee."
     }, {
         "id": "2",
         "title": "Where do I get it? Who owns it?",
@@ -39,7 +39,7 @@
         "id": "2",
         "title": "Turning on Wi-Fi",
         "gifUrl": "connectwifi2",
-        "description": "On most Android phones, you can swipe down the Notification Bar at the top of the screen and tap the Wi-Fi <a href=\"mozilladso:///actions/connect_wifi\"><img src=\"ic_network_wifi_white_24dp\"/></a> icon. If you are close to a Wi-Fi network you have joined before, <b>your phone will try to connect to it automatically</b>. You can also manage your Wi-Fi connection by clicking on the Settings <img src=\"ic_settings_applications_white_24dp\"/> and checking out the Wi-Fi section."
+        "description": "On most Android phones, you can swipe down the Notification Bar at the top of the screen and tap the Wi-Fi <img src=\"ic_network_wifi_white_24dp\"/> icon. If you are close to a Wi-Fi network you have joined before, <b>your phone will try to connect to it automatically</b>. You can also manage your Wi-Fi connection by clicking on the Settings <img src=\"ic_settings_applications_white_24dp\"/> and checking out the Wi-Fi section."
     }, {
         "id": "3",
         "title": "Finding your hotspot in the Wi-Fi list",
@@ -57,9 +57,9 @@
         "description": "If you have problems connecting to a Wi-Fi hotspot, here is a list of things you can try:<ul><li>Make sure you have the right hotspot name.</li><li>Make sure you have the right password.</li><li>If you have the right password, make sure it's entered correctly.</li><li>Talk to the hotspot owner (shopkeeper, librarian, IT assistant, etc.) and explain your problems. They may be able to help solve your problem.</li><li>In the Wi-Fi menu, delete the hotspot by holding its name until a menu appears. Then, choose <b>\"Forget Network\"</b>, and connect again.</li></ul>"
     }, {
         "id": "6",
-        "title": "Enjoy :happy:",
+        "title": "Enjoy :-)",
         "gifUrl": "connectwifi9",
-        "description": "Now, you should be connected! Enjoy! :happy:"
+        "description": "Now, you should be connected! Enjoy! :-)"
       }]
   }, {
     "id": "3",
