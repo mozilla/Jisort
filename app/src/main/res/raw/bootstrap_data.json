@@ -54,7 +54,7 @@
         "id": "5",
         "title": "Fixing Problems",
         "gifUrl": "connectwifi7",
-        "description": "If you have problems connecting to a Wi-Fi hotspot, here is a list of things you can try:<ul><li>Make sure you have the right hotspot name.</li><li>Make sure you have the right password.</li><li>If you have the right password, make sure it's entered correctly.</li><li>Talk to the hotspot owner (shopkeeper, librarian, IT assistant, etc.) and explain your problems. They may be able to help solve your problem.</li><li>In the Wi-Fi menu, delete the hotspot by holding its name until a menu appears. Then, choose <b><font color=\"#E4BC4D\">\"Forget Network\"</font></b>, and connect again.</li></ul>"
+        "description": "If you have problems connecting to a Wi-Fi hotspot, here is a list of things you can try:<br><ul><li>Make sure you have the right hotspot name.</li><li>Make sure you have the right password.</li><li>If you have the right password, make sure it's entered correctly.</li><li>Talk to the hotspot owner (shopkeeper, librarian, IT assistant, etc.) and explain your problems. They may be able to help solve your problem.</li><li>In the Wi-Fi menu, delete the hotspot by holding its name until a menu appears. Then, choose <b><font color=\"#E4BC4D\">\"Forget Network\"</font></b>, and connect again.</li></ul>"
     }, {
         "id": "6",
         "title": "Enjoy :-)",

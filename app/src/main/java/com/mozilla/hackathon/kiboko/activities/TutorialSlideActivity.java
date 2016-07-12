@@ -121,6 +121,8 @@ public class TutorialSlideActivity extends DSOActivity implements LoaderManager.
                 // fragment expose actions itself (rather than the activity exposing actions),
                 // but for simplicity, the activity provides the actions in this sample.
                 invalidateOptionsMenu();
+
+                mPager.scrollTo(0, 0);
             }
         });
 
