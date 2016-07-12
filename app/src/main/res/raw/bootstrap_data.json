@@ -8,7 +8,7 @@
         "id": "1",
         "title": "What is Wi-Fi?",
         "gifUrl": "wifi1",
-        "description": "Wi-Fi <img src=\"ic_network_wifi_white_24dp\"/> is a technology that helps your phone connect to the internet, similar to airtime or mobile data. However, <b>Wi-Fi doesn't use your airtime or mobile data.</b> Wi-Fi can often be free in coffee shops, or accessible at a small fee."
+        "description": "Wi-Fi <img src=\"ic_network_wifi_white_24dp\"/> is a technology that helps your phone connect to the internet, similar to airtime or mobile data. However, <b><font color=\"#E4BC4D\">Wi-Fi doesn't use your airtime or mobile data.</font></b> Wi-Fi can often be free in coffee shops, or accessible at a small fee."
     }, {
         "id": "2",
         "title": "Where do I get it? Who owns it?",
@@ -18,12 +18,12 @@
         "id": "3",
         "title": "Saving Money",
         "gifUrl": "wifi3",
-        "description": "Connecting to a Wi-Fi hotspot saves money because it lets you use the internet without using mobile data or airtime on your phone. Remember, though, sometimes you have to pay a small fee to use Wi-Fi at a business or cafe, or buy some goods.<br><br>Many phones are capable of creating hotspots <img src=\"ic_wifi_tethering_white_24dp\"/>. <b>If you let other people connect to your phone's hotspot, it may consume your data.</b>"
+        "description": "Connecting to a Wi-Fi hotspot saves money because it lets you use the internet without using mobile data or airtime on your phone. Remember, though, sometimes you have to pay a small fee to use Wi-Fi at a business or cafe, or buy some goods.<br><br>Many phones are capable of creating hotspots <img src=\"ic_wifi_tethering_white_24dp\"/>. <b><font color=\"#E4BC4D\">If you let other people connect to your phone's hotspot, it may consume your data.</font></b>"
     }, {
         "id": "4",
         "title": "Speed and Stability",
         "gifUrl": "wifi4",
-        "description": "Wi-Fi networks are generally more stable and faster than mobile data networks. Downloading files or watching videos is best over Wi-Fi.\n<b>Be aware:</b> it is not <b>always</b> the case that Wi-Fi is faster and more stable than mobile data. Depending on infrastructure, popularity, and other environmental factors, Wi-Fi may not be as responsive or reliable."
+        "description": "Wi-Fi networks are generally more stable and faster than mobile data networks. Downloading files or watching videos is best over Wi-Fi.\n<b><font color=\"#E4BC4D\">Be aware:</font></b> it is not <b><font color=\"#E4BC4D\">always</font></b> the case that Wi-Fi is faster and more stable than mobile data. Depending on infrastructure, popularity, and other environmental factors, Wi-Fi may not be as responsive or reliable."
     }]
   },{
     "id": "2",
@@ -34,12 +34,12 @@
         "id": "1",
         "title": "Finding Names and Passwords",
         "gifUrl": "connectwifi1",
-        "description": "To connect to a Wi-Fi hotspot, you will need <b color=\"#E4BC4D\">the name of the hotspot</b> and, in some cases, <b color=\"#E4BC4D\">its password</b>. If you are in a business, cafe, or other public space, you can usually ask the owner of the hotspot for this information. Some places charge a small fee for using their Wi-Fi."
+        "description": "To connect to a Wi-Fi hotspot, you will need <b> <font color=\"#E4BC4D\">the name of the hotspot</font></b> and, in some cases, <b> <font color=\"#E4BC4D\">its password</font></b>. If you are in a business, cafe, or other public space, you can usually ask the owner of the hotspot for this information. Some places charge a small fee for using their Wi-Fi."
     }, {
         "id": "2",
         "title": "Turning on Wi-Fi",
         "gifUrl": "connectwifi2",
-        "description": "On most Android phones, you can swipe down the Notification Bar at the top of the screen and tap the Wi-Fi <img src=\"ic_network_wifi_white_24dp\"/> icon. If you are close to a Wi-Fi network you have joined before, <b>your phone will try to connect to it automatically</b>. You can also manage your Wi-Fi connection by clicking on the Settings <img src=\"ic_settings_applications_white_24dp\"/> and checking out the Wi-Fi section."
+        "description": "On most Android phones, you can swipe down the Notification Bar at the top of the screen and tap the Wi-Fi <img src=\"ic_network_wifi_white_24dp\"/> icon. If you are close to a Wi-Fi network you have joined before, <b><font color=\"#E4BC4D\">your phone will try to connect to it automatically</font></b>. You can also manage your Wi-Fi connection by clicking on the Settings <img src=\"ic_settings_applications_white_24dp\"/> and checking out the Wi-Fi section."
     }, {
         "id": "3",
         "title": "Finding your hotspot in the Wi-Fi list",
@@ -54,7 +54,7 @@
         "id": "5",
         "title": "Fixing Problems",
         "gifUrl": "connectwifi7",
-        "description": "If you have problems connecting to a Wi-Fi hotspot, here is a list of things you can try:<ul><li>Make sure you have the right hotspot name.</li><li>Make sure you have the right password.</li><li>If you have the right password, make sure it's entered correctly.</li><li>Talk to the hotspot owner (shopkeeper, librarian, IT assistant, etc.) and explain your problems. They may be able to help solve your problem.</li><li>In the Wi-Fi menu, delete the hotspot by holding its name until a menu appears. Then, choose <b>\"Forget Network\"</b>, and connect again.</li></ul>"
+        "description": "If you have problems connecting to a Wi-Fi hotspot, here is a list of things you can try:<ul><li>Make sure you have the right hotspot name.</li><li>Make sure you have the right password.</li><li>If you have the right password, make sure it's entered correctly.</li><li>Talk to the hotspot owner (shopkeeper, librarian, IT assistant, etc.) and explain your problems. They may be able to help solve your problem.</li><li>In the Wi-Fi menu, delete the hotspot by holding its name until a menu appears. Then, choose <b><font color=\"#E4BC4D\">\"Forget Network\"</font></b>, and connect again.</li></ul>"
     }, {
         "id": "6",
         "title": "Enjoy :-)",
@@ -70,17 +70,17 @@
         "id": "1",
         "title": "Mobile Data vs. Wi-Fi",
         "gifUrl": "data1",
-        "description": "To access the internet, your phone uses a <b>mobile data</b> connection or a <b>Wi-Fi</b> connection.<br><ul><li>Mobile data is sold by your service provider and is measured in kilobytes, megabytes and gigabytes.</li><li>Wi-Fi hotspots rely on service providers for their internet, too. So, <b>connecting to a Wi-Fi hotspot, will use its data instead of yours.</b></li></ul>"
+        "description": "To access the internet, your phone uses a <b><font color=\"#E4BC4D\">mobile data</font></b> connection or a <b><font color=\"#E4BC4D\">Wi-Fi</font></b> connection.<br><ul><li>Mobile data is sold by your service provider and is measured in kilobytes, megabytes and gigabytes.</li><li>Wi-Fi hotspots rely on service providers for their internet, too. So, <b><font color=\"#E4BC4D\">connecting to a Wi-Fi hotspot, will use its data instead of yours.</font></b></li></ul>"
     }, {
         "id": "2",
         "title": "Apps Use Data",
         "gifUrl": "data2",
-        "description": "<b>Data is used to move content around the internet.</b> Many apps (Google, Yahoo, Facebook, WhatsApp, Opera, Instagram, Branch) will consume data because they connect to the internet. Applications like Opera Mini use less data than others because they restrict images and video. Others, like YouTube, use much more data because they use video content."
+        "description": "<b><font color=\"#E4BC4D\">Data is used to move content around the internet.</font></b> Many apps (Google, Yahoo, Facebook, WhatsApp, Opera, Instagram, Branch) will consume data because they connect to the internet. Applications like Opera Mini use less data than others because they restrict images and video. Others, like YouTube, use much more data because they use video content."
     }, {
         "id": "3",
         "title": "Restrict Background Data",
         "gifUrl": "data4",
-        "description": "The easiest way to save data is to tell your apps (or the Android system itself) to <b>restrict background data</b>. Some apps continue to use data (in the \"background\") when you're not specifically using them: syncing email, updating feeds, checking the weather, etc."
+        "description": "The easiest way to save data is to tell your apps (or the Android system itself) to <b><font color=\"#E4BC4D\">restrict background data</font></b>. Some apps continue to use data (in the \"background\") when you're not specifically using them: syncing email, updating feeds, checking the weather, etc."
     }, {
         "id": "4",
         "title": "Disable Auto-update",
@@ -90,12 +90,12 @@
         "id": "5",
         "title": "Check your Apps' Settings",
         "gifUrl": "data5",
-        "description": "Some applications are designed to do work even when you're not specifically using them. Most of them use <b>data by default</b> usually to provide you with regular notifications or updates.\n<br>Check the settings or preferences in your apps to verify that they aren't using data all the time. In some cases, you can have the choice to \"sync\" (connect to the internet) over Wi-Fi only.<br><br><b>In Chrome</b>, you can turn on \"Data Saver\" in the settings to save up to 35% of your data usage.<br><br><b>In Opera</b>, you can use \"compression\" that will let you enjoy the internet and save data."
+        "description": "Some applications are designed to do work even when you're not specifically using them. Most of them use <b><font color=\"#E4BC4D\">data by default</font></b> usually to provide you with regular notifications or updates.\n<br>Check the settings or preferences in your apps to verify that they aren't using data all the time. In some cases, you can have the choice to \"sync\" (connect to the internet) over Wi-Fi only.<br><br><b><font color=\"#E4BC4D\">In Chrome</font></b>, you can turn on \"Data Saver\" in the settings to save up to 35% of your data usage.<br><br><b><font color=\"#E4BC4D\">In Opera</font></b>, you can use \"compression\" that will let you enjoy the internet and save data."
     }, {
         "id": "6",
         "title": "Check your WhatsApp Settings",
         "gifUrl": "data6",
-        "description": "You can also restrict the data consumption inside WhatsApp by changing some of its settings. <ul><li>Open WhatsApp</li><li>Click on settings</li><li>Click on <b>Data Usage</b></li><li>Choose the content that your phone can download over mobile data</li><li>Choose the content that you allow your phone to download on Wi-Fi</li><li>Choose if you want to lower the amount of data usage during WhatsApp calls</li></ul>"
+        "description": "You can also restrict the data consumption inside WhatsApp by changing some of its settings. <ul><li>Open WhatsApp</li><li>Click on settings</li><li>Click on <b><font color=\"#E4BC4D\">Data Usage</font></b></li><li>Choose the content that your phone can download over mobile data</li><li>Choose the content that you allow your phone to download on Wi-Fi</li><li>Choose if you want to lower the amount of data usage during WhatsApp calls</li></ul>"
     }]
   },{
     "id": "4",
@@ -106,12 +106,12 @@
       "id": "1",
       "title": "Data consumption",
       "gifUrl": "trackingdata1",
-      "description": "Each Android phone comes with a menu where you can follow your data consumption. You will be able to follow your data consumption over time, but also to see which apps consume data.\nIt might look different on different phones, but should be accessible within the <b>Settings</b> <img src=\"ic_settings_applications_white_24dp\"/> app. Find the option that says <b>Data Usage</b> <img src=\"ic_data_usage_white_24dp\"/>."
+      "description": "Each Android phone comes with a menu where you can follow your data consumption. You will be able to follow your data consumption over time, but also to see which apps consume data.\nIt might look different on different phones, but should be accessible within the <b><font color=\"#E4BC4D\">Settings</font></b> <img src=\"ic_settings_applications_white_24dp\"/> app. Find the option that says <b><font color=\"#E4BC4D\">Data Usage</font></b> <img src=\"ic_data_usage_white_24dp\"/>."
     }, {
       "id": "2",
       "title": "Inspecting your Data Usage",
       "gifUrl": "trackingdata2",
-      "description": "With <b>Data Usage</b> there are two things to notice:\n<br><br>The graph at the top shows how much data you use over time. At the end of each day, you can see how much of your data has been consumed. You can reset this graph when you buy data."
+      "description": "With <b><font color=\"#E4BC4D\">Data Usage</font></b> there are two things to notice:\n<br><br>The graph at the top shows how much data you use over time. At the end of each day, you can see how much of your data has been consumed. You can reset this graph when you buy data."
     }, {
       "id": "3",
       "title": "Apps",
@@ -132,17 +132,17 @@
       "id": "1",
       "title": "Finding the Airplane Mode button",
       "gifUrl": "airplanemode1",
-      "description": "Turning on Airplane Mode instantly disables <b>all wireless functionality</b> of your phone. For example, Wi-Fi, Cell, Bluetooth, and GPS will not operate.\nThis feature is useful for keeping your phone on, but limiting its contact with networks. Until you turn Airplane Mode off, you will not be able to receive phone calls or access the internet."
+      "description": "Turning on Airplane Mode instantly disables <b><font color=\"#E4BC4D\">all wireless functionality</font></b> of your phone. For example, Wi-Fi, Cell, Bluetooth, and GPS will not operate.\nThis feature is useful for keeping your phone on, but limiting its contact with networks. Until you turn Airplane Mode off, you will not be able to receive phone calls or access the internet."
     }, {
       "id": "2",
       "title": "In the Notification Bar",
       "gifUrl": "airplanemode2",
-      "description": "On newer phones, simply swipe down the Title Bar at the top of your screen, and look for the airplane icon<img src=\"ic_airplanemode_active_white_24dp\"/>. Tap the icon to turn Airplane Mode <b>ON</b> or <b>OFF</b>."
+      "description": "On newer phones, simply swipe down the Title Bar at the top of your screen, and look for the airplane icon<img src=\"ic_airplanemode_active_white_24dp\"/>. Tap the icon to turn Airplane Mode <b><font color=\"#E4BC4D\">ON</font></b> or <b><font color=\"#E4BC4D\">OFF</font></b>."
     }, {
       "id": "3",
       "title": "In the Wireless Settings Menu",
       "gifUrl": "airplanemode3",
-      "description": "You can also toggle Airplane Mode from the Settings menu. On all Android phones, including older phones, open <b>Settings</b> <img src=\"ic_settings_applications_white_24dp\"/>, choose \"<b>More…</b>\" in the <b>Wireless & Networks</> section, and check the box that says \"<b>Airplane Mode</b>\"."
+      "description": "You can also toggle Airplane Mode from the Settings menu. On all Android phones, including older phones, open <b><font color=\"#E4BC4D\">Settings</font></b> <img src=\"ic_settings_applications_white_24dp\"/>, choose \"<b><font color=\"#E4BC4D\">More…</font></b>\" in the <b><font color=\"#E4BC4D\">Wireless & Networks</> section, and check the box that says \"<b><font color=\"#E4BC4D\">Airplane Mode</font></b>\"."
     }, {
       "id": "4",
       "title": "Using Wi-Fi",
@@ -163,7 +163,7 @@
       "id": "2",
       "title": "Checking your Storage",
       "gifUrl": "storage2",
-      "description": "Within the <b>Settings</b> <img src=\"ic_settings_applications_white_24dp\"/> app you’ll find the <b>Storage & USB</b> <img src=\"ic_storage_white_24dp\"/> menu. You will be shown a breakdown of the Apps, Images, Videos, Audio, and Other content that's using up your phone's memory."
+      "description": "Within the <b><font color=\"#E4BC4D\">Settings</font></b> <img src=\"ic_settings_applications_white_24dp\"/> app you’ll find the <b><font color=\"#E4BC4D\">Storage & USB</font></b> <img src=\"ic_storage_white_24dp\"/> menu. You will be shown a breakdown of the Apps, Images, Videos, Audio, and Other content that's using up your phone's memory."
     }, {
       "id": "3",
       "title": "Evaluating Items",
@@ -235,7 +235,7 @@
       "id": "3",
       "title": "A Different Password for Each Account",
       "gifUrl": "accounts3",
-      "description": "<b>You should use a different password for every account you make.</b>\nImagine you use Facebook and Gmail with the same password. If someone discovers your Facebook password, they also have access to your Gmail. By using a different password for every account, the only account they have access to is Facebook."
+      "description": "<b><font color=\"#E4BC4D\">You should use a different password for every account you make.</font></b>\nImagine you use Facebook and Gmail with the same password. If someone discovers your Facebook password, they also have access to your Gmail. By using a different password for every account, the only account they have access to is Facebook."
     }, {
       "id": "4",
       "title": "Making a Strong Password",
@@ -245,7 +245,7 @@
       "id": "5",
       "title": "Using a Memorable Sentence",
       "gifUrl": "accounts5",
-      "description": "To create and remember a strong password, think of a memorable sentence and use the first letter of each word. For example, \"<b>I buy 2 mangos at the market every week</b>\" becomes \"<b>Ib2matmew/b>\" ."
+      "description": "To create and remember a strong password, think of a memorable sentence and use the first letter of each word. For example, \"<b><font color=\"#E4BC4D\">I buy 2 mangos at the market every week</font></b>\" becomes \"<b><font color=\"#E4BC4D\">Ib2matmew/b>\" ."
     }, {
       "id": "6",
       "title": "Using a String of Random Words",
