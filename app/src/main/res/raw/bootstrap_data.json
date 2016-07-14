@@ -85,7 +85,7 @@
         "id": "4",
         "title": "Disable Auto-update",
         "gifUrl": "auto_update",
-        "description": "A lot of data is also consumed by your phone automatically updating your apps. If your apps were downloaded through Google Play (most are) it may be using \"auto-update\" and could be chewing its way through your data without you even knowing."
+        "description": "If some of your apps were downloaded through the Play Store they may be using \"auto-update\" could be consuming your data without you even knowing.<br><br>To check, open <b><font color=\"#E4BC4D\">Play Store</font></b>, find <b><font color=\"#E4BC4D\">Settings</font></b>, and then <b><font color=\"#E4BC4D\">Auto Update apps</font></b>. Make sure <i>Auto-update apps at any time</i> is <b>not</b> selected."
     }, {
         "id": "5",
         "title": "Check your Apps' Settings",
