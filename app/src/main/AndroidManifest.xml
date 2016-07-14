@@ -25,7 +25,7 @@
             android:windowSoftInputMode="stateHidden"></activity>
         <activity
             android:name=".activities.DashboardActivity"
-            android:label="@string/app_name"
+            android:label="Jisort - What would you like to do?"
             android:launchMode="singleTop"
             android:theme="@style/AppTheme.SplashTheme"
             android:windowSoftInputMode="stateHidden">
@@ -101,14 +101,6 @@
         <receiver android:name=".recievers.DSOStorageReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.DEVICE_STORAGE_LOW" />
-            </intent-filter>
-        </receiver>
-        <receiver android:name=".recievers.DSOInstalledBroadcastReceiver">
-            <intent-filter>
-                <action android:name="android.intent.action.PACKAGE_INSTALL" />
-                <action android:name="android.intent.action.PACKAGE_ADDED" />
-
-                <data android:scheme="package" />
             </intent-filter>
         </receiver>
         <receiver android:name=".recievers.DSONetworkStateReceiver">

@@ -38,9 +38,9 @@
 
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/result_image"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:layout_margin="48dp"
         android:scaleType="fitXY"
         android:adjustViewBounds="true"
         android:src="@drawable/bmo"

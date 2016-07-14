@@ -62,9 +62,6 @@ dependencies {
     compile "com.android.support:cardview-v7:${android_support_lib_version}"
     compile "com.android.support:support-v13:${android_support_lib_version}"
 
-    // Event pubSub
-    compile 'com.squareup:otto:1.3.8'
-
     compile files('../third_party/basic-http-client/libs/basic-http-client-android-0.88.jar')
     // JSON utility library.
     compile 'com.google.code.gson:gson:2.4'
