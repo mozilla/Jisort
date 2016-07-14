@@ -69,21 +69,6 @@
                 <data android:scheme="mozilladso" android:pathPrefix="/tutorials/*"/>
             </intent-filter>
         </activity>
-        <!--<activity-->
-            <!--android:name=".activities.ActionsActivity"-->
-            <!--android:label="@string/app_name"-->
-            <!--android:windowSoftInputMode="stateHidden">-->
-            <!--&lt;!&ndash; handle app links &ndash;&gt;-->
-            <!--<intent-filter android:label="@string/app_name_actions">-->
-                <!--<action android:name="android.intent.action.VIEW" />-->
-                <!--<category android:name="android.intent.category.BROWSABLE" />-->
-                <!--<category android:name="android.intent.category.DEFAULT" />-->
-                <!--&lt;!&ndash;<data android:mimeType="vnd.android.cursor.item/vnd.mozilladso2016.action" />&ndash;&gt;-->
-                <!--<data-->
-                    <!--android:pathPrefix="/actions/*"-->
-                    <!--android:scheme="mozilladso" />-->
-            <!--</intent-filter>-->
-        <!--</activity>-->
         <activity
             android:name=".activities.TopicListActivity"
             android:label="@string/title_activity_topiclist"
@@ -105,11 +90,6 @@
             android:enabled="true">
             <intent-filter>
                 <action android:name="android.intent.action.AIRPLANE_MODE" />
-            </intent-filter>
-        </receiver>
-        <receiver android:name=".recievers.DSOReceiver">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
         <receiver android:name=".recievers.DSOChangedBroadcastReceiver">
@@ -147,13 +127,6 @@
                 <action android:name="android.location.PROVIDERS_CHANGED" />
             </intent-filter>
         </receiver>
-        <!--
-             A Service responsible for starting and managing the application's FAB
-        -->
-        <service
-            android:name=".services.ChatHeadService"
-            android:label="@string/app_name"/>
-
         <!-- Data, sync and editing components -->
         <provider
             android:name=".provider.DsoProvider"
