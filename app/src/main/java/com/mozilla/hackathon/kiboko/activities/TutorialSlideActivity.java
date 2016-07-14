@@ -21,6 +21,7 @@ import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.mozilla.hackathon.kiboko.Analytics;
 import com.mozilla.hackathon.kiboko.R;
 import com.mozilla.hackathon.kiboko.fragments.ScreenSlidePageFragment;
 import com.mozilla.hackathon.kiboko.models.Step;
@@ -94,6 +95,8 @@ public class TutorialSlideActivity extends DSOActivity implements LoaderManager.
                     mNext.setEnabled(true);
                     mPrev.setEnabled(false);
                 }
+
+                Analytics.add("Tutorial Slide", mTopic + ", " + new Integer(mPager.getCurrentItem()).toString());
             }
         });
 
@@ -107,6 +110,8 @@ public class TutorialSlideActivity extends DSOActivity implements LoaderManager.
                     mNext.setEnabled(false);
                     mPrev.setEnabled(true);
                 }
+
+                Analytics.add("Tutorial Slide", mTopic + ", " + new Integer(mPager.getCurrentItem()).toString());
             }
         });
 
@@ -158,6 +163,8 @@ public class TutorialSlideActivity extends DSOActivity implements LoaderManager.
                 mTopic = (String)intent.getExtras().get("topic");
             }
         }
+
+        Analytics.add("Tutorial Slide", mTopic);
     }
 
     @Override
