@@ -11,6 +11,7 @@ import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.mozilla.hackathon.kiboko.Analytics;
 import com.mozilla.hackathon.kiboko.R;
 import com.mozilla.hackathon.kiboko.models.IconTopic;
 
@@ -116,6 +117,7 @@ public class IconsAdapter extends BaseAdapter implements Filterable {
 //                    }
 //                });
                 tooltip.show();
+                Analytics.add("Icon List icon clicked", topic.getTag());
             }
         });
 

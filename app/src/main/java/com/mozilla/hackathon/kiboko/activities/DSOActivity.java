@@ -2,13 +2,14 @@ package com.mozilla.hackathon.kiboko.activities;
 
 import android.support.v7.app.AppCompatActivity;
 
+import com.mozilla.hackathon.kiboko.Analytics;
 import com.mozilla.hackathon.kiboko.App;
 import com.mozilla.hackathon.kiboko.events.ApplicationStateChanged;
 import com.mozilla.hackathon.kiboko.services.DataBootstrapService;
 import com.squareup.otto.Bus;
 
 /**
- * Created by Brian Mwadime on 06/06/2016.
+ * Created by secretrobotron in July of 2016.
  */
 public class DSOActivity extends AppCompatActivity {
 
@@ -22,7 +23,8 @@ public class DSOActivity extends AppCompatActivity {
 
         App.getBus().post(new ApplicationStateChanged(true));
         super.onResume();
-        System.out.println("Resume");
+
+        Analytics.add("Resumed DSO Activity", this.getClass().getSimpleName());
     }
 
     @Override
@@ -31,6 +33,5 @@ public class DSOActivity extends AppCompatActivity {
         App.getBus().post(new ApplicationStateChanged(false));
         bus.unregister(this);
         super.onPause();
-        System.out.println("Pause");
     }
 }

@@ -1,9 +1,12 @@
 package com.mozilla.hackathon.kiboko;
 
 import android.content.Context;
+import android.os.Environment;
+import android.util.Log;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -55,6 +58,15 @@ public class Analytics {
         mLastSaveTime = System.currentTimeMillis();
     }
 
+    /* Checks if external storage is available for read and write */
+    private boolean isExternalStorageWritable() {
+        String state = Environment.getExternalStorageState();
+        if (Environment.MEDIA_MOUNTED.equals(state)) {
+            return true;
+        }
+        return false;
+    }
+
     private void flushItems() {
         save(true);
     }
@@ -82,18 +94,25 @@ public class Analytics {
         // Replace this with save to disk functionality
         FileOutputStream outputStream;
 
-        try {
-            outputStream = App.getContext().openFileOutput(ANALYTICS_FILENAME, Context.MODE_PRIVATE | Context.MODE_APPEND);
-
-            outputStream.write(output.getBytes());
-            outputStream.close();
-            mItems.clear();
-        }
-        catch (Exception e) {
-            // Don't just consume a whole bunch of memory if something is going wrong.
-            if (mItems.size() > 100) {
+        if (isExternalStorageWritable()) {
+            try {
+                File outputFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), ANALYTICS_FILENAME);
+                if (!outputFile.exists()) {
+                    outputFile.createNewFile();
+                }
+                outputStream = new FileOutputStream(outputFile, true);
+                outputStream.write(output.getBytes());
+                outputStream.close();
                 mItems.clear();
+            } catch (Exception e) {
+                // Don't just consume a whole bunch of memory if something is going wrong.
+                if (mItems.size() > 100) {
+                    mItems.clear();
+                }
             }
+        }
+        else {
+            mItems.clear();
         }
     }
 

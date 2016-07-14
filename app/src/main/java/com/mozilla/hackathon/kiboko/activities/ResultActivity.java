@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.mozilla.hackathon.kiboko.Analytics;
 import com.mozilla.hackathon.kiboko.R;
 
 import pl.droidsonroids.gif.GifImageView;
@@ -34,8 +35,10 @@ public class ResultActivity extends AppCompatActivity {
         TextView txtPoints = (TextView) findViewById(R.id.quizResult);
         //get score
         Bundle b = getIntent().getExtras();
-        int score= b.getInt("score");
+        int score = b.getInt("score");
         txtPoints.setText(getString(R.string.quiz_template_points, score));
+
+        Analytics.add("Icon Quiz Finished", new Integer(score).toString());
 
         GifImageView gifImageView = (GifImageView) findViewById((R.id.result_image));
         int randomIndex = new Double(Math.random() * imageResources.length).intValue();
@@ -54,6 +57,7 @@ public class ResultActivity extends AppCompatActivity {
     }
 
     public void playAgain(View view){
+        Analytics.add("Icon Quiz Play Again");
         Intent intent = new Intent(ResultActivity.this, IconQuizActivity.class);
         startActivity(intent);
         finish();
