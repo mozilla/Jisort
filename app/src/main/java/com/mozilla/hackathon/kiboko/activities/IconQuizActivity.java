@@ -268,6 +268,16 @@ public class IconQuizActivity extends AppCompatActivity implements LoaderManager
         }
         // Check whether we have any questions and setup the view.
         if(quizList.size() > 0){
+            List<Question> randomizedQuizList = new ArrayList<Question>();
+
+            while (quizList.size() > 0) {
+                int randomIndex = (new Double(Math.random()*quizList.size()).intValue());
+                randomizedQuizList.add(quizList.get(randomIndex));
+                quizList.remove(randomIndex);
+            }
+
+            quizList = randomizedQuizList;
+
             currentQuestion = quizList.get(question_id);
             setQuestionView(currentQuestion);
         }
