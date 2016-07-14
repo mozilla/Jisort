@@ -18,7 +18,6 @@ import android.view.View;
 import android.view.View.OnTouchListener;
 import android.view.WindowManager;
 import android.widget.RelativeLayout;
-
 import com.mozilla.hackathon.kiboko.Analytics;
 import com.mozilla.hackathon.kiboko.App;
 import com.mozilla.hackathon.kiboko.R;
@@ -32,13 +31,11 @@ import com.mozilla.hackathon.kiboko.events.LowstorageStateChanged;
 import com.mozilla.hackathon.kiboko.events.NetworkStateChanged;
 import com.mozilla.hackathon.kiboko.utilities.Utils;
 import com.squareup.otto.Subscribe;
-
 import java.io.InputStream;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class ChatHeadService extends Service {
-
     private static final int TRAY_HIDDEN_FRACTION = 6;    // Controls fraction of the tray hidden when open
     private static final int TRAY_MOVEMENT_REGION_FRACTION = 6;    // Controls fraction of y-axis on screen within which the tray stays.
     private static final int TRAY_CROP_FRACTION = 12;    // Controls fraction of the tray chipped at the right end.
@@ -46,7 +43,6 @@ public class ChatHeadService extends Service {
     private static final int TRAY_DIM_X_DP = 48;    // Width of the tray in dps
     private static final int TRAY_DIM_Y_DP = 48;    // Height of the tray in dps
     private static final int BUTTONS_DIM_Y_DP = 27;    // Height of the buttons in dps
-
     private Display mDisplay;
     private WindowManager mWindowManager;
     private WindowManager.LayoutParams mRootLayoutParams;        // Parameters of the root layout
@@ -59,27 +55,22 @@ public class ChatHeadService extends Service {
     //private int mStartDragY; // Unused as yet
     private int mPrevDragX;
     private int mPrevDragY;
-
     private long pressStartTime;
     private float pressedX;
     private float pressedY;
     private boolean stayedWithinClickDistance;
-
     /**
      * Max allowed duration for a "click", in milliseconds.
      */
     private static final int MAX_CLICK_DURATION = 100;
-
     /**
      * Max allowed distance to move during a "click", in DP.
      */
     private static final int MAX_CLICK_DISTANCE = 15;
-
     // Controls for animations
     private Timer mTrayAnimationTimer;
     private TrayAnimationTimerTask mTrayTimerTask;
     private Handler mAnimationHandler = new Handler();
-
     //Swappable images for FAB
     private BitmapDrawable mNormalHead;
     private BitmapDrawable mSuggestionHead;
@@ -96,7 +87,6 @@ public class ChatHeadService extends Service {
 
         // Get references to all the views and add them to root view as needed.
         mWindowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
-
         mRootLayout = (RelativeLayout) LayoutInflater.from(this).
                 inflate(R.layout.service_floating_button, null);
         mContentContainerLayout = (RelativeLayout) mRootLayout.findViewById(R.id.content_container);
@@ -108,11 +98,9 @@ public class ChatHeadService extends Service {
                 WindowManager.LayoutParams.TYPE_PHONE,
                 WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH | WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
                 PixelFormat.TRANSLUCENT);
-
         mRootLayoutParams.gravity = Gravity.TOP | Gravity.LEFT;
         mDisplay = mWindowManager.getDefaultDisplay();
         mWindowManager.addView(mRootLayout, mRootLayoutParams);
-
         // Post these actions at the end of looper message queue so that the layout is
         // fully inflated once these functions execute
         mRootLayout.postDelayed(new Runnable() {
@@ -121,37 +109,27 @@ public class ChatHeadService extends Service {
                 // Reusable variables
                 InputStream inputStream;
                 Bitmap bmap;
-
                 RelativeLayout.LayoutParams params;
-
                 // Setup background icon
                 int containerNewWidth = (TRAY_CROP_FRACTION) * mLogoLayout.getHeight() / TRAY_CROP_FRACTION;
-
                 inputStream = getResources().openRawResource(R.drawable.android_head);
                 bmap = Utils.loadMaskedBitmap(inputStream, mLogoLayout.getHeight(), containerNewWidth);                
                 mNormalHead = new BitmapDrawable(getResources(), bmap);
-
                 inputStream = getResources().openRawResource(R.drawable.android_head_suggestion);
                 bmap = Utils.loadMaskedBitmap(inputStream, mLogoLayout.getHeight(), containerNewWidth);                
                 mSuggestionHead = new BitmapDrawable(getResources(), bmap);
-
                 params = (RelativeLayout.LayoutParams) mLogoLayout.getLayoutParams();
                 params.width = (bmap.getWidth() * mLogoLayout.getHeight()) / bmap.getHeight();
                 params.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, 0);
                 mLogoLayout.setLayoutParams(params);
                 mLogoLayout.requestLayout();
-
-
                 mLogoLayout.setBackgroundDrawable(mNormalHead);
-
                 // Setup the root layout
                 mRootLayoutParams.x = 0;
                 mRootLayoutParams.y = 0;
                 mWindowManager.updateViewLayout(mRootLayout, mRootLayoutParams);
-
                 // Make everything visible
                 mRootLayout.setVisibility(View.VISIBLE);
-
                 // Animate the Tray
                 mTrayTimerTask = new TrayAnimationTimerTask();
                 mTrayAnimationTimer = new Timer();

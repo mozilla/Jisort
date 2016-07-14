@@ -64,7 +64,6 @@ public class TopicsFragment extends ListFragment implements CompoundButton.OnChe
         super.onActivityCreated(savedInstanceState);
         adapter = new TopicsAdapter(getContext(), getTopics());
         setListAdapter(adapter);
-        getListView().addFooterView(listFooterView);
     }
 
     @Override
