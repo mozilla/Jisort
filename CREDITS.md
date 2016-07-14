@@ -11,6 +11,7 @@
 * Bobby Richter ([@secretrobotron](https://github.com/secretrobotron))
 * Chad Sansing ([@chadsansing](https://github.com/chadsansing))
 * Alex Wafula ([@xelawafs](https://github.com/xelawafs))
+* Stephen Wanjau ([@Uwanja](https://github.com/Uwanja))
 
 ... and the rest of the [DSO Community](http://mzl.la/dso).
 

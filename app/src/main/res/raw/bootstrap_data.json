@@ -64,7 +64,7 @@
   }, {
     "id": "3",
     "tag": "data",
-    "header": "Mobile Data Consumption",
+    "header": "Using your Mobile Data Wisely",
     "photoUrl": "url",
     "steps": [{
         "id": "1",
@@ -85,7 +85,7 @@
         "id": "4",
         "title": "Disable Auto-update",
         "gifUrl": "auto_update",
-        "description": "A lot of data is also consumed by your phone automatically updating your apps. If your apps were downloaded through Google Play (most are) it may be using \"auto-update\" and could be chewing its way through your data without you even knowing."
+        "description": "If some of your apps were downloaded through the Play Store they may be using \"auto-update\" could be consuming your data without you even knowing.<br><br>To check, open <b><font color=\"#E4BC4D\">Play Store</font></b>, find <b><font color=\"#E4BC4D\">Settings</font></b>, and then <b><font color=\"#E4BC4D\">Auto Update apps</font></b>. Make sure <i>Auto-update apps at any time</i> is <b>not</b> selected."
     }, {
         "id": "5",
         "title": "Check your Apps' Settings",
@@ -100,7 +100,7 @@
   },{
     "id": "4",
     "tag": "tracking_data",
-    "header": "Tracking your Data",
+    "header": "Tracking your Data Usage",
     "photoUrl": "url",
     "steps": [{
       "id": "1",
@@ -179,41 +179,46 @@
       "id": "1",
       "title": "Home of Many Apps",
       "gifUrl": "playstore1",
-      "description": "The Play Store lets you download apps on your phone. You can search for different kinds of apps like games, learning apps, social media apps, photo-editing apps, and more.\nSome apps on the Play Store are free, and some costs money. Don’t worry though: you will always be asked to confirm if you are about to spend money."
+      "description": "The Play Store lets you download apps on your phone. You can search for different kinds of apps like <b><font color=\"#E4BC4D\">games, learning apps, social media apps, photo-editing apps</font></b>, and more.\n<br><br>Some apps on the Play Store are free, and some cost money. Don’t worry though: you will always be asked to confirm if you are about to spend money."
     }, {
       "id": "2",
       "title": "Opening the Play Store",
-      "gifUrl": "storage2",
-      "description": "To start, look for the Play Store icon on your phone’s screen. If you can’t find it, try looking in the apps <img src=\"ic_blur_circular_white_24dp\"/> menu."
+      "gifUrl": "playstore2",
+      "description": "To start, look for the <b><font color=\"#E4BC4D\">Play Store</font></b> icon on your home screen. If you can’t find it, try looking in the <b><font color=\"#E4BC4D\">Apps Menu</font></b><img src=\"ic_blur_circular_white_24dp\"/>."
     }, {
       "id": "3",
       "title": "Accounts",
-      "gifUrl": "playstore2",
-      "description": "Google, the company that created both Android and the Play Store, wants you to have a Google account with them before you use the Play Store. If you’re using the Play Store for the first time, you may be asked to set up a Google account. You can pick a username and a strong password for your account when you sign up. If you need help coming up with a good password, look at <a href=\"mozilladso:///tutorials/accounts_passwords\">Accounts and Passwords</a>."
+      "gifUrl": "playstore3",
+      "description": "Google is the company that created the system that runs your phone (Android) and the Play Store. They want you to have a Google account before you use the Play Store. So, If you’re using the Play Store for the first time, you may be asked to set up a Google account.<br><br>You can pick a username and a strong password for your account when you sign up. If you need help coming up with a good password, look at <a href=\"mozilladso:///tutorials/accounts_passwords\">Accounts and Passwords</a>."
     }, {
       "id": "4",
-      "title": "Searching for Apps",
+      "title": "Ready for Apps!",
       "gifUrl": "playstore4",
       "description": "Now that you have access to the Play Store, you can look for apps you want! There are millions to choose from to help organize your life, search for information, have fun, and more. You just have to search!"
     }, {
       "id": "5",
-      "title": "Browsing for Apps",
+      "title": "Searching for Apps",
       "gifUrl": "playstore5",
-      "description": "You can also look at lists of apps in different categories and discover new ones as you look.  Try clicking on the different categories to look for new and interesting apps."
+      "description": "The Play Store is full of apps. If you've heard someone mention an app, if you want to find something new, or if you want to solve a problem, try searching.<br><br>In the Play Store, find the Search button <img src=\"ic_search_white_24dp\"/>, or Search bar, and type in what you need. For example <b><font color=\"#E4BC4D\">temple run</font></b>, <b><font color=\"#E4BC4D\">good news bible</font></b>, <b><font color=\"#E4BC4D\">KCB</font></b>, or <b><font color=\"#E4BC4D\">photo editing</font></b>."
     }, {
       "id": "6",
-      "title": " Reviewing and Downloading",
+      "title": "Browsing for Apps",
       "gifUrl": "playstore6",
-      "description": "Before downloading an app, always look at its rating, description and the comments posted about it by other people to learn more about the app. Because apps can be made by anybody, ratings and comments are the best way to know if an app does what it claims, or if it is poorly made."
+      "description": "You can also look at lists of apps in different categories and discover new ones as you look.  Try clicking on the different categories to look for new and interesting apps."
     }, {
       "id": "7",
-      "title": "Giving your own review",
+      "title": " Reviewing and Downloading",
       "gifUrl": "playstore7",
-      "description": "Once you’ve downloaded and used an app, you can rate it and comment about it in the Play Store. Your feedback helps create a safe environment by giving people reliable information about whether or not apps are well-made, useful and appropriate."
+      "description": "Before downloading an app, always look at its rating, description and the comments posted about it by other people to learn more about the app. Because apps can be made by anybody, ratings and comments are the best way to know if an app does what it claims, or if it is poorly made."
     }, {
       "id": "8",
-      "title": "Updating",
+      "title": "Giving your own review",
       "gifUrl": "playstore8",
+      "description": "Once you’ve downloaded and used an app, you can rate it and comment about it in the Play Store. Your feedback helps create a safe environment by giving people reliable information about whether or not apps are well-made, useful and appropriate."
+    }, {
+      "id": "9",
+      "title": "Updating",
+      "gifUrl": "playstore9",
       "description": "Occasionally, app creators will need to update or change the content of the app. So, often, they issue updates for their apps through the Play Store.\nUpdating apps consumes data. However, the Play Store will try to download updates automatically when you’re connected to a Wi-Fi hotspot. Check out <a href=\"mozilladso:///tutorials/data/8\">Disable Auto-Update</a> if you suspect that apps are being updated with your mobile data connection."
     }]
   },{
