@@ -198,12 +198,13 @@ public class IconQuizActivity extends AppCompatActivity implements LoaderManager
         return correct;
     }
 
-    private int getChoice(int answerResId) {
+    private int getChoice(int[] otherChoices) {
         int choiceResId = -1;
 
         while (true) {
             choiceResId = possibleIcons.get(new Double(Math.floor(Math.random() * possibleIcons.size())).intValue());
-            if (choiceResId != answerResId) {
+            if (choiceResId != otherChoices[0] && choiceResId != otherChoices[1]
+                    && choiceResId != otherChoices[2] && choiceResId != otherChoices[3]) {
                 return choiceResId;
             }
         }
@@ -223,11 +224,15 @@ public class IconQuizActivity extends AppCompatActivity implements LoaderManager
         choiceOptions[answerIndex].setTag(question.getANSWER());
         imageOptions[answerIndex].setImageDrawable(ContextCompat.getDrawable(this, answerResId));
 
+        int[] choices = new int[]{-1, -1, -1, -1};
+
+        choices[answerIndex] = answerResId;
+
         for (int i = 0; i < 4; ++i) {
             if (i != answerIndex) {
-                int choiceResId = getChoice(answerResId);
+                choices[i] = getChoice(choices);
                 choiceOptions[i].setTag("");
-                imageOptions[i].setImageDrawable(ContextCompat.getDrawable(this, choiceResId));
+                imageOptions[i].setImageDrawable(ContextCompat.getDrawable(this, choices[i]));
             }
         }
 
