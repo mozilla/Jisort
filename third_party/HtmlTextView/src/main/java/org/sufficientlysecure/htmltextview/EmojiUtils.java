@@ -19,23 +19,23 @@ public class EmojiUtils {
     public static final Pattern GITHUB_REGEX_PATTERN = Pattern.compile(":[^:]+:");
     // frowny pattern :( etc
     public static final Pattern FROWNY_REGEX_PATTERN = Pattern.compile(":[(<]|:[ -]\\(");
-    public static final Pattern EMOTICON_REGEX_PATTERN =
-            Pattern.compile("(?<=^|" + EMOTICON_DELIMITER + ")("
-                    + SMILEY_REGEX_PATTERN.pattern() + "|" + FROWNY_REGEX_PATTERN.pattern() + "|" + GITHUB_REGEX_PATTERN.pattern()
-                    + ")+(?=$|" + EMOTICON_DELIMITER + ")");
+//    public static final Pattern EMOTICON_REGEX_PATTERN =
+//            Pattern.compile("(?<=^|" + EMOTICON_DELIMITER + ")("
+//                    + SMILEY_REGEX_PATTERN.pattern() + "|" + FROWNY_REGEX_PATTERN.pattern() + "|" + GITHUB_REGEX_PATTERN.pattern()
+//                    + ")+(?=$|" + EMOTICON_DELIMITER + ")");
+    public static final Pattern EMOTICON_REGEX_PATTERN = Pattern.compile("(:[^:]+:)");
 
     //TODO: add missing icons/smilies
     static {
         HashMap<String, Integer> map = new HashMap<String, Integer>();
 
-        map.put(":-)", 0x1F601);
         map.put(":happy:", 0x1F601);
         map.put(":happy2:", 0x1F602);
         map.put(":happy3:", 0x1F603);
         map.put(":happy4:", 0x1F604);
         map.put(":happy5:", 0x1F605);
         map.put(":happy6:", 0x1F606);
-        map.put(";-)", 0x1F609);
+        map.put(":wink:", 0x1F609);
         map.put(":$", 0x1F60A);
         map.put(":delicious:", 0x1F60B);
         map.put(":relief:", 0x1F60C);
@@ -47,7 +47,7 @@ public class EmojiUtils {
         map.put(":confounded:", 0x1F616);
         map.put(":kiss:", 0x1F618);
         map.put(":kiss2:", 0x1F61A);
-        map.put(":P", 0x1F61C);
+        map.put("tongue", 0x1F61C);
         map.put(":tongue2:", 0x1F61D);
         map.put(":disappointed:", 0x1F61E);
         map.put(":angry:", 0x1F620);
