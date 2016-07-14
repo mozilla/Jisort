@@ -1,11 +1,6 @@
 package com.mozilla.hackathon.kiboko.fragments;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.support.v4.app.ListFragment;
 import android.support.v7.widget.SwitchCompat;
 import android.view.LayoutInflater;
@@ -13,14 +8,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
+
 import com.mozilla.hackathon.kiboko.Analytics;
-import com.mozilla.hackathon.kiboko.App;
 import com.mozilla.hackathon.kiboko.R;
 import com.mozilla.hackathon.kiboko.adapters.TopicsAdapter;
 import com.mozilla.hackathon.kiboko.models.Topic;
-import com.mozilla.hackathon.kiboko.services.ChatHeadService;
 import com.mozilla.hackathon.kiboko.settings.SettingsUtils;
-import com.mozilla.hackathon.kiboko.utilities.Utils;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -69,16 +63,6 @@ public class TopicsFragment extends ListFragment implements CompoundButton.OnChe
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         adapter = new TopicsAdapter(getContext(), getTopics());
-        // Inflate footer view
-        listFooterView = (LinearLayout) LayoutInflater.from(this.getActivity()).inflate(R.layout.dashboard_footer_view, null);
-        toggleSwitch = (SwitchCompat) listFooterView.findViewById(R.id.toggleSwitch);
-        funmodeSwitch = (SwitchCompat) listFooterView.findViewById(R.id.funmodeSwitch);
-        toggleSwitch.setChecked(App.isServiceRunning());
-
-        funmodeSwitch.setChecked(SettingsUtils.isFunModeEnabled(getContext()));
-        //attach a listener to check for changes in state
-        toggleSwitch.setOnCheckedChangeListener(this);
-        funmodeSwitch.setOnCheckedChangeListener(this);
         setListAdapter(adapter);
         getListView().addFooterView(listFooterView);
     }
@@ -86,21 +70,6 @@ public class TopicsFragment extends ListFragment implements CompoundButton.OnChe
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         switch (buttonView.getId()) {
-            case R.id.toggleSwitch:
-                if(!isChecked){
-                    getContext().stopService(new Intent(getContext(), ChatHeadService.class));
-                    Analytics.add("TopicsFragment::FABSwitch", "off");
-                }else{
-                    Analytics.add("TopicsFragment::FABSwitch", "on");
-                    if(!App.isServiceRunning()){
-                        if(Utils.canDrawOverlays(getContext()))
-                            startOverlayService();
-                        else{
-                            requestPermission(OVERLAY_PERMISSION_REQ_CODE_CHATHEAD);
-                        }
-                    }
-                }
-                break;
             case R.id.funmodeSwitch:
                 if(!isChecked){
                     Analytics.add("TopicsFragment::FunMode Switch", "Off");
@@ -111,42 +80,6 @@ public class TopicsFragment extends ListFragment implements CompoundButton.OnChe
                 break;
             default:
                 break;
-        }
-    }
-
-    private void needPermissionDialog(final int requestCode){
-        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-        builder.setMessage("Jisort needs permissions.");
-        builder.setPositiveButton("OK",
-                new android.content.DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        requestPermission(requestCode);
-                    }
-                });
-        builder.setCancelable(false);
-        builder.show();
-    }
-
-    private void startOverlayService(){
-        getContext().startService(new Intent(getContext(), ChatHeadService.class));
-    }
-
-    private void requestPermission(int requestCode){
-        Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION);
-        intent.setData(Uri.parse("package:" + getContext().getPackageName()));
-        startActivityForResult(intent, requestCode);
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == OVERLAY_PERMISSION_REQ_CODE_CHATHEAD) {
-            if (!Utils.canDrawOverlays(getContext())) {
-                needPermissionDialog(requestCode);
-            }else{
-                startOverlayService();
-            }
         }
     }
 }
