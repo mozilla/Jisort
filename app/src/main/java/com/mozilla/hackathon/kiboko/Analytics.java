@@ -5,8 +5,11 @@ import android.os.Environment;
 import android.util.Log;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -18,7 +21,9 @@ import java.util.List;
 public class Analytics {
 
     private static final String ANALYTICS_FILENAME = "jisort_analytics.txt";
+    private static final String ANALYTICS_ARCHIVE_FILENAME = "jisort_analytics.1.txt";
     private static final long TIME_BETWEEN_SAVES= 5000;
+    private static final long FILE_SIZE_LIMIT = 100000; //bytes
 
     private class AnalyticsItem {
         String mName;
@@ -71,6 +76,20 @@ public class Analytics {
         save(true);
     }
 
+    private void copyOldAnalytics() throws IOException {
+        InputStream in = new FileInputStream(new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), ANALYTICS_FILENAME));
+        OutputStream out = new FileOutputStream(new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), ANALYTICS_ARCHIVE_FILENAME));
+
+        // Transfer bytes from in to out
+        byte[] buf = new byte[1024];
+        int len;
+        while ((len = in.read(buf)) > 0) {
+            out.write(buf, 0, len);
+        }
+        in.close();
+        out.close();
+    }
+
     private void save() {
         save(false);
     }
@@ -98,6 +117,11 @@ public class Analytics {
             try {
                 File outputFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), ANALYTICS_FILENAME);
                 if (!outputFile.exists()) {
+                    outputFile.createNewFile();
+                }
+                else if (outputFile.length() > FILE_SIZE_LIMIT){
+                    copyOldAnalytics();
+                    outputFile.delete();
                     outputFile.createNewFile();
                 }
                 outputStream = new FileOutputStream(outputFile, true);
