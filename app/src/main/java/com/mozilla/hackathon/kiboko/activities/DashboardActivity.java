@@ -12,12 +12,11 @@ public class DashboardActivity extends DSOActivity {
     public static boolean active = false;
     public static FragmentActivity mDashboard;
     private String TAG = DashboardActivity.class.getSimpleName();
-    LinearLayout dashboard_summary;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dashboard_layout);
-        dashboard_summary = (LinearLayout) findViewById(R.id.dashboard_summary);
         mDashboard = DashboardActivity.this;
         Analytics.add("Dashboard", "create");
     }
@@ -40,7 +39,7 @@ public class DashboardActivity extends DSOActivity {
     protected void onDestroy() {
         super.onDestroy();
         active = false;
-       Analytics.add("Dashboard", "destroy");
+        Analytics.add("Dashboard", "destroy");
         Analytics.flush();
     }
 }
