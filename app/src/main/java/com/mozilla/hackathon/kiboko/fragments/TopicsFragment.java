@@ -18,7 +18,7 @@ import com.mozilla.hackathon.kiboko.settings.SettingsUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TopicsFragment extends ListFragment implements CompoundButton.OnCheckedChangeListener {
+public class TopicsFragment extends ListFragment {
     public static int OVERLAY_PERMISSION_REQ_CODE_CHATHEAD = 1234;
     TopicsAdapter adapter;
     private LinearLayout listFooterView;
@@ -64,21 +64,5 @@ public class TopicsFragment extends ListFragment implements CompoundButton.OnChe
         super.onActivityCreated(savedInstanceState);
         adapter = new TopicsAdapter(getContext(), getTopics());
         setListAdapter(adapter);
-    }
-
-    @Override
-    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        switch (buttonView.getId()) {
-            case R.id.funmodeSwitch:
-                if(!isChecked){
-                    Analytics.add("TopicsFragment::FunMode Switch", "Off");
-                }else{
-                    Analytics.add("TopicsFragment::FunMode Switch", "On");
-                }
-                SettingsUtils.setFunMode(getContext(), isChecked);
-                break;
-            default:
-                break;
-        }
     }
 }
