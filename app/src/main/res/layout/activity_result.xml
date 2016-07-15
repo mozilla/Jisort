@@ -22,7 +22,7 @@
         android:textColor="@color/colorTextPrimary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/quiz_template_points"
+        android:text="@string/quiz_result_score"
         android:textAppearance="?android:attr/textAppearanceLarge" />
     <Button
         android:layout_margin="@dimen/activity_horizontal_margin"

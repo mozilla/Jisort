@@ -33,10 +33,13 @@ public class ResultActivity extends AppCompatActivity {
         ActionBar ab = getSupportActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
         TextView txtPoints = (TextView) findViewById(R.id.quizResult);
-        //get score
+
+        //get score and total
         Bundle b = getIntent().getExtras();
         int score = b.getInt("score");
-        txtPoints.setText(getString(R.string.quiz_template_points, score));
+        int total = b.getInt("total");
+
+        txtPoints.setText(getString(R.string.quiz_result_score, score, total));
 
         Analytics.add("Icon Quiz Finished", new Integer(score).toString());
 

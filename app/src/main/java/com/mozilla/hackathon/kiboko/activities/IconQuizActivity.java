@@ -74,8 +74,8 @@ public class IconQuizActivity extends AppCompatActivity implements LoaderManager
     private static final String TAG = makeLogTag(IconQuizActivity.class);
     private static final int LOADER_ID = 0x02;
     List<Question> quizList = new ArrayList<Question>();
-    int score=0;
-    int question_id=0;
+    int score = 0;
+    int question_id = 0;
     Question currentQuestion;
     private String mQuiz;
     TextView quizStepView, quizStepScore;
@@ -115,6 +115,7 @@ public class IconQuizActivity extends AppCompatActivity implements LoaderManager
                 if(checkedId != -1){
                     CheckableLinearLayout checkedView = (CheckableLinearLayout) findViewById(checkedId);
                     checkAnswer(checkedView);
+                    quizStepScore.setText(getString(R.string.quiz_template_score, score, quizList.size()));
                 }
             }
         });
@@ -177,7 +178,6 @@ public class IconQuizActivity extends AppCompatActivity implements LoaderManager
         if(currentQuestion.getANSWER().equals(checkedView.getTag()))
         {
             score++;
-            quizStepScore.setText(getString(R.string.quiz_template_score, score));
             correct = true;
         }else {
             correct = false;
@@ -190,11 +190,13 @@ public class IconQuizActivity extends AppCompatActivity implements LoaderManager
             Intent intent = new Intent(IconQuizActivity.this, ResultActivity.class);
             Bundle scoreBundle = new Bundle();
             scoreBundle.putInt("score", score);
+            scoreBundle.putInt("total", quizList.size());
             intent.putExtras(scoreBundle); // Send user score to your next Intent
             startActivity(intent);
             finish();
         }
         quizGroup.clearCheck();
+
         return correct;
     }
 
@@ -283,8 +285,10 @@ public class IconQuizActivity extends AppCompatActivity implements LoaderManager
 
             quizList = randomizedQuizList;
 
+            score = 0;
             currentQuestion = quizList.get(question_id);
             setQuestionView(currentQuestion);
+            quizStepScore.setText(getString(R.string.quiz_template_score, score, quizList.size()));
         }
     }
 
