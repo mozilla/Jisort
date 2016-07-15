@@ -245,12 +245,12 @@
       "id": "4",
       "title": "Making a Strong Password",
       "gifUrl": "accounts4",
-      "description": "Strong passwords usually have\n<ul><li>At least 8 characters.</li><li>Uppercase and lowercase letters.</li><li>Letters, numbers, and punctuation marks.</li></ul>\nTry to pick passwords that are memorable to you, but not based on personal information other people can easily find out about you."
+      "description": "Strong passwords usually have\n<ul><li>At least 8 characters.</li><li>Uppercase and lowercase letters.</li><li>Letters, numbers, and punctuation marks.</li></ul><br><br>Try to pick passwords that are memorable to you, <b><font color=\"#E4BC4D\">but not based on personal information</font></b> other people can easily find out about you.<br><br>For example, avoid using your <b><font color=\"#E4BC4D\">date of birth</font></b> to create a pin or password. <b><font color=\"#E4BC4D\">People can guess that easily!</font></b>"
     }, {
       "id": "5",
       "title": "Using a Memorable Sentence",
       "gifUrl": "accounts5",
-      "description": "To create and remember a strong password, think of a memorable sentence and use the first letter of each word. For example, \"<b><font color=\"#E4BC4D\">I buy 2 mangos at the market every week</font></b>\" becomes \"<b><font color=\"#E4BC4D\">Ib2matmew/b>\" ."
+      "description": "To create and remember a strong password, think of a memorable sentence and use the first letter of each word. For example, \"<b><font color=\"#E4BC4D\">I buy 2 mangos at the market every week</font></b>\" becomes \"<b><font color=\"#E4BC4D\">Ib2matmew</font></b>\" ."
     }, {
       "id": "6",
       "title": "Using a String of Random Words",
