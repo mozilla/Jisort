@@ -19,10 +19,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TopicsFragment extends ListFragment {
-    public static int OVERLAY_PERMISSION_REQ_CODE_CHATHEAD = 1234;
     TopicsAdapter adapter;
     private LinearLayout listFooterView;
-    private SwitchCompat toggleSwitch, funmodeSwitch = null;
 
     public TopicsFragment() {
     }
