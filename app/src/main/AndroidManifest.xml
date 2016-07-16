@@ -22,7 +22,12 @@
         <activity
             android:name=".activities.IconQuizActivity"
             android:label="@string/title_activity_iconquiz"
-            android:windowSoftInputMode="stateHidden"></activity>
+            android:windowSoftInputMode="stateHidden"/>
+        <activity
+            android:name=".activities.WelcomeActivity"
+            android:label="@string/title_activity_iconquiz"
+            android:windowSoftInputMode="stateHidden">
+        </activity>
         <activity
             android:name=".activities.DashboardActivity"
             android:label="Jisort - What would you like to do?"
