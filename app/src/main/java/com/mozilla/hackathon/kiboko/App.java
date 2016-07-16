@@ -46,7 +46,7 @@ public class App extends Application {
                 // .setSmallIcon(R.drawable.ic_launcher)
                 .setContentIntent(pIntent)
                 .setAutoCancel(true)
-                .addAction(0, "Lear More", pIntent).build();
+                .addAction(0, getContext().getString(R.string.btn_more), pIntent).build();
         NotificationManager notificationManager = (NotificationManager) getContext().getSystemService(NOTIFICATION_SERVICE);
         // hide the notification after its selected
         notification.flags |= Notification.FLAG_AUTO_CANCEL;

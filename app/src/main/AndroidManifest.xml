@@ -30,7 +30,8 @@
         </activity>
         <activity
             android:name=".activities.DashboardActivity"
-            android:label="Jisort - What would you like to do?"
+            android:icon="@drawable/ic_launcher"
+            android:label="@string/title_activity_dashboard"
             android:launchMode="singleTop"
             android:theme="@style/AppTheme.SplashTheme"
             android:windowSoftInputMode="stateHidden">
