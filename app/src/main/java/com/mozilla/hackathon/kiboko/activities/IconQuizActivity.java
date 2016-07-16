@@ -127,7 +127,7 @@ public class IconQuizActivity extends AppCompatActivity implements LoaderManager
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-//                showExitConfirmDialog();
+                this.finish();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
