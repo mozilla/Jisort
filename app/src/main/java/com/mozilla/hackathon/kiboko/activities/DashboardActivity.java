@@ -19,6 +19,7 @@ public class DashboardActivity extends DSOActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dashboard_layout);
         mDashboard = DashboardActivity.this;
+        this.setTitle(getResources().getString(R.string.title_dashboard));
         Analytics.add("Dashboard", "create");
     }
 
