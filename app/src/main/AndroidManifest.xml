@@ -29,7 +29,6 @@
         </activity>
         <activity
             android:name=".activities.DashboardActivity"
-            android:label="@string/title_dashboard"
             android:launchMode="singleTop"
             android:theme="@style/AppTheme.SplashTheme"
             android:windowSoftInputMode="stateHidden">

@@ -43,7 +43,7 @@ public class App extends Application {
         Notification notification = new NotificationCompat.Builder(getContext())
                 .setContentTitle(getContext().getString(R.string.app_name))
                 .setStyle(new NotificationCompat.BigTextStyle().bigText(msg))
-                // .setSmallIcon(R.drawable.ic_launcher)
+                .setSmallIcon(R.drawable.ic_launcher)
                 .setContentIntent(pIntent)
                 .setAutoCancel(true)
                 .addAction(0, getContext().getString(R.string.btn_more), pIntent).build();
