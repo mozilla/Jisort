@@ -35,16 +35,17 @@ public class App extends Application {
         // Prepare intent which is triggered if the
         // notification is selected
         Intent intent = new Intent(getContext(), TutorialSlideActivity.class);
-//        intent.putExtra("title", topic.getName());
         intent.putExtra("topic", tag);
         PendingIntent pIntent = PendingIntent.getActivity(getContext(), (int) System.currentTimeMillis(), intent, 0);
 
         // Build notification
         // Actions are just fake
         Notification notification = new NotificationCompat.Builder(getContext())
-                .setContentTitle(msg)
-                .setContentText("Jisort").setSmallIcon(R.drawable.ic_launcher)
+                .setContentTitle(getContext().getString(R.string.app_name))
+                .setStyle(new NotificationCompat.BigTextStyle().bigText(msg))
+                // .setSmallIcon(R.drawable.ic_launcher)
                 .setContentIntent(pIntent)
+                .setAutoCancel(true)
                 .addAction(0, "Lear More", pIntent).build();
         NotificationManager notificationManager = (NotificationManager) getContext().getSystemService(NOTIFICATION_SERVICE);
         // hide the notification after its selected
