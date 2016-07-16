@@ -2,8 +2,8 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="@style/Theme.AppCompat.Light.DarkActionBar">
-        <!--<item name="android:icon" tools:ignore="NewApi">@android:color/transparent</item>-->
-        <!--<item name="icon">@android:color/transparent</item>-->
+        <item name="android:icon" tools:ignore="NewApi">@android:color/transparent</item>
+        <item name="icon">@android:color/transparent</item>
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimary</item>
         <item name="actionBarStyle">@style/DSOActionBar</item>
@@ -48,7 +48,6 @@
     </style>
     <declare-styleable name="CheckableLinearLayout">
         <attr name="is_checked" format="boolean" />
-
         <attr name="type">
             <enum name="radio" value="0" />
             <enum name="check" value="1" />

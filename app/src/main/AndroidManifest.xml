@@ -25,13 +25,11 @@
             android:windowSoftInputMode="stateHidden"/>
         <activity
             android:name=".activities.WelcomeActivity"
-            android:label="@string/title_activity_iconquiz"
             android:windowSoftInputMode="stateHidden">
         </activity>
         <activity
             android:name=".activities.DashboardActivity"
-            android:icon="@drawable/ic_launcher"
-            android:label="@string/title_activity_dashboard"
+            android:label="@string/title_dashboard"
             android:launchMode="singleTop"
             android:theme="@style/AppTheme.SplashTheme"
             android:windowSoftInputMode="stateHidden">

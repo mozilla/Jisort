@@ -9,9 +9,10 @@
         android:id="@+id/topic_icon"
         android:src="@drawable/welcome"
         android:layout_marginTop="15dp"
-        android:layout_gravity="center_vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_marginBottom="15dp"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:layout_width="200dp"
+        android:layout_height="200dp" />
 
     <TextView
         android:layout_width="match_parent"
