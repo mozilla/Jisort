@@ -25,6 +25,8 @@ public class SettingsUtils {
      * Boolean preference indicating whether the app is in fun mode
      */
     public static final String PREF_FUNMODE_ENABLED = "pref_funmode_enabled";
+
+    public static final String PREF_WELCOME_DONE = "pref_welcome_done";
     /**
      * Mark that the app has finished loading the {@code R.raw.bootstrap_data bootstrap data}.
      *
@@ -35,6 +37,15 @@ public class SettingsUtils {
         sp.edit().putBoolean(PREF_DATA_BOOTSTRAP_DONE, true).apply();
     }
     /**
+     * Mark that the app has shown the welcome screen {@link com.mozilla.hackathon.kiboko.activities.WelcomeActivity}.
+     *
+     * @param context Context to be used to edit the {@link android.content.SharedPreferences}.
+     */
+    public static void markWelcomeDone(final Context context) {
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
+        sp.edit().putBoolean(PREF_WELCOME_DONE, true).apply();
+    }
+    /**
      * Return true when the {@code R.raw.bootstrap_data_json bootstrap data} has been marked loaded.
      *
      * @param context Context to be used to lookup the {@link android.content.SharedPreferences}.
@@ -42,6 +53,16 @@ public class SettingsUtils {
     public static boolean isDataBootstrapDone(final Context context) {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
         return sp.getBoolean(PREF_DATA_BOOTSTRAP_DONE, false);
+    }
+
+    /**
+     * Return true when the {@link com.mozilla.hackathon.kiboko.activities.WelcomeActivity} has been shown.
+     *
+     * @param context Context to be used to lookup the {@link android.content.SharedPreferences}.
+     */
+    public static boolean isWelcomeDone(final Context context) {
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
+        return sp.getBoolean(PREF_WELCOME_DONE, false);
     }
     /**
      * Set fun mode.
