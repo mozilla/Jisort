@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
+import com.mozilla.hackathon.kiboko.App;
 import com.mozilla.hackathon.kiboko.utilities.NetworkUtils;
 
 /**
@@ -19,14 +20,7 @@ import com.mozilla.hackathon.kiboko.utilities.NetworkUtils;
         NetworkInfo ni=(NetworkInfo) intent.getExtras().get(ConnectivityManager.EXTRA_NETWORK_INFO);
         if(ni!=null && ni.getState()==NetworkInfo.State.CONNECTED)
         {
-            // there is Internet connection
-        } else
-
-
-        if(intent .getBooleanExtra(ConnectivityManager.EXTRA_NO_CONNECTIVITY,Boolean.FALSE))
-        {
-            // no Internet connection, send network state changed
-
+            App.createNotification("Your device is now connected to wifi.", "wifi");
         }
     }
 }

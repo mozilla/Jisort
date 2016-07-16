@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.BatteryManager;
 
+import com.mozilla.hackathon.kiboko.App;
+
 /**
  * Created by mwadime on 6/7/2016.
  */
@@ -15,6 +17,7 @@ public class DSOBatteryReceiver extends BroadcastReceiver {
         int rawlevel = intent.getIntExtra(BatteryManager.EXTRA_LEVEL, 0);
 
         if(rawlevel <= 25){
+            App.createNotification("Your phone battery is running low.", "battery");
         }
     }
 }
