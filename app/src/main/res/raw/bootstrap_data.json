@@ -158,7 +158,7 @@
       "id": "1",
       "title": "Storage Space",
       "gifUrl": "storage1",
-      "description": "Your phone has limited space for apps, videos, images, and other content you have stored. There are a few things you can check to free up some space."
+      "description": "Your phone has limited space for apps, videos, images, and other content you have stored. On some phones, there is space set aside <b><font color=\"#E4BC4D\">just for apps</font></b>. Usually, this space is much smaller than the total available space, and <font color=\"#E4BC4D\">may cause unexpected problems when installing apps</font>.<br><br>There are a few things you can check to free up some space."
     }, {
       "id": "2",
       "title": "Checking your Storage",
@@ -212,13 +212,18 @@
       "description": "Before downloading an app, always look at its rating, description and the comments posted about it by other people to learn more about the app. Because apps can be made by anybody, ratings and comments are the best way to know if an app does what it claims, or if it is poorly made."
     }, {
       "id": "8",
-      "title": "Giving your own review",
+      "title": "Downloading",
       "gifUrl": "playstore8",
-      "description": "Once you’ve downloaded and used an app, you can rate it and comment about it in the Play Store. Your feedback helps create a safe environment by giving people reliable information about whether or not apps are well-made, useful and appropriate."
+      "description": "To download an app, simply click on the <b><font color=\"#E4BC4D\">Install button</font></b>.<br><br>You may also want to see how much <b><font color=\"#E4BC4D\">Storage Space</font></b> an app will consume. Look for the <b><font color=\"#E4BC4D\">READ MORE</font></b> link, and then find <b><font color=\"#E4BC4D\">Download Size</font></b>. If you've had trouble with space for your apps in the past, check out <a href=\"mozilladso:///tutorials/storage\">Freeing up Memory</a> for some tips."
     }, {
       "id": "9",
-      "title": "Updating",
+      "title": "Giving your own review",
       "gifUrl": "playstore9",
+      "description": "Once you’ve downloaded and used an app, you can rate it and comment about it in the Play Store. Your feedback helps create a safe environment by giving people reliable information about whether or not apps are well-made, useful and appropriate."
+    }, {
+      "id": "10",
+      "title": "Updating",
+      "gifUrl": "auto_update",
       "description": "Occasionally, app creators will need to update or change the content of the app. So, often, they issue updates for their apps through the Play Store.\nUpdating apps consumes data. However, the Play Store will try to download updates automatically when you’re connected to a Wi-Fi hotspot. Check out <a href=\"mozilladso:///tutorials/data/8\">Disable Auto-Update</a> if you suspect that apps are being updated with your mobile data connection."
     }]
   },{
