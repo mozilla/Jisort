@@ -50,6 +50,6 @@
     <string name="welcome_surtitle">Welcome to</string>
     <string name="welcome_title">Jisort!</string>
     <string name="welcome_description">Explore the topics in this app to learn more about your phone.</string>
-    <string name="welcome_button">Ok\! Let\'s go\!</string>
+    <string name="welcome_button">Ok! Let\'s go!</string>
     <string name="title_dashboard">Jisort - What would you like to do?</string>
 </resources>

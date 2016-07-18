@@ -42,11 +42,14 @@ public class App extends Application {
         // Actions are just fake
         Notification notification = new NotificationCompat.Builder(getContext())
                 .setContentTitle(getContext().getString(R.string.app_name))
+                .setContentText("Tap for more information.")
                 .setStyle(new NotificationCompat.BigTextStyle().bigText(msg))
-                .setSmallIcon(R.drawable.ic_launcher)
+                .setColor(getContext().getResources().getColor(R.color.colorPrimary))
+                .setSmallIcon(R.drawable.ic_stat_notification)
                 .setContentIntent(pIntent)
                 .setAutoCancel(true)
-                .addAction(0, getContext().getString(R.string.btn_more), pIntent).build();
+                .addAction(0, getContext().getString(R.string.btn_more), pIntent)
+                .build();
         NotificationManager notificationManager = (NotificationManager) getContext().getSystemService(NOTIFICATION_SERVICE);
         // hide the notification after its selected
         notification.flags |= Notification.FLAG_AUTO_CANCEL;
