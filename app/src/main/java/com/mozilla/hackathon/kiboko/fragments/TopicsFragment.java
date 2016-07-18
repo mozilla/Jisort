@@ -15,6 +15,8 @@ import com.mozilla.hackathon.kiboko.adapters.TopicsAdapter;
 import com.mozilla.hackathon.kiboko.models.Topic;
 import com.mozilla.hackathon.kiboko.settings.SettingsUtils;
 
+import org.sufficientlysecure.htmltextview.EmojiUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,12 +43,12 @@ public class TopicsFragment extends ListFragment {
 
     private List<Topic> getTopics() {
         List<Topic> list = new ArrayList<Topic>();
-        list.add(get("icons", "Play the Icon Game!", R.drawable.circular_blue_help));
-        list.add(get("wifi", "Wi-Fi ni Noma!", R.drawable.circular_wifi));
+        list.add(get("icons", "Play the Icon Game! :grinning-cat:", R.drawable.circular_blue_help));
+        list.add(get("wifi", "Wi-Fi ni Noma! :thumbs-up:", R.drawable.circular_wifi));
         list.add(get("connect_wifi", "Connecting to WiFi", R.drawable.circular_wifi));
         list.add(get("tracking_data", "Data Consumption", R.drawable.circular_cell));
         list.add(get("data", "Using Data Wisely", R.drawable.circular_money));
-        list.add(get("playstore", "Downloading new Apps", R.drawable.circular_googleplay));
+        list.add(get("playstore", "Downloading new Apps :joy-cat:", R.drawable.circular_googleplay));
         list.add(get("storage", "Freeing up Storage", R.drawable.circular_sdcard));
         list.add(get("airplane_mode", "Using Airplane Mode", R.drawable.circular_airplane));
         list.add(get("accounts_passwords", "Accounts and Passwords", R.drawable.circular_account));
@@ -54,7 +56,7 @@ public class TopicsFragment extends ListFragment {
     }
 
     private Topic get(String t, String s, int i) {
-        return new Topic(t, s, i);
+        return new Topic(t, EmojiUtils.parse(s), i);
     }
 
     @Override

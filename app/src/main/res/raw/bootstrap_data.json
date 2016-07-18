@@ -168,7 +168,7 @@
       "id": "3",
       "title": "Evaluating Items",
       "gifUrl": "storage3",
-      "description": "The size of content on your phone is measured in MB, and GB, where MB is the smallest, and GB is the biggest. If an app consumes 2GB of space, it is much larger than an image that consumes 2MB.\nConfirm that the size of each type of content is as you expect and as you want. If your phone has many images and you’re having trouble installing a new app, consider deleting some."
+      "description": "The size of content on your phone is measured in KB, MB, and GB, where KB is the smallest :mouse-face:, and GB is the biggest :elephant:. If an app consumes 2GB of space, it is much larger than an image that consumes 2MB.\n<br><br>Confirm that the size of each type of content is as you expect and as you want. If your phone has many images and you’re having trouble installing a new app, consider deleting some."
     }]
   },{
   "id": "7",
@@ -187,24 +187,24 @@
       "description": "To start, look for the <b><font color=\"#E4BC4D\">Play Store</font></b> icon on your home screen. If you can’t find it, try looking in the <b><font color=\"#E4BC4D\">Apps Menu</font></b><img src=\"ic_blur_circular_white_24dp\"/>."
     }, {
       "id": "3",
-      "title": "Accounts",
+      "title": "Accounts :silhouettes:",
       "gifUrl": "playstore3",
-      "description": "Google is the company that created the system that runs your phone (Android) and the Play Store. They want you to have a Google account before you use the Play Store. So, If you’re using the Play Store for the first time, you may be asked to set up a Google account.<br><br>You can pick a username and a strong password for your account when you sign up. If you need help coming up with a good password, look at <a href=\"mozilladso:///tutorials/accounts_passwords\">Accounts and Passwords</a>."
+      "description": "Google is the company that created the system that runs your phone (Android) and the Play Store. They want you to have a Google account before you use the Play Store. So, If you’re using the Play Store for the first time, you may be asked to set up a Google account.<br><br>You can pick a username and a strong password :lock: for your account when you sign up. If you need help coming up with a good password, look at <a href=\"mozilladso:///tutorials/accounts_passwords\">Accounts and Passwords</a>."
     }, {
       "id": "4",
-      "title": "Ready for Apps!",
+      "title": "Ready for Apps! :party-popper:",
       "gifUrl": "playstore4",
-      "description": "Now that you have access to the Play Store, you can look for apps you want! There are millions to choose from to help organize your life, search for information, have fun, and more. You just have to search!"
+      "description": "Now that you have access to the Play Store, you can look for apps you want! :sparkles:<br><br>There are millions to choose from to help organize your life, search for information, have fun, and more. You just have to search! :balloon:"
     }, {
       "id": "5",
       "title": "Searching for Apps",
       "gifUrl": "playstore5",
-      "description": "The Play Store is full of apps. If you've heard someone mention an app, if you want to find something new, or if you want to solve a problem, try searching.<br><br>In the Play Store, find the Search button <img src=\"ic_search_white_24dp\"/>, or Search bar, and type in what you need. For example <b><font color=\"#E4BC4D\">temple run</font></b>, <b><font color=\"#E4BC4D\">good news bible</font></b>, <b><font color=\"#E4BC4D\">KCB</font></b>, or <b><font color=\"#E4BC4D\">photo editing</font></b>."
+      "description": "The Play Store is full of apps. If you've heard someone mention an app, if you want to find something new, or if you want to solve a problem, try searching.<br><br>In the Play Store, find the Search <img src=\"ic_search_white_24dp\"/> button, or Search bar, and type in what you need. For example <b><font color=\"#E4BC4D\">temple run</font></b>, <b><font color=\"#E4BC4D\">good news bible</font></b>, <b><font color=\"#E4BC4D\">KCB</font></b>, or <b><font color=\"#E4BC4D\">photo editing</font></b>."
     }, {
       "id": "6",
       "title": "Browsing for Apps",
       "gifUrl": "playstore6",
-      "description": "You can also look at lists of apps in different categories and discover new ones as you look.  Try clicking on the different categories to look for new and interesting apps."
+      "description": "You can also look at lists of apps in different categories and discover new ones as you look.  :information-desk-person: Try clicking on the different categories to look for new and interesting apps."
     }, {
       "id": "7",
       "title": " Reviewing and Downloading",
@@ -214,7 +214,7 @@
       "id": "8",
       "title": "Downloading",
       "gifUrl": "playstore8",
-      "description": "To download an app, simply click on the <b><font color=\"#E4BC4D\">Install button</font></b>.<br><br>You may also want to see how much <b><font color=\"#E4BC4D\">Storage Space</font></b> an app will consume. Look for the <b><font color=\"#E4BC4D\">READ MORE</font></b> link, and then find <b><font color=\"#E4BC4D\">Download Size</font></b>. If you've had trouble with space for your apps in the past, check out <a href=\"mozilladso:///tutorials/storage\">Freeing up Memory</a> for some tips."
+      "description": "To download an app, simply click on the <b><font color=\"#E4BC4D\">Install button</font></b>.<br><br>You may also want to see how much <b><font color=\"#E4BC4D\">Storage Space</font></b> <img src=\"ic_storage_white_24dp\"/> an app will consume. Look for the <b><font color=\"#E4BC4D\">READ MORE</font></b> link, and then find <b><font color=\"#E4BC4D\">Download Size</font></b>. If you've had trouble with space for your apps in the past, check out <a href=\"mozilladso:///tutorials/storage\">Freeing up Memory</a> for some tips."
     }, {
       "id": "9",
       "title": "Giving your own review",
@@ -233,9 +233,9 @@
     "photoUrl": "url",
     "steps": [{
       "id": "1",
-      "title": "Accounts",
+      "title": "Accounts :silhouettes:",
       "gifUrl": "accounts1",
-      "description": "An account is the identity you use to sign into and use an app or service. Companies and other people can often observe your account activity to see how you use apps, services, and websites."
+      "description": "An account is the identity you use to sign into and use an app or service. Companies and other people can often observe :magnifying-glass: your account activity to see how you use apps, services, and websites."
     }, {
       "id": "2",
       "title": "Multiple Accounts",
@@ -245,15 +245,15 @@
       "id": "3",
       "title": "A Different Password for Each Account",
       "gifUrl": "accounts3",
-      "description": "<b><font color=\"#E4BC4D\">You should use a different password for every account you make.</font></b>\nImagine you use Facebook and Gmail with the same password. If someone discovers your Facebook password, they also have access to your Gmail. By using a different password for every account, the only account they have access to is Facebook."
+      "description": "<b><font color=\"#E4BC4D\">You should use a different password for every account you make.</font></b>\nImagine you use Facebook and Gmail with the same password. If someone discovers your Facebook password, they also have access to your Gmail. By using a different password for every account, the only account they have access to is Facebook :no-good:."
     }, {
       "id": "4",
-      "title": "Making a Strong Password",
+      "title": ":lock: Making a Strong Password :lock:",
       "gifUrl": "accounts4",
       "description": "Strong passwords usually have\n<ul><li>At least 8 characters.</li><li>Uppercase and lowercase letters.</li><li>Letters, numbers, and punctuation marks.</li></ul><br><br>Try to pick passwords that are memorable to you, <b><font color=\"#E4BC4D\">but not based on personal information</font></b> other people can easily find out about you.<br><br>For example, avoid using your <b><font color=\"#E4BC4D\">date of birth</font></b> to create a pin or password. <b><font color=\"#E4BC4D\">People can guess that easily!</font></b>"
     }, {
       "id": "5",
-      "title": "Using a Memorable Sentence",
+      "title": "Using a Memorable Sentence :thought:",
       "gifUrl": "accounts5",
       "description": "To create and remember a strong password, think of a memorable sentence and use the first letter of each word. For example, \"<b><font color=\"#E4BC4D\">I buy 2 mangos at the market every week</font></b>\" becomes \"<b><font color=\"#E4BC4D\">Ib2matmew</font></b>\" ."
     }, {
@@ -265,7 +265,7 @@
       "id": "7",
       "title": "What kinds of passwords should I avoid?",
       "gifUrl": "accounts7",
-      "description": "Impostors can easily break short passwords and passwords made up of sequential numbers like \"1234\". They can also guess passwords that are made of simple words like \"mydata\". Impostors can use what they know about you to guess passwords based on important dates in your life (such as birthdays or anniversaries) or the names of people (including celebrities and sports teams) or places you know."
+      "description": "Impostors can easily break short passwords and passwords made up of sequential numbers like \"1234\". They can also guess passwords that are made of simple words like \"mydata\".<br><br>Impostors can use what they know about you to guess passwords based on important dates :calendar: in your life (such as birthdays or anniversaries) or the names of people (including celebrities and sports teams) or places you know."
     }]
   }],
   "quizes": [
