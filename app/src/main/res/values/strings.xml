@@ -39,11 +39,12 @@
     <string name="quiz_result_score">Score: <xliff:g id="quiz_score">%1$d</xliff:g> / <xliff:g id="quiz_total">%2$d</xliff:g></string>
     <string name="placeholder_quiz_score"><xliff:g id="quiz_score">%1$d</xliff:g> / <xliff:g id="quiz_total">%2$d</xliff:g></string>
     <string name="quiz_challenge_text">Ready for a challenge?</string>
+    <string name="quiz_learn_text">Or, tap icons below to learn more:</string>
     <string name="quiz_title_text">Choose the icon&#8230;</string>
     <string name="title_activity_iconquiz">Icon Quiz</string>
     <string name="title_activity_topiclist">Phone Usage</string>
     <string name="title_activity_quizresult">Icon Quiz</string>
-    <string name="play_icon_quiz_text">Play the Icon Quiz!</string>
+    <string name="play_icon_quiz_text">Tap here to play the Icon Quiz!</string>
     <string name="app_name_actions">Jisort - View Settings</string>
     <string name="app_name_tutorials">Jisort - View Tutorial</string>
     <string name="enable_funmode_description">Enable FUN MODE</string>
