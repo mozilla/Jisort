@@ -20,7 +20,7 @@ import com.mozilla.hackathon.kiboko.utilities.NetworkUtils;
         NetworkInfo ni=(NetworkInfo) intent.getExtras().get(ConnectivityManager.EXTRA_NETWORK_INFO);
         if(ni!=null && ni.getState()==NetworkInfo.State.CONNECTED)
         {
-            App.createNotification("Your device is now connected to wifi.", "wifi");
+            App.createNotification("Your device is now connected to Wi-Fi.", "wifi");
         }
     }
 }
