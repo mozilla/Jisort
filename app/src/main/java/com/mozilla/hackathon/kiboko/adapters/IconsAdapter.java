@@ -29,6 +29,9 @@ public class IconsAdapter extends BaseAdapter implements Filterable {
     private Filter topicFilter;
     private List<IconTopic> origTopicList;
 
+    private int analyticsStartClicks = 0;
+    private final int ANALYTICS_CLICKS = 10;
+
     public IconsAdapter(Context ctx, List<IconTopic> topics) {
         this.topics = topics;
         this.context = ctx;
@@ -87,6 +90,19 @@ public class IconsAdapter extends BaseAdapter implements Filterable {
         final IconTopic topic = topics.get(position);
         holder.img.setImageResource(topic.getImage());
 
+        viewItem.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                if (analyticsStartClicks > ANALYTICS_CLICKS) {
+                    Analytics.shareAnalytics();
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+        });
+
         viewItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -100,6 +116,13 @@ public class IconsAdapter extends BaseAdapter implements Filterable {
                         .animated(false)
                         .contentView(R.layout.tooltip_dso, R.id.tv_text)
                         .build();
+
+                if (topic.getTag().equals("wifi")) {
+                    ++analyticsStartClicks;
+                }
+                else {
+                    analyticsStartClicks = 0;
+                }
 
                 TextView text = tooltip.findViewById(R.id.tv_title);
                 text.setText(topic.getTitle());
