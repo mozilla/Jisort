@@ -96,7 +96,7 @@ public class TutorialSlideActivity extends DSOActivity implements LoaderManager.
                     mPrev.setEnabled(false);
                 }
 
-                Analytics.add("Tutorial Slide", mTopic + ", " + new Integer(mPager.getCurrentItem()).toString());
+                Analytics.add("Tutorial slide", mTopic + ", " + new Integer(mPager.getCurrentItem()).toString());
             }
         });
 
@@ -111,7 +111,7 @@ public class TutorialSlideActivity extends DSOActivity implements LoaderManager.
                     mPrev.setEnabled(true);
                 }
 
-                Analytics.add("Tutorial Slide", mTopic + ", " + new Integer(mPager.getCurrentItem()).toString());
+                Analytics.add("Tutorial slide", mTopic + ", " + new Integer(mPager.getCurrentItem()).toString());
             }
         });
 
@@ -166,7 +166,10 @@ public class TutorialSlideActivity extends DSOActivity implements LoaderManager.
             }
         }
 
-        Analytics.add("Tutorial Slide", mTopic);
+        Analytics.add("Tutorial opened", mTopic);
+        if (intent.getExtras().getBoolean("notification")) {
+            Analytics.add("Tutorial " + mTopic + " entered through notification.");
+        }
     }
 
     @Override

@@ -36,6 +36,7 @@ public class App extends Application {
         // notification is selected
         Intent intent = new Intent(getContext(), TutorialSlideActivity.class);
         intent.putExtra("topic", tag);
+        intent.putExtra("notification", true);
         PendingIntent pIntent = PendingIntent.getActivity(getContext(), (int) System.currentTimeMillis(), intent, 0);
 
         // Build notification

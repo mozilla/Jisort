@@ -20,7 +20,7 @@ public class DashboardActivity extends DSOActivity {
         setContentView(R.layout.dashboard_layout);
         mDashboard = DashboardActivity.this;
         this.setTitle(getResources().getString(R.string.title_dashboard));
-        Analytics.add("Dashboard", "create");
+        Analytics.add("Home screen started");
     }
 
     @Override
@@ -49,7 +49,7 @@ public class DashboardActivity extends DSOActivity {
     protected void onDestroy() {
         super.onDestroy();
         active = false;
-        Analytics.add("Dashboard", "destroy");
+        Analytics.add("Home screen destroyed");
         Analytics.flush();
     }
 }
