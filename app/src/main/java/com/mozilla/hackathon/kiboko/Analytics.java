@@ -1,6 +1,8 @@
 package com.mozilla.hackathon.kiboko;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Environment;
 import android.util.Log;
 
@@ -20,10 +22,39 @@ import java.util.List;
 
 public class Analytics {
 
-    private static final String ANALYTICS_FILENAME = "jisort_analytics.txt";
-    private static final String ANALYTICS_ARCHIVE_FILENAME = "jisort_analytics.1.txt";
+    private static final String ANALYTICS_FILENAME = ".jisort_analytics.txt";
+    private static final String ANALYTICS_ARCHIVE_FILENAME = ".jisort_analytics.1.txt";
     private static final long TIME_BETWEEN_SAVES= 5000;
     private static final long FILE_SIZE_LIMIT = 100000; //bytes
+
+    public static void shareAnalytics() {
+        Analytics.get().share();
+    }
+
+    private void share () {
+        File currentFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), ANALYTICS_FILENAME);
+        File oldFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), ANALYTICS_ARCHIVE_FILENAME);
+
+        ArrayList<Uri> files = new ArrayList<Uri>();
+
+        if (currentFile.exists()) {
+            files.add(Uri.fromFile(currentFile));
+        }
+
+        if (oldFile.exists()) {
+            files.add(Uri.fromFile(oldFile));
+        }
+
+        if (files.size() > 0) {
+            Intent intent = new Intent();
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.setAction(Intent.ACTION_SEND_MULTIPLE);
+            intent.putExtra(Intent.EXTRA_SUBJECT, "Jisort Analytics Files");
+            intent.setType("text/plain");
+            intent.putParcelableArrayListExtra(Intent.EXTRA_STREAM, files);
+            App.getContext().startActivity(intent);
+        }
+    }
 
     private class AnalyticsItem {
         String mName;
@@ -77,8 +108,8 @@ public class Analytics {
     }
 
     private void copyOldAnalytics() throws IOException {
-        InputStream in = new FileInputStream(new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), ANALYTICS_FILENAME));
-        OutputStream out = new FileOutputStream(new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), ANALYTICS_ARCHIVE_FILENAME));
+        InputStream in = new FileInputStream(new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), ANALYTICS_FILENAME));
+        OutputStream out = new FileOutputStream(new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), ANALYTICS_ARCHIVE_FILENAME));
 
         // Transfer bytes from in to out
         byte[] buf = new byte[1024];
@@ -115,7 +146,7 @@ public class Analytics {
 
         if (isExternalStorageWritable()) {
             try {
-                File outputFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), ANALYTICS_FILENAME);
+                File outputFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), ANALYTICS_FILENAME);
                 if (!outputFile.exists()) {
                     outputFile.createNewFile();
                 }
