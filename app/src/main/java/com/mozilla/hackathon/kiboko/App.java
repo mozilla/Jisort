@@ -24,7 +24,7 @@ public class App extends Application {
         context = getApplicationContext();
         PACKAGE_NAME = context.getPackageName();
         // Battery receiver - Catches battery low system event
-         context.registerReceiver(new DSOBatteryReceiver(), new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
+        // context.registerReceiver(new DSOBatteryReceiver(), new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
     }
 
     public static Context getContext() {
