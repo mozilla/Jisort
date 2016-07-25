@@ -90,6 +90,7 @@ public class TutorialSlideActivity extends DSOActivity implements LoaderManager.
             public void onClick(View v) {
                 if(!(mPager.getCurrentItem() > mPagerAdapter.getCount() - 1)){
                     mPager.setCurrentItem(mPager.getCurrentItem() - 1);
+
                     mNext.setEnabled(true);
                 }else{
                     mNext.setEnabled(true);
@@ -126,8 +127,6 @@ public class TutorialSlideActivity extends DSOActivity implements LoaderManager.
                 // fragment expose actions itself (rather than the activity exposing actions),
                 // but for simplicity, the activity provides the actions in this sample.
                 invalidateOptionsMenu();
-
-                mPager.scrollTo(0, 0);
             }
         });
 
