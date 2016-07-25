@@ -41,6 +41,7 @@ public class ScreenSlidePageFragment extends Fragment {
     public static final String ARG_PAGE_IMAGE = "page_image";
     private float mActionBarHeight;
     private ActionBar mActionBar;
+    public static NotifyingScrollView mScrollview;
     private GifDrawable gifDrawable;
     /**
      * The fragment's page number, which is set to the argument value for {@link #ARG_PAGE}.
@@ -85,7 +86,7 @@ public class ScreenSlidePageFragment extends Fragment {
         // Inflate the layout containing a title and body text.
         ViewGroup rootView = (ViewGroup) inflater
                 .inflate(R.layout.fragment_screen_slide_page, container, false);
-
+        mScrollview = (NotifyingScrollView) rootView.findViewById(R.id.content);
 //        ((NotifyingScrollView) rootView.findViewById(R.id.content)).setOnScrollChangedListener(mOnScrollChangedListener);
         if(SettingsUtils.isFunModeEnabled(getContext())){
             ((TextView) rootView.findViewById(R.id.step_title)).setText(EmojiUtils.parse(mPageTitle));
@@ -118,6 +119,7 @@ public class ScreenSlidePageFragment extends Fragment {
             }
         }
     };
+
 
     /**
      * Returns the page number represented by this fragment object.
