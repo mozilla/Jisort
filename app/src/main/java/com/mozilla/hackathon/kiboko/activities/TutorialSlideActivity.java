@@ -16,6 +16,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -90,7 +91,6 @@ public class TutorialSlideActivity extends DSOActivity implements LoaderManager.
             public void onClick(View v) {
                 if(!(mPager.getCurrentItem() > mPagerAdapter.getCount() - 1)){
                     mPager.setCurrentItem(mPager.getCurrentItem() - 1);
-
                     mNext.setEnabled(true);
                 }else{
                     mNext.setEnabled(true);
@@ -127,6 +127,9 @@ public class TutorialSlideActivity extends DSOActivity implements LoaderManager.
                 // fragment expose actions itself (rather than the activity exposing actions),
                 // but for simplicity, the activity provides the actions in this sample.
                 invalidateOptionsMenu();
+
+                // When changing pages, get the current page (fragment) and reset the scroll position
+                ((ScreenSlidePagerAdapter) mPager.getAdapter()).getCurrentFragment().getView().scrollTo(0, 0);
             }
         });
 
@@ -241,6 +244,9 @@ public class TutorialSlideActivity extends DSOActivity implements LoaderManager.
      * sequence.
      */
     private class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
+
+        private Fragment mCurrentFragment;
+
         public ScreenSlidePagerAdapter(FragmentManager fm) {
             super(fm);
         }
@@ -251,8 +257,20 @@ public class TutorialSlideActivity extends DSOActivity implements LoaderManager.
         }
 
         @Override
+        public void setPrimaryItem(ViewGroup container, int position, Object object) {
+            if (getCurrentFragment() != object) {
+                mCurrentFragment = (Fragment) object;
+            }
+            super.setPrimaryItem(container, position, object);
+        }
+
+        @Override
         public int getCount() {
             return jsonSteps.size();
+        }
+
+        public Fragment getCurrentFragment() {
+            return mCurrentFragment;
         }
     }
 }
