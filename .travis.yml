@@ -10,3 +10,5 @@ android:
     - extra-android-m2repository
     - extra-google-m2repository
 skip_cleanup: true
+notifications:
+  email: false
