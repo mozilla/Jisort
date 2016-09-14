@@ -1,7 +1,6 @@
 sudo: false
 language: android
-jdk:
-  - oraclejdk8
+script: "./gradlew build"
 android:
   components:
     - platform-tools
@@ -10,5 +9,4 @@ android:
     - android-23
     - extra-android-m2repository
     - extra-google-m2repository
-  script:
-    - ./gradlew assembleDebug
+skip_cleanup: true
