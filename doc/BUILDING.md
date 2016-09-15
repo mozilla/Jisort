@@ -37,7 +37,6 @@ To build the app:
        - Tools > Android SDK Platform-tools
        - Tools > Android SDK Tools
        - Tools > Android SDK Build-tools
-       - Tools > Android SDK Build-tools
        - Android 6.0 > SDK Platform (API 23)
        - Extras > Android Support Repository
        - Extras > Android Support Library
