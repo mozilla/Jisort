@@ -6,8 +6,9 @@
     tools:context="com.mozilla.hackathon.kiboko.activities.TopicListActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <fragment android:name="com.mozilla.hackathon.kiboko.fragments.TopicListFragment"
+    <fragment android:name="com.mozilla.hackathon.kiboko.fragments.TopicsFragment"
         android:id="@+id/topiclist_fragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        tools:layout="@layout/fragment_topics_layout" />
 </LinearLayout>
