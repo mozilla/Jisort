@@ -67,7 +67,8 @@
                 <category android:name="android.intent.category.BROWSABLE" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <!--<data android:mimeType="vnd.android.cursor.item/vnd.mozilladso2016.tutorial" />-->
-                <data android:scheme="mozilladso" android:pathPrefix="/tutorials/*"/>
+                <!-- Host set to mozilladso.com place holder to silence Android linting error -->
+                <data android:host="mozilladso.com" android:scheme="mozilladso" android:pathPrefix="/tutorials/*"/>
             </intent-filter>
         </activity>
         <activity
