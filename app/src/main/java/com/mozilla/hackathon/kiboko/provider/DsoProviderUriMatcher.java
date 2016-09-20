@@ -4,9 +4,6 @@ import android.content.UriMatcher;
 import android.net.Uri;
 import android.util.SparseArray;
 
-/**
- * Created by Mwadime on 26/06/2016.
- */
 public class DsoProviderUriMatcher {
 
     /**

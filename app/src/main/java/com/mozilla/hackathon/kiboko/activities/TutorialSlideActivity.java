@@ -97,7 +97,7 @@ public class TutorialSlideActivity extends DSOActivity implements LoaderManager.
                     mPrev.setEnabled(false);
                 }
 
-                Analytics.add("Tutorial slide", mTopic + ", " + new Integer(mPager.getCurrentItem()).toString());
+                Analytics.add("Tutorial slide", mTopic + ", " + Integer.toString(mPager.getCurrentItem()));
             }
         });
 
@@ -112,7 +112,7 @@ public class TutorialSlideActivity extends DSOActivity implements LoaderManager.
                     mPrev.setEnabled(true);
                 }
 
-                Analytics.add("Tutorial slide", mTopic + ", " + new Integer(mPager.getCurrentItem()).toString());
+                Analytics.add("Tutorial slide", mTopic + ", " + Integer.toString(mPager.getCurrentItem()));
             }
         });
 

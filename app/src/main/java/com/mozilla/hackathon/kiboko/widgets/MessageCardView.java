@@ -2,22 +2,19 @@ package com.mozilla.hackathon.kiboko.widgets;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Typeface;
 import android.support.v7.widget.CardView;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.graphics.Typeface;
 import android.widget.TextView;
 
 import com.mozilla.hackathon.kiboko.R;
 
 import static com.mozilla.hackathon.kiboko.utilities.LogUtils.makeLogTag;
 
-/**
- * Created by mwadime on 6/11/2016.
- */
 public class MessageCardView extends CardView implements View.OnClickListener {
     private static final String TAG = makeLogTag(MessageCardView.class);
     private TextView mTitleView;

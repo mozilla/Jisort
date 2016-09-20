@@ -31,10 +31,6 @@ import java.util.List;
 
 import static com.mozilla.hackathon.kiboko.utilities.LogUtils.makeLogTag;
 
-/**
- * Created by mwadime on 6/10/2016.
- */
-
 public class IconQuizActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
     private static final List<Integer> possibleIcons;
     static {

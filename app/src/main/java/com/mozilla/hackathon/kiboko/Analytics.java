@@ -1,10 +1,8 @@
 package com.mozilla.hackathon.kiboko;
 
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Environment;
-import android.util.Log;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -15,10 +13,6 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
-/**
- * Created by secretrobotron on 7/2/16.
- */
 
 public class Analytics {
 
@@ -75,7 +69,7 @@ public class Analytics {
         public String toString() {
             String output = "[" + mTime.toString() + "] " + mName;
             if (mData != null) {
-                output += " -> (" + mData.toString() + ")";
+                output += " -> (" + mData + ")";
             }
             return output;
         }

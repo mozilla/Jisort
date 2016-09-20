@@ -12,9 +12,9 @@ import android.net.Uri;
 import android.os.ParcelFileDescriptor;
 import android.util.Log;
 
-import com.mozilla.hackathon.kiboko.provider.DsoDatabase.Tables;
-import com.mozilla.hackathon.kiboko.provider.DsoContract.Tutorials;
 import com.mozilla.hackathon.kiboko.provider.DsoContract.Quizes;
+import com.mozilla.hackathon.kiboko.provider.DsoContract.Tutorials;
+import com.mozilla.hackathon.kiboko.provider.DsoDatabase.Tables;
 import com.mozilla.hackathon.kiboko.utilities.SelectionBuilder;
 
 import java.io.FileDescriptor;

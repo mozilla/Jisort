@@ -6,9 +6,6 @@ import android.content.Intent;
 
 import com.mozilla.hackathon.kiboko.App;
 
-/**
- * Created by mwadime on 6/7/2016.
- */
 public class DSOStorageReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {

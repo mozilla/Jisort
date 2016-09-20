@@ -5,18 +5,15 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.provider.BaseColumns;
 
+import com.mozilla.hackathon.kiboko.provider.DsoContract.QuizColumns;
 import com.mozilla.hackathon.kiboko.provider.DsoContract.Tutorials;
 import com.mozilla.hackathon.kiboko.provider.DsoContract.TutorialsColumns;
-import com.mozilla.hackathon.kiboko.provider.DsoContract.QuizColumns;
 import com.mozilla.hackathon.kiboko.sync.DsoDataHandler;
 
 import static com.mozilla.hackathon.kiboko.utilities.LogUtils.LOGD;
 import static com.mozilla.hackathon.kiboko.utilities.LogUtils.LOGW;
 import static com.mozilla.hackathon.kiboko.utilities.LogUtils.makeLogTag;
 
-/**
- * Created by brian Mwadime on 25/06/2016.
- */
 public class DsoDatabase extends SQLiteOpenHelper {
     private static final String TAG = makeLogTag(DsoDatabase.class);
 

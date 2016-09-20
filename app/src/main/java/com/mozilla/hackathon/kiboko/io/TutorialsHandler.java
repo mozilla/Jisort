@@ -5,22 +5,23 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.BaseColumns;
+
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.mozilla.hackathon.kiboko.models.Tutorial;
 import com.mozilla.hackathon.kiboko.provider.DsoContract;
 import com.mozilla.hackathon.kiboko.provider.DsoContract.Tutorials;
 import com.mozilla.hackathon.kiboko.provider.DsoContractHelper;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+
 import static com.mozilla.hackathon.kiboko.utilities.LogUtils.LOGD;
 import static com.mozilla.hackathon.kiboko.utilities.LogUtils.LOGW;
 import static com.mozilla.hackathon.kiboko.utilities.LogUtils.makeLogTag;
-/**
- * Created by Brian Mwadime on 25/06/2016.
- */
+
 public class TutorialsHandler  extends JSONHandler {
     private static final String TAG = makeLogTag(TutorialsHandler.class);
     private HashMap<String, Tutorial> mTutorials = new HashMap<String, Tutorial>();

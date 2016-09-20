@@ -1,16 +1,10 @@
 package com.mozilla.hackathon.kiboko.utilities;
 
-import android.content.Context;
 import android.text.TextUtils;
-import android.text.format.DateUtils;
 
-import com.mozilla.hackathon.kiboko.settings.SettingsUtils;
-
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Formatter;
 import java.util.Locale;
 import java.util.TimeZone;
 

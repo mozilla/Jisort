@@ -2,9 +2,6 @@ package com.mozilla.hackathon.kiboko.utilities;
 
 import android.util.Log;
 
-/**
- * Created by mwadime on 6/11/2016.
- */
 public class LogUtils {
     private static final String LOG_PREFIX = "mozilladso_";
     private static final int LOG_PREFIX_LENGTH = LOG_PREFIX.length();

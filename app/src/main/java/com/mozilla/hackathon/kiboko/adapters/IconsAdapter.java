@@ -20,9 +20,6 @@ import java.util.List;
 
 import io.github.douglasjunior.androidSimpleTooltip.SimpleTooltip;
 
-/**
- * Created by Brian Mwadime on 01/06/2016.
- */
 public class IconsAdapter extends BaseAdapter implements Filterable {
     List<IconTopic> topics;
     private Context context;

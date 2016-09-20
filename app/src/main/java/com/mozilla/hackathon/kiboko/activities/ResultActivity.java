@@ -13,9 +13,6 @@ import com.mozilla.hackathon.kiboko.R;
 
 import pl.droidsonroids.gif.GifImageView;
 
-/**
- * Created by mwadime on 6/10/2016.
- */
 public class ResultActivity extends AppCompatActivity {
     private static int[] imageResources = new int[]{
         R.drawable.bmo,
@@ -41,7 +38,7 @@ public class ResultActivity extends AppCompatActivity {
 
         txtPoints.setText(getString(R.string.quiz_result_score, score, total));
 
-        Analytics.add("Icon Quiz Finished", new Integer(score).toString());
+        Analytics.add("Icon Quiz Finished", Integer.toString(score));
 
         GifImageView gifImageView = (GifImageView) findViewById((R.id.result_image));
         int randomIndex = new Double(Math.random() * imageResources.length).intValue();

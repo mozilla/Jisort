@@ -1,7 +1,4 @@
 package com.mozilla.hackathon.kiboko.fragments;
-/**
- * Created by mwadime on 6/9/2016.
- */
 
 import android.content.res.TypedArray;
 import android.os.Bundle;

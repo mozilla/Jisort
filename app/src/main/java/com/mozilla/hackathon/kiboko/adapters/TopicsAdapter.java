@@ -20,9 +20,6 @@ import com.mozilla.hackathon.kiboko.models.Topic;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Brian Mwadime on 01/06/2016.
- */
 public class TopicsAdapter  extends BaseAdapter implements Filterable {
     List<Topic> topics;
     private Context context;

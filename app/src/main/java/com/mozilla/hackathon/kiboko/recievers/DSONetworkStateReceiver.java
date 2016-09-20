@@ -9,10 +9,7 @@ import android.net.NetworkInfo;
 import com.mozilla.hackathon.kiboko.App;
 import com.mozilla.hackathon.kiboko.utilities.NetworkUtils;
 
-/**
- * Created by mwadime on 6/7/2016.
- */
-    public class DSONetworkStateReceiver extends BroadcastReceiver {
+public class DSONetworkStateReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         String status = NetworkUtils.getConnectivityStatusString(context);

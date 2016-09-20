@@ -7,9 +7,6 @@ import android.os.BatteryManager;
 
 import com.mozilla.hackathon.kiboko.App;
 
-/**
- * Created by mwadime on 6/7/2016.
- */
 public class DSOBatteryReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {

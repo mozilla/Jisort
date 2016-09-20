@@ -3,9 +3,7 @@ package com.mozilla.hackathon.kiboko.widgets;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.GridView;
-/**
- * Created by mwadime on 6/12/2016.
- */
+
 public class DSOGridView extends GridView {
     public DSOGridView(Context context) {
         super(context);

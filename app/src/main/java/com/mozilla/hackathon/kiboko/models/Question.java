@@ -2,9 +2,6 @@ package com.mozilla.hackathon.kiboko.models;
 
 import com.mozilla.hackathon.kiboko.utilities.HashUtils;
 
-/**
- * Created by mwadime on 6/10/2016.
- */
 public class Question {
     public String id;
     public String question;
@@ -71,14 +68,13 @@ public class Question {
     }
 
     public String getImportHashCode() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("id").append(id == null ? "" : id)
-                .append("question").append(question == null ? "" : question)
-                .append("answer").append(answer == null ? "" : answer)
-                .append("optiona").append(optiona== null ? "" : optiona)
-                .append("optionb").append(optionb == null ? "" : optionb)
-                .append("optionc").append(optionc == null ? "" : optionc)
-                .append("optiond").append(optiond == null ? "" : optiond);
-        return HashUtils.computeWeakHash(sb.toString());
+        String sb = "id" + (id == null ? "" : id) +
+                "question" + (question == null ? "" : question) +
+                "answer" + (answer == null ? "" : answer) +
+                "optiona" + (optiona == null ? "" : optiona) +
+                "optionb" + (optionb == null ? "" : optionb) +
+                "optionc" + (optionc == null ? "" : optionc) +
+                "optiond" + (optiond == null ? "" : optiond);
+        return HashUtils.computeWeakHash(sb);
     }
 }
