@@ -11,7 +11,7 @@ public class DSOChangedBroadcastReceiver extends BroadcastReceiver {
         int state = intent.getIntExtra(BluetoothAdapter.EXTRA_STATE,
                 -1);
 
-        switch(state){
+        switch (state) {
             case BluetoothAdapter.STATE_ON:
 
                 break;

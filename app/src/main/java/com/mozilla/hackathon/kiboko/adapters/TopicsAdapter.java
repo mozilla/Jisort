@@ -20,7 +20,7 @@ import com.mozilla.hackathon.kiboko.models.Topic;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TopicsAdapter  extends BaseAdapter implements Filterable {
+public class TopicsAdapter extends BaseAdapter implements Filterable {
     List<Topic> topics;
     private Context context;
     private Filter topicFilter;
@@ -31,6 +31,7 @@ public class TopicsAdapter  extends BaseAdapter implements Filterable {
         this.context = ctx;
         this.origTopicList = topics;
     }
+
     @Override
     public int getCount() {
         return topics.size();
@@ -47,12 +48,11 @@ public class TopicsAdapter  extends BaseAdapter implements Filterable {
     }
 
     /* *********************************
-	 * We use the holder pattern
+     * We use the holder pattern
 	 * It makes the view faster and avoid finding the component
 	 * **********************************/
 
-    private static class Holder
-    {
+    private static class Holder {
         TextView tv;
         ImageView img;
     }
@@ -81,8 +81,7 @@ public class TopicsAdapter  extends BaseAdapter implements Filterable {
             holder.img = imageView;
 
             viewItem.setTag(holder);
-        }
-        else
+        } else
             holder = (Holder) viewItem.getTag();
 
         final Topic topic = topics.get(position);
@@ -93,11 +92,11 @@ public class TopicsAdapter  extends BaseAdapter implements Filterable {
             @Override
             public void onClick(View v) {
                 Analytics.add("Topic clicked", topic.getTag());
-                if(topic.getTag().equals("icons")){
+                if (topic.getTag().equals("icons")) {
                     Intent topicIntent = new Intent(context, FindIconsActivity.class);
 //                    topicIntent.putExtra("topic", topic.getName());
                     context.startActivity(topicIntent);
-                }else{
+                } else {
                     Intent topicIntent = new Intent(context, TutorialSlideActivity.class);
                     topicIntent.putExtra("title", topic.getName());
                     topicIntent.putExtra("topic", topic.getTag());
@@ -124,9 +123,7 @@ public class TopicsAdapter  extends BaseAdapter implements Filterable {
     }
 
 
-
     private class TopicsFilter extends Filter {
-
 
 
         @Override
@@ -137,8 +134,7 @@ public class TopicsAdapter  extends BaseAdapter implements Filterable {
                 // No filter implemented we return all the list
                 results.values = origTopicList;
                 results.count = origTopicList.size();
-            }
-            else {
+            } else {
                 // We perform filtering operation
                 List<Topic> nTopicList = new ArrayList<Topic>();
 

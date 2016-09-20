@@ -9,6 +9,7 @@ import com.mozilla.hackathon.kiboko.R;
 
 public class FindIconsActivity extends DSOActivity {
     private String TAG = FindIconsActivity.class.getSimpleName();
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

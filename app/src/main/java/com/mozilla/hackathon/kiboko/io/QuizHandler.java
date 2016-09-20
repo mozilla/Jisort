@@ -17,9 +17,9 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 
-import static com.mozilla.hackathon.kiboko.utilities.LogUtils.LOGD;
-import static com.mozilla.hackathon.kiboko.utilities.LogUtils.LOGW;
-import static com.mozilla.hackathon.kiboko.utilities.LogUtils.makeLogTag;
+import static com.mozilla.hackathon.kiboko.utils.LogUtils.LOGD;
+import static com.mozilla.hackathon.kiboko.utils.LogUtils.LOGW;
+import static com.mozilla.hackathon.kiboko.utils.LogUtils.makeLogTag;
 
 public class QuizHandler extends JSONHandler {
     private static final String TAG = makeLogTag(QuizHandler.class);
@@ -120,8 +120,9 @@ public class QuizHandler extends JSONHandler {
     }
 
     StringBuilder mStringBuilder = new StringBuilder();
+
     private void buildQuiz(boolean isInsert,
-                              Question question, ArrayList<ContentProviderOperation> list) {
+                           Question question, ArrayList<ContentProviderOperation> list) {
         ContentProviderOperation.Builder builder;
         Uri allQuizsUri = DsoContractHelper
                 .setUriAsCalledFromSyncAdapter(DsoContract.Quizes.CONTENT_URI);
@@ -165,5 +166,5 @@ public class QuizHandler extends JSONHandler {
         int _ID = 0;
         int KEY_ID = 1;
         int KEY_IMPORT_HASHCODE = 2;
-    };
+    }
 }

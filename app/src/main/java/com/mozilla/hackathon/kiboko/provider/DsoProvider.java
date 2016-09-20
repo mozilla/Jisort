@@ -15,7 +15,7 @@ import android.util.Log;
 import com.mozilla.hackathon.kiboko.provider.DsoContract.Quizes;
 import com.mozilla.hackathon.kiboko.provider.DsoContract.Tutorials;
 import com.mozilla.hackathon.kiboko.provider.DsoDatabase.Tables;
-import com.mozilla.hackathon.kiboko.utilities.SelectionBuilder;
+import com.mozilla.hackathon.kiboko.utils.SelectionBuilder;
 
 import java.io.FileDescriptor;
 import java.io.FileNotFoundException;
@@ -23,7 +23,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import static com.mozilla.hackathon.kiboko.utilities.LogUtils.makeLogTag;
+import static com.mozilla.hackathon.kiboko.utils.LogUtils.makeLogTag;
 
 public class DsoProvider extends ContentProvider {
 
@@ -33,7 +33,7 @@ public class DsoProvider extends ContentProvider {
 
     /**
      * Providing important state information to be included in bug reports.
-     *
+     * <p>
      * !!! Remember !!! Any important data logged to {@code writer} shouldn't contain personally
      * identifiable information as it can be seen in bugreports.
      */
@@ -72,7 +72,9 @@ public class DsoProvider extends ContentProvider {
         mOpenHelper = new DsoDatabase(getContext());
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String getType(Uri uri) {
         DsoUriEnum matchingUriEnum = mUriMatcher.matchUri(uri);
@@ -95,7 +97,9 @@ public class DsoProvider extends ContentProvider {
         return stringBuilder.toString();
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs,
                         String sortOrder) {
@@ -128,7 +132,9 @@ public class DsoProvider extends ContentProvider {
         }
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Uri insert(Uri uri, ContentValues values) {
 
@@ -151,7 +157,9 @@ public class DsoProvider extends ContentProvider {
         }
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public int update(Uri uri, ContentValues values, String selection, String[] selectionArgs) {
 
@@ -163,7 +171,9 @@ public class DsoProvider extends ContentProvider {
         return retVal;
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public int delete(Uri uri, String selection, String[] selectionArgs) {
 
@@ -241,7 +251,7 @@ public class DsoProvider extends ContentProvider {
             case QUIZES_ID: {
                 final String quizId = Quizes.getQuizId(uri);
                 return builder.table(Tables.QUIZES)
-                        .where(DsoContract.Quizes.KEY_ID  + "=?", quizId);
+                        .where(DsoContract.Quizes.KEY_ID + "=?", quizId);
             }
             default: {
                 throw new UnsupportedOperationException("Unknown uri for " + uri);

@@ -10,16 +10,14 @@ import com.mozilla.hackathon.kiboko.services.DataBootstrapService;
  */
 public class DSOActivity extends AppCompatActivity {
     @Override
-    protected void onResume()
-    {
+    protected void onResume() {
         DataBootstrapService.startDataBootstrapIfNecessary(this);
         super.onResume();
         Analytics.add("Resumed DSO Activity", this.getClass().getSimpleName());
     }
 
     @Override
-    protected void onPause()
-    {
+    protected void onPause() {
         super.onPause();
     }
 }

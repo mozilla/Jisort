@@ -13,6 +13,7 @@ import com.mozilla.hackathon.kiboko.activities.TutorialSlideActivity;
 public class App extends Application {
     public static String PACKAGE_NAME;
     protected static Context context = null;
+
     @Override
     public void onCreate() {
         super.onCreate();

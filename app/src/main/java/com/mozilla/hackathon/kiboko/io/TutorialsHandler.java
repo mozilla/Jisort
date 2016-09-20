@@ -18,16 +18,18 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 
-import static com.mozilla.hackathon.kiboko.utilities.LogUtils.LOGD;
-import static com.mozilla.hackathon.kiboko.utilities.LogUtils.LOGW;
-import static com.mozilla.hackathon.kiboko.utilities.LogUtils.makeLogTag;
+import static com.mozilla.hackathon.kiboko.utils.LogUtils.LOGD;
+import static com.mozilla.hackathon.kiboko.utils.LogUtils.LOGW;
+import static com.mozilla.hackathon.kiboko.utils.LogUtils.makeLogTag;
 
-public class TutorialsHandler  extends JSONHandler {
+public class TutorialsHandler extends JSONHandler {
     private static final String TAG = makeLogTag(TutorialsHandler.class);
     private HashMap<String, Tutorial> mTutorials = new HashMap<String, Tutorial>();
+
     public TutorialsHandler(Context context) {
         super(context);
     }
+
     @Override
     public void process(JsonElement element) {
         for (Tutorial tutorial : new Gson().fromJson(element, Tutorial[].class)) {
@@ -79,11 +81,13 @@ public class TutorialsHandler  extends JSONHandler {
                 updatedtutorials + " to update, " + deletedtutorials + " to delete. New total: " +
                 mTutorials.size());
     }
+
     private void buildDeleteOperation(String tutorialId, List<ContentProviderOperation> list) {
         Uri tutorialUri = DsoContractHelper.setUriAsCalledFromSyncAdapter(
                 DsoContract.Tutorials.buildTutorialUri(tutorialId));
         list.add(ContentProviderOperation.newDelete(tutorialUri).build());
     }
+
     private HashMap<String, String> loadTutorialHashCodes() {
         Uri uri = DsoContractHelper.setUriAsCalledFromSyncAdapter(
                 DsoContract.Tutorials.CONTENT_URI);
@@ -116,7 +120,7 @@ public class TutorialsHandler  extends JSONHandler {
     StringBuilder mStringBuilder = new StringBuilder();
 
     private void buildTutorial(boolean isInsert,
-                              Tutorial tutorial, ArrayList<ContentProviderOperation> list) {
+                               Tutorial tutorial, ArrayList<ContentProviderOperation> list) {
         ContentProviderOperation.Builder builder;
         Uri alltutorialsUri = DsoContractHelper
                 .setUriAsCalledFromSyncAdapter(Tutorials.CONTENT_URI);
@@ -145,7 +149,7 @@ public class TutorialsHandler  extends JSONHandler {
                 // with the tutorials_speakers relationship table) so that we can
                 // display it easily in lists without having to make an additional DB query
                 // (or another join) for each record.
-                 .withValue(Tutorials.TUTORIAL_STEPS, new Gson().toJson(tutorial.steps))
+                .withValue(Tutorials.TUTORIAL_STEPS, new Gson().toJson(tutorial.steps))
                 .withValue(DsoContract.Tutorials.TUTORIAL_PHOTO_URL, tutorial.photoUrl);
         list.add(builder.build());
     }
@@ -170,5 +174,5 @@ public class TutorialsHandler  extends JSONHandler {
         int _ID = 0;
         int TUTORIAL_ID = 1;
         int TUTORIAL_IMPORT_HASHCODE = 2;
-    };
+    }
 }

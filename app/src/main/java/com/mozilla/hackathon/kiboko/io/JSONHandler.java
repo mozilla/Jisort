@@ -18,11 +18,15 @@ import java.util.ArrayList;
 public abstract class JSONHandler {
 
     protected static Context mContext;
+
     public JSONHandler(Context context) {
         mContext = context;
     }
+
     public abstract void makeContentProviderOperations(ArrayList<ContentProviderOperation> list);
+
     public abstract void process(JsonElement element);
+
     public static String parseResource(Context context, int resource) throws IOException {
         InputStream is = context.getResources().openRawResource(resource);
         Writer writer = new StringWriter();

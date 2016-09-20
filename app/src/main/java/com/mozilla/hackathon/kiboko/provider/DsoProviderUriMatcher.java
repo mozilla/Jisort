@@ -16,7 +16,7 @@ public class DsoProviderUriMatcher {
     /**
      * This constructor needs to be called from a thread-safe method as it isn't thread-safe itself.
      */
-    public DsoProviderUriMatcher(){
+    public DsoProviderUriMatcher() {
         mUriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
         buildUriMatcher();
     }
@@ -44,11 +44,11 @@ public class DsoProviderUriMatcher {
      *
      * @return the {@link DsoUriEnum}, or throws new UnsupportedOperationException if no match.
      */
-    public DsoUriEnum matchUri(Uri uri){
+    public DsoUriEnum matchUri(Uri uri) {
         final int code = mUriMatcher.match(uri);
         try {
             return matchCode(code);
-        } catch (UnsupportedOperationException e){
+        } catch (UnsupportedOperationException e) {
             throw new UnsupportedOperationException("Unknown uri " + uri);
         }
     }
@@ -58,9 +58,9 @@ public class DsoProviderUriMatcher {
      *
      * @return the {@link DsoUriEnum}, or throws new UnsupportedOperationException if no match.
      */
-    public DsoUriEnum matchCode(int code){
+    public DsoUriEnum matchCode(int code) {
         DsoUriEnum dsoUriEnum = mEnumsMap.get(code);
-        if (dsoUriEnum != null){
+        if (dsoUriEnum != null) {
             return dsoUriEnum;
         } else {
             throw new UnsupportedOperationException("Unknown uri with code " + code);

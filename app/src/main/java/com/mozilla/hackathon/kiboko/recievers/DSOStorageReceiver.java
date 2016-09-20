@@ -9,7 +9,7 @@ import com.mozilla.hackathon.kiboko.App;
 public class DSOStorageReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
-        if(intent.getAction().matches(Intent.ACTION_DEVICE_STORAGE_LOW)){
+        if (intent.getAction().matches(Intent.ACTION_DEVICE_STORAGE_LOW)) {
             App.createNotification("Your device is running out of storage.", "storage");
         }
     }

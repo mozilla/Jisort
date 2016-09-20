@@ -14,8 +14,8 @@ import com.mozilla.hackathon.kiboko.sync.SyncAdapter;
 
 import java.io.IOException;
 
-import static com.mozilla.hackathon.kiboko.utilities.LogUtils.LOGD;
-import static com.mozilla.hackathon.kiboko.utilities.LogUtils.makeLogTag;
+import static com.mozilla.hackathon.kiboko.utils.LogUtils.LOGD;
+import static com.mozilla.hackathon.kiboko.utils.LogUtils.makeLogTag;
 
 /**
  * A helper class for dealing with conference data synchronization. All operations occur on the
@@ -29,9 +29,7 @@ public class SyncHelper {
     private Context mContext;
 
 
-
     /**
-     *
      * @param context Can be Application, Activity or Service context.
      */
     public SyncHelper(Context context) {
@@ -83,13 +81,12 @@ public class SyncHelper {
     /**
      * Attempts to perform data synchronization. There are 3 types of data: conference, user
      * schedule and user feedback.
-     * <p />
-     *
+     * <p/>
      *
      * @param syncResult The sync result object to update with statistics.
-     * @param account The account associated with this sync
-     * @param extras Specifies additional information about the sync. This must contain key
-     *               {@code SyncAdapter.EXTRA_SYNC_USER_DATA_ONLY} with boolean value
+     * @param account    The account associated with this sync
+     * @param extras     Specifies additional information about the sync. This must contain key
+     *                   {@code SyncAdapter.EXTRA_SYNC_USER_DATA_ONLY} with boolean value
      * @return true if the sync changed the data.
      */
     public boolean performSync(@Nullable SyncResult syncResult, Account account, Bundle extras) {
@@ -147,7 +144,7 @@ public class SyncHelper {
 
         LOGD(TAG, "Starting user data sync.");
 
-       return false;
+        return false;
     }
 
     private boolean isOnline() {

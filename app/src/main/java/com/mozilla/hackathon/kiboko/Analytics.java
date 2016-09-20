@@ -18,14 +18,14 @@ public class Analytics {
 
     private static final String ANALYTICS_FILENAME = ".jisort_analytics.txt";
     private static final String ANALYTICS_ARCHIVE_FILENAME = ".jisort_analytics.1.txt";
-    private static final long TIME_BETWEEN_SAVES= 5000;
+    private static final long TIME_BETWEEN_SAVES = 5000;
     private static final long FILE_SIZE_LIMIT = 100000; //bytes
 
     public static void shareAnalytics() {
         Analytics.get().share();
     }
 
-    private void share () {
+    private void share() {
         File currentFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), ANALYTICS_FILENAME);
         File oldFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), ANALYTICS_ARCHIVE_FILENAME);
 
@@ -91,10 +91,7 @@ public class Analytics {
     /* Checks if external storage is available for read and write */
     private boolean isExternalStorageWritable() {
         String state = Environment.getExternalStorageState();
-        if (Environment.MEDIA_MOUNTED.equals(state)) {
-            return true;
-        }
-        return false;
+        return Environment.MEDIA_MOUNTED.equals(state);
     }
 
     private void flushItems() {
@@ -143,8 +140,7 @@ public class Analytics {
                 File outputFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), ANALYTICS_FILENAME);
                 if (!outputFile.exists()) {
                     outputFile.createNewFile();
-                }
-                else if (outputFile.length() > FILE_SIZE_LIMIT){
+                } else if (outputFile.length() > FILE_SIZE_LIMIT) {
                     copyOldAnalytics();
                     outputFile.delete();
                     outputFile.createNewFile();
@@ -159,8 +155,7 @@ public class Analytics {
                     mItems.clear();
                 }
             }
-        }
-        else {
+        } else {
             mItems.clear();
         }
     }

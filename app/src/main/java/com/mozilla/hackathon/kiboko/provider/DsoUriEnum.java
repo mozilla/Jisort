@@ -1,12 +1,12 @@
 package com.mozilla.hackathon.kiboko.provider;
 
 /**
-* The list of {@code Uri}s recognised by the {@code ContentProvider} of the app.
-* <p />
-* It is important to order them in the order that follows {@link android.content.UriMatcher}
-* matching rules: wildcard {@code *} applies to one segment only and it processes matching per
-* segment in a tree manner over the list of {@code Uri} in the order they are added.
-*/
+ * The list of {@code Uri}s recognised by the {@code ContentProvider} of the app.
+ * <p/>
+ * It is important to order them in the order that follows {@link android.content.UriMatcher}
+ * matching rules: wildcard {@code *} applies to one segment only and it processes matching per
+ * segment in a tree manner over the list of {@code Uri} in the order they are added.
+ */
 public enum DsoUriEnum {
     TUTORIALS(100, "tutorials", DsoContract.Tutorials.CONTENT_TYPE_ID, false, DsoDatabase.Tables.TUTORIALS),
     TUTORIALS_ID(101, "tutorials/*", DsoContract.Tutorials.CONTENT_TYPE_ID, true, null),

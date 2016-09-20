@@ -9,6 +9,7 @@ import com.mozilla.hackathon.kiboko.R;
 
 public class TopicListActivity extends DSOActivity {
     private String TAG = TopicListActivity.class.getSimpleName();
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

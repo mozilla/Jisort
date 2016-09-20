@@ -15,12 +15,12 @@ import pl.droidsonroids.gif.GifImageView;
 
 public class ResultActivity extends AppCompatActivity {
     private static int[] imageResources = new int[]{
-        R.drawable.bmo,
-        R.drawable.carlton,
-        R.drawable.beach,
-        R.drawable.ok,
-        R.drawable.rainbow,
-        R.drawable.party
+            R.drawable.bmo,
+            R.drawable.carlton,
+            R.drawable.beach,
+            R.drawable.ok,
+            R.drawable.rainbow,
+            R.drawable.party
     };
 
     @Override
@@ -56,7 +56,7 @@ public class ResultActivity extends AppCompatActivity {
         }
     }
 
-    public void playAgain(View view){
+    public void playAgain(View view) {
         Analytics.add("Icon Quiz Play Again");
         Intent intent = new Intent(ResultActivity.this, IconQuizActivity.class);
         startActivity(intent);

@@ -18,7 +18,7 @@ public class WelcomeActivity extends AppCompatActivity {
         ab.hide();
     }
 
-    public void dismissWelcome(View view){
+    public void dismissWelcome(View view) {
         Intent intent = new Intent(WelcomeActivity.this, DashboardActivity.class);
         startActivity(intent);
         finish();

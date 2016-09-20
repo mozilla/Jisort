@@ -13,7 +13,7 @@ public class DSOBatteryReceiver extends BroadcastReceiver {
         context.unregisterReceiver(this);
         int rawlevel = intent.getIntExtra(BatteryManager.EXTRA_LEVEL, 0);
 
-        if(rawlevel <= 25){
+        if (rawlevel <= 25) {
             App.createNotification("Your phone battery is running low.", "battery");
         }
     }

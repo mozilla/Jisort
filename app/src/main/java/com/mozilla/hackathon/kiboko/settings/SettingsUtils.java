@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
-import static com.mozilla.hackathon.kiboko.utilities.LogUtils.makeLogTag;
+import static com.mozilla.hackathon.kiboko.utils.LogUtils.makeLogTag;
 
 /**
  * Utilities and constants related to app settings_prefs.
@@ -27,6 +27,7 @@ public class SettingsUtils {
     public static final String PREF_FUNMODE_ENABLED = "pref_funmode_enabled";
 
     public static final String PREF_WELCOME_DONE = "pref_welcome_done";
+
     /**
      * Mark that the app has finished loading the {@code R.raw.bootstrap_data bootstrap data}.
      *
@@ -36,6 +37,7 @@ public class SettingsUtils {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
         sp.edit().putBoolean(PREF_DATA_BOOTSTRAP_DONE, true).apply();
     }
+
     /**
      * Mark that the app has shown the welcome screen {@link com.mozilla.hackathon.kiboko.activities.WelcomeActivity}.
      *
@@ -45,6 +47,7 @@ public class SettingsUtils {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
         sp.edit().putBoolean(PREF_WELCOME_DONE, true).apply();
     }
+
     /**
      * Return true when the {@code R.raw.bootstrap_data_json bootstrap data} has been marked loaded.
      *
@@ -64,6 +67,7 @@ public class SettingsUtils {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
         return sp.getBoolean(PREF_WELCOME_DONE, false);
     }
+
     /**
      * Set fun mode.
      *
@@ -74,6 +78,7 @@ public class SettingsUtils {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
         sp.edit().putBoolean(PREF_FUNMODE_ENABLED, newValue).apply();
     }
+
     /**
      * Return true if analytics are enabled, false if user has disabled them.
      *
@@ -83,6 +88,7 @@ public class SettingsUtils {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
         return sp.getBoolean(PREF_ANALYTICS_ENABLED, true);
     }
+
     /**
      * Return true if fun mode is enabled, false if user has disabled them.
      *
@@ -92,6 +98,7 @@ public class SettingsUtils {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
         return sp.getBoolean(PREF_FUNMODE_ENABLED, true);
     }
+
     /**
      * Helper method to register a settings_prefs listener. This method does not automatically handle
      * {@code unregisterOnSharedPreferenceChangeListener() un-registering} the listener at the end

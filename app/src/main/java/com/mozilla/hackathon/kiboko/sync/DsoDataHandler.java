@@ -25,16 +25,16 @@ import java.net.HttpURLConnection;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import static com.mozilla.hackathon.kiboko.utilities.LogUtils.LOGD;
-import static com.mozilla.hackathon.kiboko.utilities.LogUtils.LOGE;
-import static com.mozilla.hackathon.kiboko.utilities.LogUtils.LOGI;
-import static com.mozilla.hackathon.kiboko.utilities.LogUtils.LOGW;
-import static com.mozilla.hackathon.kiboko.utilities.LogUtils.makeLogTag;
+import static com.mozilla.hackathon.kiboko.utils.LogUtils.LOGD;
+import static com.mozilla.hackathon.kiboko.utils.LogUtils.LOGE;
+import static com.mozilla.hackathon.kiboko.utils.LogUtils.LOGI;
+import static com.mozilla.hackathon.kiboko.utils.LogUtils.LOGW;
+import static com.mozilla.hackathon.kiboko.utils.LogUtils.makeLogTag;
 
 /**
-* Helper class that parses data and imports them into the app's
-* Content Provider.
-*/
+ * Helper class that parses data and imports them into the app's
+ * Content Provider.
+ */
 public class DsoDataHandler {
     private static final String TAG = makeLogTag(SyncHelper.class);
     // Shared settings_prefs key under which we store the timestamp that corresponds to
@@ -58,6 +58,7 @@ public class DsoDataHandler {
     HashMap<String, JSONHandler> mHandlerForKey = new HashMap<String, JSONHandler>();
     // Tally of total content provider operations we carried out (for statistical purposes)
     private int mContentProviderOperationsDone = 0;
+
     public DsoDataHandler(Context ctx) {
         mContext = ctx;
     }
@@ -66,13 +67,13 @@ public class DsoDataHandler {
      * Parses the conference data in the given objects and imports the data into the
      * content provider. The format of the data is documented at https://code.google.com/p/iosched.
      *
-     * @param dataBodies The collection of JSON objects to parse and import.
-     * @param dataTimestamp The timestamp of the data. This should be in RFC1123 format.
+     * @param dataBodies       The collection of JSON objects to parse and import.
+     * @param dataTimestamp    The timestamp of the data. This should be in RFC1123 format.
      * @param downloadsAllowed Whether or not we are supposed to download data from the internet if needed.
      * @throws IOException If there is a problem parsing the data.
      */
     public void applyDSOData(String[] dataBodies, String dataTimestamp,
-                                    boolean downloadsAllowed) throws IOException {
+                             boolean downloadsAllowed) throws IOException {
         LOGI(TAG, "Applying data from " + dataBodies.length + " files, timestamp " + dataTimestamp);
 
         // create handlers for each data type
@@ -182,12 +183,14 @@ public class DsoDataHandler {
     /**
      * A type of ConsoleRequestLogger that does not log requests and responses.
      */
-    private RequestLogger mQuietLogger = new ConsoleRequestLogger(){
+    private RequestLogger mQuietLogger = new ConsoleRequestLogger() {
         @Override
-        public void logRequest(HttpURLConnection uc, Object content) throws IOException { }
+        public void logRequest(HttpURLConnection uc, Object content) throws IOException {
+        }
 
         @Override
-        public void logResponse(HttpResponse res) { }
+        public void logResponse(HttpResponse res) {
+        }
     };
 
 }
