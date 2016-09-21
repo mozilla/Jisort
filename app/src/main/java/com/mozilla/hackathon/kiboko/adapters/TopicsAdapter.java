@@ -136,7 +136,7 @@ public class TopicsAdapter extends BaseAdapter implements Filterable {
                 results.count = origTopicList.size();
             } else {
                 // We perform filtering operation
-                List<Topic> nTopicList = new ArrayList<Topic>();
+                List<Topic> nTopicList = new ArrayList<>();
 
                 for (Topic topic : topics) {
                     if (topic.getName().toUpperCase().startsWith(constraint.toString().toUpperCase()))

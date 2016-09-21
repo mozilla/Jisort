@@ -38,7 +38,7 @@ public class TopicsFragment extends ListFragment {
     }
 
     private List<Topic> getTopics() {
-        List<Topic> list = new ArrayList<Topic>();
+        List<Topic> list = new ArrayList<>();
         list.add(get("icons", "Play the Icon Game! :grinning-cat:", R.drawable.circular_blue_help));
         list.add(get("wifi", "Wi-Fi ni Noma! :thumbs-up:", R.drawable.circular_wifi));
         list.add(get("connect_wifi", "Connecting to WiFi", R.drawable.circular_wifi));

@@ -25,8 +25,8 @@ public class DsoProviderUriMatcher {
         final String authority = DsoContract.CONTENT_AUTHORITY;
 
         DsoUriEnum[] uris = DsoUriEnum.values();
-        for (int i = 0; i < uris.length; i++) {
-            mUriMatcher.addURI(authority, uris[i].path, uris[i].code);
+        for (DsoUriEnum uri : uris) {
+            mUriMatcher.addURI(authority, uri.path, uri.code);
         }
 
         buildEnumsMap();
@@ -34,8 +34,8 @@ public class DsoProviderUriMatcher {
 
     private void buildEnumsMap() {
         DsoUriEnum[] uris = DsoUriEnum.values();
-        for (int i = 0; i < uris.length; i++) {
-            mEnumsMap.put(uris[i].code, uris[i]);
+        for (DsoUriEnum uri : uris) {
+            mEnumsMap.put(uri.code, uri);
         }
     }
 

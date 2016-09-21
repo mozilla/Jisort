@@ -29,7 +29,7 @@ public class Analytics {
         File currentFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), ANALYTICS_FILENAME);
         File oldFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), ANALYTICS_ARCHIVE_FILENAME);
 
-        ArrayList<Uri> files = new ArrayList<Uri>();
+        ArrayList<Uri> files = new ArrayList<>();
 
         if (currentFile.exists()) {
             files.add(Uri.fromFile(currentFile));
@@ -75,14 +75,14 @@ public class Analytics {
         }
     }
 
-    protected static Analytics sAnalytics = null;
+    private static Analytics sAnalytics = null;
 
     private List<AnalyticsItem> mItems;
 
     private long mLastSaveTime = 0;
 
     private Analytics() {
-        mItems = new ArrayList<AnalyticsItem>();
+        mItems = new ArrayList<>();
 
         // Prevent from saving right away.
         mLastSaveTime = System.currentTimeMillis();

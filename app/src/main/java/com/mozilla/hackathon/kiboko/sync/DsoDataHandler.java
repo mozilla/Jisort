@@ -55,7 +55,7 @@ public class DsoDataHandler {
     QuizHandler mQuizesHandler = null;
     // Convenience map that maps the key name to its corresponding handler (e.g.
     // "blocks" to mBlocksHandler (to avoid very tedious if-elses)
-    HashMap<String, JSONHandler> mHandlerForKey = new HashMap<String, JSONHandler>();
+    HashMap<String, JSONHandler> mHandlerForKey = new HashMap<>();
     // Tally of total content provider operations we carried out (for statistical purposes)
     private int mContentProviderOperationsDone = 0;
 
@@ -74,7 +74,7 @@ public class DsoDataHandler {
      */
     public void applyDSOData(String[] dataBodies, String dataTimestamp,
                              boolean downloadsAllowed) throws IOException {
-        LOGI(TAG, "Applying data from " + dataBodies.length + " files, timestamp " + dataTimestamp);
+        LOGI(TAG, "Applying data from " + dataBodies.length + " files, timestamp " + com.mozilla.hackathon.kiboko.BuildConfig.BOOTSTRAP_DATA_TIMESTAMP);
 
         // create handlers for each data type
         mHandlerForKey.put(DATA_KEY_TUTORIALS, mTutorialsHandler = new TutorialsHandler(mContext));
@@ -88,7 +88,7 @@ public class DsoDataHandler {
         }
 
         // produce the necessary content provider operations
-        ArrayList<ContentProviderOperation> batch = new ArrayList<ContentProviderOperation>();
+        ArrayList<ContentProviderOperation> batch = new ArrayList<>();
         for (String key : DATA_KEYS_IN_ORDER) {
             LOGI(TAG, "Building content provider operations for: " + key);
             mHandlerForKey.get(key).makeContentProviderOperations(batch);
@@ -119,7 +119,7 @@ public class DsoDataHandler {
             resolver.notifyChange(uri, null);
         }
         // update our data timestamp
-        setDataTimestamp(dataTimestamp);
+        setDataTimestamp(com.mozilla.hackathon.kiboko.BuildConfig.BOOTSTRAP_DATA_TIMESTAMP);
         LOGI(TAG, "Done applying dso data.");
     }
 

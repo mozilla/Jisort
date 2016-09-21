@@ -85,10 +85,6 @@ public class DataBootstrapService extends IntentService {
             LOGE(TAG,
                     "Applying fallback -- marking boostrap as done; sync might fix problem.");
             SettingsUtils.markDataBootstrapDone(appContext);
-        } finally {
-            // Request a manual sync immediately after the bootstrapping process, in case we
-            // have an active connection. Otherwise, the scheduled sync could take a while.
-//            SyncHelper.requestManualSync(AccountUtils.getActiveAccount(appContext));
         }
     }
 }

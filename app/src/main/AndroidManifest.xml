@@ -95,13 +95,6 @@
                 <action android:name="android.intent.action.AIRPLANE_MODE" />
             </intent-filter>
         </receiver>
-        <receiver android:name=".recievers.DSOChangedBroadcastReceiver">
-            <intent-filter>
-                <action android:name="android.media.action.DISPLAY_NOTIFICATION" />
-                <action android:name="android.bluetooth.adapter.action.STATE_CHANGED" />
-                <action android:name="android.bluetooth.adapter.action.BATTERY_CHANGED" />
-            </intent-filter>
-        </receiver>
         <receiver android:name=".recievers.DSOStorageReceiver">
             <intent-filter>
                 <action android:name="android.media.action.DISPLAY_NOTIFICATION" />
@@ -119,12 +112,6 @@
             <intent-filter>
                 <action android:name="android.media.action.DISPLAY_NOTIFICATION" />
                 <action android:name="android.intent.action.ACTION_BATTERY_LOW" />
-            </intent-filter>
-        </receiver>
-        <receiver android:name=".recievers.DSOLocationReceiver">
-            <intent-filter>
-                <action android:name="android.media.action.DISPLAY_NOTIFICATION" />
-                <action android:name="android.location.PROVIDERS_CHANGED" />
             </intent-filter>
         </receiver>
         <!-- Data, sync and editing components -->

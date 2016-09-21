@@ -50,7 +50,7 @@ public class TutorialSlideActivity extends DSOActivity implements LoaderManager.
     private static final String TAG = makeLogTag(TutorialSlideActivity.class);
     private static final Uri BASE_APP_URI = Uri.parse("android-app://mozilladso.com/tutorials/");
     private static final int LOADER_ID = 0x01;
-    private List<Step> jsonSteps = new ArrayList<Step>();
+    private List<Step> jsonSteps = new ArrayList<>();
     /**
      * The pager widget, which handles animation and allows swiping horizontally to access previous
      * and next wizard steps.
@@ -224,7 +224,7 @@ public class TutorialSlideActivity extends DSOActivity implements LoaderManager.
                     Type listType = new TypeToken<List<Step>>() {
                     }.getType();
                     setTitle(cursor.getString(titleIndex));
-                    jsonSteps = (List<Step>) new Gson().fromJson(jsonArray, listType);
+                    jsonSteps = new Gson().fromJson(jsonArray, listType);
                     mPagerAdapter.notifyDataSetChanged();
                     txtCaption.setText(getString(R.string.tutorial_template_step, 1, mPager.getAdapter().getCount()));
 

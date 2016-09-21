@@ -13,7 +13,6 @@ import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -35,7 +34,7 @@ public class IconQuizActivity extends AppCompatActivity implements LoaderManager
     private static final List<Integer> possibleIcons;
 
     static {
-        List<Integer> icons = new ArrayList<Integer>();
+        List<Integer> icons = new ArrayList<>();
 
         icons.add(R.drawable.ic_network_wifi_white_48dp);
         icons.add(R.drawable.ic_phone_white_48dp);
@@ -70,7 +69,7 @@ public class IconQuizActivity extends AppCompatActivity implements LoaderManager
 
     private static final String TAG = makeLogTag(IconQuizActivity.class);
     private static final int LOADER_ID = 0x02;
-    List<Question> quizList = new ArrayList<Question>();
+    List<Question> quizList = new ArrayList<>();
     int score = 0;
     int question_id = 0;
     Question currentQuestion;
@@ -128,14 +127,6 @@ public class IconQuizActivity extends AppCompatActivity implements LoaderManager
             default:
                 return super.onOptionsItemSelected(item);
         }
-    }
-
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) { // this is override method
-//        if(keyCode == KeyEvent.KEYCODE_BACK){
-//            showExitConfirmDialog(); // call the function below
-//        }
-        return super.onKeyDown(keyCode, event);
     }
 
     /**
@@ -270,7 +261,7 @@ public class IconQuizActivity extends AppCompatActivity implements LoaderManager
         }
         // Check whether we have any questions and setup the view.
         if (quizList.size() > 0) {
-            List<Question> randomizedQuizList = new ArrayList<Question>();
+            List<Question> randomizedQuizList = new ArrayList<>();
 
             while (quizList.size() > 0) {
                 int randomIndex = (Double.valueOf(Math.random() * quizList.size()).intValue());

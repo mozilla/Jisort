@@ -167,7 +167,7 @@ public class IconsAdapter extends BaseAdapter implements Filterable {
                 results.count = origTopicList.size();
             } else {
                 // We perform filtering operation
-                List<IconTopic> nTopicList = new ArrayList<IconTopic>();
+                List<IconTopic> nTopicList = new ArrayList<>();
 
                 for (IconTopic topic : topics) {
                     if (topic.getDescription().toUpperCase().startsWith(constraint.toString().toUpperCase()))

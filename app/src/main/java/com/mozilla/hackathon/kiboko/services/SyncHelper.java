@@ -109,14 +109,13 @@ public class SyncHelper {
      * the new data and import it into the database.
      *
      * @return Whether or not data was changed.
-     * @throws IOException if there is a problem downloading or importing the data.
      */
-    private boolean doDsoDataSync() throws IOException {
+    private boolean doDsoDataSync() {
         if (!isOnline()) {
             LOGD(TAG, "Not attempting remote sync because device is OFFLINE");
             return false;
         }
-
+        //TODO: Remove this function, it doesn't serve a purpose
         LOGD(TAG, "Starting remote sync.");
 
         return false;
@@ -136,11 +135,12 @@ public class SyncHelper {
      * @return Whether or not data was changed.
      * @throws IOException if there is a problem uploading the data.
      */
-    private boolean doUserDataSync(String accountName) throws IOException {
+    private boolean doUserDataSync(String accountName) {
         if (!isOnline()) {
             LOGD(TAG, "Not attempting userdata sync because device is OFFLINE");
             return false;
         }
+        //TODO: Remove this code, it doesn't serve a purpose
 
         LOGD(TAG, "Starting user data sync.");
 
@@ -166,9 +166,5 @@ public class SyncHelper {
 
     private static long calculateRecommendedSyncInterval(final Context context) {
         return 1;
-    }
-
-    public static void updateSyncInterval(final Context context, final Account account) {
-
     }
 }

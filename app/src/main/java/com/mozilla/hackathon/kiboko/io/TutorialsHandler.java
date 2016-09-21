@@ -24,7 +24,7 @@ import static com.mozilla.hackathon.kiboko.utils.LogUtils.makeLogTag;
 
 public class TutorialsHandler extends JSONHandler {
     private static final String TAG = makeLogTag(TutorialsHandler.class);
-    private HashMap<String, Tutorial> mTutorials = new HashMap<String, Tutorial>();
+    private HashMap<String, Tutorial> mTutorials = new HashMap<>();
 
     public TutorialsHandler(Context context) {
         super(context);
@@ -46,7 +46,7 @@ public class TutorialsHandler extends JSONHandler {
         HashMap<String, String> tutorialHashCodes = loadTutorialHashCodes();
         boolean incrementalUpdate = (tutorialHashCodes != null) && (tutorialHashCodes.size() > 0);
         // set of tutorials that we want to keep after the sync
-        HashSet<String> tutorialsToKeep = new HashSet<String>();
+        HashSet<String> tutorialsToKeep = new HashSet<>();
         if (incrementalUpdate) {
             LOGD(TAG, "Doing incremental update for tutorials.");
         } else {
@@ -100,7 +100,7 @@ public class TutorialsHandler extends JSONHandler {
                 LOGW(TAG, "Warning: failed to load tutorial hashcodes. Not optimizing tutorial import.");
                 return null;
             }
-            HashMap<String, String> hashcodeMap = new HashMap<String, String>();
+            HashMap<String, String> hashcodeMap = new HashMap<>();
             if (cursor.moveToFirst()) {
                 do {
                     String tutorialId = cursor.getString(tutorialHashcodeQuery.TUTORIAL_ID);

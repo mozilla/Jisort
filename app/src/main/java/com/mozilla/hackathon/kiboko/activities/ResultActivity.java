@@ -41,7 +41,7 @@ public class ResultActivity extends AppCompatActivity {
         Analytics.add("Icon Quiz Finished", Integer.toString(score));
 
         GifImageView gifImageView = (GifImageView) findViewById((R.id.result_image));
-        int randomIndex = new Double(Math.random() * imageResources.length).intValue();
+        int randomIndex = Double.valueOf(Math.random() * imageResources.length).intValue();
         gifImageView.setImageResource(imageResources[randomIndex]);
     }
 
