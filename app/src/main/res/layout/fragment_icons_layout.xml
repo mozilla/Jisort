@@ -21,7 +21,6 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/quiz_challenge_text"
-            android:id="@+id/quiz_challenge"
             android:layout_gravity="center_horizontal"
             android:textColor="@color/colorTextPrimary" />
 
@@ -40,7 +39,6 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="@string/quiz_learn_text"
-            android:id="@+id/quiz_learn_more"
             android:layout_gravity="center_horizontal"
             android:textColor="@color/colorTextPrimary" />
 

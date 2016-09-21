@@ -8,9 +8,7 @@
     <color name="colorToggleSecondary">#496161</color>
     <color name="colorAccent">#69A5E3</color>
     <color name="colorTextPrimary">#FFFFFF</color>
-    <color name="colorTextSecondary">#DCDCDC</color>
     <color name="colorArrowPrimary">#6AA6E5</color>
-    <color name="colorArrowSecondary">#44566A</color>
     <color name="colorTextDisabled">#707070</color>
 
     <color name="simpletooltip_background">#CCCCCC</color>
