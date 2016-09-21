@@ -1,43 +1,24 @@
 <resources xmlns:xliff="http://schemas.android.com/tools">
     <string name="app_name">Jisort</string>
-    <string name="action_settings">Settings</string>
-    <string name="en_desc">I am your friendly Android helper, here to guide you on how to use your smartphone.</string>
-    <string name="dashboard_find_icons_label">Find Icons</string>
-    <string name="dashbord_screenshots_icon_label">Screenshots</string>
     <string name="title_activity_findicons">Find an icon</string>
-     <string name="title_template_step">Step <xliff:g id="step_number">%1$d</xliff:g>: Lorem
-        Ipsum</string>
     <string name="tutorial_template_step">Step <xliff:g id="current_step_number">%1$d</xliff:g> of <xliff:g id="total_step_number">%2$d</xliff:g></string>
     <string name="quiz_template_score">Score: <xliff:g id="quiz_score">%1$d</xliff:g> / <xliff:g id="quiz_total">%2$d</xliff:g></string>
-    <string name="action_previous">Previous</string>
-    <string name="action_next">Next</string>
-    <string name="action_finish">Finish</string>
 
-    <string name="lorem_ipsum"><![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris et magna ut erat elementum cursus in quis ipsum. Nam faucibus ultrices eros, vel tempor leo semper sit amet. Duis magna quam, congue vitae interdum nec, condimentum ut lectus. Sed commodo venenatis eros a dignissim. Nunc adipiscing turpis nec magna venenatis at ultricies ipsum bibendum. Sed volutpat urna quis nisi vulputate egestas. Etiam eu dui a enim lacinia dapibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.\\n\\nPhasellus orci mi, eleifend nec congue id, volutpat at neque. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer semper velit vel leo rutrum sed fermentum elit porta.]]></string>
     <!-- Generic error message used for errors that should never happen. This explains to the user
          that we can't execute the request when they click a button or touch a part of the screen
          that should normally be touchable. -->
-    <string name="unknown_error">Whoops, we couldn\'t process that request.</string>
 
     <!-- Text of a card shown in the Explore I/O screen that asks the user if they want to configure
          the conference WiFi. "Not now" and "Yes, please" are options show on the card -->
-    <string name="question_setup_wifi_card_text"><![CDATA[
-        <b>Conference Wi-Fi</b><br/>
-        Would you like to setup this device to
-        access the 5 Ghz conference Wi-Fi?]]></string>
 
     <!-- Label on a button that the user can click to dismiss an reminder or information message.
    For example "To scan an attendee's badge, hold your phone close to the badge for a few
    seconds." -->
-    <string name="got_it">Got it</string>
     <string name="btn_more">Learn more</string>
-    <string name="show_floating_app_icon_description">Show floating app icon</string>
-    <string name="dashboard_question_text">What would you like to do?</string>
     <string name="empty_tutorial">Oops! No content here. Please try the next tutorial.</string>
     <string name="game_over_text">Game Over!</string>
     <string name="play_again_text">Play Again</string>
     <string name="quiz_result_score">Score: <xliff:g id="quiz_score">%1$d</xliff:g> / <xliff:g id="quiz_total">%2$d</xliff:g></string>
-    <string name="placeholder_quiz_score"><xliff:g id="quiz_score">%1$d</xliff:g> / <xliff:g id="quiz_total">%2$d</xliff:g></string>
     <string name="quiz_challenge_text">Ready for a challenge?</string>
     <string name="quiz_learn_text">Or, tap icons below to learn more:</string>
     <string name="quiz_title_text">Choose the icon&#8230;</string>
@@ -45,9 +26,7 @@
     <string name="title_activity_topiclist">Phone Usage</string>
     <string name="title_activity_quizresult">Icon Quiz</string>
     <string name="play_icon_quiz_text">Tap here to play the Icon Quiz!</string>
-    <string name="app_name_actions">Jisort - View Settings</string>
     <string name="app_name_tutorials">Jisort - View Tutorial</string>
-    <string name="enable_funmode_description">Enable FUN MODE</string>
     <string name="welcome_surtitle">Welcome to</string>
     <string name="welcome_title">Jisort!</string>
     <string name="welcome_description">Explore the topics in this app to learn more about your phone.</string>

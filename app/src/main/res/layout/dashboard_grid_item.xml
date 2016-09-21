@@ -9,7 +9,6 @@
         android:paddingTop="@dimen/activity_vertical_margin"
         android:paddingBottom="@dimen/activity_vertical_margin"
         android:paddingRight="@dimen/activity_vertical_margin"
-        android:id="@+id/dashboard_item_view"
         android:layout_marginBottom="1dp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

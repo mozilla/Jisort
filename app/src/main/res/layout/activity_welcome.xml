@@ -6,7 +6,6 @@
     android:background="@color/colorPrimary">
 
     <ImageView
-        android:id="@+id/topic_icon"
         android:src="@drawable/welcome"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="15dp"
