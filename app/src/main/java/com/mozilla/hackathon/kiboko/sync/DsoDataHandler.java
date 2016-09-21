@@ -74,7 +74,7 @@ public class DsoDataHandler {
      */
     public void applyDSOData(String[] dataBodies, String dataTimestamp,
                              boolean downloadsAllowed) throws IOException {
-        LOGI(TAG, "Applying data from " + dataBodies.length + " files, timestamp " + com.mozilla.hackathon.kiboko.BuildConfig.BOOTSTRAP_DATA_TIMESTAMP);
+        LOGI(TAG, "Applying data from " + dataBodies.length + " files, timestamp " + dataTimestamp);
 
         // create handlers for each data type
         mHandlerForKey.put(DATA_KEY_TUTORIALS, mTutorialsHandler = new TutorialsHandler(mContext));
@@ -119,7 +119,7 @@ public class DsoDataHandler {
             resolver.notifyChange(uri, null);
         }
         // update our data timestamp
-        setDataTimestamp(com.mozilla.hackathon.kiboko.BuildConfig.BOOTSTRAP_DATA_TIMESTAMP);
+        setDataTimestamp(dataTimestamp);
         LOGI(TAG, "Done applying dso data.");
     }
 
