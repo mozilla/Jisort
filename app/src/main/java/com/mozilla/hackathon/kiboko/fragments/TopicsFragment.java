@@ -2,18 +2,14 @@ package com.mozilla.hackathon.kiboko.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
-import android.support.v7.widget.SwitchCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 
-import com.mozilla.hackathon.kiboko.Analytics;
 import com.mozilla.hackathon.kiboko.R;
 import com.mozilla.hackathon.kiboko.adapters.TopicsAdapter;
 import com.mozilla.hackathon.kiboko.models.Topic;
-import com.mozilla.hackathon.kiboko.settings.SettingsUtils;
 
 import org.sufficientlysecure.htmltextview.EmojiUtils;
 
@@ -42,7 +38,7 @@ public class TopicsFragment extends ListFragment {
     }
 
     private List<Topic> getTopics() {
-        List<Topic> list = new ArrayList<Topic>();
+        List<Topic> list = new ArrayList<>();
         list.add(get("icons", "Play the Icon Game! :grinning-cat:", R.drawable.circular_blue_help));
         list.add(get("wifi", "Wi-Fi ni Noma! :thumbs-up:", R.drawable.circular_wifi));
         list.add(get("connect_wifi", "Connecting to WiFi", R.drawable.circular_wifi));

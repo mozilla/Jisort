@@ -3,9 +3,7 @@ package com.mozilla.hackathon.kiboko.widgets;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.GridView;
-/**
- * Created by mwadime on 6/12/2016.
- */
+
 public class DSOGridView extends GridView {
     public DSOGridView(Context context) {
         super(context);
@@ -29,8 +27,7 @@ public class DSOGridView extends GridView {
             // a special meaning, hence we can't use them to describe height.
             heightSpec = MeasureSpec.makeMeasureSpec(
                     Integer.MAX_VALUE >> 2, MeasureSpec.AT_MOST);
-        }
-        else {
+        } else {
             // Any other height should be respected as is.
             heightSpec = heightMeasureSpec;
         }

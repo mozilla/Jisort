@@ -24,20 +24,30 @@ public final class DsoContract {
             + CONTENT_TYPE_APP_BASE;
 
     public interface SyncColumns {
-        /** Last time this entry was updated or synchronized. */
+        /**
+         * Last time this entry was updated or synchronized.
+         */
         String UPDATED = "updated";
     }
 
     interface TutorialsColumns {
-        /** Unique string identifying this tutorial. */
+        /**
+         * Unique string identifying this tutorial.
+         */
         String TUTORIAL_ID = "tutorial_id";
-        /** Tutorial header. */
+        /**
+         * Tutorial header.
+         */
         String TUTORIAL_HEADER = "tutorial_header";
         String TUTORIAL_TAG = "tutorial_tag";
         String TUTORIAL_PHOTO_URL = "tutorial_photo_url";
-        /** The Tutorials's steps. */
+        /**
+         * The Tutorials's steps.
+         */
         String TUTORIAL_STEPS = "tutorial_steps";
-        /** The hashcode of the data used to create this record. */
+        /**
+         * The hashcode of the data used to create this record.
+         */
         String TUTORIAL_IMPORT_HASHCODE = "tutorial_import_hashcode";
     }
 
@@ -45,11 +55,13 @@ public final class DsoContract {
         String KEY_ID = "id";
         String KEY_QUESTION = "question";
         String KEY_ANSWER = "answer"; //correct option
-        String KEY_OPTIONA= "optiona"; //option a
-        String KEY_OPTIONB= "optionb"; //option b
-        String KEY_OPTIONC= "optionc"; //option c
-        String KEY_OPTIOND= "optiond"; //option d
-        /** The hashcode of the data used to create this record. */
+        String KEY_OPTIONA = "optiona"; //option a
+        String KEY_OPTIONB = "optionb"; //option b
+        String KEY_OPTIONC = "optionc"; //option c
+        String KEY_OPTIOND = "optiond"; //option d
+        /**
+         * The hashcode of the data used to create this record.
+         */
         String KEY_IMPORT_HASHCODE = "quiz_import_hashcode";
     }
 
@@ -145,7 +157,7 @@ public final class DsoContract {
         }
     }
 
-    public static class Actions implements SyncColumns, BaseColumns{
+    public static class Actions implements SyncColumns, BaseColumns {
         public static final Uri CONTENT_URI =
                 BASE_CONTENT_URI.buildUpon().appendPath(PATH_ACTIONS).build();
         public static final String CONTENT_TYPE_ID = "action";

@@ -2,22 +2,19 @@ package com.mozilla.hackathon.kiboko.widgets;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Typeface;
 import android.support.v7.widget.CardView;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.graphics.Typeface;
 import android.widget.TextView;
 
 import com.mozilla.hackathon.kiboko.R;
 
-import static com.mozilla.hackathon.kiboko.utilities.LogUtils.makeLogTag;
+import static com.mozilla.hackathon.kiboko.utils.LogUtils.makeLogTag;
 
-/**
- * Created by mwadime on 6/11/2016.
- */
 public class MessageCardView extends CardView implements View.OnClickListener {
     private static final String TAG = makeLogTag(MessageCardView.class);
     private TextView mTitleView;
@@ -29,7 +26,7 @@ public class MessageCardView extends CardView implements View.OnClickListener {
     public static final int ANIM_DURATION = 200;
 
     public interface OnMessageCardButtonClicked {
-        public void onMessageCardButtonClicked(String tag);
+        void onMessageCardButtonClicked(String tag);
     }
 
     public MessageCardView(Context context) {
@@ -53,11 +50,11 @@ public class MessageCardView extends CardView implements View.OnClickListener {
         mRoot = inflater.inflate(R.layout.message_card, this, true);
         mTitleView = (TextView) mRoot.findViewById(R.id.title);
         mMessageView = (TextView) mRoot.findViewById(R.id.text);
-        mButtons = new Button[] {
+        mButtons = new Button[]{
                 (Button) mRoot.findViewById(R.id.buttonEnd),
                 (Button) mRoot.findViewById(R.id.buttonStart)
         };
-        mButtonTags = new String[] { "", "" };
+        mButtonTags = new String[]{"", ""};
 
         for (Button button : mButtons) {
             button.setVisibility(View.GONE);
@@ -98,7 +95,7 @@ public class MessageCardView extends CardView implements View.OnClickListener {
 
     public void setButton(int index, String text, String tag, boolean emphasis, int emphasisColor) {
         if (index < 0 || index >= mButtons.length) {
-           // Log(TAG, "Invalid button index: " + index);
+            // Log(TAG, "Invalid button index: " + index);
             return;
         }
         mButtons[index].setText(text);
@@ -124,6 +121,7 @@ public class MessageCardView extends CardView implements View.OnClickListener {
             mTitleView.setText(title);
         }
     }
+
     public void setText(String text) {
         mMessageView.setText(text);
     }

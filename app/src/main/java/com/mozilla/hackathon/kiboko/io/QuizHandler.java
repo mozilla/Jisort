@@ -5,24 +5,25 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.BaseColumns;
+
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.mozilla.hackathon.kiboko.models.Question;
 import com.mozilla.hackathon.kiboko.provider.DsoContract;
 import com.mozilla.hackathon.kiboko.provider.DsoContractHelper;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-import static com.mozilla.hackathon.kiboko.utilities.LogUtils.LOGD;
-import static com.mozilla.hackathon.kiboko.utilities.LogUtils.LOGW;
-import static com.mozilla.hackathon.kiboko.utilities.LogUtils.makeLogTag;
-/**
- * Created by Brian Mwadime on 25/06/2016.
- */
+
+import static com.mozilla.hackathon.kiboko.utils.LogUtils.LOGD;
+import static com.mozilla.hackathon.kiboko.utils.LogUtils.LOGW;
+import static com.mozilla.hackathon.kiboko.utils.LogUtils.makeLogTag;
+
 public class QuizHandler extends JSONHandler {
     private static final String TAG = makeLogTag(QuizHandler.class);
-    private HashMap<String, Question> mQuiz = new HashMap<String, Question>();
+    private HashMap<String, Question> mQuiz = new HashMap<>();
 
     public QuizHandler(Context context) {
         super(context);
@@ -44,7 +45,7 @@ public class QuizHandler extends JSONHandler {
         HashMap<String, String> tutorialHashCodes = loadQuizHashCodes();
         boolean incrementalUpdate = (tutorialHashCodes != null) && (tutorialHashCodes.size() > 0);
         // set of tutorials that we want to keep after the sync
-        HashSet<String> tutorialsToKeep = new HashSet<String>();
+        HashSet<String> tutorialsToKeep = new HashSet<>();
         if (incrementalUpdate) {
             LOGD(TAG, "Doing incremental update for tutorials.");
         } else {
@@ -101,7 +102,7 @@ public class QuizHandler extends JSONHandler {
                 LOGW(TAG, "Warning: failed to load quiz hashcodes. Not optimizing tutorial import.");
                 return null;
             }
-            HashMap<String, String> hashcodeMap = new HashMap<String, String>();
+            HashMap<String, String> hashcodeMap = new HashMap<>();
             if (cursor.moveToFirst()) {
                 do {
                     String quizId = cursor.getString(quizHashcodeQuery.KEY_ID);
@@ -119,8 +120,9 @@ public class QuizHandler extends JSONHandler {
     }
 
     StringBuilder mStringBuilder = new StringBuilder();
+
     private void buildQuiz(boolean isInsert,
-                              Question question, ArrayList<ContentProviderOperation> list) {
+                           Question question, ArrayList<ContentProviderOperation> list) {
         ContentProviderOperation.Builder builder;
         Uri allQuizsUri = DsoContractHelper
                 .setUriAsCalledFromSyncAdapter(DsoContract.Quizes.CONTENT_URI);
@@ -164,5 +166,5 @@ public class QuizHandler extends JSONHandler {
         int _ID = 0;
         int KEY_ID = 1;
         int KEY_IMPORT_HASHCODE = 2;
-    };
+    }
 }

@@ -13,9 +13,9 @@ import com.mozilla.hackathon.kiboko.services.SyncHelper;
 
 import java.util.regex.Pattern;
 
-import static com.mozilla.hackathon.kiboko.utilities.LogUtils.LOGE;
-import static com.mozilla.hackathon.kiboko.utilities.LogUtils.LOGI;
-import static com.mozilla.hackathon.kiboko.utilities.LogUtils.makeLogTag;
+import static com.mozilla.hackathon.kiboko.utils.LogUtils.LOGE;
+import static com.mozilla.hackathon.kiboko.utils.LogUtils.LOGI;
+import static com.mozilla.hackathon.kiboko.utils.LogUtils.makeLogTag;
 
 /**
  * Sync adapter for Google I/O data. Used for download sync only. For upload sync,

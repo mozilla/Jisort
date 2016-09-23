@@ -13,7 +13,6 @@ import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -21,7 +20,7 @@ import android.widget.TextView;
 import com.mozilla.hackathon.kiboko.R;
 import com.mozilla.hackathon.kiboko.models.Question;
 import com.mozilla.hackathon.kiboko.provider.DsoContract;
-import com.mozilla.hackathon.kiboko.utilities.Utils;
+import com.mozilla.hackathon.kiboko.utils.Utils;
 import com.mozilla.hackathon.kiboko.widgets.CheckableLinearLayout;
 import com.mozilla.hackathon.kiboko.widgets.DSORadioGroup;
 
@@ -29,16 +28,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import static com.mozilla.hackathon.kiboko.utilities.LogUtils.makeLogTag;
-
-/**
- * Created by mwadime on 6/10/2016.
- */
+import static com.mozilla.hackathon.kiboko.utils.LogUtils.makeLogTag;
 
 public class IconQuizActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
     private static final List<Integer> possibleIcons;
+
     static {
-        List<Integer> icons = new ArrayList<Integer>();
+        List<Integer> icons = new ArrayList<>();
 
         icons.add(R.drawable.ic_network_wifi_white_48dp);
         icons.add(R.drawable.ic_phone_white_48dp);
@@ -73,7 +69,7 @@ public class IconQuizActivity extends AppCompatActivity implements LoaderManager
 
     private static final String TAG = makeLogTag(IconQuizActivity.class);
     private static final int LOADER_ID = 0x02;
-    List<Question> quizList = new ArrayList<Question>();
+    List<Question> quizList = new ArrayList<>();
     int score = 0;
     int question_id = 0;
     Question currentQuestion;
@@ -93,26 +89,25 @@ public class IconQuizActivity extends AppCompatActivity implements LoaderManager
         choiceOptions = new CheckableLinearLayout[4];
         imageOptions = new ImageView[4];
 
-        choiceOptions[0] = (CheckableLinearLayout)findViewById(R.id.optionA);
-        choiceOptions[1] = (CheckableLinearLayout)findViewById(R.id.optionB);
-        choiceOptions[2] = (CheckableLinearLayout)findViewById(R.id.optionC);
-        choiceOptions[3] = (CheckableLinearLayout)findViewById(R.id.optionD);
+        choiceOptions[0] = (CheckableLinearLayout) findViewById(R.id.optionA);
+        choiceOptions[1] = (CheckableLinearLayout) findViewById(R.id.optionB);
+        choiceOptions[2] = (CheckableLinearLayout) findViewById(R.id.optionC);
+        choiceOptions[3] = (CheckableLinearLayout) findViewById(R.id.optionD);
 
-        imageOptions[0]  = (ImageView)findViewById(R.id.answera);
-        imageOptions[1]  = (ImageView)findViewById(R.id.answerb);
-        imageOptions[2]  = (ImageView)findViewById(R.id.answerc);
-        imageOptions[3]  = (ImageView)findViewById(R.id.answerd);
+        imageOptions[0] = (ImageView) findViewById(R.id.answera);
+        imageOptions[1] = (ImageView) findViewById(R.id.answerb);
+        imageOptions[2] = (ImageView) findViewById(R.id.answerc);
+        imageOptions[3] = (ImageView) findViewById(R.id.answerd);
 
-        quizStepView  = (TextView) findViewById(R.id.quizStepView);
+        quizStepView = (TextView) findViewById(R.id.quizStepView);
         quizStepScore = (TextView) findViewById(R.id.quizStepScore);
 
-        quizGroup = (DSORadioGroup)findViewById(R.id.quizGroup);
+        quizGroup = (DSORadioGroup) findViewById(R.id.quizGroup);
 
-        quizGroup.setOnCheckedChangeListener(new DSORadioGroup.OnCheckedChangeListener()
-        {
+        quizGroup.setOnCheckedChangeListener(new DSORadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(DSORadioGroup group, @IdRes int checkedId) {
-                if(checkedId != -1){
+                if (checkedId != -1) {
                     CheckableLinearLayout checkedView = (CheckableLinearLayout) findViewById(checkedId);
                     checkAnswer(checkedView);
                     quizStepScore.setText(getString(R.string.quiz_template_score, score, quizList.size()));
@@ -134,18 +129,10 @@ public class IconQuizActivity extends AppCompatActivity implements LoaderManager
         }
     }
 
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) { // this is override method
-//        if(keyCode == KeyEvent.KEYCODE_BACK){
-//            showExitConfirmDialog(); // call the function below
-//        }
-        return super.onKeyDown(keyCode, event);
-    }
-
     /**
      * Show exit confirm dialog
      */
-    public void showExitConfirmDialog(){ // just show an dialog
+    public void showExitConfirmDialog() { // just show an dialog
         AlertDialog.Builder dialog = new AlertDialog.Builder(this);
         dialog.setTitle("Exit Quiz?"); // set title
         dialog.setMessage("Are you sure you want to exit the Quiz page?"); // set message
@@ -168,25 +155,25 @@ public class IconQuizActivity extends AppCompatActivity implements LoaderManager
 
     /**
      * Check whether icon answer is correct {@link CheckableLinearLayout}
+     *
      * @param checkedView selected view
      * @return true/false
      */
-    public boolean checkAnswer(CheckableLinearLayout checkedView){
+    public boolean checkAnswer(CheckableLinearLayout checkedView) {
 
         boolean correct = false;
 
-        if(currentQuestion.getANSWER().equals(checkedView.getTag()))
-        {
+        if (currentQuestion.getANSWER().equals(checkedView.getTag())) {
             score++;
             correct = true;
-        }else {
+        } else {
             correct = false;
         }
 
-        if(question_id < quizList.size()){
+        if (question_id < quizList.size()) {
             currentQuestion = quizList.get(question_id);
             setQuestionView(currentQuestion);
-        }else{
+        } else {
             Intent intent = new Intent(IconQuizActivity.this, ResultActivity.class);
             Bundle scoreBundle = new Bundle();
             scoreBundle.putInt("score", score);
@@ -204,7 +191,7 @@ public class IconQuizActivity extends AppCompatActivity implements LoaderManager
         int choiceResId = -1;
 
         while (true) {
-            choiceResId = possibleIcons.get(new Double(Math.floor(Math.random() * possibleIcons.size())).intValue());
+            choiceResId = possibleIcons.get(Double.valueOf(Math.floor(Math.random() * possibleIcons.size())).intValue());
             if (choiceResId != otherChoices[0] && choiceResId != otherChoices[1]
                     && choiceResId != otherChoices[2] && choiceResId != otherChoices[3]) {
                 return choiceResId;
@@ -215,12 +202,11 @@ public class IconQuizActivity extends AppCompatActivity implements LoaderManager
     /**
      * Populate quiz question view {@link Question}
      */
-    private void setQuestionView(Question question)
-    {
+    private void setQuestionView(Question question) {
         quizStepView.setText(question.getQUESTION());
         choiceOptions[0].setTag(question.getOPTIONA());
 
-        int answerIndex = new Double(Math.floor(Math.random()*4)).intValue();
+        int answerIndex = Double.valueOf(Math.floor(Math.random() * 4)).intValue();
         int answerResId = Utils.getResId(this, question.getANSWER());
 
         choiceOptions[answerIndex].setTag(question.getANSWER());
@@ -244,7 +230,7 @@ public class IconQuizActivity extends AppCompatActivity implements LoaderManager
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         // Define the columns to retrieve
-        String[] projectionFields = new String[] {
+        String[] projectionFields = new String[]{
                 DsoContract.Quizes.KEY_ID,
                 DsoContract.Quizes.KEY_QUESTION,
                 DsoContract.Quizes.KEY_ANSWER,
@@ -274,11 +260,11 @@ public class IconQuizActivity extends AppCompatActivity implements LoaderManager
             }
         }
         // Check whether we have any questions and setup the view.
-        if(quizList.size() > 0){
-            List<Question> randomizedQuizList = new ArrayList<Question>();
+        if (quizList.size() > 0) {
+            List<Question> randomizedQuizList = new ArrayList<>();
 
             while (quizList.size() > 0) {
-                int randomIndex = (new Double(Math.random()*quizList.size()).intValue());
+                int randomIndex = (Double.valueOf(Math.random() * quizList.size()).intValue());
                 randomizedQuizList.add(quizList.get(randomIndex));
                 quizList.remove(randomIndex);
             }
@@ -294,6 +280,7 @@ public class IconQuizActivity extends AppCompatActivity implements LoaderManager
 
     /**
      * Populate quiz {@link Question} with data from {@link Cursor}.
+     *
      * @param cursor
      * @return
      */

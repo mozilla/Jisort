@@ -1,12 +1,9 @@
-package com.mozilla.hackathon.kiboko.utilities;
+package com.mozilla.hackathon.kiboko.utils;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
-/**
- * Created by mwadime on 6/7/2016.
- */
 public class NetworkUtils {
 
     public static int TYPE_WIFI = 1;
@@ -20,10 +17,10 @@ public class NetworkUtils {
 
         NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
         if (null != activeNetwork) {
-            if(activeNetwork.getType() == ConnectivityManager.TYPE_WIFI)
+            if (activeNetwork.getType() == ConnectivityManager.TYPE_WIFI)
                 return TYPE_WIFI;
 
-            if(activeNetwork.getType() == ConnectivityManager.TYPE_MOBILE)
+            if (activeNetwork.getType() == ConnectivityManager.TYPE_MOBILE)
                 return TYPE_MOBILE;
         }
         return TYPE_NOT_CONNECTED;

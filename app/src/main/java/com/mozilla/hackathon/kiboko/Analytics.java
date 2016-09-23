@@ -1,10 +1,8 @@
 package com.mozilla.hackathon.kiboko;
 
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Environment;
-import android.util.Log;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -16,26 +14,22 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-/**
- * Created by secretrobotron on 7/2/16.
- */
-
 public class Analytics {
 
     private static final String ANALYTICS_FILENAME = ".jisort_analytics.txt";
     private static final String ANALYTICS_ARCHIVE_FILENAME = ".jisort_analytics.1.txt";
-    private static final long TIME_BETWEEN_SAVES= 5000;
+    private static final long TIME_BETWEEN_SAVES = 5000;
     private static final long FILE_SIZE_LIMIT = 100000; //bytes
 
     public static void shareAnalytics() {
         Analytics.get().share();
     }
 
-    private void share () {
+    private void share() {
         File currentFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), ANALYTICS_FILENAME);
         File oldFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), ANALYTICS_ARCHIVE_FILENAME);
 
-        ArrayList<Uri> files = new ArrayList<Uri>();
+        ArrayList<Uri> files = new ArrayList<>();
 
         if (currentFile.exists()) {
             files.add(Uri.fromFile(currentFile));
@@ -75,20 +69,20 @@ public class Analytics {
         public String toString() {
             String output = "[" + mTime.toString() + "] " + mName;
             if (mData != null) {
-                output += " -> (" + mData.toString() + ")";
+                output += " -> (" + mData + ")";
             }
             return output;
         }
     }
 
-    protected static Analytics sAnalytics = null;
+    private static Analytics sAnalytics = null;
 
     private List<AnalyticsItem> mItems;
 
     private long mLastSaveTime = 0;
 
     private Analytics() {
-        mItems = new ArrayList<AnalyticsItem>();
+        mItems = new ArrayList<>();
 
         // Prevent from saving right away.
         mLastSaveTime = System.currentTimeMillis();
@@ -97,10 +91,7 @@ public class Analytics {
     /* Checks if external storage is available for read and write */
     private boolean isExternalStorageWritable() {
         String state = Environment.getExternalStorageState();
-        if (Environment.MEDIA_MOUNTED.equals(state)) {
-            return true;
-        }
-        return false;
+        return Environment.MEDIA_MOUNTED.equals(state);
     }
 
     private void flushItems() {
@@ -149,8 +140,7 @@ public class Analytics {
                 File outputFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), ANALYTICS_FILENAME);
                 if (!outputFile.exists()) {
                     outputFile.createNewFile();
-                }
-                else if (outputFile.length() > FILE_SIZE_LIMIT){
+                } else if (outputFile.length() > FILE_SIZE_LIMIT) {
                     copyOldAnalytics();
                     outputFile.delete();
                     outputFile.createNewFile();
@@ -165,8 +155,7 @@ public class Analytics {
                     mItems.clear();
                 }
             }
-        }
-        else {
+        } else {
             mItems.clear();
         }
     }

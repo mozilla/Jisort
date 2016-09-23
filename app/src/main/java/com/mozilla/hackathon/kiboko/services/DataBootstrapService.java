@@ -11,14 +11,14 @@ import com.mozilla.hackathon.kiboko.io.JSONHandler;
 import com.mozilla.hackathon.kiboko.provider.DsoContract;
 import com.mozilla.hackathon.kiboko.settings.SettingsUtils;
 import com.mozilla.hackathon.kiboko.sync.DsoDataHandler;
-import com.mozilla.hackathon.kiboko.utilities.LogUtils;
+import com.mozilla.hackathon.kiboko.utils.LogUtils;
 
 import java.io.IOException;
 
-import static com.mozilla.hackathon.kiboko.utilities.LogUtils.LOGD;
-import static com.mozilla.hackathon.kiboko.utilities.LogUtils.LOGE;
-import static com.mozilla.hackathon.kiboko.utilities.LogUtils.LOGI;
-import static com.mozilla.hackathon.kiboko.utilities.LogUtils.LOGW;
+import static com.mozilla.hackathon.kiboko.utils.LogUtils.LOGD;
+import static com.mozilla.hackathon.kiboko.utils.LogUtils.LOGE;
+import static com.mozilla.hackathon.kiboko.utils.LogUtils.LOGI;
+import static com.mozilla.hackathon.kiboko.utils.LogUtils.LOGW;
 
 /**
  * An {@code IntentService} that performs the one-time data bootstrap. It takes the prepackaged
@@ -85,10 +85,6 @@ public class DataBootstrapService extends IntentService {
             LOGE(TAG,
                     "Applying fallback -- marking boostrap as done; sync might fix problem.");
             SettingsUtils.markDataBootstrapDone(appContext);
-        } finally {
-            // Request a manual sync immediately after the bootstrapping process, in case we
-            // have an active connection. Otherwise, the scheduled sync could take a while.
-//            SyncHelper.requestManualSync(AccountUtils.getActiveAccount(appContext));
         }
     }
 }

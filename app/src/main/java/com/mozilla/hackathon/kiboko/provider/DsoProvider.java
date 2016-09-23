@@ -10,12 +10,13 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.ParcelFileDescriptor;
+import android.support.annotation.NonNull;
 import android.util.Log;
 
-import com.mozilla.hackathon.kiboko.provider.DsoDatabase.Tables;
-import com.mozilla.hackathon.kiboko.provider.DsoContract.Tutorials;
 import com.mozilla.hackathon.kiboko.provider.DsoContract.Quizes;
-import com.mozilla.hackathon.kiboko.utilities.SelectionBuilder;
+import com.mozilla.hackathon.kiboko.provider.DsoContract.Tutorials;
+import com.mozilla.hackathon.kiboko.provider.DsoDatabase.Tables;
+import com.mozilla.hackathon.kiboko.utils.SelectionBuilder;
 
 import java.io.FileDescriptor;
 import java.io.FileNotFoundException;
@@ -23,7 +24,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import static com.mozilla.hackathon.kiboko.utilities.LogUtils.makeLogTag;
+import static com.mozilla.hackathon.kiboko.utils.LogUtils.makeLogTag;
 
 public class DsoProvider extends ContentProvider {
 
@@ -33,7 +34,7 @@ public class DsoProvider extends ContentProvider {
 
     /**
      * Providing important state information to be included in bug reports.
-     *
+     * <p>
      * !!! Remember !!! Any important data logged to {@code writer} shouldn't contain personally
      * identifiable information as it can be seen in bugreports.
      */
@@ -72,9 +73,11 @@ public class DsoProvider extends ContentProvider {
         mOpenHelper = new DsoDatabase(getContext());
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
-    public String getType(Uri uri) {
+    public String getType(@NonNull Uri uri) {
         DsoUriEnum matchingUriEnum = mUriMatcher.matchUri(uri);
         return matchingUriEnum.contentType;
     }
@@ -95,9 +98,11 @@ public class DsoProvider extends ContentProvider {
         return stringBuilder.toString();
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
-    public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs,
+    public Cursor query(@NonNull Uri uri, String[] projection, String selection, String[] selectionArgs,
                         String sortOrder) {
         final SQLiteDatabase db = mOpenHelper.getReadableDatabase();
 
@@ -128,9 +133,11 @@ public class DsoProvider extends ContentProvider {
         }
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
-    public Uri insert(Uri uri, ContentValues values) {
+    public Uri insert(@NonNull Uri uri, ContentValues values) {
 
         final SQLiteDatabase db = mOpenHelper.getWritableDatabase();
         DsoUriEnum matchingUriEnum = mUriMatcher.matchUri(uri);
@@ -151,9 +158,11 @@ public class DsoProvider extends ContentProvider {
         }
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
-    public int update(Uri uri, ContentValues values, String selection, String[] selectionArgs) {
+    public int update(@NonNull Uri uri, ContentValues values, String selection, String[] selectionArgs) {
 
         final SQLiteDatabase db = mOpenHelper.getWritableDatabase();
         DsoUriEnum matchingUriEnum = mUriMatcher.matchUri(uri);
@@ -163,9 +172,11 @@ public class DsoProvider extends ContentProvider {
         return retVal;
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
-    public int delete(Uri uri, String selection, String[] selectionArgs) {
+    public int delete(@NonNull Uri uri, String selection, String[] selectionArgs) {
 
         if (uri == DsoContract.BASE_CONTENT_URI) {
             // Handle whole database deletes (e.g. when signing out)
@@ -201,8 +212,9 @@ public class DsoProvider extends ContentProvider {
      * a {@link SQLiteDatabase} transaction. All changes will be rolled back if
      * any single one fails.
      */
+    @NonNull
     @Override
-    public ContentProviderResult[] applyBatch(ArrayList<ContentProviderOperation> operations)
+    public ContentProviderResult[] applyBatch(@NonNull ArrayList<ContentProviderOperation> operations)
             throws OperationApplicationException {
         final SQLiteDatabase db = mOpenHelper.getWritableDatabase();
         db.beginTransaction();
@@ -241,7 +253,7 @@ public class DsoProvider extends ContentProvider {
             case QUIZES_ID: {
                 final String quizId = Quizes.getQuizId(uri);
                 return builder.table(Tables.QUIZES)
-                        .where(DsoContract.Quizes.KEY_ID  + "=?", quizId);
+                        .where(DsoContract.Quizes.KEY_ID + "=?", quizId);
             }
             default: {
                 throw new UnsupportedOperationException("Unknown uri for " + uri);
@@ -284,7 +296,7 @@ public class DsoProvider extends ContentProvider {
     }
 
     @Override
-    public ParcelFileDescriptor openFile(Uri uri, String mode) throws FileNotFoundException {
+    public ParcelFileDescriptor openFile(@NonNull Uri uri, @NonNull String mode) throws FileNotFoundException {
         throw new UnsupportedOperationException("openFile is not supported for " + uri);
     }
 }

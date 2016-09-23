@@ -32,14 +32,14 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.mozilla.hackathon.kiboko.utilities.LogUtils.LOGD;
-import static com.mozilla.hackathon.kiboko.utilities.LogUtils.makeLogTag;
+import static com.mozilla.hackathon.kiboko.utils.LogUtils.LOGD;
+import static com.mozilla.hackathon.kiboko.utils.LogUtils.makeLogTag;
 
 /**
  * Demonstrates a "screen-slide" animation using a {@link ViewPager}. Because {@link ViewPager}
  * automatically plays such an animation when calling {@link ViewPager#setCurrentItem(int)}, there
  * isn't any animation-specific code in this sample.
- *
+ * <p>
  * <p>This sample shows a "next" button that advances the user to the next step in a wizard,
  * animating the current screen out (to the left) and the next screen in (from the right). The
  * reverse animation is played when the user presses the "previous" button.</p>
@@ -50,7 +50,7 @@ public class TutorialSlideActivity extends DSOActivity implements LoaderManager.
     private static final String TAG = makeLogTag(TutorialSlideActivity.class);
     private static final Uri BASE_APP_URI = Uri.parse("android-app://mozilladso.com/tutorials/");
     private static final int LOADER_ID = 0x01;
-    private List<Step> jsonSteps = new ArrayList<Step>();
+    private List<Step> jsonSteps = new ArrayList<>();
     /**
      * The pager widget, which handles animation and allows swiping horizontally to access previous
      * and next wizard steps.
@@ -89,30 +89,30 @@ public class TutorialSlideActivity extends DSOActivity implements LoaderManager.
         mPrev.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!(mPager.getCurrentItem() > mPagerAdapter.getCount() - 1)){
+                if (!(mPager.getCurrentItem() > mPagerAdapter.getCount() - 1)) {
                     mPager.setCurrentItem(mPager.getCurrentItem() - 1);
                     mNext.setEnabled(true);
-                }else{
+                } else {
                     mNext.setEnabled(true);
                     mPrev.setEnabled(false);
                 }
 
-                Analytics.add("Tutorial slide", mTopic + ", " + new Integer(mPager.getCurrentItem()).toString());
+                Analytics.add("Tutorial slide", mTopic + ", " + Integer.toString(mPager.getCurrentItem()));
             }
         });
 
         mNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!(mPager.getCurrentItem() == mPagerAdapter.getCount() - 1)){
+                if (!(mPager.getCurrentItem() == mPagerAdapter.getCount() - 1)) {
                     mPager.setCurrentItem(mPager.getCurrentItem() + 1);
                     mPrev.setEnabled(true);
-                }else{
+                } else {
                     mNext.setEnabled(false);
                     mPrev.setEnabled(true);
                 }
 
-                Analytics.add("Tutorial slide", mTopic + ", " + new Integer(mPager.getCurrentItem()).toString());
+                Analytics.add("Tutorial slide", mTopic + ", " + Integer.toString(mPager.getCurrentItem()));
             }
         });
 
@@ -136,9 +136,9 @@ public class TutorialSlideActivity extends DSOActivity implements LoaderManager.
         getSupportLoaderManager().initLoader(LOADER_ID, null, this);
     }
 
-    public void navigateToSettings(View view){
+    public void navigateToSettings(View view) {
 
-        switch (view.getTag().toString()){
+        switch (view.getTag().toString()) {
             default:
                 startActivity(new Intent(Settings.ACTION_SETTINGS));
         }
@@ -149,22 +149,21 @@ public class TutorialSlideActivity extends DSOActivity implements LoaderManager.
         String data = intent.getDataString();
         if (Intent.ACTION_VIEW.equals(action) && data != null) {
             String[] tutorialTag = data.split("/");
-            if(tutorialTag.length >= 6){
+            if (tutorialTag.length >= 6) {
                 mStepFrame = Integer.parseInt(tutorialTag[tutorialTag.length - 1]);
-                mTopic     = tutorialTag[tutorialTag.length - 2];
-            }else {
+                mTopic = tutorialTag[tutorialTag.length - 2];
+            } else {
                 mTopic = tutorialTag[tutorialTag.length - 1];
             }
 
             Uri contentUri = DsoContract.Tutorials.CONTENT_URI.buildUpon()
                     .appendPath(tutorialTag[0]).build();
-        }else {
-            if(intent.getExtras().getString("title") != null) {
-                setTitle((String)intent.getExtras().get("title"));
+        } else {
+            if (intent.getExtras().getString("title") != null) {
+                setTitle((String) intent.getExtras().get("title"));
             }
-            if(intent.getExtras().getString("topic") != null)
-            {
-                mTopic = (String)intent.getExtras().get("topic");
+            if (intent.getExtras().getString("topic") != null) {
+                mTopic = (String) intent.getExtras().get("topic");
             }
         }
 
@@ -188,12 +187,12 @@ public class TutorialSlideActivity extends DSOActivity implements LoaderManager.
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         // Define the columns to retrieve
-        String[] projectionFields = new String[] {
+        String[] projectionFields = new String[]{
                 DsoContract.Tutorials.TUTORIAL_ID,
                 DsoContract.Tutorials.TUTORIAL_TAG,
                 DsoContract.Tutorials.TUTORIAL_HEADER,
                 DsoContract.Tutorials.TUTORIAL_PHOTO_URL,
-                DsoContract.Tutorials.TUTORIAL_STEPS };
+                DsoContract.Tutorials.TUTORIAL_STEPS};
 
         String selection;
         // Read all data for contactId
@@ -222,13 +221,14 @@ public class TutorialSlideActivity extends DSOActivity implements LoaderManager.
                             cursor.getColumnIndex(DsoContract.Tutorials.TUTORIAL_STEPS);
                     String jsonArray = cursor.getString(stepsIndex);
                     LOGD(TAG, jsonArray);
-                    Type listType = new TypeToken<List<Step>>(){}.getType();
+                    Type listType = new TypeToken<List<Step>>() {
+                    }.getType();
                     setTitle(cursor.getString(titleIndex));
-                    jsonSteps = (List<Step>) new Gson().fromJson(jsonArray,listType);
+                    jsonSteps = new Gson().fromJson(jsonArray, listType);
                     mPagerAdapter.notifyDataSetChanged();
                     txtCaption.setText(getString(R.string.tutorial_template_step, 1, mPager.getAdapter().getCount()));
 
-                    if(mStepFrame != -1)
+                    if (mStepFrame != -1)
                         mPager.setCurrentItem(mStepFrame);
                 }
         }

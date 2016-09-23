@@ -1,10 +1,7 @@
-package com.mozilla.hackathon.kiboko.utilities;
+package com.mozilla.hackathon.kiboko.utils;
 
 import android.util.Log;
 
-/**
- * Created by mwadime on 6/11/2016.
- */
 public class LogUtils {
     private static final String LOG_PREFIX = "mozilladso_";
     private static final int LOG_PREFIX_LENGTH = LOG_PREFIX.length();
@@ -28,7 +25,7 @@ public class LogUtils {
     }
 
     public static void LOGD(final String tag, String message) {
-        if (LOGGING_ENABLED){
+        if (LOGGING_ENABLED) {
             if (Log.isLoggable(tag, Log.DEBUG)) {
                 Log.d(tag, message);
             }
@@ -36,7 +33,7 @@ public class LogUtils {
     }
 
     public static void LOGD(final String tag, String message, Throwable cause) {
-        if (LOGGING_ENABLED){
+        if (LOGGING_ENABLED) {
             if (Log.isLoggable(tag, Log.DEBUG)) {
                 Log.d(tag, message, cause);
             }
@@ -84,7 +81,7 @@ public class LogUtils {
     }
 
     public static void LOGE(final String tag, String message) {
-        if (LOGGING_ENABLED){
+        if (LOGGING_ENABLED) {
             Log.e(tag, message);
         }
     }

@@ -53,7 +53,7 @@ public class IconsFragment extends Fragment {
     }
 
     private List<IconTopic> getTopics() {
-        List<IconTopic> list = new ArrayList<IconTopic>();
+        List<IconTopic> list = new ArrayList<>();
         list.add(get("wifi", "Wi-Fi", "Connect to a Wi-Fi hotspot for internet access.", R.drawable.ic_network_wifi_white_48dp));
         list.add(get("phone", "Phone", "Make a voice call.", R.drawable.ic_phone_white_48dp));
         list.add(get("app", "Download", "Download an app", R.drawable.ic_get_app_white_48dp));

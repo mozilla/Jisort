@@ -1,4 +1,4 @@
-package com.mozilla.hackathon.kiboko.utilities;
+package com.mozilla.hackathon.kiboko.utils;
 
 import android.content.ContentValues;
 import android.database.Cursor;
@@ -11,9 +11,9 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.mozilla.hackathon.kiboko.utilities.LogUtils.LOGI;
-import static com.mozilla.hackathon.kiboko.utilities.LogUtils.LOGV;
-import static com.mozilla.hackathon.kiboko.utilities.LogUtils.makeLogTag;
+import static com.mozilla.hackathon.kiboko.utils.LogUtils.LOGI;
+import static com.mozilla.hackathon.kiboko.utils.LogUtils.LOGV;
+import static com.mozilla.hackathon.kiboko.utils.LogUtils.makeLogTag;
 
 /**
  * Helper for building selection clauses for {@link SQLiteDatabase}. Each
@@ -89,10 +89,10 @@ public class SelectionBuilder {
      */
     public SelectionBuilder table(String table, String... tableParams) {
         if (tableParams != null && tableParams.length > 0) {
-            String[] parts = table.split("[?]", tableParams.length+1);
+            String[] parts = table.split("[?]", tableParams.length + 1);
             StringBuilder sb = new StringBuilder(parts[0]);
-            for (int i=1; i<parts.length; i++) {
-                sb.append('"').append(tableParams[i-1]).append('"')
+            for (int i = 1; i < parts.length; i++) {
+                sb.append('"').append(tableParams[i - 1]).append('"')
                         .append(parts[i]);
             }
             mTable = sb.toString();

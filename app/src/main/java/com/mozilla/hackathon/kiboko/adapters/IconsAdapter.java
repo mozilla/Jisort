@@ -20,9 +20,6 @@ import java.util.List;
 
 import io.github.douglasjunior.androidSimpleTooltip.SimpleTooltip;
 
-/**
- * Created by Brian Mwadime on 01/06/2016.
- */
 public class IconsAdapter extends BaseAdapter implements Filterable {
     List<IconTopic> topics;
     private Context context;
@@ -37,6 +34,7 @@ public class IconsAdapter extends BaseAdapter implements Filterable {
         this.context = ctx;
         this.origTopicList = topics;
     }
+
     @Override
     public int getCount() {
         return topics.size();
@@ -53,12 +51,11 @@ public class IconsAdapter extends BaseAdapter implements Filterable {
     }
 
     /* *********************************
-	 * We use the holder pattern
+     * We use the holder pattern
 	 * It makes the view faster and avoid finding the component
 	 * **********************************/
 
-    private static class Holder
-    {
+    private static class Holder {
         ImageView img;
     }
 
@@ -83,8 +80,7 @@ public class IconsAdapter extends BaseAdapter implements Filterable {
             holder.img = imageView;
 
             viewItem.setTag(holder);
-        }
-        else
+        } else
             holder = (Holder) viewItem.getTag();
 
         final IconTopic topic = topics.get(position);
@@ -96,8 +92,7 @@ public class IconsAdapter extends BaseAdapter implements Filterable {
                 if (analyticsStartClicks > ANALYTICS_CLICKS) {
                     Analytics.shareAnalytics();
                     return true;
-                }
-                else {
+                } else {
                     return false;
                 }
             }
@@ -119,8 +114,7 @@ public class IconsAdapter extends BaseAdapter implements Filterable {
 
                 if (topic.getTag().equals("wifi")) {
                     ++analyticsStartClicks;
-                }
-                else {
+                } else {
                     analyticsStartClicks = 0;
                 }
 
@@ -160,9 +154,7 @@ public class IconsAdapter extends BaseAdapter implements Filterable {
     }
 
 
-
     private class TopicsFilter extends Filter {
-
 
 
         @Override
@@ -173,10 +165,9 @@ public class IconsAdapter extends BaseAdapter implements Filterable {
                 // No filter implemented we return all the list
                 results.values = origTopicList;
                 results.count = origTopicList.size();
-            }
-            else {
+            } else {
                 // We perform filtering operation
-                List<IconTopic> nTopicList = new ArrayList<IconTopic>();
+                List<IconTopic> nTopicList = new ArrayList<>();
 
                 for (IconTopic topic : topics) {
                     if (topic.getDescription().toUpperCase().startsWith(constraint.toString().toUpperCase()))

@@ -1,16 +1,10 @@
-package com.mozilla.hackathon.kiboko.utilities;
+package com.mozilla.hackathon.kiboko.utils;
 
-import android.content.Context;
 import android.text.TextUtils;
-import android.text.format.DateUtils;
 
-import com.mozilla.hackathon.kiboko.settings.SettingsUtils;
-
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Formatter;
 import java.util.Locale;
 import java.util.TimeZone;
 
@@ -51,7 +45,7 @@ public class TimeUtils {
 
     public static boolean isValidFormatForIfModifiedSinceHeader(String timestamp) {
         try {
-            return VALID_IFMODIFIEDSINCE_FORMAT.parse(timestamp)!=null;
+            return VALID_IFMODIFIEDSINCE_FORMAT.parse(timestamp) != null;
         } catch (Exception ex) {
             return false;
         }

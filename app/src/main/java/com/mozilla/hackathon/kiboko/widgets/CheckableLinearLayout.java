@@ -100,8 +100,7 @@ public class CheckableLinearLayout extends LinearLayout implements Checkable {
     /**
      * Register a callback to be invoked when the checked state of this button changes.
      *
-     * @param listener
-     *            the callback to call on checked state change
+     * @param listener the callback to call on checked state change
      */
     public void setOnCheckedChangeListener(OnCheckedChangeListener listener) {
         mOnCheckedChangeListener = listener;
@@ -110,28 +109,26 @@ public class CheckableLinearLayout extends LinearLayout implements Checkable {
     /**
      * Interface definition for a callback.
      */
-    public static interface OnCheckedChangeListener {
+    public interface OnCheckedChangeListener {
         /**
          * Called when the checked state of a button has changed.
          *
-         * @param button
-         *            The button view whose state has changed.
-         * @param isChecked
-         *            The new checked state of button.
+         * @param button    The button view whose state has changed.
+         * @param isChecked The new checked state of button.
          */
         void onCheckedChanged(CheckableLinearLayout button, boolean isChecked);
     }
 
     private void setCheckedRecursive(ViewGroup parent, boolean checked) {
         int count = parent.getChildCount();
-        for(int i = 0; i < count; i++ ) {
+        for (int i = 0; i < count; i++) {
             View v = parent.getChildAt(i);
-            if(v instanceof Checkable) {
+            if (v instanceof Checkable) {
                 ((Checkable) v).setChecked(checked);
             }
 
-            if(v instanceof ViewGroup) {
-                setCheckedRecursive((ViewGroup)v, checked);
+            if (v instanceof ViewGroup) {
+                setCheckedRecursive((ViewGroup) v, checked);
             }
         }
     }
@@ -168,7 +165,7 @@ public class CheckableLinearLayout extends LinearLayout implements Checkable {
 
         private SavedState(Parcel in) {
             super(in);
-            checked = (Boolean)in.readValue(null);
+            checked = (Boolean) in.readValue(null);
         }
 
         @Override

@@ -13,17 +13,14 @@ import com.mozilla.hackathon.kiboko.R;
 
 import pl.droidsonroids.gif.GifImageView;
 
-/**
- * Created by mwadime on 6/10/2016.
- */
 public class ResultActivity extends AppCompatActivity {
     private static int[] imageResources = new int[]{
-        R.drawable.bmo,
-        R.drawable.carlton,
-        R.drawable.beach,
-        R.drawable.ok,
-        R.drawable.rainbow,
-        R.drawable.party
+            R.drawable.bmo,
+            R.drawable.carlton,
+            R.drawable.beach,
+            R.drawable.ok,
+            R.drawable.rainbow,
+            R.drawable.party
     };
 
     @Override
@@ -41,10 +38,10 @@ public class ResultActivity extends AppCompatActivity {
 
         txtPoints.setText(getString(R.string.quiz_result_score, score, total));
 
-        Analytics.add("Icon Quiz Finished", new Integer(score).toString());
+        Analytics.add("Icon Quiz Finished", Integer.toString(score));
 
         GifImageView gifImageView = (GifImageView) findViewById((R.id.result_image));
-        int randomIndex = new Double(Math.random() * imageResources.length).intValue();
+        int randomIndex = Double.valueOf(Math.random() * imageResources.length).intValue();
         gifImageView.setImageResource(imageResources[randomIndex]);
     }
 
@@ -59,7 +56,7 @@ public class ResultActivity extends AppCompatActivity {
         }
     }
 
-    public void playAgain(View view){
+    public void playAgain(View view) {
         Analytics.add("Icon Quiz Play Again");
         Intent intent = new Intent(ResultActivity.this, IconQuizActivity.class);
         startActivity(intent);

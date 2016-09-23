@@ -1,4 +1,4 @@
-package com.mozilla.hackathon.kiboko.utilities;
+package com.mozilla.hackathon.kiboko.utils;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -20,13 +20,14 @@ public class Utils {
 
     /**
      * Determines if the App has permission to draw overlays
+     *
      * @param context app context.
      * @return true/false
      */
-    public static boolean canDrawOverlays(Context context){
+    public static boolean canDrawOverlays(Context context) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
             return true;
-        }else{
+        } else {
             return Settings.canDrawOverlays(context);
         }
 
@@ -35,41 +36,42 @@ public class Utils {
 
     /**
      * Takes an inputstream, loads a bitmap optimized of space and then crops it for the view.
-     * @param iStream Inputstream to the image.
+     *
+     * @param iStream         Inputstream to the image.
      * @param containerHeight Height of the image holder container.
-     * @param containerWidth Width of the image holder container.
+     * @param containerWidth  Width of the image holder container.
      * @return Cropped/masked bitmap.
      */
-    public static Bitmap loadMaskedBitmap(InputStream iStream, int containerHeight, int containerWidth){
+    public static Bitmap loadMaskedBitmap(InputStream iStream, int containerHeight, int containerWidth) {
 
         // Load image data before loading the image itself.
         BitmapFactory.Options bmOptions = new BitmapFactory.Options();
         bmOptions.inJustDecodeBounds = true;
 
-        BitmapFactory.decodeStream(iStream,null,bmOptions);
+        BitmapFactory.decodeStream(iStream, null, bmOptions);
 
         int photoH = bmOptions.outHeight;
         int photoW = bmOptions.outWidth;
 
         // Find a suitable scalefactor to load the smaller bitmap, and then set the options.
-        int scaleFactor = Math.min(photoH/containerHeight, photoW/containerHeight);
+        int scaleFactor = Math.min(photoH / containerHeight, photoW / containerHeight);
         bmOptions.inJustDecodeBounds = false;
         bmOptions.inSampleSize = scaleFactor;
         bmOptions.inPurgeable = true;
 
         // Load the square region out of the bitmap.
-        Bitmap bmap=null;
+        Bitmap bmap = null;
         BitmapRegionDecoder decoder;
         try {
             iStream.reset();
             decoder = BitmapRegionDecoder.newInstance(iStream, false);
-            bmap = decoder.decodeRegion(new Rect(0, 0, Math.min(photoH, photoW), Math.min(photoH, photoW)),bmOptions);
+            bmap = decoder.decodeRegion(new Rect(0, 0, Math.min(photoH, photoW), Math.min(photoH, photoW)), bmOptions);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         // Calculate new width of the bitmap based on the width of the container
-        int bitmapNewWidth = (bmap.getWidth()*containerWidth)/containerHeight;
+        int bitmapNewWidth = (bmap.getWidth() * containerWidth) / containerHeight;
 
         // Produce clipping mask on the canvas and draw the bitmap
         Bitmap targetBitmap = Bitmap.createBitmap(bitmapNewWidth, bmap.getHeight(), bmap.getConfig());
@@ -85,16 +87,18 @@ public class Utils {
 
     /**
      * Converts dps to pixels.
-     * @param dp Value in dp.
+     *
+     * @param dp  Value in dp.
      * @param res Resources reference to get the screen density.
      * @return Value in pixels.
      */
-    public static int dpToPixels(int dp, Resources res){
-        return (int)(res.getDisplayMetrics().density*dp + 0.5f);
+    public static int dpToPixels(int dp, Resources res) {
+        return (int) (res.getDisplayMetrics().density * dp + 0.5f);
     }
 
     /**
      * Get resource Id of a gif
+     *
      * @param source the drawable filename without the extension
      * @return resource id
      */

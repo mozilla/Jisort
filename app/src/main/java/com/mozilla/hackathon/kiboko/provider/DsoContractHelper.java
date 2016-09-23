@@ -21,11 +21,11 @@ public class DsoContractHelper {
                 .build();
     }
 
-    public static boolean isQueryDistinct(Uri uri){
+    public static boolean isQueryDistinct(Uri uri) {
         return !TextUtils.isEmpty(uri.getQueryParameter(QUERY_PARAMETER_DISTINCT));
     }
 
-    public static String formatQueryDistinctParameter(String parameter){
+    public static String formatQueryDistinctParameter(String parameter) {
         return DsoContractHelper.QUERY_PARAMETER_DISTINCT + " " + parameter;
     }
 

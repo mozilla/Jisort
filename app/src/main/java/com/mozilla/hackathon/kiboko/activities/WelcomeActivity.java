@@ -8,9 +8,6 @@ import android.view.View;
 
 import com.mozilla.hackathon.kiboko.R;
 
-/**
- * Created by secretrobotron on 7/15/16.
- */
 public class WelcomeActivity extends AppCompatActivity {
 
     @Override
@@ -21,7 +18,7 @@ public class WelcomeActivity extends AppCompatActivity {
         ab.hide();
     }
 
-    public void dismissWelcome(View view){
+    public void dismissWelcome(View view) {
         Intent intent = new Intent(WelcomeActivity.this, DashboardActivity.class);
         startActivity(intent);
         finish();

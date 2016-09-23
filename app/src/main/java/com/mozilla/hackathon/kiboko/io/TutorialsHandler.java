@@ -5,28 +5,31 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.BaseColumns;
+
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.mozilla.hackathon.kiboko.models.Tutorial;
 import com.mozilla.hackathon.kiboko.provider.DsoContract;
 import com.mozilla.hackathon.kiboko.provider.DsoContract.Tutorials;
 import com.mozilla.hackathon.kiboko.provider.DsoContractHelper;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-import static com.mozilla.hackathon.kiboko.utilities.LogUtils.LOGD;
-import static com.mozilla.hackathon.kiboko.utilities.LogUtils.LOGW;
-import static com.mozilla.hackathon.kiboko.utilities.LogUtils.makeLogTag;
-/**
- * Created by Brian Mwadime on 25/06/2016.
- */
-public class TutorialsHandler  extends JSONHandler {
+
+import static com.mozilla.hackathon.kiboko.utils.LogUtils.LOGD;
+import static com.mozilla.hackathon.kiboko.utils.LogUtils.LOGW;
+import static com.mozilla.hackathon.kiboko.utils.LogUtils.makeLogTag;
+
+public class TutorialsHandler extends JSONHandler {
     private static final String TAG = makeLogTag(TutorialsHandler.class);
-    private HashMap<String, Tutorial> mTutorials = new HashMap<String, Tutorial>();
+    private HashMap<String, Tutorial> mTutorials = new HashMap<>();
+
     public TutorialsHandler(Context context) {
         super(context);
     }
+
     @Override
     public void process(JsonElement element) {
         for (Tutorial tutorial : new Gson().fromJson(element, Tutorial[].class)) {
@@ -43,7 +46,7 @@ public class TutorialsHandler  extends JSONHandler {
         HashMap<String, String> tutorialHashCodes = loadTutorialHashCodes();
         boolean incrementalUpdate = (tutorialHashCodes != null) && (tutorialHashCodes.size() > 0);
         // set of tutorials that we want to keep after the sync
-        HashSet<String> tutorialsToKeep = new HashSet<String>();
+        HashSet<String> tutorialsToKeep = new HashSet<>();
         if (incrementalUpdate) {
             LOGD(TAG, "Doing incremental update for tutorials.");
         } else {
@@ -78,11 +81,13 @@ public class TutorialsHandler  extends JSONHandler {
                 updatedtutorials + " to update, " + deletedtutorials + " to delete. New total: " +
                 mTutorials.size());
     }
+
     private void buildDeleteOperation(String tutorialId, List<ContentProviderOperation> list) {
         Uri tutorialUri = DsoContractHelper.setUriAsCalledFromSyncAdapter(
                 DsoContract.Tutorials.buildTutorialUri(tutorialId));
         list.add(ContentProviderOperation.newDelete(tutorialUri).build());
     }
+
     private HashMap<String, String> loadTutorialHashCodes() {
         Uri uri = DsoContractHelper.setUriAsCalledFromSyncAdapter(
                 DsoContract.Tutorials.CONTENT_URI);
@@ -95,7 +100,7 @@ public class TutorialsHandler  extends JSONHandler {
                 LOGW(TAG, "Warning: failed to load tutorial hashcodes. Not optimizing tutorial import.");
                 return null;
             }
-            HashMap<String, String> hashcodeMap = new HashMap<String, String>();
+            HashMap<String, String> hashcodeMap = new HashMap<>();
             if (cursor.moveToFirst()) {
                 do {
                     String tutorialId = cursor.getString(tutorialHashcodeQuery.TUTORIAL_ID);
@@ -115,7 +120,7 @@ public class TutorialsHandler  extends JSONHandler {
     StringBuilder mStringBuilder = new StringBuilder();
 
     private void buildTutorial(boolean isInsert,
-                              Tutorial tutorial, ArrayList<ContentProviderOperation> list) {
+                               Tutorial tutorial, ArrayList<ContentProviderOperation> list) {
         ContentProviderOperation.Builder builder;
         Uri alltutorialsUri = DsoContractHelper
                 .setUriAsCalledFromSyncAdapter(Tutorials.CONTENT_URI);
@@ -144,7 +149,7 @@ public class TutorialsHandler  extends JSONHandler {
                 // with the tutorials_speakers relationship table) so that we can
                 // display it easily in lists without having to make an additional DB query
                 // (or another join) for each record.
-                 .withValue(Tutorials.TUTORIAL_STEPS, new Gson().toJson(tutorial.steps))
+                .withValue(Tutorials.TUTORIAL_STEPS, new Gson().toJson(tutorial.steps))
                 .withValue(DsoContract.Tutorials.TUTORIAL_PHOTO_URL, tutorial.photoUrl);
         list.add(builder.build());
     }
@@ -169,5 +174,5 @@ public class TutorialsHandler  extends JSONHandler {
         int _ID = 0;
         int TUTORIAL_ID = 1;
         int TUTORIAL_IMPORT_HASHCODE = 2;
-    };
+    }
 }

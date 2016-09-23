@@ -14,8 +14,8 @@ import com.mozilla.hackathon.kiboko.sync.SyncAdapter;
 
 import java.io.IOException;
 
-import static com.mozilla.hackathon.kiboko.utilities.LogUtils.LOGD;
-import static com.mozilla.hackathon.kiboko.utilities.LogUtils.makeLogTag;
+import static com.mozilla.hackathon.kiboko.utils.LogUtils.LOGD;
+import static com.mozilla.hackathon.kiboko.utils.LogUtils.makeLogTag;
 
 /**
  * A helper class for dealing with conference data synchronization. All operations occur on the
@@ -29,9 +29,7 @@ public class SyncHelper {
     private Context mContext;
 
 
-
     /**
-     *
      * @param context Can be Application, Activity or Service context.
      */
     public SyncHelper(Context context) {
@@ -83,13 +81,12 @@ public class SyncHelper {
     /**
      * Attempts to perform data synchronization. There are 3 types of data: conference, user
      * schedule and user feedback.
-     * <p />
-     *
+     * <p/>
      *
      * @param syncResult The sync result object to update with statistics.
-     * @param account The account associated with this sync
-     * @param extras Specifies additional information about the sync. This must contain key
-     *               {@code SyncAdapter.EXTRA_SYNC_USER_DATA_ONLY} with boolean value
+     * @param account    The account associated with this sync
+     * @param extras     Specifies additional information about the sync. This must contain key
+     *                   {@code SyncAdapter.EXTRA_SYNC_USER_DATA_ONLY} with boolean value
      * @return true if the sync changed the data.
      */
     public boolean performSync(@Nullable SyncResult syncResult, Account account, Bundle extras) {
@@ -112,14 +109,13 @@ public class SyncHelper {
      * the new data and import it into the database.
      *
      * @return Whether or not data was changed.
-     * @throws IOException if there is a problem downloading or importing the data.
      */
-    private boolean doDsoDataSync() throws IOException {
+    private boolean doDsoDataSync() {
         if (!isOnline()) {
             LOGD(TAG, "Not attempting remote sync because device is OFFLINE");
             return false;
         }
-
+        //TODO: Remove this function, it doesn't serve a purpose
         LOGD(TAG, "Starting remote sync.");
 
         return false;
@@ -139,15 +135,16 @@ public class SyncHelper {
      * @return Whether or not data was changed.
      * @throws IOException if there is a problem uploading the data.
      */
-    private boolean doUserDataSync(String accountName) throws IOException {
+    private boolean doUserDataSync(String accountName) {
         if (!isOnline()) {
             LOGD(TAG, "Not attempting userdata sync because device is OFFLINE");
             return false;
         }
+        //TODO: Remove this code, it doesn't serve a purpose
 
         LOGD(TAG, "Starting user data sync.");
 
-       return false;
+        return false;
     }
 
     private boolean isOnline() {
@@ -169,9 +166,5 @@ public class SyncHelper {
 
     private static long calculateRecommendedSyncInterval(final Context context) {
         return 1;
-    }
-
-    public static void updateSyncInterval(final Context context, final Account account) {
-
     }
 }

@@ -10,8 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/activity_vertical_margin"
         android:layout_marginBottom="@dimen/activity_vertical_margin"
-        android:orientation="vertical"
-        android:layout_centerHorizontal="true">
+        android:orientation="vertical">
         <TextView
             android:layout_gravity="center_horizontal"
             android:id="@+id/quizStepScore"

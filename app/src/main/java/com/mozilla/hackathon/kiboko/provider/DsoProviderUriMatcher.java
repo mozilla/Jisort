@@ -4,9 +4,6 @@ import android.content.UriMatcher;
 import android.net.Uri;
 import android.util.SparseArray;
 
-/**
- * Created by Mwadime on 26/06/2016.
- */
 public class DsoProviderUriMatcher {
 
     /**
@@ -19,7 +16,7 @@ public class DsoProviderUriMatcher {
     /**
      * This constructor needs to be called from a thread-safe method as it isn't thread-safe itself.
      */
-    public DsoProviderUriMatcher(){
+    public DsoProviderUriMatcher() {
         mUriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
         buildUriMatcher();
     }
@@ -28,8 +25,8 @@ public class DsoProviderUriMatcher {
         final String authority = DsoContract.CONTENT_AUTHORITY;
 
         DsoUriEnum[] uris = DsoUriEnum.values();
-        for (int i = 0; i < uris.length; i++) {
-            mUriMatcher.addURI(authority, uris[i].path, uris[i].code);
+        for (DsoUriEnum uri : uris) {
+            mUriMatcher.addURI(authority, uri.path, uri.code);
         }
 
         buildEnumsMap();
@@ -37,8 +34,8 @@ public class DsoProviderUriMatcher {
 
     private void buildEnumsMap() {
         DsoUriEnum[] uris = DsoUriEnum.values();
-        for (int i = 0; i < uris.length; i++) {
-            mEnumsMap.put(uris[i].code, uris[i]);
+        for (DsoUriEnum uri : uris) {
+            mEnumsMap.put(uri.code, uri);
         }
     }
 
@@ -47,11 +44,11 @@ public class DsoProviderUriMatcher {
      *
      * @return the {@link DsoUriEnum}, or throws new UnsupportedOperationException if no match.
      */
-    public DsoUriEnum matchUri(Uri uri){
+    public DsoUriEnum matchUri(Uri uri) {
         final int code = mUriMatcher.match(uri);
         try {
             return matchCode(code);
-        } catch (UnsupportedOperationException e){
+        } catch (UnsupportedOperationException e) {
             throw new UnsupportedOperationException("Unknown uri " + uri);
         }
     }
@@ -61,9 +58,9 @@ public class DsoProviderUriMatcher {
      *
      * @return the {@link DsoUriEnum}, or throws new UnsupportedOperationException if no match.
      */
-    public DsoUriEnum matchCode(int code){
+    public DsoUriEnum matchCode(int code) {
         DsoUriEnum dsoUriEnum = mEnumsMap.get(code);
-        if (dsoUriEnum != null){
+        if (dsoUriEnum != null) {
             return dsoUriEnum;
         } else {
             throw new UnsupportedOperationException("Unknown uri with code " + code);

@@ -6,18 +6,14 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.support.v4.app.NotificationCompat;
 
 import com.mozilla.hackathon.kiboko.activities.TutorialSlideActivity;
-import com.mozilla.hackathon.kiboko.recievers.DSOBatteryReceiver;
 
-/**
- * Created by Brian Mwadime on 06/06/2016.
- */
 public class App extends Application {
     public static String PACKAGE_NAME;
     protected static Context context = null;
+
     @Override
     public void onCreate() {
         super.onCreate();

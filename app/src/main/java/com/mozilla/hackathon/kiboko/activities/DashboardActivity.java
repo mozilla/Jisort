@@ -24,8 +24,7 @@ public class DashboardActivity extends DSOActivity {
     }
 
     @Override
-    protected void onResume()
-    {
+    protected void onResume() {
         super.onResume();
         active = true;
 
@@ -39,8 +38,7 @@ public class DashboardActivity extends DSOActivity {
     }
 
     @Override
-    protected void onPause()
-    {
+    protected void onPause() {
         super.onPause();
         active = true;
     }

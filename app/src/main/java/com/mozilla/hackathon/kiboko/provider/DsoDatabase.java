@@ -5,18 +5,15 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.provider.BaseColumns;
 
+import com.mozilla.hackathon.kiboko.provider.DsoContract.QuizColumns;
 import com.mozilla.hackathon.kiboko.provider.DsoContract.Tutorials;
 import com.mozilla.hackathon.kiboko.provider.DsoContract.TutorialsColumns;
-import com.mozilla.hackathon.kiboko.provider.DsoContract.QuizColumns;
 import com.mozilla.hackathon.kiboko.sync.DsoDataHandler;
 
-import static com.mozilla.hackathon.kiboko.utilities.LogUtils.LOGD;
-import static com.mozilla.hackathon.kiboko.utilities.LogUtils.LOGW;
-import static com.mozilla.hackathon.kiboko.utilities.LogUtils.makeLogTag;
+import static com.mozilla.hackathon.kiboko.utils.LogUtils.LOGD;
+import static com.mozilla.hackathon.kiboko.utils.LogUtils.LOGW;
+import static com.mozilla.hackathon.kiboko.utils.LogUtils.makeLogTag;
 
-/**
- * Created by brian Mwadime on 25/06/2016.
- */
 public class DsoDatabase extends SQLiteOpenHelper {
     private static final String TAG = makeLogTag(DsoDatabase.class);
 
@@ -24,7 +21,7 @@ public class DsoDatabase extends SQLiteOpenHelper {
 
     // NOTE: carefully update onUpgrade() when bumping database versions to make
     // sure user data is saved.
-    
+
     private static final int VER_2015_RELEASE_A = 208;
     private static final int VER_2015_RELEASE_B = 210;
     private static final int CUR_DATABASE_VERSION = VER_2015_RELEASE_B;
@@ -46,7 +43,7 @@ public class DsoDatabase extends SQLiteOpenHelper {
             DeprecatedTables(String tableName) {
                 this.tableName = tableName;
             }
-        };
+        }
     }
 
     private interface Triggers {
@@ -57,7 +54,7 @@ public class DsoDatabase extends SQLiteOpenHelper {
         // on database upgrades).
         interface DeprecatedTriggers {
             String TUTORIALS_TRACKS_DELETE = "tutorials_tracks_delete";
-        };
+        }
     }
 
 
@@ -66,7 +63,9 @@ public class DsoDatabase extends SQLiteOpenHelper {
         String STEP_ID = "step_id";
     }
 
-    /** {@code REFERENCES} clauses. */
+    /**
+     * {@code REFERENCES} clauses.
+     */
     private interface References {
         String TUTORIAL_ID = "REFERENCES " + Tables.TUTORIALS + "(" + Tutorials.TUTORIAL_ID + ")";
     }
@@ -97,8 +96,8 @@ public class DsoDatabase extends SQLiteOpenHelper {
                 + QuizColumns.KEY_ID + " TEXT NOT NULL, "
                 + QuizColumns.KEY_QUESTION + " TEXT,"
                 + QuizColumns.KEY_ANSWER + " TEXT,"
-                + QuizColumns.KEY_OPTIONA +" TEXT,"
-                + QuizColumns.KEY_OPTIONB +" TEXT,"
+                + QuizColumns.KEY_OPTIONA + " TEXT,"
+                + QuizColumns.KEY_OPTIONB + " TEXT,"
                 + QuizColumns.KEY_OPTIONC + " TEXT,"
                 + QuizColumns.KEY_OPTIOND + " TEXT,"
                 + "UNIQUE (" + QuizColumns.KEY_ID + ") ON CONFLICT REPLACE)");

@@ -1,7 +1,4 @@
 package com.mozilla.hackathon.kiboko.fragments;
-/**
- * Created by mwadime on 6/9/2016.
- */
 
 import android.content.res.TypedArray;
 import android.os.Bundle;
@@ -16,7 +13,7 @@ import android.widget.TextView;
 
 import com.mozilla.hackathon.kiboko.R;
 import com.mozilla.hackathon.kiboko.settings.SettingsUtils;
-import com.mozilla.hackathon.kiboko.utilities.Utils;
+import com.mozilla.hackathon.kiboko.utils.Utils;
 import com.mozilla.hackathon.kiboko.widgets.NotifyingScrollView;
 
 import org.sufficientlysecure.htmltextview.EmojiUtils;
@@ -25,7 +22,8 @@ import org.sufficientlysecure.htmltextview.HtmlTextView;
 import pl.droidsonroids.gif.GifDrawable;
 import pl.droidsonroids.gif.GifImageView;
 
-import static com.mozilla.hackathon.kiboko.utilities.LogUtils.makeLogTag;
+import static com.mozilla.hackathon.kiboko.utils.LogUtils.makeLogTag;
+
 /**
  * A fragment representing a single step in a wizard. The fragment shows a dummy title indicating
  * the page number, along with some dummy text.
@@ -48,6 +46,7 @@ public class ScreenSlidePageFragment extends Fragment {
      */
     private int mPageNumber;
     private String mPageDescription, mPageTitle, mPageImage;
+
     /**
      * Factory method for this fragment class. Constructs a new fragment for the given page number.
      */
@@ -74,7 +73,7 @@ public class ScreenSlidePageFragment extends Fragment {
         mPageImage = getArguments().getString(ARG_PAGE_IMAGE);
 
         final TypedArray styledAttributes = getContext().getTheme().obtainStyledAttributes(
-                new int[] { android.R.attr.actionBarSize });
+                new int[]{android.R.attr.actionBarSize});
         mActionBarHeight = styledAttributes.getDimension(0, 0);
         styledAttributes.recycle();
         mActionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
@@ -88,21 +87,21 @@ public class ScreenSlidePageFragment extends Fragment {
                 .inflate(R.layout.fragment_screen_slide_page, container, false);
         mScrollview = (NotifyingScrollView) rootView.findViewById(R.id.content);
 //        ((NotifyingScrollView) rootView.findViewById(R.id.content)).setOnScrollChangedListener(mOnScrollChangedListener);
-        if(SettingsUtils.isFunModeEnabled(getContext())){
+        if (SettingsUtils.isFunModeEnabled(getContext())) {
             ((TextView) rootView.findViewById(R.id.step_title)).setText(EmojiUtils.parse(mPageTitle));
-        }else{
+        } else {
             ((TextView) rootView.findViewById(R.id.step_title)).setText(mPageTitle);
         }
 
 
         ((HtmlTextView) rootView.findViewById(R.id.step_description)).setFunMode(SettingsUtils.isFunModeEnabled(getContext()));
-        ((HtmlTextView) rootView.findViewById(R.id.step_description)).setHtmlFromString(mPageDescription,new HtmlTextView.LocalImageGetter());
+        ((HtmlTextView) rootView.findViewById(R.id.step_description)).setHtmlFromString(mPageDescription, new HtmlTextView.LocalImageGetter());
 
         GifImageView gifImageView = (GifImageView) rootView.findViewById(R.id.step_image);
         gifImageView.setTag(mPageImage);
         gifImageView.setImageResource(Utils.getResId(getContext(), mPageImage));
         // Remove imageView from layout if gif isn't available
-        if(Utils.getResId(getContext(), mPageImage) == R.drawable.blank){
+        if (Utils.getResId(getContext(), mPageImage) == R.drawable.blank) {
             gifImageView.setVisibility(View.GONE);
         }
 
@@ -114,7 +113,7 @@ public class ScreenSlidePageFragment extends Fragment {
             float y = who.getScrollY();
             if (y >= mActionBarHeight && mActionBar.isShowing()) {
                 mActionBar.hide();
-            } else if ( y==0 && !mActionBar.isShowing()) {
+            } else if (y == 0 && !mActionBar.isShowing()) {
                 mActionBar.show();
             }
         }
