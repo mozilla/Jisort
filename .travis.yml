@@ -1,6 +1,10 @@
 sudo: false
 language: android
 script: "./gradlew build"
+script:
+  - ./gradlew build
+  - ls
+  - ls Jisort/app/build/outputs/apk
 android:
   components:
     - platform-tools
