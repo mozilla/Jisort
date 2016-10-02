@@ -10,8 +10,7 @@ import android.widget.TextView;
 
 import com.mozilla.hackathon.kiboko.Analytics;
 import com.mozilla.hackathon.kiboko.R;
-
-import pl.droidsonroids.gif.GifImageView;
+import com.mozilla.hackathon.kiboko.widgets.AdjustableGifImageView;
 
 public class ResultActivity extends AppCompatActivity {
     private static int[] imageResources = new int[]{
@@ -40,7 +39,7 @@ public class ResultActivity extends AppCompatActivity {
 
         Analytics.add("Icon Quiz Finished", Integer.toString(score));
 
-        GifImageView gifImageView = (GifImageView) findViewById((R.id.result_image));
+        AdjustableGifImageView gifImageView = (AdjustableGifImageView) findViewById(R.id.result_image);
         int randomIndex = Double.valueOf(Math.random() * imageResources.length).intValue();
         gifImageView.setImageResource(imageResources[randomIndex]);
     }

@@ -14,13 +14,11 @@ import android.widget.TextView;
 import com.mozilla.hackathon.kiboko.R;
 import com.mozilla.hackathon.kiboko.settings.SettingsUtils;
 import com.mozilla.hackathon.kiboko.utils.Utils;
+import com.mozilla.hackathon.kiboko.widgets.AdjustableGifImageView;
 import com.mozilla.hackathon.kiboko.widgets.NotifyingScrollView;
 
 import org.sufficientlysecure.htmltextview.EmojiUtils;
 import org.sufficientlysecure.htmltextview.HtmlTextView;
-
-import pl.droidsonroids.gif.GifDrawable;
-import pl.droidsonroids.gif.GifImageView;
 
 import static com.mozilla.hackathon.kiboko.utils.LogUtils.makeLogTag;
 
@@ -40,7 +38,6 @@ public class ScreenSlidePageFragment extends Fragment {
     private float mActionBarHeight;
     private ActionBar mActionBar;
     public static NotifyingScrollView mScrollview;
-    private GifDrawable gifDrawable;
     /**
      * The fragment's page number, which is set to the argument value for {@link #ARG_PAGE}.
      */
@@ -97,9 +94,10 @@ public class ScreenSlidePageFragment extends Fragment {
         ((HtmlTextView) rootView.findViewById(R.id.step_description)).setFunMode(SettingsUtils.isFunModeEnabled(getContext()));
         ((HtmlTextView) rootView.findViewById(R.id.step_description)).setHtmlFromString(mPageDescription, new HtmlTextView.LocalImageGetter());
 
-        GifImageView gifImageView = (GifImageView) rootView.findViewById(R.id.step_image);
+        AdjustableGifImageView gifImageView = (AdjustableGifImageView) rootView.findViewById(R.id.step_image);
         gifImageView.setTag(mPageImage);
         gifImageView.setImageResource(Utils.getResId(getContext(), mPageImage));
+
         // Remove imageView from layout if gif isn't available
         if (Utils.getResId(getContext(), mPageImage) == R.drawable.blank) {
             gifImageView.setVisibility(View.GONE);
