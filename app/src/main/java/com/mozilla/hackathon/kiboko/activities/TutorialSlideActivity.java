@@ -16,7 +16,6 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -127,11 +126,10 @@ public class TutorialSlideActivity extends DSOActivity implements LoaderManager.
                 // fragment expose actions itself (rather than the activity exposing actions),
                 // but for simplicity, the activity provides the actions in this sample.
                 invalidateOptionsMenu();
-
-                // When changing pages, get the current page (fragment) and reset the scroll position
-                ((ScreenSlidePagerAdapter) mPager.getAdapter()).getCurrentFragment().getView().scrollTo(0, 0);
             }
         });
+
+        mPager.setPageTransformer(false, new SimplePageTransformer());
 
         getSupportLoaderManager().initLoader(LOADER_ID, null, this);
     }
@@ -245,9 +243,7 @@ public class TutorialSlideActivity extends DSOActivity implements LoaderManager.
      */
     private class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
 
-        private Fragment mCurrentFragment;
-
-        public ScreenSlidePagerAdapter(FragmentManager fm) {
+        ScreenSlidePagerAdapter(FragmentManager fm) {
             super(fm);
         }
 
@@ -257,20 +253,25 @@ public class TutorialSlideActivity extends DSOActivity implements LoaderManager.
         }
 
         @Override
-        public void setPrimaryItem(ViewGroup container, int position, Object object) {
-            if (getCurrentFragment() != object) {
-                mCurrentFragment = (Fragment) object;
-            }
-            super.setPrimaryItem(container, position, object);
-        }
-
-        @Override
         public int getCount() {
             return jsonSteps.size();
         }
+    }
 
-        public Fragment getCurrentFragment() {
-            return mCurrentFragment;
+    /**
+     * Reset the scroll position of the next page while transitioning to it.
+     */
+    public class SimplePageTransformer implements ViewPager.PageTransformer {
+        /**
+         * Apply a property transformation to the given page.
+         *
+         * @param page     Apply the transformation to this page
+         * @param position Position of page relative to the current front-and-center
+         *                 position of the pager. 0 is front and center. 1 is one full
+         */
+        @Override
+        public void transformPage(View page, float position) {
+            page.setScrollY(0);
         }
     }
 }
