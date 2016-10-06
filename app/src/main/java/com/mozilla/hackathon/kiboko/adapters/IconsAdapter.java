@@ -90,7 +90,7 @@ public class IconsAdapter extends BaseAdapter implements Filterable {
             @Override
             public boolean onLongClick(View v) {
                 if (analyticsStartClicks > ANALYTICS_CLICKS) {
-                    Analytics.shareAnalytics();
+                    Analytics.shareAnalytics(context);
                     return true;
                 } else {
                     return false;
