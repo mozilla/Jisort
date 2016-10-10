@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.BatteryManager;
 
-import com.mozilla.hackathon.kiboko.App;
+import com.mozilla.hackathon.kiboko.utils.UiUtils;
 
 public class DSOBatteryReceiver extends BroadcastReceiver {
     @Override
@@ -14,7 +14,7 @@ public class DSOBatteryReceiver extends BroadcastReceiver {
         int rawlevel = intent.getIntExtra(BatteryManager.EXTRA_LEVEL, 0);
 
         if (rawlevel <= 25) {
-            App.createNotification("Your phone battery is running low.", "battery");
+            UiUtils.showNotification(context, "Your phone battery is running low.", "battery");
         }
     }
 }

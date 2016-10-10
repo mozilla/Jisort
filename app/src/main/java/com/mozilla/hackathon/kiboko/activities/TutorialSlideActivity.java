@@ -26,6 +26,7 @@ import com.mozilla.hackathon.kiboko.R;
 import com.mozilla.hackathon.kiboko.fragments.ScreenSlidePageFragment;
 import com.mozilla.hackathon.kiboko.models.Step;
 import com.mozilla.hackathon.kiboko.provider.DsoContract;
+import com.mozilla.hackathon.kiboko.utils.UiUtils;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -134,6 +135,11 @@ public class TutorialSlideActivity extends DSOActivity implements LoaderManager.
         getSupportLoaderManager().initLoader(LOADER_ID, null, this);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
     public void navigateToSettings(View view) {
 
         switch (view.getTag().toString()) {
@@ -166,8 +172,10 @@ public class TutorialSlideActivity extends DSOActivity implements LoaderManager.
         }
 
         Analytics.add("Tutorial opened", mTopic);
-        if (intent.getExtras().getBoolean("notification")) {
+        Integer notificationId = (Integer) intent.getSerializableExtra("notification");
+        if (notificationId != null) {
             Analytics.add("Tutorial " + mTopic + " entered through notification.");
+            UiUtils.cancelNotification(this, notificationId);
         }
     }
 
