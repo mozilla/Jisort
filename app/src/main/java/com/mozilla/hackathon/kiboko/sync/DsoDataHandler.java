@@ -15,13 +15,9 @@ import com.mozilla.hackathon.kiboko.io.QuizHandler;
 import com.mozilla.hackathon.kiboko.io.TutorialsHandler;
 import com.mozilla.hackathon.kiboko.provider.DsoContract;
 import com.mozilla.hackathon.kiboko.services.SyncHelper;
-import com.turbomanage.httpclient.ConsoleRequestLogger;
-import com.turbomanage.httpclient.HttpResponse;
-import com.turbomanage.httpclient.RequestLogger;
 
 import java.io.IOException;
 import java.io.StringReader;
-import java.net.HttpURLConnection;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -179,18 +175,4 @@ public class DsoDataHandler {
         PreferenceManager.getDefaultSharedPreferences(context).edit().remove(
                 SP_KEY_DATA_TIMESTAMP).commit();
     }
-
-    /**
-     * A type of ConsoleRequestLogger that does not log requests and responses.
-     */
-    private RequestLogger mQuietLogger = new ConsoleRequestLogger() {
-        @Override
-        public void logRequest(HttpURLConnection uc, Object content) throws IOException {
-        }
-
-        @Override
-        public void logResponse(HttpResponse res) {
-        }
-    };
-
 }

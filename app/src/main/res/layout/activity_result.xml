@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:text="@string/play_again_text"/>
 
-    <pl.droidsonroids.gif.GifImageView
+    <com.mozilla.hackathon.kiboko.widgets.AdjustableGifImageView
         android:id="@+id/result_image"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

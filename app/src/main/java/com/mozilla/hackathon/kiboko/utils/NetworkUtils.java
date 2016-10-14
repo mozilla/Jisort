@@ -3,6 +3,7 @@ package com.mozilla.hackathon.kiboko.utils;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.provider.Settings;
 
 public class NetworkUtils {
 
@@ -12,10 +13,7 @@ public class NetworkUtils {
 
 
     public static int getConnectivityStatus(Context context) {
-        ConnectivityManager cm = (ConnectivityManager) context
-                .getSystemService(Context.CONNECTIVITY_SERVICE);
-
-        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        NetworkInfo activeNetwork = getActiveNetworkInfo(context);
         if (null != activeNetwork) {
             if (activeNetwork.getType() == ConnectivityManager.TYPE_WIFI)
                 return TYPE_WIFI;
@@ -24,6 +22,19 @@ public class NetworkUtils {
                 return TYPE_MOBILE;
         }
         return TYPE_NOT_CONNECTED;
+    }
+
+    public static NetworkInfo getActiveNetworkInfo(Context context) {
+        ConnectivityManager connectivityManager = (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        return connectivityManager.getActiveNetworkInfo();
+    }
+
+    public static boolean isAirplaneModeActive(Context context) {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN_MR1){
+            return Settings.Global.getInt(context.getContentResolver(), Settings.Global.AIRPLANE_MODE_ON, 0) != 0;
+        } else {
+            return Settings.System.getInt(context.getContentResolver(), Settings.System.AIRPLANE_MODE_ON, 0) != 0;
+        }
     }
 
     public static String getConnectivityStatusString(Context context) {

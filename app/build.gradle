@@ -48,9 +48,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    dexOptions {
-        incremental true
-    }
 }
 
 dependencies {
@@ -61,8 +58,6 @@ dependencies {
     compile "com.android.support:appcompat-v7:${android_support_lib_version}"
     compile "com.android.support:cardview-v7:${android_support_lib_version}"
     compile "com.android.support:support-v13:${android_support_lib_version}"
-
-    compile files('../third_party/basic-http-client/libs/basic-http-client-android-0.88.jar')
     // JSON utility library.
     compile 'com.google.code.gson:gson:2.4'
 

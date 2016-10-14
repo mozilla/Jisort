@@ -16,7 +16,6 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -27,6 +26,7 @@ import com.mozilla.hackathon.kiboko.R;
 import com.mozilla.hackathon.kiboko.fragments.ScreenSlidePageFragment;
 import com.mozilla.hackathon.kiboko.models.Step;
 import com.mozilla.hackathon.kiboko.provider.DsoContract;
+import com.mozilla.hackathon.kiboko.utils.UiUtils;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -127,13 +127,17 @@ public class TutorialSlideActivity extends DSOActivity implements LoaderManager.
                 // fragment expose actions itself (rather than the activity exposing actions),
                 // but for simplicity, the activity provides the actions in this sample.
                 invalidateOptionsMenu();
-
-                // When changing pages, get the current page (fragment) and reset the scroll position
-                ((ScreenSlidePagerAdapter) mPager.getAdapter()).getCurrentFragment().getView().scrollTo(0, 0);
             }
         });
 
+        mPager.setPageTransformer(false, new SimplePageTransformer());
+
         getSupportLoaderManager().initLoader(LOADER_ID, null, this);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
     }
 
     public void navigateToSettings(View view) {
@@ -168,8 +172,10 @@ public class TutorialSlideActivity extends DSOActivity implements LoaderManager.
         }
 
         Analytics.add("Tutorial opened", mTopic);
-        if (intent.getExtras().getBoolean("notification")) {
+        Integer notificationId = (Integer) intent.getSerializableExtra("notification");
+        if (notificationId != null) {
             Analytics.add("Tutorial " + mTopic + " entered through notification.");
+            UiUtils.cancelNotification(this, notificationId);
         }
     }
 
@@ -245,9 +251,7 @@ public class TutorialSlideActivity extends DSOActivity implements LoaderManager.
      */
     private class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
 
-        private Fragment mCurrentFragment;
-
-        public ScreenSlidePagerAdapter(FragmentManager fm) {
+        ScreenSlidePagerAdapter(FragmentManager fm) {
             super(fm);
         }
 
@@ -257,20 +261,25 @@ public class TutorialSlideActivity extends DSOActivity implements LoaderManager.
         }
 
         @Override
-        public void setPrimaryItem(ViewGroup container, int position, Object object) {
-            if (getCurrentFragment() != object) {
-                mCurrentFragment = (Fragment) object;
-            }
-            super.setPrimaryItem(container, position, object);
-        }
-
-        @Override
         public int getCount() {
             return jsonSteps.size();
         }
+    }
 
-        public Fragment getCurrentFragment() {
-            return mCurrentFragment;
+    /**
+     * Reset the scroll position of the next page while transitioning to it.
+     */
+    public class SimplePageTransformer implements ViewPager.PageTransformer {
+        /**
+         * Apply a property transformation to the given page.
+         *
+         * @param page     Apply the transformation to this page
+         * @param position Position of page relative to the current front-and-center
+         *                 position of the pager. 0 is front and center. 1 is one full
+         */
+        @Override
+        public void transformPage(View page, float position) {
+            page.setScrollY(0);
         }
     }
 }

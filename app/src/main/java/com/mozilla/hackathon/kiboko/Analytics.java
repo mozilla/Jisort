@@ -1,5 +1,6 @@
 package com.mozilla.hackathon.kiboko;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Environment;
@@ -21,11 +22,11 @@ public class Analytics {
     private static final long TIME_BETWEEN_SAVES = 5000;
     private static final long FILE_SIZE_LIMIT = 100000; //bytes
 
-    public static void shareAnalytics() {
-        Analytics.get().share();
+    public static void shareAnalytics(Context context) {
+        Analytics.get().share(context);
     }
 
-    private void share() {
+    private void share(Context context) {
         File currentFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), ANALYTICS_FILENAME);
         File oldFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), ANALYTICS_ARCHIVE_FILENAME);
 
@@ -46,7 +47,7 @@ public class Analytics {
             intent.putExtra(Intent.EXTRA_SUBJECT, "Jisort Analytics Files");
             intent.setType("text/plain");
             intent.putParcelableArrayListExtra(Intent.EXTRA_STREAM, files);
-            App.getContext().startActivity(intent);
+            context.startActivity(intent);
         }
     }
 
