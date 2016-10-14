@@ -15,3 +15,11 @@ android:
     - extra-google-m2repository
 notifications:
   email: false
+deploy:
+  provider: s3
+  access_key_id: "YOUR AWS ACCESS KEY"
+  secret_access_key:
+    secure: # do command: `travis encrypt --add deploy.secret_access_key`to populate this field or generate the encrypted value
+  bucket: "jisort"
+  skip_cleanup: true
+  local-dir: app/build/outputs/apk # will upload everything in this dir into the root of your s3 bucket
