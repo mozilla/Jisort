@@ -72,7 +72,7 @@ dependencies {
     // JSON utility library.
     compile 'com.google.code.gson:gson:2.4'
 
-    compile 'com.github.douglasjunior:android-simple-tooltip:0.1.1'
+    compile 'com.github.douglasjunior:android-simple-tooltip:0.1.2'
 
     compile 'com.google.guava:guava:18.0'
     // Helps with displaying complex html tags
