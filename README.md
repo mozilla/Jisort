@@ -1,27 +1,29 @@
-Mozilla DSO Android App
-======================
+# Jisort! [![Build Status](https://travis-ci.org/mozilla/Jisort.svg?branch=master)](https://travis-ci.org/mozilla/Jisort) [![Uses Mofo Standards](https://MozillaFoundation.github.io/mofo-standards/badge.svg)](https://github.com/MozillaFoundation/mofo-standards)
 
-Description goes here..
+Jisort! Is an informational prototype app that offers fun and visually interesting ways to increase basic smartphone awareness and skills, diagnose problems, and encourage exploration. It was designed as a field research tool for Mozilla's Digital Skills Observatory.
 
-<h2>Source</h2>
+The Digital Skills Observatory looks at the impact of digital skills on the usage of Digital Financial Services. Testing various teaching and delivery methods, the study aims to under the skills people need to develop confidence and agency with their smartphones.
 
-The source code in this repository reflects the app's current status.
+## Features
 
-<h2>Features</h2>
+Here are some of the main features of the Jisort! software:
 
-With the app, you can:
+  - Create custom rich and high quality content using basic HTML tags and JSON. Minimal coding experience is required!
+  - Suggest content to users by hooking into system events (for example; Low battery, Connection to Wi-Fi, and more).
+  - Offline analytics system, good for field research in environments where internet access is rare or expensive. 
 
-- View tutorial content.
-- View suggested topics based on system events like low battery; wifi, location or bluetooth status.
-- View detailed tutorial content.
-- Enable/disable app FAB.
+## Install
 
-<h2>How to Work with the Source</h2>
+Jisort! is not currently available on any app marketplace (including Google Play). In order to install Jisort! you must download the latest 
+APK (Android Application Package) and install it by tapping once (or twice, depending on phone) to start the installation process. Once installation
+completes, the app will be successfully installed on your phone and you'll be able to use it normally.
 
-We hope the source code for this app is useful for you as a reference or starting point for creating your own apps. Here is some additional reading to help you better understand and reuse this code.
+## Contribute
 
-  * [Build instructions](doc/BUILDING.md): instructions on how to build and run the code.
-  * [Customization guide](doc/CUSTOM.md)
+Community contributions have played a large role in the development of Jisort! If you're interested in contributing, check out our helpful guide [here](CONTRIBUTE.mD).
 
-<h2>Contributors/Credits</h2>
-More contributor information can be found in the [CREDITS.md](CREDITS.md) file.
+## License
+
+Jisort! is licensed under [Mozilla Public License 2.0](LICENSE.md)
+
+Have questions about Mozilla Public License 2.0? Check out the frequently asked questions [here](https://www.mozilla.org/en-US/MPL/2.0/FAQ/).
