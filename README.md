@@ -2,7 +2,7 @@
 
 Jisort! Is an informational prototype app that offers fun and visually interesting ways to increase basic smartphone awareness and skills, diagnose problems, and encourage exploration. It was designed as a research tool for Mozilla Foundation's Digital Skills Observatory.
 
-Digital Skills Observatory looks at the impact of digital skills on the usage of Digital Financial Services. Testing various teaching and delivery methods, the study aims to understand the skills people need to develop confidence and agency with their smart phones.
+Digital Skills Observatory looks at the impact of digital skills on the usage of Digital Financial Services. Testing various teaching and delivery methods, the study aims to understand the skills people need to develop confidence and agency with their smart phones. [Learn more](http://mozillafoundation.github.io/digital-skills-observatory/).
 
 ## Features
 
