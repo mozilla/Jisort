@@ -18,7 +18,7 @@ Jisort! is not available on app marketplaces (such as Google Play). You must ins
 
 ## Contribute
 
-Community contributions have played an important role in the development of Jisort! If you're interesting in contributing, check out our [helpful guide](CONTRIBUTING.md) and come say hello in our [chat room](https://chat.mozillafoundation.org).
+Community contributions have played an important role in the development of Jisort! If you're interesting in contributing, check out our [helpful guide](docs/CONTRIBUTING.md) and come say hello in our [chat room](https://chat.mozillafoundation.org).
 
 ## License
 
