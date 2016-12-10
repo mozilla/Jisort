@@ -14,9 +14,7 @@ Here are some of the main features of the Jisort! software:
 
 ## Install
 
-Jisort! is not currently available on any app marketplace (including Google Play). In order to install Jisort! you must download the latest 
-APK (Android Application Package) and install it by tapping once (or twice, depending on phone) to start the installation process. Once installation
-completes, the app will be successfully installed on your phone and you'll be able to use it normally.
+Jisort! is not available on app marketplaces (such as Google Play). You must install the app manually, by downloading the latest version [here](https://mzl.la/jisort), then tapping the downloaded file to start the installation process.
 
 ## Contribute
 
