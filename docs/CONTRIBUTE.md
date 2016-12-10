@@ -1,10 +1,8 @@
 # Contribute
 
-So you're interested in contributing to Jisort! eh? Well, you're in the right place! This document serves as a guide to help you work your way towards
-making your first contribution to the project, and it's also a great reference tool in case you forget something in the future!
+This document serves as a helpful starting place for new project contributors, but also as a reference tool.
 
-Mozilla Foundation currently (as of writing this) uses Mattermost (an open source Slack alternative) as our communications solution. If at any point you need help, have a question
-or just want to say hello feel free to stop in and join us! Visit our web portal [here](https://chat.mozillafoundation.org/login), create an account and join the Help channel for assistance!
+Mozilla Foundation currently (as of 2016) uses Mattermost as our communications solution. If at any point you need help, have a question or just want to say hello; join our [chat room](https://chat.mozillafoundation.org).
 
 ## Good Ole' Lingo 
 
@@ -13,7 +11,6 @@ While we try our best to refrain from using obscure terminalogy that isn't widel
 | Terminalogy | Description |
 | --- | --- |
 | MoFo | Short for "Mozilla Foundation", MoFo is fueling a broader internet health movement. |
-| MoCo | Short for "Mozilla Corporation", MoCo is focused on market via products and technology. |
 | DSO | Short for "Digital Skills Observatory", the research project this prototype was developed for. |
 | R? | Short for "review?", usage of this is no longer encouraged however. |
 | R+ | Short for "reviewed", it means that your code passed review and is ready to be merged. |
