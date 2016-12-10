@@ -18,10 +18,10 @@ Jisort! is not available on app marketplaces (such as Google Play). You must ins
 
 ## Contribute
 
-Community contributions have played a large role in the development of Jisort! If you're interested in contributing, check out our helpful guide [here](CONTRIBUTE.mD).
+Community contributions have played an important role in the development of Jisort! If you're interesting in contributing, check out our helpful guide and come say hello in our [chat room](https://chat.mozillafoundation.org).
 
 ## License
 
 Jisort! is licensed under [Mozilla Public License 2.0](LICENSE.md)
 
-Have questions about Mozilla Public License 2.0? Check out the frequently asked questions [here](https://www.mozilla.org/en-US/MPL/2.0/FAQ/).
+Have questions about Mozilla Public License 2.0? Check out the [FAQ](https://www.mozilla.org/en-US/MPL/2.0/FAQ/).
