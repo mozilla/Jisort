@@ -4,17 +4,17 @@ This document serves as a helpful starting place for new project contributors, b
 
 Mozilla Foundation currently (as of 2016) uses Mattermost as our communications solution. If at any point you need help, have a question or just want to say hello; join our [chat room](https://chat.mozillafoundation.org).
 
-## Good Ole' Lingo 
+## Terminology
 
-While we try our best to refrain from using obscure terminalogy that isn't widely known, you're likely to come across some things that don't quite make sense.
+Using obscure terms that aren't widey known is discouraged, but unfortunately some are still actively used. Here is a list of the most common terms you're likely to come across as you get started contributing.
 
-| Terminalogy | Description |
+| Terminology | Description |
 | --- | --- |
-| MoFo | Short for "Mozilla Foundation", MoFo is fueling a broader internet health movement. |
-| DSO | Short for "Digital Skills Observatory", the research project this prototype was developed for. |
-| R? | Short for "review?", usage of this is no longer encouraged however. |
-| R+ | Short for "reviewed", it means that your code passed review and is ready to be merged. |
-| R- | Short for "needs work", it means that your code didn't pass review (and needs requested changes) in order to be merged. |
+| MoFo | Short for [Mozilla Foundation](https://www.mozilla.org/en-US/foundation/?v=a) |
+| DSO | Short for [Digital Skills Observatory](http://mozillafoundation.github.io/digital-skills-observatory/) |
+| R? | Short for "review?"  |
+| R+ | Short for "reviewed and approved" |
+| R- | Short for "reviewed and needs work" |
 
 ## Setup
 
