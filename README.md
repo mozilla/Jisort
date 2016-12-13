@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="/docs/img/logo.svg" width="200">
+    <img src="docs/img/logo.png" width="200">
 </p>
 
 # Jisort! [![Build Status](https://travis-ci.org/mozilla/Jisort.svg?branch=master)](https://travis-ci.org/mozilla/Jisort) [![Uses Mofo Standards](https://MozillaFoundation.github.io/mofo-standards/badge.svg)](https://github.com/MozillaFoundation/mofo-standards)
