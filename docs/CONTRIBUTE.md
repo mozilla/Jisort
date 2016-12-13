@@ -4,66 +4,23 @@ This document serves as a helpful starting place for new project contributors, b
 
 Mozilla Foundation currently (as of 2016) uses Mattermost as our communications solution. If at any point you need help, have a question or just want to say hello; join our [chat room](https://chat.mozillafoundation.org).
 
-## Terminology
-
-Using obscure terms that aren't widey known is discouraged, but unfortunately some are still actively used. Here is a list of the most common terms you're likely to come across as you get started contributing.
-
-| Terminology | Description |
-| --- | --- |
-| MoFo | Short for [Mozilla Foundation](https://www.mozilla.org/en-US/foundation/?v=a) |
-| DSO | Short for [Digital Skills Observatory](http://mozillafoundation.github.io/digital-skills-observatory/) |
-| R? | Short for "review?"  |
-| R+ | Short for "reviewed and approved" |
-| R- | Short for "reviewed and needs work" |
-
 ## Setup
 
-This is a Gradle-based project that works best with [Android Studio](http://developer.android.com/sdk/installing/studio.html).
+* [Install Android Studio](#install-android-studio)
+    * The first step of getting set up for Android development is installing Android Studio.
+* [USB Debugging](#usb-debugging)
+    * USB debugging allows you to use your phone in order to test your app changes and debug them if necessary.
+* [Setup Jisort! App](#setup-jisort!-app)
+    * All the steps needed to get a local version of the Jisort! app repository running locally on your Android phone.
+* [Manually install Android tools and SDK](#manually-install-android-tools-and-sdk)
+    * (Optional) Only do this if you want to use Android tools from the command line, or don't want to use Android Studio.
 
-1. Install the following software:
-       
-       - Android SDK: http://developer.android.com/sdk/index.html
-       - Gradle: http://www.gradle.org/downloads
-       - Android Studio: http://developer.android.com/sdk/installing/studio.html
-
-2. Run the Android SDK Manager by pressing the SDK Manager toolbar button
-   in Android Studio or by running the 'android' command in a terminal
-   window.
-
-3. In the Android SDK Manager, ensure that the following are installed, and are updated to the latest available version:
-
-       - Tools > Android SDK Platform-tools
-       - Tools > Android SDK Tools
-       - Tools > Android SDK Build-tools
-       - Android 7.0 > SDK Platform (API 25) // This might be outdated at time of reading, select the newest version of Android & Platform (highest number).
-       - Extras > Android Support Repository
-       - Extras > Android Support Library
-       - Extras > Google Play services
-       - Extras > Google Repository
-
-4. Create a file in your working directory called local.properties,
-   containing the path to your Android SDK. Use local.properties.example as a
-   model.
-
-5. Import the project in Android Studio:
-
-    1. Press File > Import Project
-    1. Navigate to and choose the settings.gradle file in this project
-    1. Press OK
-
-6. Add your debug keystore to the project (save it as keystore/debug.keystore),
-    or modify the build.gradle file to point to your key.
-
-7. Choose Build > Make Project in Android Studio or run the following command in the project root directory:
-   ```
-    ./gradlew clean assembleDebug
-   ```
-
-8. To install on your test device:
-
-   ```
-    ./gradlew installDebug
-   ```
+#### Install Android Studio
 
 
 
+#### USB Debugging
+
+#### Set up Jisort! App
+
+#### Manually install Android tools and SDK

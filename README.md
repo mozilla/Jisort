@@ -1,3 +1,7 @@
+<p align="center">
+    <img src="docs/img/logo.svg" width="200">
+</p>
+
 # Jisort! [![Build Status](https://travis-ci.org/mozilla/Jisort.svg?branch=master)](https://travis-ci.org/mozilla/Jisort) [![Uses Mofo Standards](https://MozillaFoundation.github.io/mofo-standards/badge.svg)](https://github.com/MozillaFoundation/mofo-standards)
 
 Jisort! Is an informational prototype app that offers fun and visually interesting ways to increase basic smartphone awareness and skills, diagnose problems, and encourage exploration. It was designed as a research tool for Mozilla Foundation's Digital Skills Observatory.
