@@ -14,7 +14,13 @@ Mozilla Foundation currently (as of 2016) uses Mattermost as our communications 
 
 ## Install Android Studio
 
+  * Verify that you have Java 1.8 and [JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) installed for your platform
 
+  * Download and install Android Studio from: https://developer.android.com/studio/index.html
+
+  * After it has installed successfully, you should see the following screen:
+
+  ![android studio menu](img/android-studio-menu.png)
 ## USB Debugging
 
   * In order to start testing apps on your physical Android device, we need to first activate developer mode by tapping ```Settings > About > Build Number``` seven times
