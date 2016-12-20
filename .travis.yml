@@ -1,7 +1,7 @@
 sudo: false
 language: android
 jdk: oraclejdk8
-script: "./gradlew assembleDebug"
+script: "./gradlew assembleLatest"
 android:
   components:
     - platform-tools
@@ -16,5 +16,11 @@ cache:
   directories:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
-notifications:
-  email: false
+deploy:
+  provider: s3
+  access_key_id: "AKIAIK7PA6XHLPQPPAQA"
+  secret_access_key:
+    secure: "gm7YR7uVWbuD33OmIPGWi5L60jB9yQRMDeXQuT3mcfvf1k05gQc40z/rkeAhkh7MmeqtHA/gGXjHRkY97zj7ZNXl1AYTbfTfBtQbl0WWikFBLOImj2mjZVbS2QsKl1i2CYtRKCqm+tLwz9hSrO0nMMzpgWFUsssLfsMmDv9jHfYSqtC5M4wSphv205iBu9H43/YtBb6Z4vLzPJqISsiCuawCtPgCLP7UAk2fGiu5Agm46xVKV+fffI7pTQYaE3wJYBtdn78ofjV75m+4eC8KztY9lMGfnFOQaazJ9gQ/zj/aStcyzvIUf44zuY6yWpEbfOPCp7LOubeE78CWCpEtgEf2JPBiag0RUhJo9Xr4+GnEYzNos9vKNsLU7YDdFjX5unzNuEaf1pXUrN2wzYHSPLzme1zGgkumz6cQyuiv+8Vv/qjtnV8wRnbr/jPEG33y6oPgsD6K8kc8q3n9CHerIfrb4UI+WnNQhXnr10p6HS9LPUr8avxro6MnaO3HsNVbywqUuHeQU7uncB7o2LJtTnySE4I9mF0CHI98pfO5D20zw6u1VViaA3BXmuIAGLpxpeXgxcc8nWM+2Q759Bnu93BimNrwXV2Q3YHFbgRtqFwZscoHebyH0Q9/KWGwU8toMyizTmbwN9J9mLPJabprQO4HZy9FJbPjNUOZg2ZGjdE="
+  bucket: "jisort"
+  local-dir: app/build/outputs/apk # will upload everything in this dir into the root of your s3 bucket
+  skip_cleanup: true
