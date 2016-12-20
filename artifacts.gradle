@@ -15,6 +15,13 @@ android.applicationVariants.all { variant ->
         } else {
             newApkName = "${appName}-${output.baseName}-${variant.versionName}-unaligned.apk"
         }
+
+        // Remove versioning information if the build type is "latest"
+        // Used for Travis & S3 deployment, it prevents us from having to
+        // clean up old builds on S3 by just overwriting the same file name.
+        if (output.baseName.equals("latest")) {
+            newApkName = "${appName}-${output.baseName}.apk"
+        }
         output.outputFile = new File(output.outputFile.parent, newApkName)
     }
 }
