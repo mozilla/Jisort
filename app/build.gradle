@@ -1,15 +1,15 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.3"
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
 
     defaultConfig {
         applicationId 'com.mozilla.hackathon.kiboko'
         versionCode buildVersionCode()
         versionName version
         minSdkVersion 14
-        targetSdkVersion 23
+        targetSdkVersion 25
         buildConfigField("boolean", "ENABLE_DEBUG_TOOLS", "false")
         buildConfigField("String", "BOOTSTRAP_DATA_TIMESTAMP", "\"${bootstrap_data_timestamp}\"")
     }
@@ -78,24 +78,20 @@ android {
 }
 
 dependencies {
-     compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
 
-    // Android support libraries.
-    compile "com.android.support:appcompat-v7:${android_support_lib_version}"
-    compile "com.android.support:cardview-v7:${android_support_lib_version}"
-    compile "com.android.support:support-v13:${android_support_lib_version}"
-    // JSON utility library.
-    compile 'com.google.code.gson:gson:2.4'
+    compile 'com.android.support:appcompat-v7:25.1.0'
+    compile 'com.android.support:cardview-v7:25.1.0'
+    compile 'com.android.support:support-v13:25.1.0'
+
+    compile 'com.google.code.gson:gson:2.8.0'
+    compile 'com.google.guava:guava:19.0'
 
     compile 'com.github.douglasjunior:android-simple-tooltip:0.1.2'
+    compile 'pl.droidsonroids.gif:android-gif-drawable:1.2.3'
 
-    compile 'com.google.guava:guava:18.0'
-    // Helps with displaying complex html tags
-//    compile 'org.sufficientlysecure:html-textview:1.6'
     compile project(":third_party:HtmlTextView")
-    // For Displaying gifs
-    compile 'pl.droidsonroids.gif:android-gif-drawable:1.1.16'
 }
 
 apply from: "../artifacts.gradle"
