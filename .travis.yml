@@ -4,7 +4,9 @@ jdk: oraclejdk8
 script: "./gradlew assembleLatest"
 android:
   components:
+    - tools
     - platform-tools
+    # This solves a Travis CI bug with Android 25: https://github.com/travis-ci/travis-ci/issues/6040#issuecomment-219367943
     - tools
     - build-tools-25.0.2
     - android-25
