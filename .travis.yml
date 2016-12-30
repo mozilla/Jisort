@@ -1,13 +1,15 @@
 sudo: false
 language: android
 jdk: oraclejdk8
-script: "./gradlew assembleDebug"
+script: "./gradlew assembleLatest"
 android:
   components:
-    - platform-tools
     - tools
-    - build-tools-23.0.3
-    - android-23
+    - platform-tools
+    # This solves a Travis CI bug with Android 25: https://github.com/travis-ci/travis-ci/issues/6040#issuecomment-219367943
+    - tools
+    - build-tools-25.0.2
+    - android-25
     - extra-android-m2repository
     - extra-google-m2repository
 before_cache:
@@ -16,5 +18,11 @@ cache:
   directories:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
-notifications:
-  email: false
+deploy:
+  provider: s3
+  access_key_id: AKIAJUTYCYTPEYUIJ5EA
+  secret_access_key:
+    secure: "Xg6TMbcO6Ub7n5QPLyd/sfWIiVN37ZDb6QzvvJsDxarWQOSeNTXa86l5R5xjRBl+ze7P63JY7gEKX1ujx7/Bp0TWPgf2ZQlFgsjy0CDGv+ecdp6EK/0DyYNlUkBCuO0qO1qlRtHAerYFgTHPvkWaeKl8JcqgDCwc+8atPIjOPjn34L1TdguYTQR2Jfqq3pTthBPvWxapUG9yrQorZj2oLDcrtHkn/MEWhM3s2QX2Ck047xD6sbtguYkJ5keRN2pvbG3Uz9hl9ivMZR7gts5F71tcKSppqbgdKW8OLdcEcVYEa0phqb4em8jiLxslwrIUPPdOC4fmzJossHIKMsk5VKTVR3I/w3N+zJflkuCf9zxgxZgr32W0sDQKVOLfSf0Z/JlKE2uAWYqfHefM6jPd/pXvUkEejI1ob4H7khRoZ6NBiroORbtvV608cNQbOJ51I6v1lIqm46NQ3ugEbAQCoBsrSeryaZnVqZ21n0ghAfn4yU7ptx8c1cVrTLvE+W77RKGrnlybZ8M+/J1HMfKs97bD6MavAq8BuKaKDp75H6+0G0cArCq0tT7Yb3M3w0GzOJAHaf0V48tXRVAEoJiO+OG9JVqs2NBOlVx356MPyUFd1ZEJOfSLUhxefgYKpgIFQeByqzR9BeKNMhiltpHGq8MUmQfxKseiUbqi1oRFp3Q="
+  bucket: "jisort"
+  local-dir: app/build/outputs/apk # will upload everything in this dir into the root of your s3 bucket
+  skip_cleanup: true
