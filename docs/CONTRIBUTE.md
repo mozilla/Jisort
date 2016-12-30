@@ -8,7 +8,8 @@ Mozilla Foundation currently (as of 2016) uses Mattermost as our communications 
     * USB debugging allows you to use your phone in order to test your app changes and debug them if necessary.
 * [Setup Jisort App](#setup-jisort-app)
     * All the steps needed to get a local version of the Jisort! app repository running locally on your Android phone.
-
+* [Review MoFo Engineering Standards](#review-mofo-engineering-standards)
+    * Mozilla Foundation's engineering standards is a guide book that details best practices when contributing.
 
 ## Install Android Studio
 
@@ -40,3 +41,5 @@ Mozilla Foundation currently (as of 2016) uses Mattermost as our communications 
   * Connect your device via USB, and press the "run" button:
 
 ![run button](img/android-run-btn.png)
+
+## Review MoFo Engineering Standards
