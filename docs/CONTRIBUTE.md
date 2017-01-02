@@ -64,9 +64,13 @@ There are currently four build types for Jisort! See the table below for a descr
 | release | Approved release build, signed with non-debug Mozilla signature |
 
 
-To assemble a specific build type, append it to the end of the assemble build type like this: ```./gradlew assembleDebug```
+To assemble a specific build type, append it to the end of the assemble build type like this:
+
+```./gradlew assembleDebug```
 
 If you don't specify a build type (i.e. ```./gradle assemble```) Gradle will assemble all build types.
 
-You can also assemble and install the APK directly on your phone if it's connected over the adb (Android Device Bridge) by using the Gradle ```install``` task and appending the build type you'd like to install to the end like this: ```./gradlew installDebug```
+You can also assemble and install the APK directly on your phone if it's connected over the adb (Android Device Bridge) by using the Gradle ```install``` task and appending the build type you'd like to install to the end like this:
+
+```./gradlew installDebug```
 
