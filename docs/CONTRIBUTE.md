@@ -43,3 +43,9 @@ Mozilla Foundation currently (as of 2016) uses Mattermost as our communications 
 ![run button](img/android-run-btn.png)
 
 ## Review MoFo Engineering Standards
+
+The Mozilla Foundation engineering standards guidebook outlines the best practices used by Mozilla Foundation's engineering team. It provides helpful information to first time and veteran contributors alike.
+
+Jisort! is a mofo-standard compliant repository, we follow these standards where ever applicable.
+
+You can review the guidebook [here](https://github.com/MozillaFoundation/mofo-standards).
