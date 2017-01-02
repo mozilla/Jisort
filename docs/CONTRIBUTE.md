@@ -10,6 +10,8 @@ Mozilla Foundation currently (as of 2016) uses Mattermost as our communications 
     * All the steps needed to get a local version of the Jisort! app repository running locally on your Android phone.
 * [Review MoFo Engineering Standards](#review-mofo-engineering-standards)
     * Mozilla Foundation's engineering standards is a guide book that details best practices when contributing.
+* [Building Jisort App](#building-jisort-app)
+    * Information on how to build Jisort! as well as a table with all build types and descriptions.
 
 ## Install Android Studio
 
@@ -49,3 +51,22 @@ The Mozilla Foundation engineering standards guidebook outlines the best practic
 Jisort! is a mofo-standard compliant repository, we follow these standards where ever applicable.
 
 You can review the guidebook [here](https://github.com/MozillaFoundation/mofo-standards).
+
+## Building Jisort App
+
+There are currently four build types for Jisort! See the table below for a description of each one.
+
+| Build Type | Description |
+| ---------- | ----------- |
+| debug | Recommended build type for testing code changes |
+| latest | Strips semantic versioning information, used for build deployment |
+| qualityassurance | Considered a "pre-release" build candidate for release |
+| release | Approved release build, signed with non-debug Mozilla signature |
+
+
+To assemble a specific build type, append it to the end of the assemble build type like this: ```./gradlew assembleDebug```
+
+If you don't specify a build type (i.e. ```./gradle assemble```) Gradle will assemble all build types.
+
+You can also assemble and install the APK directly on your phone if it's connected over the adb (Android Device Bridge) by using the Gradle ```install``` task and appending the build type you'd like to install to the end like this: ```./gradlew installDebug```
+
