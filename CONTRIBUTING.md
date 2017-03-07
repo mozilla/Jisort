@@ -1,4 +1,4 @@
-# Contribute
+# Contributing
 
 Mozilla Foundation currently (as of 2016) uses Mattermost as our communications solution. If at any point you need help, have a question or just want to say hello; join our [chat room](https://chat.mozillafoundation.org).
 
@@ -21,7 +21,7 @@ Mozilla Foundation currently (as of 2016) uses Mattermost as our communications 
 
   * After it has installed successfully, you should see the following screen:
 
-  ![android studio menu](img/android-studio-menu.png)
+  ![android studio menu](docs/img/android-studio-menu.png)
 ## USB Debugging
 
   * In order to start testing apps on your physical Android device, we need to first activate developer mode by tapping ```Settings > About > Build Number``` seven times
@@ -42,7 +42,7 @@ Mozilla Foundation currently (as of 2016) uses Mattermost as our communications 
 
   * Connect your device via USB, and press the "run" button:
 
-![run button](img/android-run-btn.png)
+![run button](docs/img/android-run-btn.png)
 
 ## Review MoFo Engineering Standards
 
