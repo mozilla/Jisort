@@ -87,27 +87,27 @@
             Receivers for various android system events.
         -->
         <receiver
-            android:name=".recievers.DSOAirplaneModeReceiver"
+            android:name=".receivers.DSOAirplaneModeReceiver"
             android:enabled="true">
             <intent-filter>
                 <action android:name="android.media.action.DISPLAY_NOTIFICATION" />
                 <action android:name="android.intent.action.AIRPLANE_MODE" />
             </intent-filter>
         </receiver>
-        <receiver android:name=".recievers.DSOStorageReceiver">
+        <receiver android:name=".receivers.DSOStorageReceiver">
             <intent-filter>
                 <action android:name="android.media.action.DISPLAY_NOTIFICATION" />
                 <action android:name="android.intent.action.DEVICE_STORAGE_LOW" />
             </intent-filter>
         </receiver>
-        <receiver android:name=".recievers.DSONetworkStateReceiver">
+        <receiver android:name=".receivers.DSONetworkStateReceiver">
             <intent-filter>
                 <action android:name="android.media.action.DISPLAY_NOTIFICATION" />
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
                 <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
             </intent-filter>
         </receiver>
-        <receiver android:name=".recievers.DSOBatteryReceiver">
+        <receiver android:name=".receivers.DSOBatteryReceiver">
             <intent-filter>
                 <action android:name="android.media.action.DISPLAY_NOTIFICATION" />
                 <action android:name="android.intent.action.ACTION_BATTERY_LOW" />

@@ -1,4 +1,4 @@
-package com.mozilla.hackathon.kiboko.recievers;
+package com.mozilla.hackathon.kiboko.receivers;
 
 import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
